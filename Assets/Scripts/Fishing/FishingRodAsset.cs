@@ -8,5 +8,6 @@ namespace ShipMotorica
         public Sprite Sprite;
         public float Radius;
         public float Speed;
+        public int Cost;
     }
 }

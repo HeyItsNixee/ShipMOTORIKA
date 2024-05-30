@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: 0155d8527a1b9c94aa4bda422099a42b, type: 3}
   Radius: 1
+  Cost: 20

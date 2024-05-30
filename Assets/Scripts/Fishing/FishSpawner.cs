@@ -10,10 +10,10 @@ namespace ShipMotorica
             Loop
         }
 
+        [SerializeField] private SpawnMode _spawnMode;
         [SerializeField] private FishAsset[] _fishAssets;
         [SerializeField] private Fish _fishPrefab;
-        [SerializeField] private CircleArea _area;
-        [SerializeField] private SpawnMode _spawnMode;
+        [SerializeField] private CircleArea _area;      
         [SerializeField] private int _numSpawns;
         [SerializeField] private float _respawnTime;
 
@@ -22,18 +22,26 @@ namespace ShipMotorica
 
         private void Update()
         {
-            _timer += Time.deltaTime;        
-
-            if (_spawnMode == SpawnMode.Loop && _timer >= _respawnTime)
+            switch (_spawnMode)
             {
-                SpawnFish();
+                case SpawnMode.Single:
 
-                _timer = 0f;
-            }
+                    if (_currentFish == null)
+                    {
+                        SpawnFish();
+                    }
+                    break;
 
-            if (_spawnMode == SpawnMode.Single && _currentFish == null)
-            {
-                SpawnFish();
+                case SpawnMode.Loop:
+
+                    _timer += Time.deltaTime;
+
+                    if (_timer >= _respawnTime)
+                    {
+                        SpawnFish();
+                        _timer = 0f;
+                    }
+                    break;
             }
         }
     
@@ -48,7 +56,10 @@ namespace ShipMotorica
                     foreach (Collider2D hit in hits)
                     {
                         if (hit.transform.root == Player.Instance.transform)
+                        {
                             return false;
+                        }
+                            
                     }
                 }
             }
