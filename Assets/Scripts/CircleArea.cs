@@ -3,30 +3,33 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace TowerDefense
+namespace ShipMotorica
 {
-    /// <summary>
-    /// Рисует в редакторе круг, где будет спавн игровых сущностей.
-    /// </summary>
     public class CircleArea : MonoBehaviour
     {
-        [SerializeField] private float m_Radius;
-        [SerializeField] private Color m_Color;
-        public float Radius => m_Radius;
+        [SerializeField] private float _radius;
+        [SerializeField] private Color _color;
+
+        public float Radius => _radius;
 
         public Vector2 GetRandomInsideZone()
         {
-            return (Vector2)transform.position + (Vector2)Random.insideUnitSphere * m_Radius;
+            return (Vector2)transform.position + (Vector2)Random.insideUnitSphere * _radius;
+        }
+
+        public void TrySetRadius(float radius)
+        {
+            if (radius >= 0)
+            {
+                _radius = radius;
+            }            
         }
 
 #if UNITY_EDITOR
-
-        //private static Color GizmoColor = new Color(0, 1, 0, 0.15f);
-
         private void OnDrawGizmosSelected()
         {
-            Handles.color = m_Color;
-            Handles.DrawSolidDisc(transform.position, transform.forward, m_Radius);
+            Handles.color = _color;
+            Handles.DrawSolidDisc(transform.position, transform.forward, _radius);
         }
 #endif
     }

@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Fish : MonoBehaviour
+namespace ShipMotorica
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Fish : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private SpriteRenderer _sprite;
+        [SerializeField] private CircleArea _area;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Initialize(FishAsset asset)
+        {
+            _sprite.sprite = asset.Sprite;
+            _area.TrySetRadius(asset.Radius);
+        }
     }
 }
