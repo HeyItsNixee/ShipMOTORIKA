@@ -26,9 +26,9 @@ public class PlayerController : Singleton<PlayerController>
             m_Thrust = 0f;
 
         if (Input.GetKey(KeyCode.D))
-            m_Torque = 1f;
-        if (Input.GetKey(KeyCode.A))
             m_Torque = -1f;
+        if (Input.GetKey(KeyCode.A))
+            m_Torque = 1f;
         if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             m_Torque = 0f;
 
