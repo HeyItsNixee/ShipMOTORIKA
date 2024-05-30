@@ -12,6 +12,8 @@ namespace ShipMotorica
         [SerializeField] private float _speed = 1f;
         [SerializeField] private float _destroyTime = 1f;
 
+        public static event Action<bool> OnTryCatchFish;
+
         private Vector3 _defaultPlayerScale;
 
         private Color _defaultFishColor;
@@ -26,8 +28,6 @@ namespace ShipMotorica
         private float _scale;
 
         private bool _isLooped;
-
-        public event Action<bool> OnTryCatchFish;
 
         private void Start()
         {           
