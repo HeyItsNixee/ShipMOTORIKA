@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ShipMotorica
+namespace ShipMotorika
 {
     [DisallowMultipleComponent]
     public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour

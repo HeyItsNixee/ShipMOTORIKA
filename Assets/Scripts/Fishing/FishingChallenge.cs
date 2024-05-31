@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ShipMotorica
+namespace ShipMotorika
 {
     public sealed class FishingChallenge : MonoBehaviour
     {

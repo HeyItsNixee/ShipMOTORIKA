@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace ShipMotorica
+namespace ShipMotorika
 {
     public sealed class CircleArea : MonoBehaviour
     {

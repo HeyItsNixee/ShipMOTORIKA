@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ShipMotorica
+namespace ShipMotorika
 {
     public sealed class Player : SingletonBase<Player>
     {

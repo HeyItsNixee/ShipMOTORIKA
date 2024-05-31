@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ShipMotorica
+namespace ShipMotorika
 {
     [CreateAssetMenu]
     public class FishingRodAsset : ScriptableObject
