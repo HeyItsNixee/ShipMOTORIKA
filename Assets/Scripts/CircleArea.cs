@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace ShipMotorica
 {
-    public class CircleArea : MonoBehaviour
+    public sealed class CircleArea : MonoBehaviour
     {
         [SerializeField] private float _radius;
         [SerializeField] private Color _color;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ShipMotorica
 {
-    public class Player : SingletonBase<Player>
+    public sealed class Player : SingletonBase<Player>
     {
         [SerializeField] private FishingRod _fishingRod;
         public FishingRod FishingRod=> _fishingRod;

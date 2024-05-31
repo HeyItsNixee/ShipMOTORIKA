@@ -18,11 +18,16 @@ namespace ShipMotorica
         {
             if (collision.TryGetComponent<Player>(out var player) && player.FishingRod != null)
             {
-                var challenge = Instantiate(_fishingChallenge, transform.position, Quaternion.identity);
-                challenge.gameObject.SetActive(true);
-     
-                Destroy(gameObject);
+                _fishingChallenge = Instantiate(_fishingChallenge, transform.position, Quaternion.identity);
+                _fishingChallenge.gameObject.SetActive(true);
+                _fishingChallenge.OnDestroy += DestroyItself;
             }
+        }
+
+        private void DestroyItself()
+        {
+            _fishingChallenge.OnDestroy -= DestroyItself;
+            Destroy(gameObject);
         }
     }
 }

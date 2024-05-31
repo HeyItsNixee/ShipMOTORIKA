@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace ShipMotorica
 {
-    public class FishingChallenge : MonoBehaviour
+    public sealed class FishingChallenge : MonoBehaviour
     {
         [SerializeField] private Image _fishCircleImage;
         [SerializeField] private Image _playerCircleImage;   
@@ -13,6 +13,7 @@ namespace ShipMotorica
         [SerializeField] private float _destroyTime = 1f;
 
         public static event Action<bool> OnTryCatchFish;
+        public event Action OnDestroy;
 
         private Vector3 _defaultPlayerScale;
 
@@ -117,6 +118,7 @@ namespace ShipMotorica
             yield return new WaitForSeconds(_destroyTime);
             RestoreParametrs();
             Destroy(gameObject);
+            OnDestroy?.Invoke();
         }
     }
 }
