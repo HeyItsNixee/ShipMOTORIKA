@@ -5,11 +5,25 @@ namespace ShipMotorika
     public class FishingRod : MonoBehaviour
     {
         [SerializeField] private FishingRodAsset _asset;
-        [SerializeField] private float _speed; 
+          
+        private float _radius;
+        private float _speed;
 
-        private void Initialize()
+        private void Start()
         {
-            _speed = _asset.Speed;
+            Initialize(_asset);
+        }
+
+        public void Initialize(FishingRodAsset asset)
+        {
+            _speed = asset.Speed;
+            _radius = asset.Radius;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, _radius);
         }
     }
 }

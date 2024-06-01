@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FishingRod_bronze
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: 34ec2b725bcc23b408ce527bd7bd5694, type: 3}
-  Radius: 0
+  Radius: 1
   Speed: 0
   Cost: 100
