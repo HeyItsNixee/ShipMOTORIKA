@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 3048548318130878865}
   - component: {fileID: 3639137226866018053}
   - component: {fileID: 6598858716521727138}
-  - component: {fileID: 4275058865025525069}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -167,19 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 5792053613130845653}
-  _area: {fileID: 4275058865025525069}
+  _area: {fileID: 0}
   _fishingChallenge: {fileID: 762753691275771237, guid: 764b6cc9d6b361449a71d0ad3c14389d, type: 3}
---- !u!114 &4275058865025525069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7788168221812545883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5243be8c0ca543940a8f951909d4bd54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _radius: 1
-  _color: {r: 0.33770627, g: 0.8962264, b: 0.097232126, a: 0.09803922}

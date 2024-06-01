@@ -9,8 +9,7 @@ namespace ShipMotorika
     {
         [SerializeField] private Image _fishCircleImage;
         [SerializeField] private Image _playerCircleImage;   
-        [SerializeField] private float _speed = 1f;
-        [SerializeField] private float _destroyTime = 1f;
+        [SerializeField] private float _waitBeforeDestroyTime = 1f;
 
         public static event Action<bool> OnTryCatchFish;
         public event Action OnDestroy;
@@ -27,11 +26,14 @@ namespace ShipMotorika
         private readonly float _passScaleMax = 4f;
 
         private float _scale;
+        private float _speed = 1f;
 
         private bool _isLooped;
 
         private void Start()
-        {           
+        {
+            _speed = Player.Instance.GetComponent<FishingRod>().Speed;
+
             SaveParametrs();
         }
 
@@ -110,12 +112,12 @@ namespace ShipMotorika
                 Debug.Log("Failure!");
             }
 
-            StartCoroutine(Deactivate());
+            StartCoroutine(DestroyItself());
         }
 
-        private IEnumerator Deactivate()
+        private IEnumerator DestroyItself()
         {
-            yield return new WaitForSeconds(_destroyTime);
+            yield return new WaitForSeconds(_waitBeforeDestroyTime);
             RestoreParametrs();
             Destroy(gameObject);
             OnDestroy?.Invoke();

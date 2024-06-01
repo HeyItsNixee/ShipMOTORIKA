@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: 045b72afacffd754ca4d722b3a0c53f8, type: 3}
   Radius: 2
-  Speed: 0
+  Speed: 2
   Cost: 200
