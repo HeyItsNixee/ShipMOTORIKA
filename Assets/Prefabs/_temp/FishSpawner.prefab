@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1477736400154988045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5933997266481362402}
+  - component: {fileID: 7283290119477300239}
+  - component: {fileID: 8328241717515197826}
+  m_Layer: 0
+  m_Name: FishSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5933997266481362402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477736400154988045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7283290119477300239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477736400154988045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d370a3c079dda914bbdd32837b4b604e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fishAssets:
+  - {fileID: 11400000, guid: f3253f6aa0d605944a5c776532f1a644, type: 2}
+  - {fileID: 11400000, guid: a14ef5e174951e2449d2db1a8fbb9055, type: 2}
+  - {fileID: 11400000, guid: 8eda4dbe07f375d46a8c967085a07755, type: 2}
+  _fishPrefab: {fileID: 6598858716521727138, guid: 7418af5ff6d345246bbe323c3c0c6d58, type: 3}
+  _area: {fileID: 8328241717515197826}
+  _spawnMode: 1
+  _numSpawns: 1
+  _respawnTime: 5
+--- !u!114 &8328241717515197826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477736400154988045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5243be8c0ca543940a8f951909d4bd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 10
+  _color: {r: 0.8301887, g: 0.16055535, b: 0.16055535, a: 0.09803922}

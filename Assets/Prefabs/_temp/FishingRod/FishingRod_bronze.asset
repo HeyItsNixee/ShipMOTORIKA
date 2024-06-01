@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcbf0a4c687e5443ac72b885a7d5fe6, type: 3}
+  m_Name: FishingRod_bronze
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 34ec2b725bcc23b408ce527bd7bd5694, type: 3}
+  Radius: 1
+  Speed: 3
+  Cost: 100
