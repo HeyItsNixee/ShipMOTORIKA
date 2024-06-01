@@ -1,5 +1,6 @@
 Shader "Shader Graphs/DynamicBackground2D"
 {
+    //Shader by HeyItsNixee
     Properties
     {
         [NoScaleOffset]_Texture2D("Texture2D", 2D) = "white" {}
