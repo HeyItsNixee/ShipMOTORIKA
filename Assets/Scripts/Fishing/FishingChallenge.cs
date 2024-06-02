@@ -5,16 +5,14 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    public sealed class FishingChallenge : MonoBehaviour
+    public sealed class FishingChallenge : SingletonBase<FishingChallenge>
     {
+        [SerializeField] private Canvas _canvas;
         [SerializeField] private Image _fishCircleImage;
-        [SerializeField] private Image _playerCircleImage;   
-        [SerializeField] private float _waitBeforeDestroyTime = 1f;
+        [SerializeField] private Image _playerCircleImage;        
+        [SerializeField] private float _waitBeforeDeactivateTime = 1f;
 
-        public static event Action<bool> OnTryCatchFish;
-        public event Action OnDestroy;
-
-        private Vector3 _defaultPlayerScale;
+        private Vector3 _defaultPlayerScale;    
 
         private Color _defaultFishColor;
         private Color _defaultPlayerColor;
@@ -30,11 +28,15 @@ namespace ShipMotorika
 
         private bool _isLooped;
 
+        public event Action<bool> OnTryCatchFish;
+        public event Action OnDisable;
+
+        #region UnityEvents
         private void Start()
         {
-            _speed = Player.Instance.GetComponent<FishingRod>().Speed;
-
             SaveParametrs();
+
+            _canvas.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -48,6 +50,7 @@ namespace ShipMotorika
                 TryCatchFish();
             }
         }
+        #endregion
 
         private void SaveParametrs()
         {
@@ -112,15 +115,27 @@ namespace ShipMotorika
                 Debug.Log("Failure!");
             }
 
-            StartCoroutine(DestroyItself());
+            StartCoroutine(Deactivate());
         }
 
-        private IEnumerator DestroyItself()
+        private IEnumerator Deactivate()
         {
-            yield return new WaitForSeconds(_waitBeforeDestroyTime);
+            yield return new WaitForSeconds(_waitBeforeDeactivateTime);
+
             RestoreParametrs();
-            Destroy(gameObject);
-            OnDestroy?.Invoke();
+
+            _canvas.gameObject.SetActive(false);
+
+            OnDisable?.Invoke();
+        }
+
+        public void Activate()
+        {
+            _speed = Player.Instance.GetComponent<FishingRod>().Speed;
+
+            _canvas.gameObject.SetActive(true);
+            
+            enabled = true;
         }
     }
 }

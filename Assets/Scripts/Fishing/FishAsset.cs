@@ -6,7 +6,7 @@ namespace ShipMotorika
     public class FishAsset : ScriptableObject
     {
         public Sprite Sprite;
-        public float Radius;
         public int Cost;
+        public int Weight;
     }
 }

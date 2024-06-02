@@ -39,15 +39,16 @@ namespace ShipMotorika
             {
                 _fish = fish;
 
-                var challenge = Instantiate(_fishingChallenge, fish.transform.position, Quaternion.identity);
-                challenge.gameObject.SetActive(true);
-                challenge.OnDestroy += DestroyFishGameObject;
+                _fishingChallenge.gameObject.transform.position = _fish.gameObject.transform.position;
+                _fishingChallenge.Activate();
+                _fishingChallenge.OnDisable += DestroyFishGameObject;
             }
         }
 
         private void DestroyFishGameObject()
         {
             Destroy(_fish.gameObject);
+            _fishingChallenge.OnDisable -= DestroyFishGameObject;
         }
 
         private void OnDrawGizmosSelected()
