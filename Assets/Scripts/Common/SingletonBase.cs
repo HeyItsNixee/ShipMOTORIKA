@@ -2,6 +2,11 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
+    /// <summary>
+    /// Базовый скрипт паттерна "Синглтон".
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    
     [DisallowMultipleComponent]
     public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
     {

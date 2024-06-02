@@ -1,16 +1,17 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace ShipMotorika
 {
+    /// <summary>
+    /// Класс, отвечающий за отображение мини-игры, в которой в зависимости от вовремя нажатой кнопки, можно либо поймать, либо упустить рыбу.
+    /// </summary>
     public sealed class FishingChallenge : SingletonBase<FishingChallenge>
     {
         [SerializeField] private Canvas _canvas;
         [SerializeField] private Image _fishCircleImage;
         [SerializeField] private Image _playerCircleImage;        
-        [SerializeField] private float _waitBeforeDeactivateTime = 1f;
 
         private Vector3 _defaultPlayerScale;    
 
@@ -19,12 +20,14 @@ namespace ShipMotorika
 
         private readonly float _minScale = 1f;
         private readonly float _maxScale = 6f;
-
         private readonly float _passScaleMin = 3f;
         private readonly float _passScaleMax = 4f;
 
+        private readonly float _minSpeed = 1f;
+        private readonly float _defaultSpeed = 4f;
+
         private float _scale;
-        private float _speed = 1f;
+        private float _speed;
 
         private bool _isLooped;
 
@@ -42,16 +45,12 @@ namespace ShipMotorika
         private void Update()
         {
             DoCircleAnimation();
-
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-            {
-                enabled = false;
-
-                TryCatchFish();
-            }
         }
         #endregion
 
+        /// <summary>
+        /// Сохранение заранее настроенного состояния для корректного отображения мини-игры.
+        /// </summary>
         private void SaveParametrs()
         {
             _defaultFishColor = _fishCircleImage.color;
@@ -63,6 +62,9 @@ namespace ShipMotorika
             _isLooped = false;
         }
 
+        /// <summary>
+        /// Восстановление заранее настроенного состояния для корректного отображения мини-игры.
+        /// </summary>
         private void RestoreParametrs()
         {
             _fishCircleImage.color = _defaultFishColor;
@@ -71,9 +73,14 @@ namespace ShipMotorika
             _playerCircleImage.rectTransform.localScale = _defaultPlayerScale;
             _scale = _minScale;
 
+            _speed = _defaultSpeed;
+
             _isLooped = false;
         }
 
+        /// <summary>
+        /// Отображение зацикленной анимации.
+        /// </summary>
         private void DoCircleAnimation()
         {
             if (_isLooped)
@@ -98,44 +105,51 @@ namespace ShipMotorika
             _playerCircleImage.rectTransform.localScale = new Vector3(_scale, _scale, _scale);
         }
 
-        private void TryCatchFish()
+        /// <summary>
+        /// Запуск мини-игры на сцене.
+        /// </summary>
+        public void Activate()
+        { 
+            transform.position = Player.Instance.FishingRod.FishingPlace.gameObject.transform.position;
+
+            _speed = _defaultSpeed - Player.Instance.FishingRod.Speed;
+
+            if (_speed <= _minSpeed)
+            {
+                _speed = _minSpeed;
+            }
+
+            _canvas.gameObject.SetActive(true);           
+            enabled = true;
+        }
+
+        /// <summary>
+        /// Выключение мини-игры на сцене.
+        /// </summary>
+        public void Deactivate()
         {
+            RestoreParametrs();
+            _canvas.gameObject.SetActive(false);
+            OnDisable?.Invoke();
+        }
+
+        /// <summary>
+        /// Проверка на выполнения условий успешного завершения мини-игры.
+        /// </summary>
+        public void TryCatchFish()
+        {
+            enabled = false;
+
             if (_scale >= _passScaleMin && _scale <= _passScaleMax)
             {
                 _fishCircleImage.color = Color.green;
                 OnTryCatchFish?.Invoke(true);
-
-                Debug.Log("Success!");
             }
             else
             {
                 _fishCircleImage.color = Color.red;
                 OnTryCatchFish?.Invoke(false);
-
-                Debug.Log("Failure!");
             }
-
-            StartCoroutine(Deactivate());
-        }
-
-        private IEnumerator Deactivate()
-        {
-            yield return new WaitForSeconds(_waitBeforeDeactivateTime);
-
-            RestoreParametrs();
-
-            _canvas.gameObject.SetActive(false);
-
-            OnDisable?.Invoke();
-        }
-
-        public void Activate()
-        {
-            _speed = Player.Instance.GetComponent<FishingRod>().Speed;
-
-            _canvas.gameObject.SetActive(true);
-            
-            enabled = true;
         }
     }
 }
