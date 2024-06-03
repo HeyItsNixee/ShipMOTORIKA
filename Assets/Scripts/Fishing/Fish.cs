@@ -14,6 +14,12 @@ namespace ShipMotorika
         public SpriteRenderer Sprite => _sprite;
 
         /// <summary>
+        /// Название рыбы. Для элементов интерфейса.
+        /// </summary>
+        [SerializeField] private string _name;
+        public string Name => _name;
+
+        /// <summary>
         /// Стоимость рыбы при продаже
         /// </summary>
         private int _cost;
@@ -32,6 +38,7 @@ namespace ShipMotorika
         public void Initialize(FishAsset asset)
         {
             _sprite.sprite = asset.Sprite;
+            _name = asset.Name; 
             _cost = asset.Cost;
             _weight = asset.Weight;
         }

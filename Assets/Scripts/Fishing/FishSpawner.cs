@@ -10,7 +10,6 @@ namespace ShipMotorika
         /// <summary>
         /// Три типа спавна: 1) На старте сцены; 2) Каждый раз после собранной рыбы; 3) по кулдауну.
         /// </summary>
-        
         public enum SpawnMode
         {
             Start,
@@ -19,13 +18,24 @@ namespace ShipMotorika
         }
 
         [SerializeField] private SpawnMode _spawnMode;
-        [SerializeField] private FishingPlace _fishingPlacePrefab;
-        [SerializeField] private CircleArea _area;      
+        [SerializeField] private FishingPoint _fishingPlacePrefab;
+        [SerializeField] private CircleArea _area;
         [SerializeField] private int _numSpawns;
         [SerializeField] private float _respawnTime;
 
-        private FishingPlace _currentPlace = null;   
+        private FishingPoint _currentPlace = null;
         private float _timer = 0f;
+
+        private void Start()
+        {
+            switch (_spawnMode)
+            {
+                case SpawnMode.Start:
+
+                    SpawnFish();
+                    break;
+            }
+        }
 
         private void Update()
         {
@@ -51,32 +61,45 @@ namespace ShipMotorika
                     break;
             }
         }
-    
+
         /// <summary>
-        /// Проверяет, есть ли в пределах заданной области корабль игрока.
+        /// Проверяет, чтобы объекты спавна не появлялись друг в друге.
         /// </summary>
         /// <returns></returns>
         private bool AreaIsClean()
         {
-            if (Player.Instance != null)
-            {
-                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _area.Radius);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _area.Radius);
 
-                if (hits.Length > 0)
+            if (hits.Length > 0)
+            {
+                int maxAttempts = 100; // Максимальное количество попыток итераций. Нужно для ограничений рпасхода ресурсов.
+                for (int i = 0; i < maxAttempts; i++)
                 {
+                    float x = Random.Range(-_area.Radius, _area.Radius);
+                    float y = Random.Range(-_area.Radius, _area.Radius);
+                    Vector3 spawnPosition = transform.position + new Vector3(x, y, 0);
+
+                    bool isOverlapping = false;
                     foreach (Collider2D hit in hits)
                     {
-                        if (hit.transform.root == Player.Instance.transform)
+                        if (hit.bounds.Contains(spawnPosition))
                         {
-                            return false;
+                            isOverlapping = true;
+                            break;
                         }
-                            
+                    }
+
+                    if (!isOverlapping)
+                    {
+                        return true;
                     }
                 }
+                return false;
             }
 
             return true;
         }
+
 
         /// <summary>
         /// Непосредственно спавн.

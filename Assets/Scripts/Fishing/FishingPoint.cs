@@ -5,7 +5,7 @@ namespace ShipMotorika
     /// <summary>
     /// Место, в котором можно ловить рыбу. В данный момент визуально отображается в виде зацикленной анимации пузырьков.
     /// </summary>
-    public class FishingPlace : MonoBehaviour
+    public class FishingPoint : MonoBehaviour
     {
         /// <summary>
         /// В этот массив складываем всю "полезную" рыбу/
@@ -22,6 +22,8 @@ namespace ShipMotorika
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private Fish _fish;
+
+        private bool _isActive = false; // Attention!
 
         #region UnityEvents
         private void Start()
@@ -43,43 +45,51 @@ namespace ShipMotorika
         /// <param name="success"></param>
         private void ShowCatchedFish(bool success)
         {
-            if (success)
+            if (_isActive)
             {
-                _fish = Instantiate(_fishPrefab, transform.position, Quaternion.identity);
-                _fish.Sprite.enabled = false; // Attention!
-
-                // Шанс поймать сапог - 10%.
-                int random = Random.Range(0, 10);
-                if (random == 0)
+                if (success)
                 {
-                    _fish.Initialize(_bootAsset);
+                    _fish = Instantiate(_fishPrefab, transform.position, Quaternion.identity);
+                    _fish.Sprite.enabled = false; // Attention!
+
+                    // Шанс поймать сапог - 10%.
+                    int random = Random.Range(0, 10);
+                    if (random == 0)
+                    {
+                        _fish.Initialize(_bootAsset);
+                    }
+                    else
+                    {
+                        int index = Random.Range(0, _fishAssets.Length);
+                        _fish.Initialize(_fishAssets[index]);
+                    }
+
+                    Player.Instance.FishingRod.AssignFish(_fish);
                 }
                 else
                 {
-                    int index = Random.Range(0, _fishAssets.Length);
-                    _fish.Initialize(_fishAssets[index]);
+                    Player.Instance.FishingRod.AssignFish(null);
                 }
 
-                Player.Instance.FishingRod.AssignFish(_fish);                
-            }
-            else
-            {
-                Player.Instance.FishingRod.AssignFish(null);;
-            }
-
-            FishingChallenge.Instance.OnDisable += DestroyItself;
+                FishingChallenge.Instance.OnDisable += DestroyItself;
+            }          
         }
 
         private void DestroyItself()
-        {         
-            Destroy(gameObject);
+        {
+            FishingChallenge.Instance.OnDisable -= DestroyItself;
 
             if (_fish != null)
             {
                 Destroy(_fish.gameObject);
             }
-            
-            FishingChallenge.Instance.OnDisable -= DestroyItself;
+
+            Destroy(gameObject);          
+        }
+
+        public void SetActive(bool value)
+        {
+            _isActive = value;
         }
     }
 }

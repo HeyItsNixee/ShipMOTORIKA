@@ -1,5 +1,8 @@
 using System;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace ShipMotorika
 {
@@ -10,6 +13,12 @@ namespace ShipMotorika
     {
         [SerializeField] private FishingRodAsset _asset;
 
+        /// <summary>
+        /// Название удочки (для магазина).
+        /// </summary>
+        [SerializeField] private string _name;
+        public string Name => _name;
+        
         /// <summary>
         /// В зависимости от радиуса этого коллайдера зависит расстояние от FishingPlace, на котором можно ловить рыбу.
         /// </summary>
@@ -33,14 +42,13 @@ namespace ShipMotorika
         [SerializeField] private int _cost;
         public int Cost => _cost;
 
-        private FishingPlace _fishingPlace;
-        public FishingPlace FishingPlace => _fishingPlace;
+        private FishingPoint _fishingPoint;
+        public FishingPoint FishingPoint => _fishingPoint;
 
         public event Action<bool> OnFishingPlaceNearby;
 
         private Fish _lastCaughtFish = null;
         public Fish LastCaughtFish => _lastCaughtFish;
-
 
         #region UnityEvents
         private void Start()
@@ -54,9 +62,10 @@ namespace ShipMotorika
         /// <param name="collision"></param>
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<FishingPlace>(out var fishingPlace))
+            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint))
             {
-                _fishingPlace = fishingPlace;
+                _fishingPoint = fishingPoint;
+                _fishingPoint.SetActive(true);
                 OnFishingPlaceNearby(true);
             }
         }
@@ -67,9 +76,10 @@ namespace ShipMotorika
         /// <param name="collision"></param>
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<FishingPlace>(out var fishingPlace))
+            if (collision.TryGetComponent<FishingPoint>(out var fishingPlace))
             {
-                _fishingPlace = null;
+                _fishingPoint.SetActive(false);
+                _fishingPoint = null;
                 OnFishingPlaceNearby(false);
             }
         }
@@ -77,12 +87,15 @@ namespace ShipMotorika
         /// <summary>
         /// Для удобства Помогает отобразить радиус действия удочки на сцене.
         /// </summary>
+
+#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, _radius);
         }
-        #endregion
+#endif
+#endregion
 
         /// <summary>
         /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
@@ -90,6 +103,7 @@ namespace ShipMotorika
         /// <param name="asset"></param>
         public void Initialize(FishingRodAsset asset)
         {
+            _name = asset.Name; 
             _speed = asset.Speed;
             _radius = asset.Radius;
             _cost = asset.Cost;
@@ -104,6 +118,17 @@ namespace ShipMotorika
         public void AssignFish(Fish fish)
         {
             _lastCaughtFish = fish;
+        }
+
+        /// <summary>
+        /// Добавляет вес пойманной рыбы к текущему весу корабля.
+        /// </summary>
+        public void TryPutFishInShip()
+        {
+            if (_lastCaughtFish != null)
+            {
+                Player.Instance.Ship.TryChangeWeightAmount(_lastCaughtFish.Weight);
+            }
         }
     }
 }

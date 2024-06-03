@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f06833e460ce8d7449a7c9fbd6ce8d85, type: 3}
-  m_Name: Ship_silver
+  m_Name: Ship_bronze
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: c6292e8aa5eb53d4b9442a2438720f06, type: 3}
-  Cost: 200
-  "\u0421arrying": 200
+  Sprite: {fileID: 21300000, guid: 3f5a616be0395eb42b714bb38630cf8b, type: 3}
+  Name: "\u0411\u0440\u043E\u043D\u0437\u043E\u0432\u044B\u0439 \u043A\u043E\u0440\u0430\u0431\u043B\u044C"
+  Cost: 100
+  "\u0421arryingCapacity": 100

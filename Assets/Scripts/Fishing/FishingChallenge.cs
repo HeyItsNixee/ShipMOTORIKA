@@ -110,7 +110,7 @@ namespace ShipMotorika
         /// </summary>
         public void Activate()
         { 
-            transform.position = Player.Instance.FishingRod.FishingPlace.gameObject.transform.position;
+            transform.position = Player.Instance.FishingRod.FishingPoint.gameObject.transform.position;
 
             _speed = _defaultSpeed - Player.Instance.FishingRod.Speed;
 
