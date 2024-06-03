@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66d8f451422da4a4f871eefae4bf9bca, type: 3}
-  m_Name: FishAsset_green
+  m_Name: Fish_golden
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 0155d8527a1b9c94aa4bda422099a42b, type: 3}
-  Radius: 1
-  Cost: 20
+  Sprite: {fileID: 21300000, guid: 8e8a2f56962146545b27ac2a8b90e998, type: 3}
+  Cost: 30
+  Weight: 30

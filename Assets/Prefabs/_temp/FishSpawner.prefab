@@ -45,13 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d370a3c079dda914bbdd32837b4b604e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fishAssets:
-  - {fileID: 11400000, guid: f3253f6aa0d605944a5c776532f1a644, type: 2}
-  - {fileID: 11400000, guid: a14ef5e174951e2449d2db1a8fbb9055, type: 2}
-  - {fileID: 11400000, guid: 8eda4dbe07f375d46a8c967085a07755, type: 2}
-  _fishPrefab: {fileID: 6598858716521727138, guid: 7418af5ff6d345246bbe323c3c0c6d58, type: 3}
-  _area: {fileID: 8328241717515197826}
   _spawnMode: 1
+  _fishingPlacePrefab: {fileID: 3283445902859253374, guid: a47eec12f945bea4a9e2544218bc9eed, type: 3}
+  _area: {fileID: 8328241717515197826}
   _numSpawns: 1
   _respawnTime: 5
 --- !u!114 &8328241717515197826
@@ -66,5 +62,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5243be8c0ca543940a8f951909d4bd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 10
+  _radius: 5
   _color: {r: 0.8301887, g: 0.16055535, b: 0.16055535, a: 0.09803922}

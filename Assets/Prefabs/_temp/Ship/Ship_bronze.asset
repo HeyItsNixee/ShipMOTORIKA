@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d8f451422da4a4f871eefae4bf9bca, type: 3}
-  m_Name: FishAsset_blue
+  m_Script: {fileID: 11500000, guid: f06833e460ce8d7449a7c9fbd6ce8d85, type: 3}
+  m_Name: Ship_bronze
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 4d21103d643fd124bb49be5c10d19361, type: 3}
-  Radius: 3
-  Cost: 10
+  Sprite: {fileID: 21300000, guid: 3f5a616be0395eb42b714bb38630cf8b, type: 3}
+  Cost: 100
+  "\u0421arrying": 100
