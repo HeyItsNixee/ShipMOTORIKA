@@ -164,6 +164,8 @@ GameObject:
   - component: {fileID: 4409570195729209005}
   - component: {fileID: 2389595638910064007}
   - component: {fileID: 1504159091563218900}
+  - component: {fileID: 8602824961480779231}
+  - component: {fileID: 2371649313230859479}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -282,7 +284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
+  _ship: {fileID: 8602824961480779231}
   _fishingRod: {fileID: 1504159091563218900}
+  _wallet: {fileID: 2371649313230859479}
 --- !u!114 &1504159091563218900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,4 +301,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _asset: {fileID: 11400000, guid: 88b00df5fa553064f83bd46df17a4a6b, type: 2}
   _circleCollider: {fileID: 280225371114679114}
-  _fishingChallenge: {fileID: 762753691275771237, guid: 764b6cc9d6b361449a71d0ad3c14389d, type: 3}
+  _radius: 0
+  _speed: 0
+  _cost: 0
+--- !u!114 &8602824961480779231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8719776146335767941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccbd0f3cb650c243aee6a44e03c1d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _asset: {fileID: 11400000, guid: 6069d9647cd11ba4aada0cf20c83e952, type: 2}
+  _spriteRenderer: {fileID: 4635679505896616729}
+  rb2d: {fileID: 3306780043258384980}
+  _cost: 0
+  _carrying: 0
+  _currentWeight: 0
+--- !u!114 &2371649313230859479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8719776146335767941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de501b3dd6f8434bb76d614d9e64912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentMoney: 0

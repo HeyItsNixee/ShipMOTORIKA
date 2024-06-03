@@ -5,6 +5,9 @@ using UnityEditor;
 
 namespace ShipMotorika
 {
+    /// <summary>
+    /// Универсальный скрипт для визуализация окружности нужного радиуса и цвета.
+    /// </summary>
     public sealed class CircleArea : MonoBehaviour
     {
         [SerializeField] private float _radius;

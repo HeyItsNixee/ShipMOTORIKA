@@ -2,22 +2,29 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
+    /// <summary>
+    /// Спавнит места ловли рыбы в случайных точках внутри заданной окружности.
+    /// </summary>
     public class FishSpawner : MonoBehaviour
     {
+        /// <summary>
+        /// Три типа спавна: 1) На старте сцены; 2) Каждый раз после собранной рыбы; 3) по кулдауну.
+        /// </summary>
+        
         public enum SpawnMode
         {
+            Start,
             Single,
             Loop
         }
 
         [SerializeField] private SpawnMode _spawnMode;
-        [SerializeField] private FishAsset[] _fishAssets;
-        [SerializeField] private Fish _fishPrefab;
+        [SerializeField] private FishingPlace _fishingPlacePrefab;
         [SerializeField] private CircleArea _area;      
         [SerializeField] private int _numSpawns;
         [SerializeField] private float _respawnTime;
 
-        private Fish _currentFish = null;   
+        private FishingPlace _currentPlace = null;   
         private float _timer = 0f;
 
         private void Update()
@@ -26,7 +33,7 @@ namespace ShipMotorika
             {
                 case SpawnMode.Single:
 
-                    if (_currentFish == null)
+                    if (_currentPlace == null)
                     {
                         SpawnFish();
                     }
@@ -45,6 +52,10 @@ namespace ShipMotorika
             }
         }
     
+        /// <summary>
+        /// Проверяет, есть ли в пределах заданной области корабль игрока.
+        /// </summary>
+        /// <returns></returns>
         private bool AreaIsClean()
         {
             if (Player.Instance != null)
@@ -67,20 +78,20 @@ namespace ShipMotorika
             return true;
         }
 
+        /// <summary>
+        /// Непосредственно спавн.
+        /// </summary>
         private void SpawnFish()
         {
             for (int i = 0; i < _numSpawns; i++)
             {
                 if (AreaIsClean())
                 {
-                    int index = Random.Range(0, _fishAssets.Length);
+                    var fishingPlace = Instantiate(_fishingPlacePrefab);
+                    fishingPlace.transform.position = _area.GetRandomInsideZone();
+                    fishingPlace.transform.rotation = Quaternion.identity;
 
-                    var fish = Instantiate(_fishPrefab);
-                    fish.transform.position = _area.GetRandomInsideZone();
-                    fish.transform.rotation = Quaternion.identity;
-                    fish.Initialize(_fishAssets[index]);
-
-                    _currentFish = fish; // Attention!
+                    _currentPlace = fishingPlace; // Attention!
                 }
             }
         }

@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebcbf0a4c687e5443ac72b885a7d5fe6, type: 3}
-  m_Name: FishingRod_gold
+  m_Script: {fileID: 11500000, guid: 66d8f451422da4a4f871eefae4bf9bca, type: 3}
+  m_Name: Fish_green
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 06f2fdf32e76c294aa2c20668aeb3561, type: 3}
-  Radius: 3
-  Speed: 3
-  Cost: 300
+  Sprite: {fileID: 21300000, guid: 0155d8527a1b9c94aa4bda422099a42b, type: 3}
+  Cost: 20
+  Weight: 20
