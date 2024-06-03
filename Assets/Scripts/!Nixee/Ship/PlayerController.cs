@@ -1,7 +1,6 @@
 using System;
 using Unity.Collections;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -15,24 +14,47 @@ public class PlayerController : Singleton<PlayerController>
     private float m_Thrust = 0f;
     private float m_Torque = 0f;
 
+    private bool movingBackwards = false;
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.W))
+        {
             m_Thrust = 1f;
+            movingBackwards = false;
+        }
+
         if (Input.GetKey(KeyCode.S))
+        {
             m_Thrust = -1f;
+            movingBackwards = true;
+        }
+
 
         if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+        {
             m_Thrust = 0f;
+            movingBackwards = false;
+        }
 
         if (Input.GetKey(KeyCode.D))
-            m_Torque = -1f;
+        {
+            if (!movingBackwards)
+                m_Torque = -1f;
+            else
+                m_Torque = 1f;
+        }
         if (Input.GetKey(KeyCode.A))
-            m_Torque = 1f;
+        {
+            if (!movingBackwards)
+                m_Torque = 1f;
+            else
+                m_Torque = -1f;
+        }
         if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             m_Torque = 0f;
 
-        Debug.Log("Thrust = " + m_Thrust + "; Torque = " + m_Torque);
+        //Debug.Log("Thrust = " + m_Thrust + "; Torque = " + m_Torque);
     }
 
     private void FixedUpdate()
