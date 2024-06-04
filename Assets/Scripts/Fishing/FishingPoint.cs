@@ -52,10 +52,6 @@ namespace ShipMotorika
 
         private void OnDestroy()
         {        
-            _allFishingPoints.Remove(this);
-
-            OnFishPointDestroy?.Invoke();
-            
             FishingChallenge.Instance.OnTryCatchFish -= ShowCatchedFish;
         }
         #endregion
@@ -104,6 +100,10 @@ namespace ShipMotorika
             {
                 Destroy(_fish.gameObject);
             }
+
+            _allFishingPoints.Remove(this);
+
+            OnFishPointDestroy?.Invoke();
 
             Destroy(gameObject);          
         }
