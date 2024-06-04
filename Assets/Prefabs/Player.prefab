@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4f6f92a7c34164cb4b516c833e8d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxThrust: 3000
+  maxThrust: 1000
   maxLinearVelocity: 10
-  maxTorque: 1000
+  maxTorque: 300
   maxAngularVelocity: 20
   playerShip: {fileID: 1434197665525960520}
 --- !u!114 &3070457724520645956
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 0}
-  zoomSize: 20
+  zoomSize: 10
   zoomStep: 0.05
 --- !u!114 &2018532219611193898
 MonoBehaviour:
@@ -177,7 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206e95d82d407a54bbc18fcb34ae2f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _asset: {fileID: 11400000, guid: 88b00df5fa553064f83bd46df17a4a6b, type: 2}
+  _asset: {fileID: 11400000, guid: 65ec25aa3aac55e4aa1713331182d470, type: 2}
+  _name: 
   _circleCollider: {fileID: 9068148257019758242}
   _radius: 0
   _speed: 0
@@ -190,6 +191,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 459727197338660011}
     m_Modifications:
+    - target: {fileID: 946968967793491542, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 946968967793491542, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 946968967793491542, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864031961851912212, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: _asset
+      value: 
+      objectReference: {fileID: 11400000, guid: c45ce920133014a499b980edccd32f58, type: 2}
+    - target: {fileID: 6864031961851912212, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 3817092095020116871}
     - target: {fileID: 7327368937490644075, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -256,5 +277,10 @@ MonoBehaviour:
 --- !u!4 &3067255447381551703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7365548174058833163, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+  m_PrefabInstance: {fileID: 5523308281004748636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3817092095020116871 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8673847770909689051, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
   m_PrefabInstance: {fileID: 5523308281004748636}
   m_PrefabAsset: {fileID: 0}
