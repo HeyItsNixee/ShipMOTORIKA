@@ -8,12 +8,13 @@ namespace ShipMotorika
     public class FishSpawner : MonoBehaviour
     {
         /// <summary>
-        /// Три типа спавна: 1) На старте сцены; 2) Каждый раз после собранной рыбы; 3) по кулдауну.
+        /// Три типа спавна: 1) На старте сцены; 2) Каждый раз после собранной рыбы; 3) Поддерживать изначальное количество fishingPoint; 4) по кулдауну.
         /// </summary>
         public enum SpawnMode
         {
             Start,
             Single,
+            ConstantAmount,
             Loop
         }
 
@@ -23,7 +24,7 @@ namespace ShipMotorika
         [SerializeField] private int _numSpawns;
         [SerializeField] private float _respawnTime;
 
-        private FishingPoint _currentPlace = null;
+        private FishingPoint _currentPoint = null;
         private float _timer = 0f;
 
         private void Start()
@@ -34,6 +35,12 @@ namespace ShipMotorika
 
                     SpawnFish();
                     break;
+
+                case SpawnMode.ConstantAmount:
+
+                    SpawnFish();
+                    FishingPoint.OnFishPointDestroy += TryToCompleteSpawnedAmount;
+                    break;
             }
         }
 
@@ -43,7 +50,7 @@ namespace ShipMotorika
             {
                 case SpawnMode.Single:
 
-                    if (_currentPlace == null)
+                    if (_currentPoint == null)
                     {
                         SpawnFish();
                     }
@@ -59,6 +66,14 @@ namespace ShipMotorika
                         _timer = 0f;
                     }
                     break;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (_spawnMode == SpawnMode.ConstantAmount)
+            {
+                FishingPoint.OnFishPointDestroy -= TryToCompleteSpawnedAmount;
             }
         }
 
@@ -110,11 +125,30 @@ namespace ShipMotorika
             {
                 if (AreaIsClean())
                 {
-                    var fishingPlace = Instantiate(_fishingPlacePrefab);
-                    fishingPlace.transform.position = _area.GetRandomInsideZone();
-                    fishingPlace.transform.rotation = Quaternion.identity;
+                    var fishingPoint = Instantiate(_fishingPlacePrefab);
+                    fishingPoint.transform.position = _area.GetRandomInsideZone();
+                    fishingPoint.transform.rotation = Quaternion.identity;
 
-                    _currentPlace = fishingPlace; // Attention!
+                    _currentPoint = fishingPoint; // Attention!
+                }
+            }
+        }
+
+        /// <summary>
+        /// Проверяет, если количество FishingPoint, и если меньше количества на старте, дополняет его.
+        /// </summary>
+        private void TryToCompleteSpawnedAmount()
+        {
+            if (_spawnMode == SpawnMode.ConstantAmount)
+            {
+                int amount = FishingPoint.AllFishingPoints.Count;
+
+                if (amount < _numSpawns)
+                {
+                    int defaultAmount = _numSpawns;
+                    _numSpawns = _numSpawns - amount;
+                    SpawnFish();
+                    _numSpawns = defaultAmount;
                 }
             }
         }

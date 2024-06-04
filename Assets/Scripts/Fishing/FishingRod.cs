@@ -42,13 +42,15 @@ namespace ShipMotorika
         [SerializeField] private int _cost;
         public int Cost => _cost;
 
-        private FishingPoint _fishingPoint;
-        public FishingPoint FishingPoint => _fishingPoint;
+        private FishingPoint _activeFishingPoint;
+        public FishingPoint FishingPoint => _activeFishingPoint;
 
         public event Action<bool> OnFishingPlaceNearby;
 
         private Fish _lastCaughtFish = null;
         public Fish LastCaughtFish => _lastCaughtFish;
+
+        private bool _isTriggered = false;
 
         #region UnityEvents
         private void Start()
@@ -60,13 +62,17 @@ namespace ShipMotorika
         /// Показываем кнопку, по нажатию которой запустится мини-игра ловли рыбы.
         /// </summary>
         /// <param name="collision"></param>
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision) // Пере
         {
-            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint))
+            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint)) // !!!!!!!!!!!!!!! Enter
             {
-                _fishingPoint = fishingPoint;
-                _fishingPoint.SetActive(true);
-                OnFishingPlaceNearby(true);
+                if (!_isTriggered) // Защита от срабатывания нескольких FishingPoint при попадании в триггер.
+                {
+                    _isTriggered = true;
+                    _activeFishingPoint = fishingPoint;
+                    _activeFishingPoint.SetActive(true);
+                    OnFishingPlaceNearby(true);
+                }
             }
         }
 
@@ -74,29 +80,56 @@ namespace ShipMotorika
         /// Перестаем показывать кнопку, по нажатию которой запустится мини-игра ловли рыбы.
         /// </summary>
         /// <param name="collision"></param>
-        private void OnTriggerExit2D(Collider2D collision)
+        private void OnTriggerExit2D(Collider2D collision) 
         {
             if (collision.TryGetComponent<FishingPoint>(out var fishingPoint))
             {
-                _fishingPoint = fishingPoint;
-                _fishingPoint.SetActive(false);
-                _fishingPoint = null;
+                _isTriggered = false;
+                _activeFishingPoint = fishingPoint;
+                _activeFishingPoint.SetActive(false);
+                _activeFishingPoint = null;
                 OnFishingPlaceNearby(false);
+
+                FindFishNearby();
             }
         }
 
+#if UNITY_EDITOR
         /// <summary>
         /// Для удобства Помогает отобразить радиус действия удочки на сцене.
         /// </summary>
-
-#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, _radius);
         }
 #endif
-#endregion
+        #endregion
+
+        /// <summary>
+        /// Дополнительная проверка на рыбу вокруг. На случай, если в радиусе действия было несколько точек рыбы, и сработала защита OnTriggerEnter.
+        /// </summary>
+        private void FindFishNearby()
+        {
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _radius);
+
+            if (hits.Length > 0)
+            {
+                foreach (Collider2D hit in hits)
+                {
+                    if (hit.TryGetComponent<FishingPoint>(out var fishingPoint))
+                    {
+                        if (!_isTriggered)
+                        {
+                            _isTriggered = true;
+                            _activeFishingPoint = fishingPoint;
+                            _activeFishingPoint.SetActive(true);
+                            OnFishingPlaceNearby(true);
+                        }
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.

@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 namespace ShipMotorika
 {
@@ -7,6 +9,14 @@ namespace ShipMotorika
     /// </summary>
     public class FishingPoint : MonoBehaviour
     {
+        /// <summary>
+        /// Лист всех экземпляров класса, в который при создании добавляется каждый новый FishingPoint. 
+        /// </summary>
+        private static HashSet<FishingPoint> _allFishingPoints;
+        public static IReadOnlyCollection<FishingPoint> AllFishingPoints => _allFishingPoints;
+
+        public static event Action OnFishPointDestroy;
+
         /// <summary>
         /// В этот массив складываем всю "полезную" рыбу/
         /// </summary>
@@ -23,18 +33,29 @@ namespace ShipMotorika
 
         private Fish _fish;
 
-        private bool _isActive = false; // Attention!
+        private bool _isActive = false; 
 
         #region UnityEvents
         private void Start()
         {
             _spriteRenderer.enabled = true;
+
+            if (_allFishingPoints == null)
+            {
+                _allFishingPoints = new HashSet<FishingPoint>();
+            }
+
+            _allFishingPoints.Add(this);
             
             FishingChallenge.Instance.OnTryCatchFish += ShowCatchedFish;
         }
 
         private void OnDestroy()
-        {
+        {        
+            _allFishingPoints.Remove(this);
+
+            OnFishPointDestroy?.Invoke();
+            
             FishingChallenge.Instance.OnTryCatchFish -= ShowCatchedFish;
         }
         #endregion
@@ -53,14 +74,14 @@ namespace ShipMotorika
                     _fish.Sprite.enabled = false; // Attention!
 
                     // Шанс поймать сапог - 10%.
-                    int random = Random.Range(0, 10);
+                    int random = UnityEngine.Random.Range(0, 10);
                     if (random == 0)
                     {
                         _fish.Initialize(_bootAsset);
                     }
                     else
                     {
-                        int index = Random.Range(0, _fishAssets.Length);
+                        int index = UnityEngine.Random.Range(0, _fishAssets.Length);
                         _fish.Initialize(_fishAssets[index]);
                     }
 
