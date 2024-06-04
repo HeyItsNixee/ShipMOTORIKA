@@ -76,8 +76,9 @@ namespace ShipMotorika
         /// <param name="collision"></param>
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<FishingPoint>(out var fishingPlace))
+            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint))
             {
+                _fishingPoint = fishingPoint;
                 _fishingPoint.SetActive(false);
                 _fishingPoint = null;
                 OnFishingPlaceNearby(false);
