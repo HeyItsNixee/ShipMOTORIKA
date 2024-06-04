@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ShipMotorika
 {
@@ -41,12 +42,16 @@ namespace ShipMotorika
 
         private void CloseButtons()
         {
+            // Attention! Only for Debug!
+            Player.Instance.FishingRod.TryPutFishInShip();
+            // Attention! Only for Debug!
+
             _successButton.gameObject.SetActive(false);
             _failureButton.gameObject.SetActive(false);
 
             _caughtFishImage.SetActive(false);
 
-            FishingChallenge.Instance.Deactivate();        
+            FishingChallenge.Instance.Deactivate();
         }
     }
 }

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66d8f451422da4a4f871eefae4bf9bca, type: 3}
-  m_Name: Fish_green
+  m_Name: Fish_boot
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 0155d8527a1b9c94aa4bda422099a42b, type: 3}
-  Cost: 20
-  Weight: 20
+  Sprite: {fileID: 21300000, guid: 207acba764c9c0343960caa782cc2f74, type: 3}
+  Name: "\u0421\u0430\u043F\u043E\u0433 \u0410\u043D\u0436\u0435\u043B\u0438\u043A\u0438"
+  Cost: 0
+  Weight: 5

@@ -980,6 +980,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092151220}
   m_CullTransparentMesh: 1
+--- !u!212 &1157863821 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3817092095020116871, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+  m_PrefabInstance: {fileID: 1248669691380374270}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1158097558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1734,17 @@ Transform:
   - {fileID: 1741504872}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2117886851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7283290119477300239, guid: 429fa9820d941f5428d72af026c69419, type: 3}
+  m_PrefabInstance: {fileID: 2128787784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d370a3c079dda914bbdd32837b4b604e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2126636149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,6 +1788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1477736400154988045, guid: 429fa9820d941f5428d72af026c69419, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5933997266481362402, guid: 429fa9820d941f5428d72af026c69419, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1811,6 +1831,30 @@ PrefabInstance:
     - target: {fileID: 5933997266481362402, guid: 429fa9820d941f5428d72af026c69419, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283290119477300239, guid: 429fa9820d941f5428d72af026c69419, type: 3}
+      propertyPath: _numSpawns
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283290119477300239, guid: 429fa9820d941f5428d72af026c69419, type: 3}
+      propertyPath: _spawnMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283290119477300239, guid: 429fa9820d941f5428d72af026c69419, type: 3}
+      propertyPath: _respawnTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283290119477300239, guid: 429fa9820d941f5428d72af026c69419, type: 3}
+      propertyPath: _fishingPlacePrefab
+      value: 
+      objectReference: {fileID: -794559031154985869, guid: a47eec12f945bea4a9e2544218bc9eed, type: 3}
+    - target: {fileID: 7283290119477300239, guid: 429fa9820d941f5428d72af026c69419, type: 3}
+      propertyPath: _continueInSingleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8328241717515197826, guid: 429fa9820d941f5428d72af026c69419, type: 3}
+      propertyPath: _radius
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1944,6 +1988,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1434197665525960520, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _asset
+      value: 
+      objectReference: {fileID: 11400000, guid: c45ce920133014a499b980edccd32f58, type: 2}
+    - target: {fileID: 1434197665525960520, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1157863821}
     - target: {fileID: 2357778224967500892, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1952,6 +2004,26 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1892795478}
+    - target: {fileID: 4720604586793292042, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720604586793292042, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720604586793292042, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438608577399586215, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _asset
+      value: 
+      objectReference: {fileID: 11400000, guid: 65ec25aa3aac55e4aa1713331182d470, type: 2}
+    - target: {fileID: 8438608577399586215, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _fishSpawner
+      value: 
+      objectReference: {fileID: 2117886851}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

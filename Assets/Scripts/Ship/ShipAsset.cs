@@ -6,7 +6,8 @@ namespace ShipMotorika
     public class ShipAsset : ScriptableObject
     {
         public Sprite Sprite;
+        public string Name;
         public int Cost;
-        public int Ñarrying; // Ãğóçîïîäúåìíîñòü
+        public int ÑarryingCapacity; // Ãğóçîïîäúåìíîñòü
     }
 }
