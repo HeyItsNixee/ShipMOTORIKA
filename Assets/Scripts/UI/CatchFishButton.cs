@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Кнопка при нажатии на которой определяется результат мини-игры FishingChallenge.
+    /// РљРЅРѕРїРєР° РїСЂРё РЅР°Р¶Р°С‚РёРё РЅР° РєРѕС‚РѕСЂРѕР№ РѕРїСЂРµРґРµР»В¤РµС‚СЃВ¤ СЂРµР·СѓР»СЊС‚Р°С‚ РјРёРЅРё-РёРіСЂС‹ FishingChallenge. В¬СЂРµРјРµРЅРЅС‹Р№ СЃРєСЂРёРїС‚
     /// </summary>
     public class CatchFishButton : MonoBehaviour
     {

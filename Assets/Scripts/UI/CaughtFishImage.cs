@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Показывает в UI изображение пойманной рыбы.
+    /// РџРѕРєР°Р·С‹РІР°РµС‚ РІ РёРЅС‚РµСЂС„РµР№СЃРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїРѕР№РјР°РЅРЅРѕР№ СЂС‹Р±С‹.
     /// </summary>
     public class CaughtFishImage : MonoBehaviour
     {

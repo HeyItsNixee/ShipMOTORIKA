@@ -8,6 +8,6 @@ namespace ShipMotorika
         public Sprite Sprite;
         public string Name;
         public int Cost;
-        public int ÑarryingCapacity; // Ãğóçîïîäúåìíîñòü
+        public int Ğ¡arryingCapacity; // Ğ“Ñ€ÑƒĞ·Ğ¾Ğ¿Ğ¾Ğ´ÑŠĞµĞ¼Ğ½Ğ¾ÑÑ‚ÑŒ ĞºĞ¾Ñ€Ğ°Ğ±Ğ»Ñ
     }
 }

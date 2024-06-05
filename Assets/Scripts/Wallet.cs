@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Класс отвечающий за приход/расход денег игрока.
+    /// РљР»Р°СЃСЃ РѕС‚РІРµС‡Р°СЋС‰РёР№ Р·Р° РїСЂРёС…РѕРґ РёР»Рё СЂР°СЃС…РѕРґ РґРµРЅРµРі РёРіСЂРѕРєР°.
     /// </summary>
     public class Wallet : MonoBehaviour
     {

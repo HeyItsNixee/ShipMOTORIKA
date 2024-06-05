@@ -3,24 +3,24 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Класс игрока. Переходит между сценами. 
+    /// РљР»Р°СЃСЃ РёРіСЂРѕРєР°. РџРµСЂРµС…РѕРґРёС‚ РјРµР¶РґСѓ СЃС†РµРЅР°РјРё. 
     /// </summary>
     public sealed class Player : SingletonBase<Player>
     {
         /// <summary>
-        /// Корабль игрока в данный момент.
+        /// РљРѕСЂР°Р±Р»СЊ РёРіСЂРѕРєР° РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚.
         /// </summary>
         [SerializeField] private Ship _ship;
         public Ship Ship => _ship;
 
         /// <summary>
-        /// Удочка игрока в данный момент
+        /// РЈРґРѕС‡РєР° РёРіСЂРѕРєР° РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚
         /// </summary>
         [SerializeField] private FishingRod _fishingRod;
         public FishingRod FishingRod=> _fishingRod;
 
         /// <summary>
-        /// Кошелек игрока в данный момент
+        /// РљРѕС€РµР»РµРє РёРіСЂРѕРєР° РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚.
         /// </summary>
         [SerializeField] private Wallet _wallet;
         public Wallet Wallet => _wallet;
