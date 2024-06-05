@@ -5,12 +5,12 @@ using System;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Место, в котором можно ловить рыбу. В данный момент визуально отображается в виде зацикленной анимации пузырьков.
+    /// РњРµСЃС‚Рѕ, РІ РєРѕС‚РѕСЂРѕРј РјРѕР¶РЅРѕ Р»РѕРІРёС‚СЊ СЂС‹Р±Сѓ. РќР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІРёР·СѓР°Р»СЊРЅРѕ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РІ РІРёРґРµ Р·Р°С†РёРєР»РµРЅРЅРѕР№ Р°РЅРёРјР°С†РёРё РїСѓР·С‹СЂСЊРєРѕРІ.
     /// </summary>
     public class FishingPoint : MonoBehaviour
     {
         /// <summary>
-        /// Лист всех экземпляров класса, в который при создании добавляется каждый новый FishingPoint. 
+        /// Р›РёСЃС‚ РІСЃРµС… СЌРєР·РµРјРїР»СЏСЂРѕРІ РєР»Р°СЃСЃР°, РІ РєРѕС‚РѕСЂС‹Р№ РїСЂРё СЃРѕР·РґР°РЅРёРё РґРѕР±Р°РІР»СЏРµС‚СЃСЏ РєР°Р¶РґС‹Р№ РЅРѕРІС‹Р№ FishingPoint. 
         /// </summary>
         private static HashSet<FishingPoint> _allFishingPoints;
         public static IReadOnlyCollection<FishingPoint> AllFishingPoints => _allFishingPoints;
@@ -18,12 +18,12 @@ namespace ShipMotorika
         public static event Action OnFishPointDestroy;
 
         /// <summary>
-        /// В этот массив складываем всю "полезную" рыбу/
+        /// Р’ СЌС‚РѕС‚ РјР°СЃСЃРёРІ СЃРєР»Р°РґС‹РІР°РµРј РІСЃСЋ "РїРѕР»РµР·РЅСѓСЋ" СЂС‹Р±Сѓ/
         /// </summary>
         [SerializeField] private FishAsset[] _fishAssets;  
         
         /// <summary>
-        /// Отдельно выделяем рыбу-пустышку, например "сапог" (специально для Анжелики). Можно расширить до массива отдельного класса НЕрыбы.
+        /// РћС‚РґРµР»СЊРЅРѕ РІС‹РґРµР»СЏРµРј СЂС‹Р±Сѓ-РїСѓСЃС‚С‹С€РєСѓ, РЅР°РїСЂРёРјРµСЂ "СЃР°РїРѕРі" (СЃРїРµС†РёР°Р»СЊРЅРѕ РґР»СЏ РђРЅР¶РµР»РёРєРё). РњРѕР¶РЅРѕ СЂР°СЃС€РёСЂРёС‚СЊ РґРѕ РјР°СЃСЃРёРІР° РѕС‚РґРµР»СЊРЅРѕРіРѕ РєР»Р°СЃСЃР° РќР•СЂС‹Р±С‹.
         /// </summary>
         [SerializeField] private FishAsset _bootAsset;
 
@@ -57,7 +57,7 @@ namespace ShipMotorika
         #endregion
 
         /// <summary>
-        /// Рандомом получает случайный результат в виде полезной рыбы или "сапога".
+        /// Р Р°РЅРґРѕРјРѕРј РїРѕР»СѓС‡Р°РµС‚ СЃР»СѓС‡Р°Р№РЅС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚ РІ РІРёРґРµ РїРѕР»РµР·РЅРѕР№ СЂС‹Р±С‹ РёР»Рё "СЃР°РїРѕРіР°".
         /// </summary>
         /// <param name="success"></param>
         private void ShowCatchedFish(bool success)
@@ -69,7 +69,7 @@ namespace ShipMotorika
                     _fish = Instantiate(_fishPrefab, transform.position, Quaternion.identity);
                     _fish.Sprite.enabled = false; // Attention!
 
-                    // Шанс поймать сапог - 10%.
+                    // РЁР°РЅСЃ РїРѕР№РјР°С‚СЊ СЃР°РїРѕРі - 10%.
                     int random = UnityEngine.Random.Range(0, 10);
                     if (random == 0)
                     {

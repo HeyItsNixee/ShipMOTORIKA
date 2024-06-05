@@ -9,30 +9,30 @@ public class Ship : MonoBehaviour
     [SerializeField] private ShipAsset _asset;
 
     /// <summary>
-    /// Визуальное отображение корабля. В данном случае для удобства не стоит выделять визуальное воплощение и модель в отдельные классы.
+    /// Р’РёР·СѓР°Р»СЊРЅРѕРµ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РєРѕСЂР°Р±Р»СЏ. Р’ РґР°РЅРЅРѕРј СЃР»СѓС‡Р°Рµ РґР»СЏ СѓРґРѕР±СЃС‚РІР° РЅРµ СЃС‚РѕРёС‚ РІС‹РґРµР»СЏС‚СЊ РІРёР·СѓР°Р»СЊРЅРѕРµ РІРѕРїР»РѕС‰РµРЅРёРµ Рё РјРѕРґРµР»СЊ РІ РѕС‚РґРµР»СЊРЅС‹Рµ РєР»Р°СЃСЃС‹.
     /// </summary>
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     /// <summary>
-    /// Название корабля для интерфейса.
+    /// РќР°Р·РІР°РЅРёРµ РєРѕСЂР°Р±Р»СЏ РґР»СЏ РёРЅС‚РµСЂС„РµР№СЃР°.
     /// </summary>
     [SerializeField] private string _name;
     public string Name => _name;
 
     /// <summary>
-    /// Стоимость корабля у торговца.
+    /// РЎС‚РѕРёРјРѕСЃС‚СЊ РєРѕСЂР°Р±Р»СЏ Сѓ С‚РѕСЂРіРѕРІС†Р°.
     /// </summary>
     [SerializeField] private int _cost;
     public int Cost => _cost;
 
     /// <summary>
-    /// Грузоподъемность корабля. Не может быть меньше суммарного веса собранной рыбы.
+    /// Р“СЂСѓР·РѕРїРѕРґСЉРµРјРЅРѕСЃС‚СЊ РєРѕСЂР°Р±Р»СЏ. РќРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ СЃСѓРјРјР°СЂРЅРѕРіРѕ РІРµСЃР° СЃРѕР±СЂР°РЅРЅРѕР№ СЂС‹Р±С‹.
     /// </summary>
     [SerializeField] private int _carryingCapacity;
     public int Carrying => _carryingCapacity;
 
     /// <summary>
-    /// Текущий вес корабля. Сериализованное поле для удобства разработки.
+    /// РўРµРєСѓС‰РёР№ РІРµСЃ РєРѕСЂР°Р±Р»СЏ. РЎРµСЂРёР°Р»РёР·РѕРІР°РЅРЅРѕРµ РїРѕР»Рµ РЅСѓР¶РЅРѕ РґР»СЏ СѓРґРѕР±СЃС‚РІР° СЂР°Р·СЂР°Р±РѕС‚РєРё.
     /// </summary>
     [SerializeField] private int _currentWeight;
     public int CurrentWeight => _currentWeight;
@@ -43,7 +43,7 @@ public class Ship : MonoBehaviour
     }
 
     /// <summary>
-    ///  В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
+    ///  Р’ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р·Р°РґР°РЅРЅРѕРіРѕ ScriptableObject Р·Р°РґР°РµС‚ РїР°СЂР°РјРµС‚СЂС‹ СЌРєР·РµРјРїР»СЏСЂР° РєР»Р°СЃСЃР°.
     /// </summary>
     /// <param name="asset"></param>
     public void Initialize(ShipAsset asset)
@@ -51,11 +51,11 @@ public class Ship : MonoBehaviour
         _spriteRenderer.sprite = asset.Sprite;
         _name = asset.Name;
         _cost = asset.Cost;
-        _carryingCapacity = asset.СarryingCapacity;
+        _carryingCapacity = asset.РЎarryingCapacity;
     }
 
     /// <summary>
-    /// При ловле рыбы будем выполнять данный метод. 
+    /// РџСЂРё Р»РѕРІР»Рµ СЂС‹Р±С‹ Р±СѓРґРµРј РІС‹РїРѕР»РЅСЏС‚СЊ РґР°РЅРЅС‹Р№ РјРµС‚РѕРґ. 
     /// </summary>
     /// <param name="amount"></param>
     public void TryChangeWeightAmount(int amount)

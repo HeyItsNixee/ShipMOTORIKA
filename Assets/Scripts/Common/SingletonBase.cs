@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Базовый скрипт паттерна "Синглтон".
+    /// Р‘Р°Р·РѕРІС‹Р№ СЃРєСЂРёРїС‚ РїР°С‚С‚РµСЂРЅР° "Singleton".
     /// </summary>
     /// <typeparam name="T"></typeparam>
     

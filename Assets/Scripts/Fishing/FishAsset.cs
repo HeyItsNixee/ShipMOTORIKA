@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Скрипт создания различных видов рыбы.
+    /// РЎРєСЂРёРїС‚ СЃРѕР·РґР°РЅРёВ¤ СЂР°Р·РЅС‹С… РІРёРґРѕРІ СЂС‹Р±С‹.
     /// </summary>
     [CreateAssetMenu]
     public class FishAsset : ScriptableObject

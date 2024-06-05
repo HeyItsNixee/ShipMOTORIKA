@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Скрипт создания различных видов удочек.
+    /// РЎРєСЂРёРїС‚ СЃРѕР·РґР°РЅРёВ¤ СЂР°Р·РЅС‹С… РІРёРґРѕРІ СѓРґРѕС‡РµРє.
     /// </summary>
     [CreateAssetMenu]
     public class FishingRodAsset : ScriptableObject

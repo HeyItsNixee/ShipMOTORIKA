@@ -7,37 +7,37 @@ using UnityEditor;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Удочка игрока.
+    /// РЈРґРѕС‡РєР° РёРіСЂРѕРєР°.
     /// </summary>
     public class FishingRod : MonoBehaviour
     {
         [SerializeField] private FishingRodAsset _asset;
 
         /// <summary>
-        /// Название удочки (для магазина).
+        /// РќР°Р·РІР°РЅРёРµ СѓРґРѕС‡РєРё (РґР»СЏ РјР°РіР°Р·РёРЅР°).
         /// </summary>
         [SerializeField] private string _name;
         public string Name => _name;
         
         /// <summary>
-        /// В зависимости от радиуса этого коллайдера зависит расстояние от FishingPlace, на котором можно ловить рыбу.
+        /// Р’ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРё СЃ СЂР°РґРёСѓСЃРѕРј СЌС‚РѕРіРѕ РєРѕР»Р»Р°Р№РґРµСЂР° РјРµРЅСЏРµС‚ СЂР°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ FishingPlace, РЅР° РєРѕС‚РѕСЂРѕРј РјРѕР¶РЅРѕ Р»РѕРІРёС‚СЊ СЂС‹Р±Сѓ.
         /// </summary>
         [SerializeField] private CircleCollider2D _circleCollider;
 
         /// <summary>
-        /// Для удобства радиус можно задавать/смотреть через инспектор.
+        /// Р”Р»СЏ СѓРґРѕР±СЃС‚РІР° СЂР°РґРёСѓСЃ РјРѕР¶РЅРѕ Р·Р°РґР°РІР°С‚СЊ/СЃРјРѕС‚СЂРµС‚СЊ С‡РµСЂРµР· РёРЅСЃРїРµРєС‚РѕСЂ.
         /// </summary>
         [SerializeField] private float _radius;
         public float Radius => _radius;
 
         /// <summary>
-        /// Скорость ловли удочки. Чем выше, тем легче будет проходить мини-игру FishingChallenge.
+        /// РЎРєРѕСЂРѕСЃС‚СЊ Р»РѕРІР»Рё СѓРґРѕС‡РєРё. Р§РµРј РІС‹С€Рµ, С‚РµРј Р»РµРіС‡Рµ Р±СѓРґРµС‚ РїСЂРѕС…РѕРґРёС‚СЊ РјРёРЅРё-РёРіСЂСѓ FishingChallenge.
         /// </summary>
         [SerializeField] private float _speed;
         public float Speed => _speed;
 
         /// <summary>
-        /// Стоимость удочки у торговца.
+        /// РЎС‚РѕРёРјРѕСЃС‚СЊ СѓРґРѕС‡РєРё Сѓ С‚РѕСЂРіРѕРІС†Р°.
         /// </summary>
         [SerializeField] private int _cost;
         public int Cost => _cost;
@@ -59,14 +59,14 @@ namespace ShipMotorika
         }
 
         /// <summary>
-        /// Показываем кнопку, по нажатию которой запустится мини-игра ловли рыбы.
+        /// РџРѕРєР°Р·С‹РІР°РµРј РєРЅРѕРїРєСѓ, РїРѕ РЅР°Р¶Р°С‚РёСЋ РєРѕС‚РѕСЂРѕР№ Р·Р°РїСѓСЃС‚РёС‚СЃСЏ РјРёРЅРё-РёРіСЂР° Р»РѕРІР»Рё СЂС‹Р±С‹.
         /// </summary>
         /// <param name="collision"></param>
-        private void OnTriggerEnter2D(Collider2D collision) // Пере
+        private void OnTriggerEnter2D(Collider2D collision) // РџРµСЂРµ
         {
             if (collision.TryGetComponent<FishingPoint>(out var fishingPoint)) // !!!!!!!!!!!!!!! Enter
             {
-                if (!_isTriggered) // Защита от срабатывания нескольких FishingPoint при попадании в триггер.
+                if (!_isTriggered) // Р—Р°С‰РёС‚Р° РѕС‚ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ РЅРµСЃРєРѕР»СЊРєРёС… FishingPoint РїСЂРё РїРѕРїР°РґР°РЅРёРё РІ С‚СЂРёРіРіРµСЂ.
                 {
                     _isTriggered = true;
                     _activeFishingPoint = fishingPoint;
@@ -77,7 +77,7 @@ namespace ShipMotorika
         }
 
         /// <summary>
-        /// Перестаем показывать кнопку, по нажатию которой запустится мини-игра ловли рыбы.
+        /// РџРµСЂРµСЃС‚Р°РµРј РїРѕРєР°Р·С‹РІР°С‚СЊ РєРЅРѕРїРєСѓ, РїРѕ РЅР°Р¶Р°С‚РёСЋ РєРѕС‚РѕСЂРѕР№ Р·Р°РїСѓСЃС‚РёС‚СЃСЏ РјРёРЅРё-РёРіСЂР° Р»РѕРІР»Рё СЂС‹Р±С‹.
         /// </summary>
         /// <param name="collision"></param>
         private void OnTriggerExit2D(Collider2D collision) 
@@ -96,7 +96,7 @@ namespace ShipMotorika
 
 #if UNITY_EDITOR
         /// <summary>
-        /// Для удобства Помогает отобразить радиус действия удочки на сцене.
+        /// Р”Р»СЏ СѓРґРѕР±СЃС‚РІР° РџРѕРјРѕРіР°РµС‚ РѕС‚РѕР±СЂР°Р·РёС‚СЊ СЂР°РґРёСѓСЃ РґРµР№СЃС‚РІРёСЏ СѓРґРѕС‡РєРё РЅР° СЃС†РµРЅРµ.
         /// </summary>
         private void OnDrawGizmosSelected()
         {
@@ -107,7 +107,7 @@ namespace ShipMotorika
         #endregion
 
         /// <summary>
-        /// Дополнительная проверка на рыбу вокруг. На случай, если в радиусе действия было несколько точек рыбы, и сработала защита OnTriggerEnter.
+        /// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР° РЅР° СЂС‹Р±Сѓ РІРѕРєСЂСѓРі. РќР° СЃР»СѓС‡Р°Р№, РµСЃР»Рё РІ СЂР°РґРёСѓСЃРµ РґРµР№СЃС‚РІРёСЏ Р±С‹Р»Рѕ РЅРµСЃРєРѕР»СЊРєРѕ С‚РѕС‡РµРє СЂС‹Р±С‹, Рё СЃСЂР°Р±РѕС‚Р°Р»Р° Р·Р°С‰РёС‚Р° OnTriggerEnter.
         /// </summary>
         private void FindFishNearby()
         {
@@ -132,7 +132,7 @@ namespace ShipMotorika
         }
 
         /// <summary>
-        /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
+        /// Р’ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р·Р°РґР°РЅРЅРѕРіРѕ ScriptableObject Р·Р°РґР°РµС‚ РїР°СЂР°РјРµС‚СЂС‹ СЌРєР·РµРјРїР»СЏСЂР° РєР»Р°СЃСЃР°.
         /// </summary>
         /// <param name="asset"></param>
         public void Initialize(FishingRodAsset asset)
@@ -146,7 +146,7 @@ namespace ShipMotorika
         }
 
         /// <summary>
-        /// Сохраняет информацию о последней пойманной рыбе.
+        /// РЎРѕС…СЂР°РЅСЏРµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїРѕСЃР»РµРґРЅРµР№ РїРѕР№РјР°РЅРЅРѕР№ СЂС‹Р±Рµ.
         /// </summary>
         /// <param name="fish"></param>
         public void AssignFish(Fish fish)
@@ -155,7 +155,7 @@ namespace ShipMotorika
         }
 
         /// <summary>
-        /// Добавляет вес пойманной рыбы к текущему весу корабля.
+        /// Р”РѕР±Р°РІР»СЏРµС‚ РІРµСЃ РїРѕР№РјР°РЅРЅРѕР№ СЂС‹Р±С‹ Рє С‚РµРєСѓС‰РµРјСѓ РІРµСЃСѓ РєРѕСЂР°Р±Р»СЏ.
         /// </summary>
         public void TryPutFishInShip()
         {

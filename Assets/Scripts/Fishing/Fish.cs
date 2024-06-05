@@ -3,36 +3,36 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Название говорит само за себя. Рыба.
+    /// РќР°Р·РІР°РЅРёРµ РіРѕРІРѕСЂРёС‚ СЃР°РјРѕ Р·Р° СЃРµР±СЏ - СЂС‹Р±Р°.
     /// </summary>
     public class Fish : MonoBehaviour
     {
         /// <summary>
-        /// Визуальное отображение рыбы в интерфейсе
+        /// Р’РёР·СѓР°Р»СЊРЅРѕРµ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СЂС‹Р±С‹ РІ РёРЅС‚РµСЂС„РµР№СЃРµ
         /// </summary>
         [SerializeField] private SpriteRenderer _sprite;
         public SpriteRenderer Sprite => _sprite;
 
         /// <summary>
-        /// Название рыбы. Для элементов интерфейса.
+        /// РќР°Р·РІР°РЅРёРµ СЂС‹Р±С‹. Р”Р»СЏ СЌР»РµРјРµРЅС‚РѕРІ РёРЅС‚РµСЂС„РµР№СЃР°.
         /// </summary>
         [SerializeField] private string _name;
         public string Name => _name;
 
         /// <summary>
-        /// Стоимость рыбы при продаже
+        /// РЎС‚РѕРёРјРѕСЃС‚СЊ СЂС‹Р±С‹ РїСЂРё РїСЂРѕРґР°Р¶Рµ
         /// </summary>
         private int _cost;
         public int Cost => _cost;
 
         /// <summary>
-        /// Вес пойманной рыбы. Суммарный вес всей пойманной рыбы не может превышать грузоподъемность корабля.
+        /// Р’РµСЃ РїРѕР№РјР°РЅРЅРѕР№ СЂС‹Р±С‹. РЎСѓРјРјР°СЂРЅС‹Р№ РІРµСЃ РІСЃРµР№ РїРѕР№РјР°РЅРЅРѕР№ СЂС‹Р±С‹ РЅРµ РјРѕР¶РµС‚ РїСЂРµРІС‹С€Р°С‚СЊ РіСЂСѓР·РѕРїРѕРґСЉРµРјРЅРѕСЃС‚СЊ РєРѕСЂР°Р±Р»СЏ.
         /// </summary>
         private int _weight;
         public int Weight => _weight;   
 
         /// <summary>
-        /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
+        /// Р’ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р·Р°РґР°РЅРЅРѕРіРѕ ScriptableObject Р·Р°РґР°РµС‚ РїР°СЂР°РјРµС‚СЂС‹ СЌРєР·РµРјРїР»СЏСЂР° РєР»Р°СЃСЃР°.
         /// </summary>
         /// <param name="asset"></param>
         public void Initialize(FishAsset asset)
