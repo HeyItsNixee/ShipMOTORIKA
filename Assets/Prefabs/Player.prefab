@@ -33,7 +33,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3067255447381551703}
-  - {fileID: 3634995829111953289}
   - {fileID: 3045613347816503152}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -85,6 +84,7 @@ MonoBehaviour:
   _ship: {fileID: 1434197665525960520}
   _fishingRod: {fileID: 8438608577399586215}
   _wallet: {fileID: 3942776053182145360}
+  _playerController: {fileID: 2755816846443345005}
 --- !u!1 &2839814240298065701
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 459727197338660011}
+  m_Father: {fileID: 3067255447381551703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &9068148257019758242
 CircleCollider2D:
@@ -298,7 +298,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7365548174058833163, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3634995829111953289}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
 --- !u!114 &1434197665525960520 stripped

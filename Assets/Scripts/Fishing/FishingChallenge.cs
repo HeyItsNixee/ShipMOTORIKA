@@ -121,6 +121,8 @@ namespace ShipMotorika
 
             _canvas.gameObject.SetActive(true);           
             enabled = true;
+
+            //Player.Instance.PlayerController.enabled = false; //Нужно ли отбирать управление у игрока во время ловли?
         }
 
         /// <summary>
@@ -131,6 +133,8 @@ namespace ShipMotorika
             RestoreParametrs();
             _canvas.gameObject.SetActive(false);
             OnDisable?.Invoke();
+
+            //Player.Instance.PlayerController.enabled = true; //Нужно ли отбирать управление у игрока во время ловли?
         }
 
         /// <summary>

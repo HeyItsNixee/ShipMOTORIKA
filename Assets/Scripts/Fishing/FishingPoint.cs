@@ -35,7 +35,7 @@ namespace ShipMotorika
 
         private bool _isActive = false; 
 
-        #region UnityEvents
+        #region UnityEvents      
         private void Start()
         {
             _spriteRenderer.enabled = true;
