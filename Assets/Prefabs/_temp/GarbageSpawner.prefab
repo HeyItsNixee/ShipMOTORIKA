@@ -48,7 +48,7 @@ MonoBehaviour:
   _spawnMode: 0
   _prefab: {fileID: 1377242586107276752, guid: b982ad705ef5769408211703c1b2e16c, type: 3}
   _area: {fileID: 2358221928800886120}
-  _isTurnedToRandomAngle: 1
+  _entityIsTurnedToRandomAngle: 0
   _respawnTime: 0
   _numSpawns: 3
 --- !u!114 &2358221928800886120
@@ -64,4 +64,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 10
-  _color: {r: 0.8301887, g: 0.16055535, b: 0.16055535, a: 0.09803922}
+  _color: {r: 0.83137256, g: 0.1607843, b: 0.6516446, a: 0.09803922}

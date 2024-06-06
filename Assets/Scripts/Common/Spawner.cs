@@ -20,7 +20,7 @@ namespace ShipMotorika
         [SerializeField] private SpawnMode _spawnMode;
         [SerializeField] private GameObject _prefab;
         [SerializeField] private CircleArea _area;
-        [SerializeField] private bool _isTurnedToRandomAngle;
+        [SerializeField] private bool _entityIsTurnedToRandomAngle;
         [SerializeField] private float _respawnTime;
         [SerializeField] protected int _numSpawns;
 
@@ -111,7 +111,7 @@ namespace ShipMotorika
 
                     entity.transform.position = _area.GetRandomInsideZone();
 
-                    if (_isTurnedToRandomAngle)
+                    if (_entityIsTurnedToRandomAngle)
                     {
                         entity.transform.rotation = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.forward);
                     }
