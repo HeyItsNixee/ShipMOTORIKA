@@ -28,13 +28,13 @@ namespace ShipMotorika
         /// <summary>
         /// Стоимость рыбы при продаже
         /// </summary>
-        private int _cost;
+        [SerializeField] private int _cost;
         public int Cost => _cost;
 
         /// <summary>
         /// Вес пойманной рыбы. Суммарный вес всей пойманной рыбы не может превышать грузоподъемность корабля.
         /// </summary>
-        private int _weight;
+        [SerializeField] private int _weight;
         public int Weight => _weight;   
 
         /// <summary>
