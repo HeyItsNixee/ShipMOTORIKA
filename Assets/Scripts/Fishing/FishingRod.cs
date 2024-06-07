@@ -48,13 +48,20 @@ namespace ShipMotorika
         [SerializeField] private int _cost;
         public int Cost => _cost;
 
+        /// <summary>
+        /// Та FishingPoint, в которой игрок ловит рыбу в данный момент.
+        /// </summary>
         private FishingPoint _activeFishingPoint;
         public FishingPoint FishingPoint => _activeFishingPoint;
 
-        public event Action<bool> OnFishingPlaceNearby;
-
+        /// <summary>
+        /// Пойманная рыба.
+        /// </summary>
         private Fish _сaughtFish = null;
         public Fish CaughtFish => _сaughtFish;
+
+        public event Action<bool> OnFishingPlaceNearby;
+        public event Action OnFishAssigned;
 
         private bool _isTriggered = false;
 
@@ -159,6 +166,8 @@ namespace ShipMotorika
         public void AssignFish(Fish fish)
         {
             _сaughtFish = fish;
+
+            OnFishAssigned?.Invoke();
         }
 
         /// <summary>
