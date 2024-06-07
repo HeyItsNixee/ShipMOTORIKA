@@ -20,6 +20,12 @@ namespace ShipMotorika
         public string Name => _name;
 
         /// <summary>
+        /// Описание рыбы для записей в коллекцию.
+        /// </summary>
+        [SerializeField] private string _description;
+        public string Description => _description;
+
+        /// <summary>
         /// Стоимость рыбы при продаже
         /// </summary>
         private int _cost;
@@ -39,6 +45,7 @@ namespace ShipMotorika
         {
             _sprite.sprite = asset.Sprite;
             _name = asset.Name; 
+            _description = asset.Description;
             _cost = asset.Cost;
             _weight = asset.Weight;
         }

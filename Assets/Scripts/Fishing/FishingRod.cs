@@ -18,6 +18,12 @@ namespace ShipMotorika
         /// </summary>
         [SerializeField] private string _name;
         public string Name => _name;
+
+        /// <summary>
+        /// Описание удочки для торговца.
+        /// </summary>
+        [SerializeField] private string _description;
+        public string Description => _description;
         
         /// <summary>
         /// В соответствии с радиусом этого коллайдера меняет расстояние от FishingPlace, на котором можно ловить рыбу.
@@ -138,6 +144,7 @@ namespace ShipMotorika
         public void Initialize(FishingRodAsset asset)
         {
             _name = asset.Name; 
+            _description = asset.Description;
             _speed = asset.Speed;
             _radius = asset.Radius;
             _cost = asset.Cost;

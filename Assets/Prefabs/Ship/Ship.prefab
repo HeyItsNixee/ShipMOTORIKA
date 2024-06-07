@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8673847770909689051}
   - component: {fileID: 7311552747972478903}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,6 +199,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 7352345480962614037}
+  _asset: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
+  _name: 
+  _cost: 0
+  _carryingCapacity: 0
+  _currentWeight: 0
 --- !u!50 &7352345480962614037
 Rigidbody2D:
   serializedVersion: 4

@@ -121,6 +121,9 @@ namespace ShipMotorika
 
             _canvas.gameObject.SetActive(true);           
             enabled = true;
+
+            Player.Instance.PlayerController.enabled = false;
+            Player.Instance.PlayerController.Stop();
         }
 
         /// <summary>
@@ -131,6 +134,8 @@ namespace ShipMotorika
             RestoreParametrs();
             _canvas.gameObject.SetActive(false);
             OnDisable?.Invoke();
+
+            Player.Instance.PlayerController.enabled = true;
         }
 
         /// <summary>

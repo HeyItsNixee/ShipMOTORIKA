@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1477736400154988045
+--- !u!1 &6687485464795157310
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5933997266481362402}
-  - component: {fileID: 7283290119477300239}
-  - component: {fileID: 7913660929199003820}
+  - component: {fileID: 3992070921334683655}
+  - component: {fileID: 680754810060687639}
+  - component: {fileID: 2358221928800886120}
   m_Layer: 0
-  m_Name: FishSpawner
+  m_Name: GarbageSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5933997266481362402
+--- !u!4 &3992070921334683655
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477736400154988045}
+  m_GameObject: {fileID: 6687485464795157310}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,36 +33,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7283290119477300239
+--- !u!114 &680754810060687639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477736400154988045}
+  m_GameObject: {fileID: 6687485464795157310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d370a3c079dda914bbdd32837b4b604e, type: 3}
+  m_Script: {fileID: 11500000, guid: 105dd5f78931c444eb4b3e8cf0959cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnMode: 0
-  _prefab: {fileID: 7788168221812545883, guid: 7418af5ff6d345246bbe323c3c0c6d58, type: 3}
-  _area: {fileID: 7913660929199003820}
-  _isTurnedToRandomAngle: 1
-  _respawnTime: 5
-  _numSpawns: 2
-  _isConstantAmount: 1
---- !u!114 &7913660929199003820
+  _prefab: {fileID: 1377242586107276752, guid: b982ad705ef5769408211703c1b2e16c, type: 3}
+  _area: {fileID: 2358221928800886120}
+  _entityIsTurnedToRandomAngle: 0
+  _respawnTime: 0
+  _numSpawns: 3
+--- !u!114 &2358221928800886120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477736400154988045}
+  m_GameObject: {fileID: 6687485464795157310}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5243be8c0ca543940a8f951909d4bd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 10
-  _color: {r: 0.8301887, g: 0.16055535, b: 0.16055535, a: 0.09803922}
+  _color: {r: 0.83137256, g: 0.1607843, b: 0.6516446, a: 0.09803922}

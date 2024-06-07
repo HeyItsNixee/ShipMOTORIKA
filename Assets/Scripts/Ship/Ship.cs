@@ -20,6 +20,12 @@ public class Ship : MonoBehaviour
     public string Name => _name;
 
     /// <summary>
+    /// Художественное описание корабля. 
+    /// </summary>
+    [SerializeField] private string _description;
+    public string Description => _description;
+
+    /// <summary>
     /// Стоимость корабля у торговца.
     /// </summary>
     [SerializeField] private int _cost;
@@ -50,6 +56,7 @@ public class Ship : MonoBehaviour
     {
         _spriteRenderer.sprite = asset.Sprite;
         _name = asset.Name;
+        _description = asset.Description;
         _cost = asset.Cost;
         _carryingCapacity = asset.СarryingCapacity;
     }

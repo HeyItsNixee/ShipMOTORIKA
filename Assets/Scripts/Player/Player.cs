@@ -24,5 +24,11 @@ namespace ShipMotorika
         /// </summary>
         [SerializeField] private Wallet _wallet;
         public Wallet Wallet => _wallet;
+
+        /// <summary>
+        /// Управление кораблем.
+        /// </summary>
+        [SerializeField] private PlayerController _playerController;
+        public PlayerController PlayerController => _playerController;
     }
 }

@@ -1,5 +1,3 @@
-using System;
-using Unity.Collections;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
@@ -86,5 +84,10 @@ public class PlayerController : Singleton<PlayerController>
 
         if (Mathf.Abs(playerShip.Rigidbody.angularVelocity) >= maxAngularVelocity)
             playerShip.Rigidbody.angularVelocity = maxAngularVelocity * Mathf.Sign(playerShip.Rigidbody.angularVelocity);
+    }
+
+    public void Stop()
+    {
+        playerShip.Rigidbody.velocity = Vector2.zero;
     }
 }
