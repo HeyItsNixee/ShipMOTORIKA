@@ -53,8 +53,8 @@ namespace ShipMotorika
 
         public event Action<bool> OnFishingPlaceNearby;
 
-        private Fish _lastCaughtFish = null;
-        public Fish LastCaughtFish => _lastCaughtFish;
+        private Fish _сaughtFish = null;
+        public Fish CaughtFish => _сaughtFish;
 
         private bool _isTriggered = false;
 
@@ -158,7 +158,7 @@ namespace ShipMotorika
         /// <param name="fish"></param>
         public void AssignFish(Fish fish)
         {
-            _lastCaughtFish = fish;
+            _сaughtFish = fish;
         }
 
         /// <summary>
@@ -166,9 +166,9 @@ namespace ShipMotorika
         /// </summary>
         public void TryPutFishInShip()
         {
-            if (_lastCaughtFish != null)
+            if (_сaughtFish != null)
             {
-                Player.Instance.Ship.TryChangeWeightAmount(_lastCaughtFish.Weight);
+                Player.Instance.Ship.TryChangeWeightAmount(_сaughtFish.Weight);
             }
         }
     }

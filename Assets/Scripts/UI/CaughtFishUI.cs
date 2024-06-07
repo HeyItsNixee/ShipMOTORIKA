@@ -58,13 +58,13 @@ namespace ShipMotorika
             if (success)
             {
                 _canvasPanel.SetActive(true);
-                _image.enabled = true;
-                if (Player.Instance.FishingRod.LastCaughtFish != null)
+
+                if (Player.Instance.FishingRod.CaughtFish != null)
                 {
-                    _image.sprite = Player.Instance.FishingRod.LastCaughtFish.Sprite.sprite;
+                    _image.sprite = Player.Instance.FishingRod.CaughtFish.Sprite.sprite;
                     _image.SetNativeSize(); // Attention! Only for Debug!
                 }
-            }
+            } 
         }
     }
 }
