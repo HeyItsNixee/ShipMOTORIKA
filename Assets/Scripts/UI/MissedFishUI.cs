@@ -32,7 +32,6 @@ namespace ShipMotorika
         {
             _canvasPanel.SetActive(false);
 
-            Player.Instance.FishingRod.AssignFish(null);
             FishingChallenge.Instance.Deactivate();
         }
 

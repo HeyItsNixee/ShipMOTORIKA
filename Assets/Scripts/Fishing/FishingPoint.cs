@@ -68,10 +68,8 @@ namespace ShipMotorika
                 {
                     _fish = Instantiate(_fishPrefab, transform.position, Quaternion.identity);
                     _fish.Sprite.enabled = false; // Attention!
-
-                    // Шанс поймать сапог - 10%.
-                    int random = UnityEngine.Random.Range(0, 10);
-                    if (random == 0)
+                    
+                    if (DropProbability.Value <= 10) // Шанс поймать сапог - 10%.
                     {
                         _fish.Initialize(_bootAsset);
                     }

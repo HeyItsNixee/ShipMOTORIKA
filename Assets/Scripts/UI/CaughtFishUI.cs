@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace ShipMotorika
 {
@@ -20,14 +21,16 @@ namespace ShipMotorika
 
             _accept.onClick.AddListener(DoOnAccept);
             _decline.onClick.AddListener(DoOnDecline);
-            FishingChallenge.Instance.OnTryCatchFish += DoOnTryCatchFish;
+            FishingChallenge.Instance.OnTryCatchFish += ActivatePanel;
+            Player.Instance.FishingRod.OnFishAssigned += SetFishImage;
         }
 
         private void OnDestroy()
         {
             _accept.onClick.RemoveListener(DoOnAccept);
             _decline.onClick.RemoveListener(DoOnDecline);
-            FishingChallenge.Instance.OnTryCatchFish -= DoOnTryCatchFish;
+            FishingChallenge.Instance.OnTryCatchFish -= ActivatePanel;
+            Player.Instance.FishingRod.OnFishAssigned -= SetFishImage;
         }
         #endregion
 
@@ -53,17 +56,20 @@ namespace ShipMotorika
             FishingChallenge.Instance.Deactivate();
         }
 
-        private void DoOnTryCatchFish(bool success)
+        private void ActivatePanel(bool success)
         {
             if (success)
             {
                 _canvasPanel.SetActive(true);
-                _image.enabled = true;
-                if (Player.Instance.FishingRod.LastCaughtFish != null)
-                {
-                    _image.sprite = Player.Instance.FishingRod.LastCaughtFish.Sprite.sprite;
-                    _image.SetNativeSize(); // Attention! Only for Debug!
-                }
+            }
+        }
+
+        private void SetFishImage()
+        {
+            if (Player.Instance.FishingRod.CaughtFish != null)
+            {
+                _image.sprite = Player.Instance.FishingRod.CaughtFish.Sprite.sprite;
+                _image.SetNativeSize(); // Attention! Only for Debug!
             }
         }
     }

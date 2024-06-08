@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -48,13 +50,20 @@ namespace ShipMotorika
         [SerializeField] private int _cost;
         public int Cost => _cost;
 
+        /// <summary>
+        /// Та FishingPoint, в которой игрок ловит рыбу в данный момент.
+        /// </summary>
         private FishingPoint _activeFishingPoint;
         public FishingPoint FishingPoint => _activeFishingPoint;
 
-        public event Action<bool> OnFishingPlaceNearby;
+        /// <summary>
+        /// Пойманная рыба.
+        /// </summary>
+        private Fish _сaughtFish = null;
+        public Fish CaughtFish => _сaughtFish;
 
-        private Fish _lastCaughtFish = null;
-        public Fish LastCaughtFish => _lastCaughtFish;
+        public event Action<bool> OnFishingPlaceNearby;
+        public event Action OnFishAssigned;
 
         private bool _isTriggered = false;
 
@@ -121,17 +130,38 @@ namespace ShipMotorika
 
             if (hits.Length > 0)
             {
-                foreach (Collider2D hit in hits)
+                List<FishingPoint> fishingPoints = new ();
+                
+                foreach (var hit in hits)
                 {
-                    if (hit.TryGetComponent<FishingPoint>(out var fishingPoint))
+                    if (hit.gameObject.TryGetComponent<FishingPoint>(out var point))
                     {
-                        if (!_isTriggered)
-                        {
-                            _isTriggered = true;
-                            _activeFishingPoint = fishingPoint;
-                            _activeFishingPoint.SetActive(true);
-                            OnFishingPlaceNearby(true);
-                        }
+                        fishingPoints.Add(point);
+                    }
+                }
+
+                FishingPoint closestFishingPoint = null;
+                float minDistance = Mathf.Infinity;
+
+                foreach (var fishingPoint in fishingPoints)
+                {                   
+                    float distance = Vector2.Distance(transform.position, fishingPoint.transform.position);
+                    
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        closestFishingPoint = fishingPoint;
+                    }
+                }
+
+                if (closestFishingPoint != null)
+                {
+                    if (!_isTriggered)
+                    {
+                        _isTriggered = true;
+                        _activeFishingPoint = closestFishingPoint;
+                        _activeFishingPoint.SetActive(true);
+                        OnFishingPlaceNearby(true);
                     }
                 }
             }
@@ -158,7 +188,9 @@ namespace ShipMotorika
         /// <param name="fish"></param>
         public void AssignFish(Fish fish)
         {
-            _lastCaughtFish = fish;
+            _сaughtFish = fish;
+
+            OnFishAssigned?.Invoke();
         }
 
         /// <summary>
@@ -166,9 +198,9 @@ namespace ShipMotorika
         /// </summary>
         public void TryPutFishInShip()
         {
-            if (_lastCaughtFish != null)
+            if (_сaughtFish != null)
             {
-                Player.Instance.Ship.TryChangeWeightAmount(_lastCaughtFish.Weight);
+                Player.Instance.Ship.TryChangeWeightAmount(_сaughtFish.Weight);
             }
         }
     }
