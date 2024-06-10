@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +26,7 @@ namespace ShipMotorika
         [Header("Dependent components")]
         [SerializeField] private CaughtFishUI _caughtFishUI;
         [SerializeField] private MissedFishUI _missedFishUI;
+        [SerializeField] private MarketUI _marketUI;
 
         [Header("Action assets")]
         [SerializeField] private ActionButtonAsset _none;
@@ -41,12 +41,14 @@ namespace ShipMotorika
 
             _button.onClick.AddListener(DoAction);
             Player.Instance.FishingRod.OnFishingPlaceNearby += DoOnFishingPlaceNearby;
+            Player.Instance.Ship.OnMarketNearby += DoOnMarketNearby;
         }
 
         private void OnDestroy()
         {
             _button.onClick.RemoveListener(DoAction);         
             Player.Instance.FishingRod.OnFishingPlaceNearby -= DoOnFishingPlaceNearby;
+            Player.Instance.Ship.OnMarketNearby -= DoOnMarketNearby;
         }
         #endregion
 
@@ -110,6 +112,7 @@ namespace ShipMotorika
 
                 case ActionType.Market:
                     
+                    _marketUI.OpenMarket();
                     break;
             }
         }

@@ -30,5 +30,17 @@ namespace ShipMotorika
         /// </summary>
         [SerializeField] private PlayerController _playerController;
         public PlayerController PlayerController => _playerController;
+        
+        public void GiveControlsToPlayer()
+        {
+            _playerController.enabled = true;
+            _playerController.AllowMovement();
+        }
+        
+        public void TakeControlsFromPlayer()
+        {
+            _playerController.ProhibitMovement();
+            _playerController.enabled = false;
+        }
     }
 }
