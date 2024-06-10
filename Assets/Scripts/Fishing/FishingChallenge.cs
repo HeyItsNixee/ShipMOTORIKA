@@ -31,7 +31,8 @@ namespace ShipMotorika
 
         private bool _isLooped;
 
-        public event Action<bool> OnTryCatchFish;
+        public event Action<bool> OnTryCatchFish;  
+        public event Action OnEnable;
         public event Action OnDisable;
 
         #region UnityEvents
@@ -121,6 +122,7 @@ namespace ShipMotorika
 
             _canvas.gameObject.SetActive(true);           
             enabled = true;
+            OnEnable?.Invoke();
 
             Player.Instance.PlayerController.ProhibitMovement();
             Player.Instance.PlayerController.enabled = false;
