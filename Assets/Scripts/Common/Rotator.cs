@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Вращает объект вокруг своей оси.
+    /// Р’СЂР°С‰Р°РµС‚ РѕР±СЉРµРєС‚ РІРѕРєСЂСѓРі СЃРІРѕРµР№ РѕСЃРё.
     /// </summary>
     public class Rotator : MonoBehaviour
     {
