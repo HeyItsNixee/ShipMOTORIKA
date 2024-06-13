@@ -19,12 +19,25 @@ namespace ShipMotorika
             }
         }
 
+        //private void OnTriggerStay2D(Collider2D collision) // Для дебага.
+        //{
+        //    if (collision == _player)
+        //    {
+        //        Player.Instance.Ship.SendShopMessage(true);
+        //    }
+        //}
+
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision == _player) // Временное решение.
             {
                 _player = null;
-                Player.Instance.Ship.SendShopMessage(false);
+                
+                if (Player.Instance) // Вариант решения ошибки NullReference.
+                {
+                    Player.Instance.Ship.SendShopMessage(false);
+                }
+                //Player.Instance.Ship.SendShopMessage(false);
             }
         }
         #endregion

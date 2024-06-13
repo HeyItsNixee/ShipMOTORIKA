@@ -98,6 +98,10 @@ public class Ship : MonoBehaviour
         OnMarketNearby(value);
     }
 
+    /// <summary>
+    /// Сообщает о том, что корабль вблизи магазина.
+    /// </summary>
+    /// <param name="value"></param>
     public void SendShopMessage(bool value)
     {
         OnShopNearby(value);
