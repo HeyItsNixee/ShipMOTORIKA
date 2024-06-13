@@ -202,9 +202,11 @@ MonoBehaviour:
   _asset: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   _name: 
+  _description: 
   _cost: 0
   _carryingCapacity: 0
   _currentWeight: 0
+  _fishContainer: {fileID: 0}
 --- !u!50 &7352345480962614037
 Rigidbody2D:
   serializedVersion: 4

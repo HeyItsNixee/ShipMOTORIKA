@@ -77,9 +77,9 @@ namespace ShipMotorika
         /// Показываем кнопку, по нажатию которой запустится мини-игра ловли рыбы.
         /// </summary>
         /// <param name="collision"></param>
-        private void OnTriggerEnter2D(Collider2D collision) // Пере
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint)) // !!!!!!!!!!!!!!! Enter
+            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint)) 
             {
                 if (!_isTriggered) // Защита от срабатывания нескольких FishingPoint при попадании в триггер.
                 {
@@ -200,7 +200,8 @@ namespace ShipMotorika
         {
             if (_сaughtFish != null)
             {
-                Player.Instance.Ship.TryChangeWeightAmount(_сaughtFish.Weight);
+                Player.Instance.Ship.FishContainer.ChangeWeightAmount(_сaughtFish.Weight);
+                Player.Instance.Ship.FishContainer.ChangeCostAmount(_сaughtFish.Cost);
             }
         }
     }

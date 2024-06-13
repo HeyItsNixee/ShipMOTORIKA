@@ -27,32 +27,37 @@ namespace ShipMotorika
         /// </summary>
         [SerializeField] private FishAsset _bootAsset;
 
+        [Header("Dependent components")]
         [SerializeField] private Fish _fishPrefab;
-
-        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private GameObject _bubbles;
+        [SerializeField] private SpriteRenderer _circleOfFish;
+        [SerializeField] private Rotator _rotation;
 
         private Fish _fish;
-
         private bool _isActive = false; 
 
         #region UnityEvents      
         private void Start()
         {
-            _spriteRenderer.enabled = true;
+            _bubbles.gameObject.SetActive(false);        
+            _circleOfFish.enabled = true;
+            _rotation.enabled = true;
 
             if (_allFishingPoints == null)
             {
                 _allFishingPoints = new HashSet<FishingPoint>();
             }
 
-            _allFishingPoints.Add(this);
+            _allFishingPoints.Add(this);          
             
+            FishingChallenge.Instance.OnEnable += SetBubblesAnimationActive;
             FishingChallenge.Instance.OnTryCatchFish += ShowCatchedFish;
         }
 
         private void OnDestroy()
-        {        
-            FishingChallenge.Instance.OnTryCatchFish -= ShowCatchedFish;
+        {
+            FishingChallenge.Instance.OnEnable -= SetBubblesAnimationActive;
+            FishingChallenge.Instance.OnTryCatchFish -= ShowCatchedFish;       
         }
         #endregion
 
@@ -104,6 +109,16 @@ namespace ShipMotorika
             OnFishPointDestroy?.Invoke();
 
             Destroy(gameObject);          
+        }
+
+        private void SetBubblesAnimationActive()
+        {
+            if (_isActive)
+            {
+                _bubbles.gameObject.SetActive(true);
+                _circleOfFish.enabled = false;
+                _rotation.enabled = false;
+            }
         }
 
         public void SetActive(bool value)

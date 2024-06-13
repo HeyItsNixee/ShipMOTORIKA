@@ -1,5 +1,6 @@
 using ShipMotorika;
 using UnityEngine;
+using System;
 
 public class Ship : MonoBehaviour
 {
@@ -43,10 +44,27 @@ public class Ship : MonoBehaviour
     [SerializeField] private int _currentWeight;
     public int CurrentWeight => _currentWeight;
 
+    /// <summary>
+    /// Отсек для хранения рыбы.
+    /// </summary>
+    [SerializeField] private FishContainer _fishContainer;
+    public FishContainer FishContainer => _fishContainer;
+
+    public event Action<bool> OnMarketNearby;
+
+    #region UnityEvents
     private void Start()
     {
         Initialize(_asset);
+
+        _fishContainer.OnFishCaught += TryChangeWeightAmount;
     }
+
+    private void OnDestroy()
+    {
+        _fishContainer.OnFishCaught -= TryChangeWeightAmount;
+    }
+    #endregion
 
     /// <summary>
     ///  В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
@@ -62,9 +80,14 @@ public class Ship : MonoBehaviour
     }
 
     /// <summary>
-    /// При ловле рыбы будем выполнять данный метод. 
+    /// Сообщает о том, что корабль вблизи рынка.
     /// </summary>
-    /// <param name="amount"></param>
+    /// <param name="value"></param>
+    public void SendMarketMessage(bool value)
+    {
+        OnMarketNearby(value);
+    }
+
     public void TryChangeWeightAmount(int amount)
     {
         int currentWeight = _currentWeight + amount;

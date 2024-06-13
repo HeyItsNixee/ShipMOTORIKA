@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 namespace ShipMotorika
 {
@@ -17,7 +18,9 @@ namespace ShipMotorika
         /// Суммарна¤ стоимость пойманной рыбы.
         /// </summary>
         [SerializeField] private int _totalFishCost;
-        private int Cost => _totalFishCost;
+        public int Cost => _totalFishCost;
+      
+        public event Action<int> OnFishCaught;
 
         public void ChangeWeightAmount(int amount)
         {
@@ -27,6 +30,8 @@ namespace ShipMotorika
             {
                 _totalFishWeight = 0;
             }
+
+            OnFishCaught(amount);
         }
 
         public void ChangeCostAmount(int amount)
@@ -37,6 +42,12 @@ namespace ShipMotorika
             {
                 _totalFishCost = 0;
             }
+        }
+
+        public void ClearContainer()
+        {
+            _totalFishWeight = 0;
+            _totalFishCost = 0;
         }
     }
 }

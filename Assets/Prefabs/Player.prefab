@@ -245,10 +245,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shape
       objectReference: {fileID: 0}
+    - target: {fileID: 6808764081700712591, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6864031961851912212, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
       propertyPath: _asset
       value: 
       objectReference: {fileID: 11400000, guid: c45ce920133014a499b980edccd32f58, type: 2}
+    - target: {fileID: 6864031961851912212, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: _fishContainer
+      value: 
+      objectReference: {fileID: 5012755600077969944}
     - target: {fileID: 6864031961851912212, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
       propertyPath: _spriteRenderer
       value: 
