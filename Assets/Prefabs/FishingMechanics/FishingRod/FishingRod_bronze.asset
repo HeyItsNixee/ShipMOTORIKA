@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: 34ec2b725bcc23b408ce527bd7bd5694, type: 3}
   Name: "\u0411\u0440\u043E\u043D\u0437\u043E\u0432\u0430\u044F \u0443\u0434\u043E\u0447\u043A\u0430"
+  Description: "\u0411\u043B\u0430-\u0431\u043B\u0430-\u0431\u043B\u0430"
   Radius: 1
   Speed: 1
   Cost: 100
