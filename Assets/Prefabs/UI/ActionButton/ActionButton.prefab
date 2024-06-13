@@ -184,10 +184,14 @@ MonoBehaviour:
   _image: {fileID: 2371123326435683582}
   _text: {fileID: 5831197639497670725}
   _caughtFishUI: {fileID: 0}
+  _missedFishUI: {fileID: 0}
+  _marketUI: {fileID: 0}
+  _shopUI: {fileID: 0}
   _none: {fileID: 11400000, guid: aa06a85530636eb43a1d38a71aa572e2, type: 2}
   _fishingChallenge: {fileID: 11400000, guid: 1ac3583b154262840bf76a25d26162dc, type: 2}
   _catchFish: {fileID: 11400000, guid: a267217dd1c4c3043b3daf27e39b7ec6, type: 2}
   _market: {fileID: 11400000, guid: b989d78e0dac05c4e8ebc199f87497fe, type: 2}
+  _shop: {fileID: 11400000, guid: b49334ba95a6ab343b14095aead5757f, type: 2}
 --- !u!1 &5541164074287769155
 GameObject:
   m_ObjectHideFlags: 0

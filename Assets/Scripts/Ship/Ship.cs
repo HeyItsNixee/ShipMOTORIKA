@@ -45,12 +45,19 @@ public class Ship : MonoBehaviour
     public int CurrentWeight => _currentWeight;
 
     /// <summary>
+    /// Скорость корабля (MaxLinearVelocity).
+    /// </summary>
+    [SerializeField] private float _speed;
+    public float Speed => _speed;   
+
+    /// <summary>
     /// Отсек для хранения рыбы.
     /// </summary>
     [SerializeField] private FishContainer _fishContainer;
     public FishContainer FishContainer => _fishContainer;
 
     public event Action<bool> OnMarketNearby;
+    public event Action<bool> OnShopNearby;
 
     #region UnityEvents
     private void Start()
@@ -72,11 +79,14 @@ public class Ship : MonoBehaviour
     /// <param name="asset"></param>
     public void Initialize(ShipAsset asset)
     {
-        _spriteRenderer.sprite = asset.Sprite;
+        _spriteRenderer.sprite = asset.ShipSprite;
         _name = asset.Name;
         _description = asset.Description;
         _cost = asset.Cost;
         _carryingCapacity = asset.СarryingCapacity;
+        _speed = asset.Speed;
+        
+        Player.Instance.PlayerController.SetMaxLinearVelocity(_speed);
     }
 
     /// <summary>
@@ -86,6 +96,11 @@ public class Ship : MonoBehaviour
     public void SendMarketMessage(bool value)
     {
         OnMarketNearby(value);
+    }
+
+    public void SendShopMessage(bool value)
+    {
+        OnShopNearby(value);
     }
 
     public void TryChangeWeightAmount(int amount)

@@ -13,7 +13,8 @@ namespace ShipMotorika
             None,
             FishingChallenge,
             CatchFish,
-            Market
+            Market,
+            Shop
         }
 
         [SerializeField] private ActionType _type;
@@ -27,12 +28,14 @@ namespace ShipMotorika
         [SerializeField] private CaughtFishUI _caughtFishUI;
         [SerializeField] private MissedFishUI _missedFishUI;
         [SerializeField] private MarketUI _marketUI;
+        [SerializeField] private ShopUI _shopUI;
 
         [Header("Action assets")]
         [SerializeField] private ActionButtonAsset _none;
         [SerializeField] private ActionButtonAsset _fishingChallenge;
         [SerializeField] private ActionButtonAsset _catchFish;
         [SerializeField] private ActionButtonAsset _market;
+        [SerializeField] private ActionButtonAsset _shop;
 
         #region UnityEvents
         private void Start()
@@ -42,13 +45,15 @@ namespace ShipMotorika
             _button.onClick.AddListener(DoAction);
             Player.Instance.FishingRod.OnFishingPlaceNearby += DoOnFishingPlaceNearby;
             Player.Instance.Ship.OnMarketNearby += DoOnMarketNearby;
+            Player.Instance.Ship.OnShopNearby += DoOnShopNearby;
         }
 
         private void OnDestroy()
         {
-            _button.onClick.RemoveListener(DoAction);         
+            _button.onClick.RemoveListener(DoAction);
             Player.Instance.FishingRod.OnFishingPlaceNearby -= DoOnFishingPlaceNearby;
             Player.Instance.Ship.OnMarketNearby -= DoOnMarketNearby;
+            Player.Instance.Ship.OnShopNearby -= DoOnShopNearby;
         }
         #endregion
 
@@ -63,7 +68,7 @@ namespace ShipMotorika
         private void SwitchAction(ActionType type)
         {
             _type = type;
-            
+
             switch (_type)
             {
                 case ActionType.None:
@@ -81,6 +86,10 @@ namespace ShipMotorika
                 case ActionType.Market:
                     Initialize(_market);
                     break;
+
+                case ActionType.Shop:
+                    Initialize(_shop);
+                    break;
             }
         }
 
@@ -90,7 +99,7 @@ namespace ShipMotorika
             {
                 case ActionType.None:
 
-                    
+
                     break;
 
 
@@ -103,7 +112,7 @@ namespace ShipMotorika
 
 
                 case ActionType.CatchFish:
-                    
+
                     FishingChallenge.Instance.TryCatchFish();
                     SwitchAction(ActionType.None);
 
@@ -111,8 +120,15 @@ namespace ShipMotorika
 
 
                 case ActionType.Market:
-                    
+
                     _marketUI.OpenMarket();
+
+                    break;
+
+
+                case ActionType.Shop:
+                    _shopUI.OpenShop(); 
+
                     break;
             }
         }
@@ -134,6 +150,18 @@ namespace ShipMotorika
             if (nearby)
             {
                 SwitchAction(ActionType.Market);
+            }
+            else
+            {
+                SwitchAction(ActionType.None);
+            }
+        }
+
+        private void DoOnShopNearby(bool nearby)
+        {
+            if (nearby)
+            {
+                SwitchAction(ActionType.Shop);
             }
             else
             {

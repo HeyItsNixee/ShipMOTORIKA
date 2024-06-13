@@ -7,6 +7,26 @@ namespace ShipMotorika
     /// </summary>
     public class Shop : MonoBehaviour
     {
+        private Collider2D _player = null;
 
+        #region UnityEvents
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player")) // Временное решение.
+            {
+                _player = collision;
+                Player.Instance.Ship.SendShopMessage(true);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision == _player) // Временное решение.
+            {
+                _player = null;
+                Player.Instance.Ship.SendShopMessage(false);
+            }
+        }
+        #endregion
     }
 }

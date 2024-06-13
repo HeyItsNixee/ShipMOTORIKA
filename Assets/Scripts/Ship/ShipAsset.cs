@@ -5,10 +5,12 @@ namespace ShipMotorika
     [CreateAssetMenu]
     public class ShipAsset : ScriptableObject
     {
-        public Sprite Sprite;
+        public Sprite ShipSprite;
+        public Sprite ShopImage;
         public string Name;
         public string Description;
-        public int Cost;
+        public float Speed;
         public int СarryingCapacity; // Грузоподъемность корабля
+        public int Cost;
     }
 }

@@ -86,6 +86,12 @@ public class PlayerController : Singleton<PlayerController>
             playerShip.Rigidbody.angularVelocity = maxAngularVelocity * Mathf.Sign(playerShip.Rigidbody.angularVelocity);
     }
 
+    public void AllowMovement()
+    {
+        playerShip.Rigidbody.freezeRotation = false;
+        playerShip.Rigidbody.constraints = RigidbodyConstraints2D.None;
+    }
+
     public void ProhibitMovement()
     {
         playerShip.Rigidbody.velocity = Vector2.zero;
@@ -93,9 +99,8 @@ public class PlayerController : Singleton<PlayerController>
         playerShip.Rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
-    public void AllowMovement()
+    public void SetMaxLinearVelocity(float velocity)
     {
-        playerShip.Rigidbody.freezeRotation = false;
-        playerShip.Rigidbody.constraints = RigidbodyConstraints2D.None;
+        maxLinearVelocity = velocity;
     }
 }
