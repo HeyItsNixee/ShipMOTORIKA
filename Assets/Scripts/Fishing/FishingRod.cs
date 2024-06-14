@@ -62,6 +62,8 @@ namespace ShipMotorika
         private Fish _сaughtFish = null;
         public Fish CaughtFish => _сaughtFish;
 
+        private List<FishingPoint> _fishingPoints; 
+
         public event Action<bool> OnFishingPlaceNearby;
         public event Action OnFishAssigned;
 
@@ -71,6 +73,8 @@ namespace ShipMotorika
         private void Start()
         {
             Initialize(_asset);
+
+            _fishingPoints = new List<FishingPoint>();
         }
 
         /// <summary>
@@ -130,20 +134,20 @@ namespace ShipMotorika
 
             if (hits.Length > 0)
             {
-                List<FishingPoint> fishingPoints = new ();
+                _fishingPoints.Clear();
                 
                 foreach (var hit in hits)
                 {
                     if (hit.gameObject.TryGetComponent<FishingPoint>(out var point))
                     {
-                        fishingPoints.Add(point);
+                        _fishingPoints.Add(point);
                     }
                 }
 
                 FishingPoint closestFishingPoint = null;
                 float minDistance = Mathf.Infinity;
 
-                foreach (var fishingPoint in fishingPoints)
+                foreach (var fishingPoint in _fishingPoints)
                 {                   
                     float distance = Vector2.Distance(transform.position, fishingPoint.transform.position);
                     
