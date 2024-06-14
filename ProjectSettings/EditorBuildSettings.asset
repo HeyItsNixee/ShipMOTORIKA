@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 2bd1fe0e6a299364eaeff54eea06665a
+    path: Assets/Scenes/Tutorial.unity
+    guid: 6cf20abfae708f54298c5d5484464a8e
+  - enabled: 1
+    path: Assets/Scenes/TestScene_kirvas.unity
+    guid: 18b13f7a9840e8648ad480c153ed3b39
   m_configObjects: {}
