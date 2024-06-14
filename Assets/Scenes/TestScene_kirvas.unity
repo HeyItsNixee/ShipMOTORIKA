@@ -1916,6 +1916,22 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1892795478}
+    - target: {fileID: 4720604586793292042, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720604586793292042, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720604586793292042, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720604586793292042, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5012755600077969944, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _totalFishCost
       value: 0
@@ -1923,6 +1939,10 @@ PrefabInstance:
     - target: {fileID: 5012755600077969944, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _totalFishWeight
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068148257019758242, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_Radius
+      value: 3.132108
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
