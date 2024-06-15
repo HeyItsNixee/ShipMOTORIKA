@@ -23,13 +23,10 @@ namespace ShipMotorika
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision == _player) // Временное решение.
-            {
+            {    
+                Player.Instance.Ship.SendShopMessage(false);
+
                 _player = null;
-                
-                if (Player.Instance.Ship != null) // Вариант решения ошибки NullReferenceException.
-                {
-                    Player.Instance.Ship.SendShopMessage(false);
-                }
             }
         }
         #endregion

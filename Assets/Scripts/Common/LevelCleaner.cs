@@ -1,7 +1,4 @@
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace ShipMotorika
 {
@@ -12,7 +9,6 @@ namespace ShipMotorika
         /// </summary>
         public class LevelCleaner : MonoBehaviour
         {
-#if UNITY_EDITOR
             private void OnDestroy()
             {
                 CleanLevel();
@@ -42,7 +38,6 @@ namespace ShipMotorika
                     DestroyAll<Wallet>();
                 }
             }
-#endif
         }
     }
 }

@@ -15,7 +15,8 @@ namespace ShipMotorika
         {
             if (collision.gameObject.CompareTag("Player")) // Временное решение.
             {
-                _player = collision;               
+                _player = collision;
+
                 Player.Instance.Ship.SendMarketMessage(true);
             }
         }
@@ -24,12 +25,9 @@ namespace ShipMotorika
         {
             if (collision == _player) // Временное решение.
             {
-                _player = null;   
-                
-                if (Player.Instance.Ship != null) // Вариант решения ошибки NullReference.
-                {
-                    Player.Instance.Ship.SendMarketMessage(false);
-                }
+                Player.Instance.Ship.SendMarketMessage(false);
+
+                _player = null;
             }
         }
         #endregion

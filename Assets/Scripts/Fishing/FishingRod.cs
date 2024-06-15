@@ -30,7 +30,12 @@ namespace ShipMotorika
         /// <summary>
         /// В соответствии с радиусом этого коллайдера меняет расстояние от FishingPlace, на котором можно ловить рыбу.
         /// </summary>
-        [SerializeField] private CircleCollider2D _circleCollider;
+        [SerializeField] private CircleCollider2D _fishingRodCircleCollider;
+
+        /// <summary>
+        /// В зависимости от размеров данного коллайдера будет рассчитываться дефолтный радиус удочки.
+        /// </summary>
+        [SerializeField] private CapsuleCollider2D _shipCapsuleCollider;
 
         /// <summary>
         /// Для удобства радиус можно задавать/смотреть через инспектор.
@@ -73,6 +78,8 @@ namespace ShipMotorika
         #region UnityEvents
         private void Start()
         {
+            SetDefaultRadius();
+            
             Initialize(_asset);
 
             _fishingPoints = new List<FishingPoint>();
@@ -93,6 +100,7 @@ namespace ShipMotorika
                     _isTriggered = true;
                     _activeFishingPoint = fishingPoint;
                     _activeFishingPoint.SetActive(true);
+
                     OnFishingPlaceNearby(true);
                 }
             }
@@ -106,15 +114,13 @@ namespace ShipMotorika
         {
             if (collision == _fishingPointCollider)
             {
-                if (_isTriggered)
-                {
-                    _isTriggered = false;
-                    _activeFishingPoint.SetActive(false);
-                    _activeFishingPoint = null;
-                    OnFishingPlaceNearby(false);
+                OnFishingPlaceNearby(false);
 
-                    FindFishNearby();
-                }
+                _isTriggered = false;
+                _activeFishingPoint.SetActive(false);
+                _activeFishingPoint = null;
+
+                FindFishNearby();
             }
         }
 
@@ -129,6 +135,17 @@ namespace ShipMotorika
         }
 #endif
         #endregion
+
+        /// <summary>
+        /// Устанавливает радиус в зависимости от коллайдера корабля.
+        /// </summary>
+        private void SetDefaultRadius()
+        {
+            float x = _shipCapsuleCollider.size.x;
+            float y = _shipCapsuleCollider.size.y;
+
+            _radius = Mathf.Max(x, y);
+        }
 
         /// <summary>
         /// Дополнительная проверка на рыбу вокруг. На случай, если в радиусе действия было несколько точек рыбы, и сработала защита OnTriggerEnter.
@@ -185,10 +202,10 @@ namespace ShipMotorika
             _name = asset.Name; 
             _description = asset.Description;
             _speed = asset.Speed;
-            _radius = asset.Radius;
+            _radius = _radius + asset.Radius;
             _cost = asset.Cost;
 
-            _circleCollider.radius = _radius;
+            _fishingRodCircleCollider.radius = _radius;
         }
 
         /// <summary>
