@@ -13,7 +13,7 @@ namespace ShipMotorika
         #region UnityEvents
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Player")) // Временное решение.
+            if (collision.gameObject.CompareTag("Player")) // Attention!
             {
                 _player = collision;
 
@@ -23,7 +23,7 @@ namespace ShipMotorika
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision == _player) // Временное решение.
+            if (collision == _player) // Attention!
             {
                 Player.Instance.Ship.SendMarketMessage(false);
 

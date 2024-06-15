@@ -45,6 +45,8 @@ namespace ShipMotorika
                     _numSpawns = _numSpawns - amount;
                     SpawnEntity();
                     _numSpawns = defaultAmount;
+
+                    Player.Instance.FishingRod?.FindFishNearby(); // Attention!
                 }
             }
         }

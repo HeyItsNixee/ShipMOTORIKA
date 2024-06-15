@@ -23,7 +23,9 @@ namespace ShipMotorika
 
             _accept.onClick.AddListener(DoOnAccept);
             _decline.onClick.AddListener(DoOnDecline);
-            _info.onClick.AddListener(ShowFishInformation);
+            _info.onClick.AddListener(ShowFishInformation); 
+            
+            FishAlbum.Instance.OnFirstCatch += ShowFishInformation;
             FishingChallenge.Instance.OnTryCatchFish += ActivatePanel;
             Player.Instance.FishingRod.OnFishAssigned += SetFishImage;
         }
@@ -33,6 +35,8 @@ namespace ShipMotorika
             _accept.onClick.RemoveListener(DoOnAccept);
             _decline.onClick.RemoveListener(DoOnDecline);
             _info.onClick.RemoveListener(ShowFishInformation);
+
+            FishAlbum.Instance.OnFirstCatch -= ShowFishInformation;
             FishingChallenge.Instance.OnTryCatchFish -= ActivatePanel;
             Player.Instance.FishingRod.OnFishAssigned -= SetFishImage;
         }
@@ -52,6 +56,8 @@ namespace ShipMotorika
             {
                 _image.sprite = Player.Instance.FishingRod.CaughtFish.Sprite.sprite;
                 _image.SetNativeSize(); // Attention! Only for Debug!
+
+                FishAlbum.Instance.CheckCardInfo(); // Attention!
             }
         }
 
