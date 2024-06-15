@@ -103,13 +103,16 @@ namespace ShipMotorika
         {
             if (collision.TryGetComponent<FishingPoint>(out var fishingPoint))
             {
-                _isTriggered = false;
-                _activeFishingPoint = fishingPoint;
-                _activeFishingPoint.SetActive(false);
-                _activeFishingPoint = null;
-                OnFishingPlaceNearby(false);
+                if (_isTriggered)
+                {
+                    _isTriggered = false;
+                    _activeFishingPoint = fishingPoint;
+                    _activeFishingPoint.SetActive(false);
+                    _activeFishingPoint = null;
+                    OnFishingPlaceNearby(false);
 
-                FindFishNearby();
+                    FindFishNearby();
+                }
             }
         }
 
