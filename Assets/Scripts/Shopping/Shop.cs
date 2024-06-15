@@ -15,17 +15,10 @@ namespace ShipMotorika
             if (collision.gameObject.CompareTag("Player")) // Временное решение.
             {
                 _player = collision;
+
                 Player.Instance.Ship.SendShopMessage(true);
             }
         }
-
-        //private void OnTriggerStay2D(Collider2D collision) // Для дебага.
-        //{
-        //    if (collision == _player)
-        //    {
-        //        Player.Instance.Ship.SendShopMessage(true);
-        //    }
-        //}
 
         private void OnTriggerExit2D(Collider2D collision)
         {
@@ -33,11 +26,10 @@ namespace ShipMotorika
             {
                 _player = null;
                 
-                if (Player.Instance) // Вариант решения ошибки NullReference.
+                if (Player.Instance.Ship) // Вариант решения ошибки NullReferenceException.
                 {
                     Player.Instance.Ship.SendShopMessage(false);
                 }
-                //Player.Instance.Ship.SendShopMessage(false);
             }
         }
         #endregion

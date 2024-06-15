@@ -62,12 +62,12 @@ namespace ShipMotorika
         private Fish _сaughtFish = null;
         public Fish CaughtFish => _сaughtFish;
 
-        private List<FishingPoint> _fishingPoints; 
+        private List<FishingPoint> _fishingPoints;
+        private Collider2D _fishingPointCollider;
+        private bool _isTriggered = false;
 
         public event Action<bool> OnFishingPlaceNearby;
         public event Action OnFishAssigned;
-
-        private bool _isTriggered = false;
 
         #region UnityEvents
         private void Start()
@@ -85,6 +85,8 @@ namespace ShipMotorika
         {
             if (collision.TryGetComponent<FishingPoint>(out var fishingPoint)) 
             {
+                _fishingPointCollider = collision;
+
                 if (!_isTriggered) // Защита от срабатывания нескольких FishingPoint при попадании в триггер.
                 {
                     _isTriggered = true;
@@ -101,12 +103,11 @@ namespace ShipMotorika
         /// <param name="collision"></param>
         private void OnTriggerExit2D(Collider2D collision) 
         {
-            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint))
+            if (collision == _fishingPointCollider)
             {
                 if (_isTriggered)
                 {
                     _isTriggered = false;
-                    _activeFishingPoint = fishingPoint;
                     _activeFishingPoint.SetActive(false);
                     _activeFishingPoint = null;
                     OnFishingPlaceNearby(false);
