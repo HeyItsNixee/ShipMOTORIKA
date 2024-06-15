@@ -744,17 +744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5243be8c0ca543940a8f951909d4bd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1519015625 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7283290119477300239, guid: 429fa9820d941f5428d72af026c69419, type: 3}
-  m_PrefabInstance: {fileID: 2128787784}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d370a3c079dda914bbdd32837b4b604e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1519015626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5933997266481362402, guid: 429fa9820d941f5428d72af026c69419, type: 3}
@@ -1056,10 +1045,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4007760954423296302, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
-      propertyPath: secondsAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4845888002472175333, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1140,14 +1125,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5194262778078055741, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342732304926734079, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5582869464457677716, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5582869464457677716, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5648844821512516480, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
       propertyPath: m_Name
       value: TutorialCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5887003138538144768, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
-      propertyPath: fishSpawner
-      value: 
-      objectReference: {fileID: 1519015625}
     - target: {fileID: 5887003138538144768, guid: 0feaf3badfc1dc0489fe116c8bf9eb17, type: 3}
       propertyPath: fishingObject
       value: 
