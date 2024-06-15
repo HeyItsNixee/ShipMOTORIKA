@@ -70,7 +70,7 @@ namespace ShipMotorika
 
             if (hits.Length > 0)
             {
-                int maxAttempts = 100; // Максимальное количество попыток итераций. Нужно для ограничений рпасхода ресурсов.
+                int maxAttempts = 100; // Максимальное количество попыток итераций. Нужно для ограничений расхода ресурсов.
                 for (int i = 0; i < maxAttempts; i++)
                 {
                     float x = Random.Range(-_area.Radius, _area.Radius);

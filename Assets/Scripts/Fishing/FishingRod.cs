@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -78,8 +77,7 @@ namespace ShipMotorika
         #region UnityEvents
         private void Start()
         {
-            SetDefaultRadius();
-            
+            SetDefaultRadius();            
             Initialize(_asset);
 
             _fishingPoints = new List<FishingPoint>();
@@ -119,8 +117,6 @@ namespace ShipMotorika
                 _isTriggered = false;
                 _activeFishingPoint.SetActive(false);
                 _activeFishingPoint = null;
-
-                FindFishNearby();
             }
         }
 
@@ -145,19 +141,34 @@ namespace ShipMotorika
             float y = _shipCapsuleCollider.size.y;
 
             _radius = Mathf.Max(x, y);
+        }       
+
+        /// <summary>
+        /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
+        /// </summary>
+        /// <param name="asset"></param>
+        public void Initialize(FishingRodAsset asset)
+        {
+            _name = asset.Name;
+            _description = asset.Description;
+            _speed = asset.Speed;
+            _radius = _radius + asset.Radius;
+            _cost = asset.Cost;
+
+            _fishingRodCircleCollider.radius = _radius;
         }
 
         /// <summary>
         /// Дополнительная проверка на рыбу вокруг. На случай, если в радиусе действия было несколько точек рыбы, и сработала защита OnTriggerEnter.
         /// </summary>
-        private void FindFishNearby()
+        public void FindFishNearby()
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _radius);
 
             if (hits.Length > 0)
             {
                 _fishingPoints.Clear();
-                
+
                 foreach (var hit in hits)
                 {
                     if (hit.gameObject.TryGetComponent<FishingPoint>(out var point))
@@ -170,9 +181,9 @@ namespace ShipMotorika
                 float minDistance = Mathf.Infinity;
 
                 foreach (var fishingPoint in _fishingPoints)
-                {                   
+                {
                     float distance = Vector2.Distance(transform.position, fishingPoint.transform.position);
-                    
+
                     if (distance < minDistance)
                     {
                         minDistance = distance;
@@ -192,21 +203,6 @@ namespace ShipMotorika
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
-        /// </summary>
-        /// <param name="asset"></param>
-        public void Initialize(FishingRodAsset asset)
-        {
-            _name = asset.Name; 
-            _description = asset.Description;
-            _speed = asset.Speed;
-            _radius = _radius + asset.Radius;
-            _cost = asset.Cost;
-
-            _fishingRodCircleCollider.radius = _radius;
         }
 
         /// <summary>
