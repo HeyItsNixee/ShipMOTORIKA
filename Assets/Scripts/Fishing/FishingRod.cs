@@ -187,6 +187,7 @@ namespace ShipMotorika
                         _isTriggered = true;
                         _activeFishingPoint = closestFishingPoint;
                         _activeFishingPoint.SetActive(true);
+
                         OnFishingPlaceNearby(true);
                     }
                 }
