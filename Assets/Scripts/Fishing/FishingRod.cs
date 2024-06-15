@@ -59,11 +59,12 @@ namespace ShipMotorika
         /// <summary>
         /// Пойманная рыба.
         /// </summary>
-        private Fish _сaughtFish = null;
+        private Fish _сaughtFish;
         public Fish CaughtFish => _сaughtFish;
 
         private List<FishingPoint> _fishingPoints;
         private Collider2D _fishingPointCollider;
+        
         private bool _isTriggered = false;
 
         public event Action<bool> OnFishingPlaceNearby;

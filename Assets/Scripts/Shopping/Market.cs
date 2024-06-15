@@ -8,7 +8,7 @@ namespace ShipMotorika
     /// </summary>
     public class Market : MonoBehaviour
     {
-        private Collider2D _player = null;
+        private Collider2D _player;
 
         #region UnityEvents
         private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +26,7 @@ namespace ShipMotorika
             {
                 _player = null;   
                 
-                if (Player.Instance.Ship) // Вариант решения ошибки NullReference.
+                if (Player.Instance.Ship != null) // Вариант решения ошибки NullReference.
                 {
                     Player.Instance.Ship.SendMarketMessage(false);
                 }
