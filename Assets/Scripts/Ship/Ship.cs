@@ -95,7 +95,7 @@ public class Ship : MonoBehaviour
     /// <param name="value"></param>
     public void SendMarketMessage(bool value)
     {
-        OnMarketNearby(value);
+        OnMarketNearby?.Invoke(value);
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ public class Ship : MonoBehaviour
     /// <param name="value"></param>
     public void SendShopMessage(bool value)
     {
-        OnShopNearby(value);
+        OnShopNearby?.Invoke(value);
     }
 
     public void TryChangeWeightAmount(int amount)
