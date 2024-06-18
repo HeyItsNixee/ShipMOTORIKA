@@ -99,7 +99,7 @@ namespace ShipMotorika
                     _activeFishingPoint = fishingPoint;
                     _activeFishingPoint.SetActive(true);
 
-                    OnFishingPlaceNearby(true);
+                    OnFishingPlaceNearby?.Invoke(true);
                 }
             }
         }
@@ -112,11 +112,11 @@ namespace ShipMotorika
         {
             if (collision == _fishingPointCollider)
             {
-                OnFishingPlaceNearby(false);
-
                 _isTriggered = false;
                 _activeFishingPoint.SetActive(false);
                 _activeFishingPoint = null;
+
+                OnFishingPlaceNearby?.Invoke(false);
             }
         }
 
@@ -199,7 +199,7 @@ namespace ShipMotorika
                         _activeFishingPoint = closestFishingPoint;
                         _activeFishingPoint.SetActive(true);
 
-                        OnFishingPlaceNearby(true);
+                        OnFishingPlaceNearby?.Invoke(true);
                     }
                 }
             }
