@@ -5,8 +5,7 @@ namespace ShipMotorika
     /// <summary>
     /// Базовый скрипт паттерна "Singleton".
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    
+    /// <typeparam name="T"></typeparam>    
     [DisallowMultipleComponent]
     public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
     {

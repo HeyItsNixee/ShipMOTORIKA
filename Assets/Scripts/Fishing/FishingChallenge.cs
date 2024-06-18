@@ -10,6 +10,7 @@ namespace ShipMotorika
     public sealed class FishingChallenge : SingletonBase<FishingChallenge>
     {
         [SerializeField] private Canvas _canvas;
+        [SerializeField] private Canvas _inputCanvas;
         [SerializeField] private Image _fishCircleImage;
         [SerializeField] private Image _playerCircleImage;        
 
@@ -124,6 +125,7 @@ namespace ShipMotorika
             enabled = true;
             OnEnable?.Invoke();
 
+            _inputCanvas.gameObject.SetActive(false);
             Player.Instance.TakeControlsFromPlayer();
         }
 
@@ -136,6 +138,7 @@ namespace ShipMotorika
             _canvas.gameObject.SetActive(false);
             OnDisable?.Invoke();
 
+            _inputCanvas.gameObject.SetActive(true);
             Player.Instance.GiveControlsToPlayer();
         }
 

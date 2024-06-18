@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.0748932, g: 0.17680949, b: 0.31132078, a: 1}
+  m_Color: {r: 0.0748932, g: 0.17680949, b: 0.31132078, a: 0.78431374}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
   _canvas: {fileID: 1865391345343914622}
+  _inputCanvas: {fileID: 6190348816665956323, guid: 9cb21b9b2df29c545ae9a4d83bb6d4d7, type: 3}
   _fishCircleImage: {fileID: 3454255061790275875}
   _playerCircleImage: {fileID: 5165486597260649926}
 --- !u!1 &7002517057497881908

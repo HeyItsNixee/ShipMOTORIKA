@@ -9,6 +9,7 @@ namespace ShipMotorika
     public class ShopUI : MonoBehaviour
     {
         [SerializeField] private GameObject _canvasPanel;
+        [SerializeField] private Canvas _inputCanvas;
         
         [Header("Upgrades")]    
         [SerializeField] private Upgrade[] _upgrades;
@@ -74,6 +75,7 @@ namespace ShipMotorika
         private void CloseShop()
         {
             _canvasPanel.SetActive(false);
+            _inputCanvas.gameObject.SetActive(true);
 
             _shipsPanel.SetActive(false);
             _fishingRodsPanel.SetActive(false);
@@ -85,6 +87,7 @@ namespace ShipMotorika
         public void OpenShop()
         {
             _canvasPanel.SetActive(true);
+            _inputCanvas.gameObject.SetActive(false);
             
             _lastOpenedPanel.SetActive(true);
             _actionButton.gameObject.SetActive(false);

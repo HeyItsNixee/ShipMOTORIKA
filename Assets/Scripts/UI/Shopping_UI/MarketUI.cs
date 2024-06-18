@@ -9,6 +9,7 @@ namespace ShipMotorika
     public class MarketUI : MonoBehaviour
     {
         [SerializeField] private GameObject _canvasPanel;
+        [SerializeField] private Canvas _inputCanvas;
         [SerializeField] private Button _sellButton;
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _actionButton;
@@ -52,6 +53,8 @@ namespace ShipMotorika
         private void CloseMarket()
         {
             _canvasPanel.SetActive(false);
+            _inputCanvas.gameObject.SetActive(true);
+
             _actionButton.gameObject.SetActive(true);
             Player.Instance.GiveControlsToPlayer();
         }
@@ -59,6 +62,8 @@ namespace ShipMotorika
         public void OpenMarket()
         {
             _canvasPanel.SetActive(true);
+            _inputCanvas.gameObject.SetActive(false);
+
             _actionButton.gameObject.SetActive(false);
             Player.Instance.TakeControlsFromPlayer();
 
