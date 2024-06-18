@@ -47,3 +47,9 @@ TagManager:
   - name: Player
     uniqueID: 1702749843
     locked: 0
+  - name: Seagulls
+    uniqueID: 1643290697
+    locked: 0
+  - name: Clouds
+    uniqueID: 2220371971
+    locked: 0

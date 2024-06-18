@@ -38,7 +38,17 @@ namespace ShipMotorika
             if (!canControl)
                 return;
 
-            if (Input.GetKey(KeyCode.W))
+            var movement = UI_InputController.Instance.Value;
+            m_Thrust = movement.y;
+
+            if (m_Thrust > 0f)
+                currentInput = InputType.Forward;
+            if (m_Thrust < 0f)
+                currentInput = InputType.Backwards;
+            if (m_Thrust == 0f)
+                currentInput = InputType.Idle;
+
+            /*if (Input.GetKey(KeyCode.W))
             {
                 m_Thrust = 1f;
                 currentInput = InputType.Forward;
@@ -55,7 +65,7 @@ namespace ShipMotorika
             {
                 m_Thrust = 0f;
                 currentInput = InputType.Idle;
-            }
+            }*/
 
             if (Input.GetKey(KeyCode.D))
                 HandleRightButton();
