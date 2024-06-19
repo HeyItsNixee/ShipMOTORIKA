@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 1702749843
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3f5a616be0395eb42b714bb38630cf8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13df614e2e5d7b943a8c48babd9b2b1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -201,11 +201,13 @@ MonoBehaviour:
   rb2d: {fileID: 7352345480962614037}
   _asset: {fileID: 0}
   _spriteRenderer: {fileID: 0}
+  _capsuleCollider: {fileID: 7311552747972478903}
   _name: 
   _description: 
   _cost: 0
   _carryingCapacity: 0
   _currentWeight: 0
+  _speed: 0
   _fishContainer: {fileID: 0}
 --- !u!50 &7352345480962614037
 Rigidbody2D:

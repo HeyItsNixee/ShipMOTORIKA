@@ -175,6 +175,14 @@ MonoBehaviour:
   _fishPrefab: {fileID: 6598858716521727138, guid: 7418af5ff6d345246bbe323c3c0c6d58, type: 3}
   _bubbles: {fileID: 5309780092917244670}
   _circleOfFish: {fileID: 1792826444366737886}
+  _cirleSprites:
+  - {fileID: 21300000, guid: 04fb4ddf4d114b64cb008dd2674ad663, type: 3}
+  - {fileID: 21300000, guid: cb2bda72038dede4a8ca7cd0498c22b4, type: 3}
+  - {fileID: 21300000, guid: 1b5c48c7c851f6247802ffb9e6b3b6d8, type: 3}
+  - {fileID: 21300000, guid: 477da78968e4b494289c663ff7f97330, type: 3}
+  - {fileID: 21300000, guid: 1c317f095cf5527449b6cd807a269edc, type: 3}
+  - {fileID: 21300000, guid: df67d2e7d9ac20a4d8cfe532391a26a5, type: 3}
+  - {fileID: 21300000, guid: 98cdd96fcb46be94f9b4327ed2a0cdf3, type: 3}
   _rotation: {fileID: 4848027500767183685}
 --- !u!114 &4848027500767183685
 MonoBehaviour:
