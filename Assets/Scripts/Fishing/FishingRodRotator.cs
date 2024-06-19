@@ -25,10 +25,11 @@ namespace ShipMotorika
 
             if (fishingPoint)
             {
-                Vector3 direction = transform.position - fishingPoint.transform.position;
+                Vector3 direction = fishingPoint.transform.position - transform.position;
+                direction.Normalize();
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                
-                _targetRotation = Quaternion.Euler(0f, 0f, -Mathf.Abs(angle));
+
+                _targetRotation = Quaternion.Euler(0f, 0f, angle - 90);
             }
             else
             {
