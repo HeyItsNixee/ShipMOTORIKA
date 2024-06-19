@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06833e460ce8d7449a7c9fbd6ce8d85, type: 3}
   m_Name: Ship_gold
   m_EditorClassIdentifier: 
-  ShipSprite: {fileID: 21300000, guid: f08bb4f75946205469b9d5bdc7fa886c, type: 3}
+  GameSprite: {fileID: 21300000, guid: 763887e3ba7059d46921e4da3512e62c, type: 3}
   ShopImage: {fileID: 21300000, guid: 9eb30781337ac714eb27e474816bae4d, type: 3}
   Name: "\u0417\u043E\u043B\u043E\u0442\u043E\u0439 \u043A\u043E\u0440\u0430\u0431\u043B\u044C"
   Description: "\u0411\u043B\u0430-\u0431\u043B\u0430-\u0431\u043B\u0430"
   Speed: 10
   "\u0421arryingCapacity": 300
   Cost: 300
+  ColliderX: 1.2
+  ColliderY: 4.25

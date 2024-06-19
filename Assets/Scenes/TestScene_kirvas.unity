@@ -1296,14 +1296,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1434197665525960520, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _asset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6069d9647cd11ba4aada0cf20c83e952, type: 2}
     - target: {fileID: 2357778224967500892, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013297250071521515, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_Size.x
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013297250071521515, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 3070457724520645956, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1162061189}
+    - target: {fileID: 3817092095020116871, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13df614e2e5d7b943a8c48babd9b2b1d, type: 3}
     - target: {fileID: 8438608577399586215, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _asset
       value: 
@@ -1409,16 +1425,46 @@ PrefabInstance:
       propertyPath: _inputCanvas
       value: 
       objectReference: {fileID: 246636971}
+    - target: {fileID: 3122056975472094357, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217518680253334647, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447323948694672910, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126544824472653587, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947610037662421383, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264024326408199508, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7095653696674921462, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7116099213168841704, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
       propertyPath: _inputCanvas
       value: 
       objectReference: {fileID: 246636971}
-    - target: {fileID: 7379470915851221640, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
-      propertyPath: _inputCanvas
-      value: 
-      objectReference: {fileID: 246636971}
+    - target: {fileID: 7973827479237627198, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7095653696674921462, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+    - {fileID: 5947610037662421383, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}

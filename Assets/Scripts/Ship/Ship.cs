@@ -15,6 +15,11 @@ public class Ship : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     /// <summary>
+    /// Коллайдер столкновений спрайта корабля.
+    /// </summary>
+    [SerializeField] private CapsuleCollider2D _capsuleCollider;
+
+    /// <summary>
     /// Название корабля для интерфейса.
     /// </summary>
     [SerializeField] private string _name;
@@ -58,6 +63,7 @@ public class Ship : MonoBehaviour
 
     public event Action<bool> OnMarketNearby;
     public event Action<bool> OnShopNearby;
+    public event Action OnWeightChanged;
 
     #region UnityEvents
     private void Start()
@@ -79,7 +85,8 @@ public class Ship : MonoBehaviour
     /// <param name="asset"></param>
     public void Initialize(ShipAsset asset)
     {
-        _spriteRenderer.sprite = asset.ShipSprite;
+        _spriteRenderer.sprite = asset.GameSprite;
+        _capsuleCollider.size = new Vector2(_asset.ColliderX, _asset.ColliderY);    
         _name = asset.Name;
         _description = asset.Description;
         _cost = asset.Cost;
@@ -114,6 +121,8 @@ public class Ship : MonoBehaviour
         if (currentWeight >= 0 || currentWeight <= _carryingCapacity)
         {
             _currentWeight = currentWeight;
+
+            OnWeightChanged?.Invoke();
         }
     }
 }

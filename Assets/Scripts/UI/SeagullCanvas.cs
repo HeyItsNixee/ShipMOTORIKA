@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class SeagullCanvas : MonoBehaviour
+namespace ShipMotorika
 {
-    
+    public class SeagullCanvas : MonoBehaviour
+    {
+
+    }
 }
