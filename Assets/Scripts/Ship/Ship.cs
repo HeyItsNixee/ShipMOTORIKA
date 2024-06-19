@@ -44,7 +44,7 @@ public class Ship : MonoBehaviour
     /// Грузоподъемность корабля. Не может быть меньше суммарного веса собранной рыбы.
     /// </summary>
     [SerializeField] private int _carryingCapacity;
-    public int Carrying => _carryingCapacity;
+    public int CarryingCapacity => _carryingCapacity;
 
     /// <summary>
     /// Текущий вес корабля. Сериализованное поле нужно для удобства разработки.
