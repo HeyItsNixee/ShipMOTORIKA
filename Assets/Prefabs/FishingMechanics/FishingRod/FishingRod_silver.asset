@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebcbf0a4c687e5443ac72b885a7d5fe6, type: 3}
   m_Name: FishingRod_silver
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 045b72afacffd754ca4d722b3a0c53f8, type: 3}
+  GameSprite: {fileID: 21300000, guid: a797023c970ad2e4fb61855c5c235fae, type: 3}
+  ShopImage: {fileID: 21300000, guid: 045b72afacffd754ca4d722b3a0c53f8, type: 3}
   Name: "\u0421\u0435\u0440\u0435\u0431\u0440\u044F\u043D\u0430\u044F \u0443\u0434\u043E\u0447\u043A\u0430"
   Description: "\u0411\u043B\u0430-\u0431\u043B\u0430-\u0431\u043B\u0430"
   Radius: 2
