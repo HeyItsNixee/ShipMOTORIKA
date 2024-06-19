@@ -63,6 +63,7 @@ public class Ship : MonoBehaviour
 
     public event Action<bool> OnMarketNearby;
     public event Action<bool> OnShopNearby;
+    public event Action OnWeightChanged;
 
     #region UnityEvents
     private void Start()
@@ -120,6 +121,8 @@ public class Ship : MonoBehaviour
         if (currentWeight >= 0 || currentWeight <= _carryingCapacity)
         {
             _currentWeight = currentWeight;
+
+            OnWeightChanged?.Invoke();
         }
     }
 }
