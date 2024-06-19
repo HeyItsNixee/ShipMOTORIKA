@@ -33,7 +33,7 @@ namespace ShipMotorika
         {
             var ship = Player.Instance.Ship;
 
-            _image.fillAmount = (float) ship.CurrentWeight / ship.Carrying;
+            _image.fillAmount = (float) ship.CurrentWeight / ship.CarryingCapacity;
         }
     }
 }

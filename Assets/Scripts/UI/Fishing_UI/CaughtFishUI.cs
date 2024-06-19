@@ -13,12 +13,14 @@ namespace ShipMotorika
         [SerializeField] private Image _image;
         [SerializeField] private Button _accept;
         [SerializeField] private Button _decline;
+        [SerializeField] private Button _overweight;
         [SerializeField] private Button _info;
 
         #region UnityEvents
         private void Start()
         {
             _canvasPanel.SetActive(false);
+            _overweight.gameObject.SetActive(false);
             _fishCard.gameObject.SetActive(false);
 
             _accept.onClick.AddListener(DoOnAccept);
@@ -52,12 +54,32 @@ namespace ShipMotorika
 
         private void SetFishImage()
         {
-            if (Player.Instance.FishingRod.CaughtFish != null)
+            var fish = Player.Instance.FishingRod.CaughtFish;
+
+            if (fish != null)
             {
                 _image.sprite = Player.Instance.FishingRod.CaughtFish.Sprite.sprite;
                 //_image.SetNativeSize(); // Attention! Only for Debug!
 
+                TryShowFishOverweightButton(fish);
+                
                 FishAlbum.Instance.CheckCardInfo(); // Attention!
+            }
+        }
+
+        /// <summary>
+        /// Проверяет, показывать ли кнопку, сообщающую о превышении допустимого веса корабля.
+        /// </summary>
+        /// <param name="fish"></param>
+        private void TryShowFishOverweightButton(Fish fish)
+        {
+            var ship = Player.Instance.Ship;
+            int weight = ship.CurrentWeight + fish.Weight;
+
+            if (weight >= ship.CarryingCapacity)
+            {
+                _accept.gameObject.SetActive(false);
+                _overweight.gameObject.SetActive(true);
             }
         }
 
@@ -86,6 +108,12 @@ namespace ShipMotorika
         /// </summary>
         public void DoOnDecline()
         {
+            if (_overweight.gameObject.activeSelf)
+            {
+                _overweight.gameObject.SetActive(false);
+                _accept.gameObject.SetActive(true);
+            }
+            
             _canvasPanel.SetActive(false);
 
             Player.Instance.FishingRod.AssignFish(null);
