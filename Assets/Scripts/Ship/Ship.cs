@@ -7,6 +7,9 @@ public class Ship : MonoBehaviour
     [SerializeField] private Rigidbody2D rb2d;
     public Rigidbody2D Rigidbody => rb2d;
 
+    /// <summary>
+    /// ScriptableObject c параметрами корабля.
+    /// </summary>
     [SerializeField] private ShipAsset _asset;
 
     /// <summary>

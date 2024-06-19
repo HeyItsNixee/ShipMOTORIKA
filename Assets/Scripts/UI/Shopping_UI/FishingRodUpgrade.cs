@@ -16,7 +16,7 @@ namespace ShipMotorika
 
         protected override void Initialize()
         {
-            _image.sprite = _asset.GameSprite;
+            _image.sprite = _asset.ShopImage;
             _name.text = _asset.Name;
             _description.text = _asset.Description;
             _upgradeCost = _asset.Cost;

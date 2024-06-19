@@ -591,7 +591,7 @@ Transform:
   m_GameObject: {fileID: 1172959770}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15, z: 0}
+  m_LocalPosition: {x: 0, y: -10.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1320,10 +1320,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 13df614e2e5d7b943a8c48babd9b2b1d, type: 3}
+    - target: {fileID: 8313292037928151508, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 24da3dbefbd55e64e860677400642716, type: 3}
     - target: {fileID: 8438608577399586215, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _asset
       value: 
-      objectReference: {fileID: 11400000, guid: 6d5801117dff0a140a63dca3e5943a3d, type: 2}
+      objectReference: {fileID: 11400000, guid: 65ec25aa3aac55e4aa1713331182d470, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

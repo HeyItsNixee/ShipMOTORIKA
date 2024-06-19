@@ -12,7 +12,15 @@ namespace ShipMotorika
     /// </summary>
     public class FishingRod : MonoBehaviour
     {
+        /// <summary>
+        /// ScriptableObject c параметрами удочки.
+        /// </summary>
         [SerializeField] private FishingRodAsset _asset;
+
+        /// <summary>
+        /// Визуальное отображение удочки при ловле рыбы.
+        /// </summary>
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 
         /// <summary>
         /// Название удочки (для магазина).
@@ -81,6 +89,9 @@ namespace ShipMotorika
             Initialize(_asset);
 
             _fishingPoints = new List<FishingPoint>();
+
+            //FishingChallenge.Instance.OnEnable += DoOnFihingChallengeAcivated;
+            //FishingChallenge.Instance.OnDisable += DoOnFishingChallengeDeactivated;
         }
 
         /// <summary>
@@ -141,14 +152,15 @@ namespace ShipMotorika
             float y = _shipCapsuleCollider.size.y;
 
             _radius = Mathf.Max(x, y);
-        }       
-
+        }  
+        
         /// <summary>
         /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
         /// </summary>
         /// <param name="asset"></param>
         public void Initialize(FishingRodAsset asset)
         {
+            _spriteRenderer.sprite = asset.GameSprite;
             _name = asset.Name;
             _description = asset.Description;
             _speed = asset.Speed;
