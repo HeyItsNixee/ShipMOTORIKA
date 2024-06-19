@@ -18,14 +18,14 @@ namespace ShipMotorika
         public static event Action OnFishPointDestroy;
 
         /// <summary>
-        /// В этот массив складываем всю "полезную" рыбу/
+        /// В этот массив складываем всю "полезную" рыбу.
         /// </summary>
-        [SerializeField] private FishAsset[] _fishAssets;  
-        
+        [SerializeField] private FishAsset[] _usefulFishAssets;
+
         /// <summary>
-        /// Отдельно выделяем рыбу-пустышку, например "сапог" (специально для Анжелики). Можно расширить до массива отдельного класса НЕрыбы.
+        /// В этот массив складываем всю "мусорную" рыбу.
         /// </summary>
-        [SerializeField] private FishAsset _bootAsset;
+        [SerializeField] private FishAsset[] _garbageFishAssets;  
 
         [Header("Dependent components")]
         [SerializeField] private Fish _fishPrefab;
@@ -46,7 +46,7 @@ namespace ShipMotorika
 
             if (_cirleSprites.Length > 0)
             {
-                int index = UnityEngine.Random.Range(0, _fishAssets.Length);
+                int index = UnityEngine.Random.Range(0, _cirleSprites.Length);
                 _circleOfFish.sprite = _cirleSprites[index];    
             }
 
@@ -81,14 +81,21 @@ namespace ShipMotorika
                     _fish = Instantiate(_fishPrefab, transform.position, Quaternion.identity);
                     _fish.Sprite.enabled = false; // Attention!
                     
-                    if (DropProbability.Value <= 10) // Шанс поймать сапог - 10%.
+                    if (DropProbability.Value <= 10) // Шанс поймать мусор - 10%.
                     {
-                        _fish.Initialize(_bootAsset);
+                        if (_garbageFishAssets.Length > 0)
+                        {
+                            int index = UnityEngine.Random.Range(0, _garbageFishAssets.Length);
+                            _fish.Initialize(_garbageFishAssets[index]);
+                        }
                     }
                     else
                     {
-                        int index = UnityEngine.Random.Range(0, _fishAssets.Length);
-                        _fish.Initialize(_fishAssets[index]);
+                        if (_usefulFishAssets.Length > 0)
+                        {
+                            int index = UnityEngine.Random.Range(0, _usefulFishAssets.Length);
+                            _fish.Initialize(_usefulFishAssets[index]);
+                        }
                     }
 
                     Player.Instance.FishingRod.AssignFish(_fish);
