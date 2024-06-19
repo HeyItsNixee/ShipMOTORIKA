@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 namespace ShipMotorika
 {
@@ -10,6 +11,8 @@ namespace ShipMotorika
         [SerializeField] private int _currentMoney;
         public int CurrentMoney => _currentMoney;
 
+        public event Action OnMoneyChanged;
+
         public void TryChangeMoneyAmount(int amount)
         {            
             int currentMoney = _currentMoney + amount;
@@ -17,6 +20,8 @@ namespace ShipMotorika
             if (currentMoney >= 0)
             {
                 _currentMoney = currentMoney;
+
+                OnMoneyChanged?.Invoke();
             }
         }
     }

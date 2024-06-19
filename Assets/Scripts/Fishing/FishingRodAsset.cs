@@ -8,7 +8,8 @@ namespace ShipMotorika
     [CreateAssetMenu]
     public class FishingRodAsset : ScriptableObject
     {
-        public Sprite Sprite;
+        public Sprite GameSprite;
+        public Sprite ShopImage;
         public string Name;
         public string Description;
         public float Radius;

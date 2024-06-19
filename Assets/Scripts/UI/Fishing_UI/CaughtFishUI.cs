@@ -55,7 +55,7 @@ namespace ShipMotorika
             if (Player.Instance.FishingRod.CaughtFish != null)
             {
                 _image.sprite = Player.Instance.FishingRod.CaughtFish.Sprite.sprite;
-                _image.SetNativeSize(); // Attention! Only for Debug!
+                //_image.SetNativeSize(); // Attention! Only for Debug!
 
                 FishAlbum.Instance.CheckCardInfo(); // Attention!
             }

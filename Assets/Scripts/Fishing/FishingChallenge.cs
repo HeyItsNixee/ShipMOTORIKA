@@ -105,6 +105,15 @@ namespace ShipMotorika
             }
 
             _playerCircleImage.rectTransform.localScale = new Vector3(_scale, _scale, _scale);
+
+            if (_scale >= _passScaleMin && _scale <= _passScaleMax)
+            {
+                _fishCircleImage.color = Color.cyan;
+            }
+            else
+            {
+                _fishCircleImage.color = _defaultFishColor;
+            }
         }
 
         /// <summary>

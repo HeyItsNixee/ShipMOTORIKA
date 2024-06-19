@@ -31,8 +31,9 @@ namespace ShipMotorika
         [SerializeField] private Fish _fishPrefab;
         [SerializeField] private GameObject _bubbles;
         [SerializeField] private SpriteRenderer _circleOfFish;
+        [SerializeField] private Sprite[] _cirleSprites;
         [SerializeField] private Rotator _rotation;
-
+        
         private Fish _fish;
         private bool _isActive = false; 
 
@@ -42,6 +43,12 @@ namespace ShipMotorika
             _bubbles.gameObject.SetActive(false);        
             _circleOfFish.enabled = true;
             _rotation.enabled = true;
+
+            if (_cirleSprites.Length > 0)
+            {
+                int index = UnityEngine.Random.Range(0, _fishAssets.Length);
+                _circleOfFish.sprite = _cirleSprites[index];    
+            }
 
             if (_allFishingPoints == null)
             {
