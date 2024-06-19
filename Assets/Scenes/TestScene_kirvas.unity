@@ -1299,7 +1299,7 @@ PrefabInstance:
     - target: {fileID: 1434197665525960520, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _asset
       value: 
-      objectReference: {fileID: 11400000, guid: 6069d9647cd11ba4aada0cf20c83e952, type: 2}
+      objectReference: {fileID: 11400000, guid: 45d35c378acf07245bfbe64b15612e1f, type: 2}
     - target: {fileID: 2357778224967500892, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: m_Name
       value: Player

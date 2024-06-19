@@ -10,6 +10,12 @@ namespace ShipMotorika
     {
         [SerializeField] private Image _image;
 
+        #region UnityEvents
+        private void Awake()
+        {
+            _image.fillAmount = 0f;
+        }
+
         private void Start()
         {
             UpdateImage();
@@ -21,6 +27,7 @@ namespace ShipMotorika
         {
             Player.Instance.Ship.OnWeightChanged -= UpdateImage;
         }
+        #endregion
 
         private void UpdateImage()
         {
