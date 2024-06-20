@@ -1271,6 +1271,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 175537289611813965, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _isOnlyOnFishingChallenge
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 459727197338660011, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
