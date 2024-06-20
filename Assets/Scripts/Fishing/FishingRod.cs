@@ -89,9 +89,6 @@ namespace ShipMotorika
             Initialize(_asset);
 
             _fishingPoints = new List<FishingPoint>();
-
-            //FishingChallenge.Instance.OnEnable += DoOnFihingChallengeAcivated;
-            //FishingChallenge.Instance.OnDisable += DoOnFishingChallengeDeactivated;
         }
 
         /// <summary>
@@ -131,7 +128,7 @@ namespace ShipMotorika
             }
         }
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR      
         /// <summary>
         /// Для удобства Помогает отобразить радиус действия удочки на сцене.
         /// </summary>
