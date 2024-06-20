@@ -155,5 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab591c8e4b0e4c44b084dfb10e2c212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 30
   _ship: {fileID: 0}
+  _spriteRenderer: {fileID: 3246604134165656291}
+  _rotationSpeed: 30
+  _isOnlyOnFishingChallenge: 0
