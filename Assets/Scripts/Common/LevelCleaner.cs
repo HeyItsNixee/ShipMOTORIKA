@@ -33,7 +33,7 @@ namespace ShipMotorika
                     DestroyAll<Player>();
                     DestroyAll<PlayerController>();
                     DestroyAll<Ship>();
-                    DestroyAll<Shop>();
+                    DestroyAll<BoatShop>();
                     DestroyAll<Spawner>();
                     DestroyAll<Wallet>();
                 }

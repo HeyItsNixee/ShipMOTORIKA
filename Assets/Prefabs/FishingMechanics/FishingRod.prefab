@@ -151,7 +151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8735279391640618002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ab591c8e4b0e4c44b084dfb10e2c212, type: 3}
   m_Name: 
@@ -159,7 +159,7 @@ MonoBehaviour:
   _ship: {fileID: 0}
   _spriteRenderer: {fileID: 3246604134165656291}
   _rotationSpeed: 30
-  _isOnlyOnFishingChallenge: 0
+  _isOnlyOnFishingChallenge: 1
 --- !u!114 &3723199162732682052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8735279391640618002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00d6567de6af5d34ea0c1b7a3bc023a6, type: 3}
   m_Name: 

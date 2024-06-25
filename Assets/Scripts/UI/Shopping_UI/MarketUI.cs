@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Интерфейс рынка.
+    /// РРЅС‚РµСЂС„РµР№СЃ СЂС‹РЅРєР°.
     /// </summary>
     public class MarketUI : MonoBehaviour
     {
