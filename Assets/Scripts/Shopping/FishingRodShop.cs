@@ -3,9 +3,9 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Магазин, в котором игрок сможет купить апгрейды корабля и удочек.
+    /// Магазин, в котором игрок сможет купить апгрейды удочек.
     /// </summary>
-    public class Shop : MonoBehaviour
+    public class FishingRodShop : MonoBehaviour
     {
         private Collider2D _player;
 
@@ -16,15 +16,15 @@ namespace ShipMotorika
             {
                 _player = collision;
 
-                Player.Instance.Ship.SendShopMessage(true);
+                Player.Instance.Ship.SendFishingRodShopMessage(true);
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision == _player) // Временное решение.
-            {    
-                Player.Instance.Ship.SendShopMessage(false);
+            {
+                Player.Instance.Ship.SendFishingRodShopMessage(false);
 
                 _player = null;
             }

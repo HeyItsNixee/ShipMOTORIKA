@@ -65,7 +65,8 @@ public class Ship : MonoBehaviour
     public FishContainer FishContainer => _fishContainer;
 
     public event Action<bool> OnMarketNearby;
-    public event Action<bool> OnShopNearby;
+    public event Action<bool> OnBoatShopNearby;
+    public event Action<bool> OnFishingRodShopNearby;
     public event Action OnWeightChanged;
 
     #region UnityEvents
@@ -109,12 +110,21 @@ public class Ship : MonoBehaviour
     }
 
     /// <summary>
-    /// Сообщает о том, что корабль вблизи магазина.
+    /// Сообщает о том, что корабль вблизи магазина лодок.
     /// </summary>
     /// <param name="value"></param>
-    public void SendShopMessage(bool value)
+    public void SendBoatShopMessage(bool value)
     {
-        OnShopNearby?.Invoke(value);
+        OnBoatShopNearby?.Invoke(value);
+    }
+
+    /// <summary>
+    /// Сообщает о том, что корабль вблизи магазина удочек.
+    /// </summary>
+    /// <param name="value"></param>
+    public void SendFishingRodShopMessage(bool value)
+    {
+        OnFishingRodShopNearby?.Invoke(value);
     }
 
     public void TryChangeWeightAmount(int amount)

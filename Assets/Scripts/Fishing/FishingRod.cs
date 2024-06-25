@@ -120,11 +120,14 @@ namespace ShipMotorika
         {
             if (collision == _fishingPointCollider)
             {
-                _isTriggered = false;
-                _activeFishingPoint.SetActive(false);
-                _activeFishingPoint = null;
+                if (_isTriggered)
+                {
+                    _isTriggered = false;
+                    _activeFishingPoint.SetActive(false);
+                    _activeFishingPoint = null;
 
-                OnFishingPlaceNearby?.Invoke(false);
+                    OnFishingPlaceNearby?.Invoke(false);
+                }
             }
         }
 

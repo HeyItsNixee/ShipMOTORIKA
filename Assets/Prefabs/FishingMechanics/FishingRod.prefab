@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3246604134165656291}
   - component: {fileID: 3119599917366978192}
   - component: {fileID: 6647133202767806330}
+  - component: {fileID: 3723199162732682052}
   m_Layer: 0
   m_Name: FishingRod
   m_TagString: Untagged
@@ -158,4 +159,19 @@ MonoBehaviour:
   _ship: {fileID: 0}
   _spriteRenderer: {fileID: 3246604134165656291}
   _rotationSpeed: 30
-  _isOnlyOnFishingChallenge: 0
+  _isOnlyOnFishingChallenge: 1
+--- !u!114 &3723199162732682052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735279391640618002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d6567de6af5d34ea0c1b7a3bc023a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ship: {fileID: 0}
+  _spriteRenderer: {fileID: 3246604134165656291}
+  _rotationSpeed: 30
