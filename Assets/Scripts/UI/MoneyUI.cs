@@ -15,18 +15,18 @@ namespace ShipMotorika
         {
             UpdateText();
             
-            Player.Instance.Wallet.OnMoneyChanged += UpdateText;
+            Player.Instance.Money.OnMoneyChanged += UpdateText;
         }
 
         private void OnDestroy()
         {
-            Player.Instance.Wallet.OnMoneyChanged -= UpdateText;
+            Player.Instance.Money.OnMoneyChanged -= UpdateText;
         }
         #endregion
 
         private void UpdateText()
         {
-            _text.text = Player.Instance.Wallet.CurrentMoney.ToString();
+            _text.text = Player.Instance.Money.CurrentMoney.ToString();
         }
     }
 }
