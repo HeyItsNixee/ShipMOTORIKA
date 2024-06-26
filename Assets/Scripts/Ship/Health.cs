@@ -26,11 +26,13 @@ namespace ShipMotorika
         /// Множитель урона при столкновениях.
         /// </summary>
         [SerializeField] private float _damageMultiplier;
+        public float DamageMultiplier => _damageMultiplier; 
 
         /// <summary>
         /// Минимальный обязательный урон при столкновениях.
         /// </summary>
         [SerializeField] private int _damageConstant;
+        public int DamageConstant => _damageConstant;
 
         public event Action OnHealthChanged;
         public event Action OnDeath;
@@ -39,11 +41,6 @@ namespace ShipMotorika
         private void Start()
         {
             RestoreHealth();
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            
         }
         #endregion
 

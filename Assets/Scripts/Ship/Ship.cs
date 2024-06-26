@@ -92,6 +92,11 @@ namespace ShipMotorika
         {
             _fishContainer.OnFishCaught -= TryChangeWeightAmount;
         }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            
+        }
         #endregion
 
         /// <summary>

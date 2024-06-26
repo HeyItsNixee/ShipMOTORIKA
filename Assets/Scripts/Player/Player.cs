@@ -31,6 +31,12 @@ namespace ShipMotorika
         [SerializeField] private PlayerController _playerController;
         public PlayerController PlayerController => _playerController;
 
+        /// <summary>
+        /// Текущая точка "воскрешения" корабля игрока.
+        /// </summary>
+        [SerializeField] private RestorePoint _restorePoint;
+        public RestorePoint RestorePosition => _restorePoint;
+
         public void GiveControlsToPlayer()
         {
             _playerController.enabled = true;
