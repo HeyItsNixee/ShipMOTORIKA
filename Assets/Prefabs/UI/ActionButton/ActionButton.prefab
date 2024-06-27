@@ -194,7 +194,6 @@ MonoBehaviour:
   _market: {fileID: 11400000, guid: b989d78e0dac05c4e8ebc199f87497fe, type: 2}
   _boatShop: {fileID: 11400000, guid: b49334ba95a6ab343b14095aead5757f, type: 2}
   _fishingRodShop: {fileID: 11400000, guid: b910079e91aaee5468cb82a05f6d6b17, type: 2}
-  _workshop: {fileID: 11400000, guid: 56a9e53038a1719459f842a475172719, type: 2}
 --- !u!1 &5541164074287769155
 GameObject:
   m_ObjectHideFlags: 0

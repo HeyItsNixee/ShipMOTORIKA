@@ -16,9 +16,8 @@ MonoBehaviour:
   ShopImage: {fileID: 21300000, guid: 91c1166c804cad2428d7fc163cd656e5, type: 3}
   Name: "\u0420\u044B\u0431\u0430\u0446\u043A\u0430\u044F \u043B\u043E\u0434\u043A\u0430"
   Description: "\u0411\u043B\u0430-\u0431\u043B\u0430-\u0431\u043B\u0430"
-  Health: 100
   Speed: 20
   "\u0421arryingCapacity": 50
-  Cost: 100
+  Cost: 0
   ColliderX: 1.12
   ColliderY: 2.4

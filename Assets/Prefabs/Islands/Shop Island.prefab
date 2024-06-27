@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8673946371959591525}
   - component: {fileID: 534029902995402398}
   m_Layer: 0
-  m_Name: BoatShopIsland
+  m_Name: Shop Island
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6277765652403303434}
   - component: {fileID: 6411179817558797880}
-  - component: {fileID: 7739452756189891757}
+  - component: {fileID: 3448322883745219441}
   - component: {fileID: 2028261832331700209}
   - component: {fileID: 1406279913846076075}
   m_Layer: 0
@@ -132,7 +132,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &7739452756189891757
+--- !u!114 &3448322883745219441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6827766498593455304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3587cef0692bb445a1988f063d69214, type: 3}
+  m_Script: {fileID: 11500000, guid: 253a11555640a384a859755799de730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2028261832331700209

@@ -35,7 +35,7 @@ namespace ShipMotorika
                     DestroyAll<Ship>();
                     DestroyAll<BoatShop>();
                     DestroyAll<Spawner>();
-                    DestroyAll<Money>();
+                    DestroyAll<Wallet>();
                 }
             }
         }

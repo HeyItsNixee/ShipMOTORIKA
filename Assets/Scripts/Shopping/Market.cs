@@ -38,7 +38,7 @@ namespace ShipMotorika
             int money = Player.Instance.Ship.FishContainer.Cost;
 
             Player.Instance.Ship.TryChangeWeightAmount(-Math.Abs(weight));
-            Player.Instance.Money.TryChangeMoneyAmount(money);
+            Player.Instance.Wallet.TryChangeMoneyAmount(money);
             Player.Instance.Ship.FishContainer.ClearContainer();
         }
     }
