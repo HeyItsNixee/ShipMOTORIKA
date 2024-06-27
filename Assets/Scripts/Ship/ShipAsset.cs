@@ -9,6 +9,7 @@ namespace ShipMotorika
         public Sprite ShopImage;
         public string Name;
         public string Description;
+        public int Health;
         public float Speed;
         public int СarryingCapacity; // Грузоподъемность корабля
         public int Cost;
