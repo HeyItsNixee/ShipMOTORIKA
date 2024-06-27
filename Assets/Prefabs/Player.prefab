@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2755816846443345005}
   - component: {fileID: 3070457724520645956}
   - component: {fileID: 2018532219611193898}
-  - component: {fileID: 6114014450511262473}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -34,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3067255447381551703}
+  - {fileID: 3045613347816503152}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2755816846443345005
@@ -83,16 +83,47 @@ MonoBehaviour:
   _doNotDestroyOnLoad: 0
   _ship: {fileID: 1434197665525960520}
   _fishingRod: {fileID: 8438608577399586215}
-  _money: {fileID: 6114014450511262473}
+  _wallet: {fileID: 3942776053182145360}
   _playerController: {fileID: 2755816846443345005}
-  _shipRestorer: {fileID: 7863140630224788852}
---- !u!114 &6114014450511262473
+--- !u!1 &6117745349500549185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3045613347816503152}
+  - component: {fileID: 3942776053182145360}
+  m_Layer: 0
+  m_Name: Wallet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3045613347816503152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117745349500549185}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 459727197338660011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3942776053182145360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2357778224967500892}
+  m_GameObject: {fileID: 6117745349500549185}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4de501b3dd6f8434bb76d614d9e64912, type: 3}
@@ -147,14 +178,6 @@ PrefabInstance:
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 3817092095020116871}
-    - target: {fileID: 6880547466960822342, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
-      propertyPath: _damageConstant
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6880547466960822342, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
-      propertyPath: _damageMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7327368937490644075, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -213,12 +236,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7327368937490644075, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5012755600077969944}
-    - targetCorrespondingSourceObject: {fileID: 7327368937490644075, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7863140630224788852}
-    - targetCorrespondingSourceObject: {fileID: 7327368937490644075, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3116882411899933644}
   m_SourcePrefab: {fileID: 100100000, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
 --- !u!114 &1434197665525960520 stripped
 MonoBehaviour:
@@ -250,33 +267,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _totalFishWeight: 0
   _totalFishCost: 0
---- !u!114 &7863140630224788852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2960748024187228983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ad855bbee157b440a1f12235d836f44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _restorePoint: {fileID: 0}
-  _restoredHealthPercentage: 0.2
---- !u!114 &3116882411899933644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2960748024187228983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4172caba14f84014ebfee9816ee20ca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 3817092095020116871}
 --- !u!70 &3013297250071521515 stripped
 CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 7311552747972478903, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}

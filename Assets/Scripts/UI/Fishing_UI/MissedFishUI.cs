@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ namespace ShipMotorika
         [SerializeField] private GameObject _canvasPanel;
         [SerializeField] private Image _image;
         [SerializeField] private Button _button;
+        [SerializeField] private AudioClip _missedFish;
+        [SerializeField] private AudioSource _audioSource;
 
         #region UnityEvents
         private void Start()
@@ -31,7 +34,7 @@ namespace ShipMotorika
         private void DoOnButtonClick()
         {
             _canvasPanel.SetActive(false);
-
+            _audioSource.PlayOneShot(_missedFish);
             FishingChallenge.Instance.Deactivate();
         }
 

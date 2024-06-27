@@ -35,11 +35,9 @@ namespace ShipMotorika
 
         public virtual void TryBuyUpgrade()
         {
-            Player.Instance.Money.TryChangeMoneyAmount(-Math.Abs(_upgradeCost));
+            Player.Instance.Wallet.TryChangeMoneyAmount(-Math.Abs(_upgradeCost));
 
             _isAvailable = false;
-
-            UpdateButton();
 
             OnUpgrade?.Invoke();
         }
@@ -48,7 +46,7 @@ namespace ShipMotorika
         {
             if (_isAvailable)
             {
-                int money = Player.Instance.Money.CurrentMoney;
+                int money = Player.Instance.Wallet.CurrentMoney;
 
                 if (money >= _upgradeCost)
                 {

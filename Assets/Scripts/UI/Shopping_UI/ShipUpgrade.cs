@@ -9,7 +9,6 @@ namespace ShipMotorika
     public class ShipUpgrade : Upgrade
     {
         [Header("Additional upgrade information")]
-        [SerializeField] private Text _health;
         [SerializeField] private Text _speed;
         [SerializeField] private Text _carryingCopacity;
         [Space]
@@ -26,7 +25,6 @@ namespace ShipMotorika
             _name.text = _asset.Name;
             _description.text = _asset.Description;           
             _upgradeCost = _asset.Cost;
-            _health.text = _asset.Health.ToString();
             _cost.text = _upgradeCost.ToString();
             _speed.text = _asset.Speed.ToString();
             _carryingCopacity.text = _asset.СarryingCapacity.ToString();
