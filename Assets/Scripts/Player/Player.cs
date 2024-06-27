@@ -35,7 +35,7 @@ namespace ShipMotorika
         /// Текущая точка "воскрешения" корабля игрока.
         /// </summary>
         [SerializeField] private RestorePoint _restorePoint;
-        public RestorePoint RestorePosition => _restorePoint;
+        public RestorePoint RestorePoint => _restorePoint;
 
         public void GiveControlsToPlayer()
         {

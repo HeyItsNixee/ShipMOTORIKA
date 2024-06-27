@@ -311,8 +311,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 625908206}
+  - component: {fileID: 625908207}
   m_Layer: 0
-  m_Name: RestorePosition
+  m_Name: RestorePoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -333,6 +334,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &625908207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625908205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9406b8c91c9f9e94f9bbd0cd5edaa713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _position: {fileID: 625908206}
 --- !u!1001 &666868738
 PrefabInstance:
   m_ObjectHideFlags: 0
