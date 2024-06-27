@@ -39,6 +39,8 @@ namespace ShipMotorika
 
             _isAvailable = false;
 
+            UpdateButton();
+
             OnUpgrade?.Invoke();
         }
 

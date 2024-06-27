@@ -19,6 +19,6 @@ MonoBehaviour:
   Health: 100
   Speed: 20
   "\u0421arryingCapacity": 50
-  Cost: 0
+  Cost: 100
   ColliderX: 1.12
   ColliderY: 2.4

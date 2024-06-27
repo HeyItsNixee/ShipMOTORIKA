@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9406b8c91c9f9e94f9bbd0cd5edaa713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _position: {fileID: 625908206}
+  _transform: {fileID: 625908206}
 --- !u!1001 &666868738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1514,6 +1514,18 @@ PrefabInstance:
     - target: {fileID: 6114014450511262473, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _currentMoney
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7083908596712096879, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _restorePoint
+      value: 
+      objectReference: {fileID: 625908207}
+    - target: {fileID: 7863140630224788852, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _restorePoint
+      value: 
+      objectReference: {fileID: 625908207}
+    - target: {fileID: 7863140630224788852, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _restoredHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7925081607503790195, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: m_Enabled

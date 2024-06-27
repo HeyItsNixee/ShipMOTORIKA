@@ -273,6 +273,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3726806424611466381, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: _inputCanvas
+      value: 
+      objectReference: {fileID: 7716473213312059777}
     - target: {fileID: 4151328508635925958, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
       propertyPath: _boatShop
       value: 
@@ -337,6 +341,10 @@ PrefabInstance:
       propertyPath: _overweight
       value: 
       objectReference: {fileID: 4500269273476193063}
+    - target: {fileID: 7845583682589230262, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7973827479237627198, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0

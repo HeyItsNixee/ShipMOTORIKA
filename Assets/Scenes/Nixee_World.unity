@@ -5209,7 +5209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9406b8c91c9f9e94f9bbd0cd5edaa713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _position: {fileID: 2007100377}
+  _transform: {fileID: 2007100377}
 --- !u!4 &2007100377
 Transform:
   m_ObjectHideFlags: 0
@@ -5691,6 +5691,10 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1162061189}
+    - target: {fileID: 7863140630224788852, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _restorePoint
+      value: 
+      objectReference: {fileID: 2007100376}
     - target: {fileID: 8438608577399586215, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _asset
       value: 

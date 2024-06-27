@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace ShipMotorika
 {
     /// <summary>
-    /// ќтображает здоровье корабл¤ игрока в интерфейсе.
+    /// Отображает здоровье корабля игрока в интерфейсе.
     /// </summary>
     public class HealthUI : MonoBehaviour
     {

@@ -7,12 +7,12 @@ namespace ShipMotorika
     /// </summary>
     public class RestorePoint : MonoBehaviour
     {
-        [SerializeField] private Transform _position;
-        public Transform Position => _position;
+        [SerializeField] private Transform _transform;
+        public Transform Transform => _transform;
 
-        public void SetPlayerRestorePosition(Transform position)
+        public void SetTransform(Transform transform)
         {
-            _position = position;
+            _transform = transform;
         }
     }
 }
