@@ -23,16 +23,21 @@ namespace ShipMotorika
         [Header("Collisions")]
 
         /// <summary>
-        /// Множитель урона при столкновениях.
-        /// </summary>
-        [SerializeField] private float _damageMultiplier;
-        public float DamageMultiplier => _damageMultiplier; 
-
-        /// <summary>
         /// Минимальный обязательный урон при столкновениях.
         /// </summary>
         [SerializeField] private int _damageConstant;
         public int DamageConstant => _damageConstant;
+
+        /// <summary>
+        /// Множитель урона при столкновениях.
+        /// </summary>
+        [SerializeField] private float _damageMultiplier;
+        public float DamageMultiplier => _damageMultiplier;
+
+        /// <summary>
+        /// Неуязвимость к урону.
+        /// </summary>
+        [SerializeField] private bool _isIndestructible;     
 
         public event Action OnHealthChanged;
         public event Action OnDeath;
@@ -40,7 +45,18 @@ namespace ShipMotorika
         #region UnityEvents
         private void Start()
         {
-            RestoreHealth();
+            RestoreHealth(); // Заменить на загрузку сохраненного показателя здоровья.
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (!_isIndestructible)
+            {
+                float collisionSpeed = collision.relativeVelocity.magnitude;
+                int damage = Mathf.RoundToInt(_damageConstant + collisionSpeed * _damageMultiplier);
+
+                TryChangeHealthAmount(-Math.Abs(damage));
+            }
         }
         #endregion
 
@@ -64,6 +80,8 @@ namespace ShipMotorika
         public void RestoreHealth()
         {
             _currentHealth = _maxHealth;
+
+            OnHealthChanged?.Invoke();
         }
 
         public void SetMaxHealth(int health)

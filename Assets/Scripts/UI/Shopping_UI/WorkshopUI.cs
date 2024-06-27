@@ -13,6 +13,7 @@ namespace ShipMotorika
         [SerializeField] private Button _repairButton;
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _actionButton;
+        [SerializeField] private Text _text;
 
         #region UnityEvents
         private void Start()
@@ -32,41 +33,53 @@ namespace ShipMotorika
 
         private void CheckButtonAppearance()
         {
-            //if () // Проверка,на то, что текущее здоровье корабля меньше максимального. И на то, есть ли деньги на починку.
-            //{
-            //    _repairButton.interactable = true;
-            //}
-            //else
-            //{
-            //    _repairButton.interactable = false;
-            //}
+            if ((Workshop.CurrentRepairCost() > 0) && 
+                (Player.Instance.Money.CurrentMoney >= Workshop.CurrentRepairCost()))
+            {
+                _repairButton.interactable = true;
+            }
+            else
+            {
+                _repairButton.interactable = false;
+            }
         }
 
         private void RepairShip()
         {
-            Workshop.RepairShip();
+            Workshop.TryRepairShip();
 
             CheckButtonAppearance();
+            UpdateText();
+        }
+
+        private void UpdateText()
+        {
+            var cost = Workshop.CurrentRepairCost();
+
+            _text.text = $"Стоимость починки корабля - {cost} монет"; // Временный текст.
         }
 
         private void CloseWorkshop()
         {
             _canvasPanel.SetActive(false);
-            _inputCanvas.gameObject.SetActive(true);
 
+            _inputCanvas.gameObject.SetActive(true);
             _actionButton.gameObject.SetActive(true);
+
             Player.Instance.GiveControlsToPlayer();
         }
 
         public void OpenWorkshop()
         {
             _canvasPanel.SetActive(true);
-            _inputCanvas.gameObject.SetActive(false);
 
+            _inputCanvas.gameObject.SetActive(false);
             _actionButton.gameObject.SetActive(false);
+
             Player.Instance.TakeControlsFromPlayer();
 
             CheckButtonAppearance();
+            UpdateText();
         }
     }
 }

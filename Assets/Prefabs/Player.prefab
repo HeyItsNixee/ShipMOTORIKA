@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3070457724520645956}
   - component: {fileID: 2018532219611193898}
   - component: {fileID: 6114014450511262473}
+  - component: {fileID: 7083908596712096879}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -85,6 +86,7 @@ MonoBehaviour:
   _fishingRod: {fileID: 8438608577399586215}
   _money: {fileID: 6114014450511262473}
   _playerController: {fileID: 2755816846443345005}
+  _restorePoint: {fileID: 0}
 --- !u!114 &6114014450511262473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +100,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentMoney: 0
+--- !u!114 &7083908596712096879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357778224967500892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad855bbee157b440a1f12235d836f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5523308281004748636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,6 +160,14 @@ PrefabInstance:
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 3817092095020116871}
+    - target: {fileID: 6880547466960822342, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: _damageConstant
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880547466960822342, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
+      propertyPath: _damageMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7327368937490644075, guid: d3f518447acf4c744a9a19821f6e1af8, type: 3}
       propertyPath: m_Name
       value: Ship

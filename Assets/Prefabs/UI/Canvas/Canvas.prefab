@@ -257,6 +257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2186519288684213878, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 2973787541054177796, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
       propertyPath: _inputCanvas
       value: 
@@ -309,6 +313,10 @@ PrefabInstance:
       propertyPath: _upgradesPanel
       value: 
       objectReference: {fileID: 6397530267178494678}
+    - target: {fileID: 5661193400646709628, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5947610037662421383, guid: 77925dcfcb20dbb4fb379162f0bdd5ca, type: 3}
       propertyPath: m_IsActive
       value: 1
