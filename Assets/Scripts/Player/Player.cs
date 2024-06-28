@@ -22,15 +22,21 @@ namespace ShipMotorika
         /// <summary>
         /// Кошелек игрока на данный момент.
         /// </summary>
-        [SerializeField] private Wallet _wallet;
-        public Wallet Wallet => _wallet;
+        [SerializeField] private Money _money;
+        public Money Money => _money;
 
         /// <summary>
         /// Управление кораблем.
         /// </summary>
         [SerializeField] private PlayerController _playerController;
         public PlayerController PlayerController => _playerController;
-        
+
+        /// <summary>
+        /// Текущая точка "воскрешения" корабля игрока.
+        /// </summary>
+        [SerializeField] private ShipRestorer _shipRestorer;
+        public ShipRestorer ShipRestorer => _shipRestorer;
+
         public void GiveControlsToPlayer()
         {
             _playerController.enabled = true;

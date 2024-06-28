@@ -4,13 +4,13 @@ using UnityEngine.UI;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Интерфейс рынка.
+    /// Интерфейс мастерской.
     /// </summary>
-    public class MarketUI : MonoBehaviour
+    public class WorkshopUI : MonoBehaviour
     {
         [SerializeField] private GameObject _canvasPanel;
         [SerializeField] private Canvas _inputCanvas;
-        [SerializeField] private Button _sellButton;
+        [SerializeField] private Button _repairButton;
         [SerializeField] private Button _closeButton;
         [SerializeField] private Button _actionButton;
         [SerializeField] private Text _text;
@@ -19,34 +19,34 @@ namespace ShipMotorika
         private void Start()
         {
             _canvasPanel.SetActive(false);
-            
-            _sellButton.onClick.AddListener(SellFish);
-            _closeButton.onClick.AddListener(CloseMarket);
+
+            _repairButton.onClick.AddListener(RepairShip);
+            _closeButton.onClick.AddListener(CloseWorkshop);
         }
 
         private void OnDestroy()
         {
-            _sellButton.onClick.RemoveListener(SellFish);
-            _closeButton.onClick.RemoveListener(CloseMarket);
+            _repairButton.onClick.RemoveListener(RepairShip);
+            _closeButton.onClick.RemoveListener(CloseWorkshop);
         }
         #endregion
 
         private void CheckButtonAppearance()
         {
-            if ((Player.Instance.Ship.FishContainer.Weight > 0) ||
-                (Player.Instance.Ship.FishContainer.Cost > 0))
+            if ((Workshop.CurrentRepairCost() > 0) && 
+                (Player.Instance.Money.CurrentMoney >= Workshop.CurrentRepairCost()))
             {
-                _sellButton.interactable = true;
+                _repairButton.interactable = true;
             }
             else
             {
-                _sellButton.interactable = false;
+                _repairButton.interactable = false;
             }
         }
 
-        private void SellFish()
+        private void RepairShip()
         {
-            Market.SellFish();
+            Workshop.TryRepairShip();
 
             CheckButtonAppearance();
             UpdateText();
@@ -54,13 +54,12 @@ namespace ShipMotorika
 
         private void UpdateText()
         {
-            var cost = Player.Instance.Ship.FishContainer.Cost;
-            var weight = Player.Instance.Ship.FishContainer.Weight;
+            var cost = Workshop.CurrentRepairCost();
 
-            _text.text = $"Поймано {weight} кг рыбы общей стоимостью {cost} монет"; // Временный текст.
+            _text.text = $"Стоимость починки корабля - {cost} монет"; // Временный текст.
         }
 
-        private void CloseMarket()
+        private void CloseWorkshop()
         {
             _canvasPanel.SetActive(false);
 
@@ -70,7 +69,7 @@ namespace ShipMotorika
             Player.Instance.GiveControlsToPlayer();
         }
 
-        public void OpenMarket()
+        public void OpenWorkshop()
         {
             _canvasPanel.SetActive(true);
 

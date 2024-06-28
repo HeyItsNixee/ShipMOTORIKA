@@ -16,6 +16,7 @@ MonoBehaviour:
   ShopImage: {fileID: 21300000, guid: 24fb1c111e33d6f43bef6135ba74e9b4, type: 3}
   Name: "\u0411\u0440\u043E\u043D\u0437\u043E\u0432\u044B\u0439 \u043A\u043E\u0440\u0430\u0431\u043B\u044C"
   Description: "\u0411\u043B\u0430-\u0431\u043B\u0430-\u0431\u043B\u0430"
+  Health: 200
   Speed: 6
   "\u0421arryingCapacity": 100
   Cost: 100
