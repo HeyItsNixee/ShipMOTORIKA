@@ -87,8 +87,7 @@ namespace ShipMotorika
 
         #region UnityEvents
         private void Start()
-        {
-            SetDefaultRadius();            
+        {         
             Initialize(_asset);
 
             _fishingPoints = new List<FishingPoint>();
@@ -163,6 +162,8 @@ namespace ShipMotorika
         /// <param name="asset"></param>
         public void Initialize(FishingRodAsset asset)
         {
+            SetDefaultRadius();
+            
             _asset = asset;
             _spriteRenderer.sprite = asset.GameSprite;
             _name = asset.Name;

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Определяет какая рыба будет ловиться определенной удочкой.
+    /// РћРїСЂРµРґРµР»СЏРµС‚ РєР°РєР°СЏ СЂС‹Р±Р° Р±СѓРґРµС‚ Р»РѕРІРёС‚СЊСЃСЏ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ СѓРґРѕС‡РєРѕР№.
     /// </summary>
     public class FishPool : MonoBehaviour
     {
