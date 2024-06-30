@@ -16,6 +16,7 @@ namespace ShipMotorika
         /// ScriptableObject c параметрами удочки.
         /// </summary>
         [SerializeField] private FishingRodAsset _asset;
+        public FishingRodAsset Asset => _asset;
 
         /// <summary>
         /// Визуальное отображение удочки при ловле рыбы.
@@ -80,7 +81,9 @@ namespace ShipMotorika
         private bool _isTriggered = false;
 
         public event Action<bool> OnFishingPlaceNearby;
+
         public event Action OnFishAssigned;
+        public event Action OnFishingRodInitialized;
 
         #region UnityEvents
         private void Start()
@@ -160,6 +163,7 @@ namespace ShipMotorika
         /// <param name="asset"></param>
         public void Initialize(FishingRodAsset asset)
         {
+            _asset = asset;
             _spriteRenderer.sprite = asset.GameSprite;
             _name = asset.Name;
             _description = asset.Description;
@@ -168,6 +172,8 @@ namespace ShipMotorika
             _cost = asset.Cost;
 
             _fishingRodCircleCollider.radius = _radius;
+
+            OnFishingRodInitialized?.Invoke();
         }
 
         /// <summary>

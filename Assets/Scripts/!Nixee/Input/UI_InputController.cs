@@ -14,7 +14,7 @@ public class UI_InputController : Singleton<UI_InputController>, IDragHandler, I
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(holder.rectTransform, eventData.position,
                                                                         eventData.pressEventCamera, out position);
-        Debug.Log("position = " + position);
+        //Debug.Log("position = " + position);
         position.x = (position.x / holder.rectTransform.sizeDelta.x);
         position.y = (position.y / holder.rectTransform.sizeDelta.y);
 
@@ -25,7 +25,7 @@ public class UI_InputController : Singleton<UI_InputController>, IDragHandler, I
         if (Value.magnitude > 1)
             Value = Value.normalized;
 
-        Debug.Log("value.y = " + Value.y);
+        //Debug.Log("value.y = " + Value.y);
 
         float offsetY = holder.rectTransform.sizeDelta.y / 2 - bit.rectTransform.sizeDelta.y / 2;
 
