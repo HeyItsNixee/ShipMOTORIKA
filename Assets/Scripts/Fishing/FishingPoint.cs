@@ -17,18 +17,8 @@ namespace ShipMotorika
 
         public static event Action OnFishPointDestroy;
 
-        /// <summary>
-        /// В этот массив складываем всю "полезную" рыбу.
-        /// </summary>
-        [SerializeField] private FishAsset[] _usefulFishAssets;
-
-        /// <summary>
-        /// В этот массив складываем всю "мусорную" рыбу.
-        /// </summary>
-        [SerializeField] private FishAsset[] _garbageFishAssets;  
-
-        [Header("Dependent components")]
         [SerializeField] private Fish _fishPrefab;
+        [SerializeField] private FishPool _fishPoolPrefab;
         [SerializeField] private GameObject _bubbles;
         [SerializeField] private SpriteRenderer _circleOfFish;
         [SerializeField] private Sprite[] _cirleSprites;
@@ -81,20 +71,24 @@ namespace ShipMotorika
                     _fish = Instantiate(_fishPrefab, transform.position, Quaternion.identity);
                     _fish.Sprite.enabled = false; // Attention!
                     
+                    _fishPoolPrefab.Initialize();
+
                     if (DropProbability.Value <= 10) // Шанс поймать мусор - 10%.
                     {
-                        if (_garbageFishAssets.Length > 0)
+                        var garbage = _fishPoolPrefab.GarbageArray;
+                        if (garbage.Length > 0)
                         {
-                            int index = UnityEngine.Random.Range(0, _garbageFishAssets.Length);
-                            _fish.Initialize(_garbageFishAssets[index]);
+                            int index = UnityEngine.Random.Range(0, garbage.Length);
+                            _fish.Initialize(garbage[index]);
                         }
                     }
                     else
                     {
-                        if (_usefulFishAssets.Length > 0)
+                        var fish = _fishPoolPrefab.CurrentArray;
+                        if (fish.Length > 0)
                         {
-                            int index = UnityEngine.Random.Range(0, _usefulFishAssets.Length);
-                            _fish.Initialize(_usefulFishAssets[index]);
+                            int index = UnityEngine.Random.Range(0, fish.Length);
+                            _fish.Initialize(fish[index]);
                         }
                     }
 

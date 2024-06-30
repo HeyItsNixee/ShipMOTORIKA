@@ -18,13 +18,13 @@ namespace ShipMotorika
 
         private void Start()
         {
-            UpdateImage();
-            
-            Player.Instance.Ship.OnWeightChanged += UpdateImage;
+            Player.Instance.Ship.OnShipInitialized += UpdateImage;
+            Player.Instance.Ship.OnWeightChanged += UpdateImage;  
         }
 
         private void OnDestroy()
         {
+            Player.Instance.Ship.OnShipInitialized -= UpdateImage;
             Player.Instance.Ship.OnWeightChanged -= UpdateImage;
         }
         #endregion

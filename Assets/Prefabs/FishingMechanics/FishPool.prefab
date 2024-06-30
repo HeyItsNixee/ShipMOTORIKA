@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8779513910983375173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6969562829447731880}
+  - component: {fileID: 5846408836929949484}
+  m_Layer: 0
+  m_Name: FishPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6969562829447731880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779513910983375173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5846408836929949484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779513910983375173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c8ec54f2c43cf4d8ef4009dd77af94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultFishingRod: {fileID: 11400000, guid: 6d5801117dff0a140a63dca3e5943a3d, type: 2}
+  _defaultArray:
+  - {fileID: 11400000, guid: f3253f6aa0d605944a5c776532f1a644, type: 2}
+  _bronzeFishingRod: {fileID: 11400000, guid: 88b00df5fa553064f83bd46df17a4a6b, type: 2}
+  _bronzeArray:
+  - {fileID: 11400000, guid: 8eda4dbe07f375d46a8c967085a07755, type: 2}
+  _silverFishingRod: {fileID: 11400000, guid: 9390453fe6f1abd42a11c53785901972, type: 2}
+  _silverArray:
+  - {fileID: 11400000, guid: a14ef5e174951e2449d2db1a8fbb9055, type: 2}
+  _goldFishingRod: {fileID: 11400000, guid: 65ec25aa3aac55e4aa1713331182d470, type: 2}
+  _goldArray: []
+  _garbageArray:
+  - {fileID: 11400000, guid: 5f1565a6fc3742a4285db6d74dab1c27, type: 2}

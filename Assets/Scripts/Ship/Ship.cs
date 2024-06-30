@@ -15,6 +15,7 @@ namespace ShipMotorika
         /// ScriptableObject c параметрами корабля.
         /// </summary>
         [SerializeField] private ShipAsset _asset;
+        public ShipAsset Asset => _asset;   
 
         /// <summary>
         /// Визуальное отображение корабля. В данном случае для удобства не стоит выделять визуальное воплощение и модель в отдельные классы.
@@ -78,6 +79,8 @@ namespace ShipMotorika
         public event Action<bool> OnBoatShopNearby;
         public event Action<bool> OnFishingRodShopNearby;
         public event Action<bool> OnWorkshopNearby;
+
+        public event Action OnShipInitialized;
         public event Action OnWeightChanged;
 
         #region UnityEvents
@@ -105,6 +108,7 @@ namespace ShipMotorika
         /// <param name="asset"></param>
         public void Initialize(ShipAsset asset)
         {
+            _asset = asset; 
             _spriteRenderer.sprite = asset.GameSprite;
             _capsuleCollider.size = new Vector2(_asset.ColliderX, _asset.ColliderY);
             _name = asset.Name;
@@ -117,6 +121,8 @@ namespace ShipMotorika
             _health.RestoreHealth();
 
             Player.Instance.PlayerController.SetMaxLinearVelocity(_speed);
+
+            OnShipInitialized?.Invoke();
         }
 
         /// <summary>
