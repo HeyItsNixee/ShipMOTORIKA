@@ -78,6 +78,8 @@ namespace ShipMotorika
         public event Action<bool> OnBoatShopNearby;
         public event Action<bool> OnFishingRodShopNearby;
         public event Action<bool> OnWorkshopNearby;
+
+        public event Action OnShipInitialized;
         public event Action OnWeightChanged;
 
         #region UnityEvents
@@ -117,6 +119,8 @@ namespace ShipMotorika
             _health.RestoreHealth();
 
             Player.Instance.PlayerController.SetMaxLinearVelocity(_speed);
+
+            OnShipInitialized?.Invoke();
         }
 
         /// <summary>
