@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_InputController : Singleton<UI_InputController>, IDragHandler, IPointerUpHandler, IPointerDownHandler
+public class UI_ForwardInputController : Singleton<UI_ForwardInputController>, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField] private Image holder;
     [SerializeField] private Image bit;
@@ -37,9 +37,18 @@ public class UI_InputController : Singleton<UI_InputController>, IDragHandler, I
         OnDrag(eventData);
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void ResetStick()
     {
         Value = Vector3.zero;
         bit.rectTransform.anchoredPosition = Vector3.zero;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        ResetStick();
+    }
+    private void OnDisable()
+    {
+        ResetStick();
     }
 }
