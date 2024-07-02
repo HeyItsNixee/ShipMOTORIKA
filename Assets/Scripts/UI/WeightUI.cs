@@ -11,13 +11,10 @@ namespace ShipMotorika
         [SerializeField] private Image _image;
 
         #region UnityEvents
-        private void Awake()
-        {
-            _image.fillAmount = 0f;
-        }
-
         private void Start()
         {
+            UpdateImage();
+            
             Player.Instance.Ship.OnShipInitialized += UpdateImage;
             Player.Instance.Ship.OnWeightChanged += UpdateImage;  
         }
@@ -33,7 +30,14 @@ namespace ShipMotorika
         {
             var ship = Player.Instance.Ship;
 
-            _image.fillAmount = (float) ship.CurrentWeight / ship.CarryingCapacity;
+            if (ship.CarryingCapacity > 0)
+            {
+                _image.fillAmount = (float)ship.CurrentWeight / ship.CarryingCapacity;
+            }
+            else
+            {
+                _image.fillAmount = 0f;
+            }
         }
     }
 }

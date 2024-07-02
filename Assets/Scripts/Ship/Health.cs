@@ -45,7 +45,12 @@ namespace ShipMotorika
         #region UnityEvents
         private void Start()
         {
-            RestoreHealth(); // Заменить на загрузку сохраненного показателя здоровья.
+            if (_currentHealth <= 0)
+            {
+                RestoreHealth();
+            }
+
+            // Заменить на загрузку сохраненного показателя здоровья.
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

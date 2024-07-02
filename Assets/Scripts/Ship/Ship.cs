@@ -15,7 +15,7 @@ namespace ShipMotorika
         /// ScriptableObject c параметрами корабля.
         /// </summary>
         [SerializeField] private ShipAsset _asset;
-        public ShipAsset Asset => _asset;   
+        public ShipAsset Asset => _asset;
 
         /// <summary>
         /// Визуальное отображение корабля. В данном случае для удобства не стоит выделять визуальное воплощение и модель в отдельные классы.
@@ -95,11 +95,6 @@ namespace ShipMotorika
         {
             _fishContainer.OnFishCaught -= TryChangeWeightAmount;
         }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            
-        }
         #endregion
 
         /// <summary>
@@ -108,7 +103,7 @@ namespace ShipMotorika
         /// <param name="asset"></param>
         public void Initialize(ShipAsset asset)
         {
-            _asset = asset; 
+            _asset = asset;
             _spriteRenderer.sprite = asset.GameSprite;
             _capsuleCollider.size = new Vector2(_asset.ColliderX, _asset.ColliderY);
             _name = asset.Name;
@@ -117,8 +112,12 @@ namespace ShipMotorika
             _carryingCapacity = asset.СarryingCapacity;
             _speed = asset.Speed;
 
+            if (_fishContainer)
+            {
+                _currentWeight = Mathf.Clamp(_fishContainer.Weight, 0, _carryingCapacity);
+            }
+
             _health.SetMaxHealth(asset.Health);
-            _health.RestoreHealth();
 
             Player.Instance.PlayerController.SetMaxLinearVelocity(_speed);
 

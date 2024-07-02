@@ -11,13 +11,10 @@ namespace ShipMotorika
         [SerializeField] private Image _image;
 
         #region UnityEvents
-        private void Awake()
-        {
-            _image.fillAmount = 0f;
-        }
-
         private void Start()
         {
+            UpdateImage();
+            
             Player.Instance.Ship.OnShipInitialized += UpdateImage;
             Player.Instance.Ship.Health.OnHealthChanged += UpdateImage;
         }
@@ -33,7 +30,14 @@ namespace ShipMotorika
         {
             var health = Player.Instance.Ship.Health;
 
-            _image.fillAmount = (float)health.CurrentHealth / health.MaxHealth;
+            if (health.MaxHealth > 0)
+            {
+                _image.fillAmount = (float)health.CurrentHealth / health.MaxHealth;
+            }
+            else
+            {
+                _image.fillAmount = 0f;
+            }
         }
     }
 }
