@@ -40,9 +40,13 @@ namespace ShipMotorika
             {
                 _spriteRenderer.enabled = true;
             }
-            
-            FishingChallenge.Instance.OnEnable += TurnToTarget;
-            FishingChallenge.Instance.OnDisable += SetDefaultRotation;
+
+            var challenge = FishingChallenge.Instance;
+            if (challenge)
+            {
+                challenge.OnEnable += TurnToTarget;
+                challenge.OnDisable += SetDefaultRotation;
+            }
         }
 
         private void Update()
@@ -71,9 +75,13 @@ namespace ShipMotorika
         }
 
         private void OnDestroy()
-        {
-            FishingChallenge.Instance.OnEnable -= TurnToTarget;
-            FishingChallenge.Instance.OnDisable -= SetDefaultRotation;
+        {          
+            var challenge = FishingChallenge.Instance;        
+            if (challenge)
+            {
+                challenge.OnEnable -= TurnToTarget;
+                challenge.OnDisable -= SetDefaultRotation;
+            }
         }
         #endregion
 
