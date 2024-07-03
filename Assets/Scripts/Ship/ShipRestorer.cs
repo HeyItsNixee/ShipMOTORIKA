@@ -37,6 +37,8 @@ namespace ShipMotorika
             }
 
             OnShipRestored?.Invoke();
+
+            Debug.Log("Restored");
         }
     }
 }

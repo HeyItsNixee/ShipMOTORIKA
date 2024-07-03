@@ -35,6 +35,7 @@ namespace ShipMotorika
         public override void TryBuyUpgrade()
         {
             Player.Instance.Ship.Initialize(_asset);
+            Player.Instance.Ship.Health.RestoreHealth();
 
             base.TryBuyUpgrade();
         }
