@@ -42,12 +42,13 @@ namespace ShipMotorika
         #region UnityEvents
         private void Start()
         {
-            LoadShipPosition();
-
             if (FileHandler.HasFile("ShipPosition.dat"))
             {
+                LoadShipPosition();
                 ReplaceShip();
-            }      
+            }
+
+            SaveShipPosition();
         }
 
         private void OnApplicationQuit()
@@ -71,10 +72,10 @@ namespace ShipMotorika
 
         public void SaveShipPosition()
         {
-            var ship = Player.Instance.Ship.gameObject;
-
-            _savedPosition.Position = ship.transform.position;
-            _savedPosition.Rotation = ship.transform.rotation;
+            var ship = Player.Instance.Ship.gameObject.transform;
+            
+            _savedPosition.Position = ship.position;
+            _savedPosition.Rotation = ship.rotation;
 
             Saver<SavedPosition>.Save(Filename, _savedPosition);
         }
