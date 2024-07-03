@@ -13,7 +13,7 @@ public class UI_SideInputController : MonoBehaviour, IPointerUpHandler, IPointer
         if (type == InputType.Right)
             PlayerController.Instance.TurnRight();
 
-        Debug.Log("PointerDown " + name);
+        Debug.Log(eventData.selectedObject);
     }
 
     public void OnPointerUp(PointerEventData eventData)
