@@ -9,6 +9,21 @@ namespace ShipMotorika
     public class ShipRestorer : MonoBehaviour
     {
         /// <summary>
+        /// Вспомогательный класс для сохранения позиции корабля.
+        /// </summary>
+        [Serializable]
+        private sealed class SavedPosition
+        {
+            public Vector3 Position;
+            public Quaternion Rotation;
+        }
+
+        /// <summary>
+        /// Имя файла, отвечающего за сохранение позиции корабля.
+        /// </summary>
+        private const string Filename = "ShipPosition.dat";
+
+        /// <summary>
         /// Точка, в которой появится корабль.
         /// </summary>
         [SerializeField] private RestorePoint _restorePoint;
@@ -20,7 +35,49 @@ namespace ShipMotorika
         [Range(0, 1)]
         [SerializeField] private float _restoredHealthPercentage;
 
+        private SavedPosition _savedPosition;
+
         public event Action OnShipRestored;
+
+        #region UnityEvents
+        private void Start()
+        {
+            LoadShipPosition();
+
+            if (FileHandler.HasFile("ShipPosition.dat"))
+            {
+                ReplaceShip();
+            }      
+        }
+
+        private void OnApplicationQuit()
+        {
+            SaveShipPosition();
+        }
+        #endregion
+
+        private void ReplaceShip()
+        {
+            var ship = Player.Instance.Ship.gameObject.transform;
+
+            ship.position = _savedPosition.Position;
+            ship.rotation = _savedPosition.Rotation;
+        }
+
+        private void LoadShipPosition()
+        {
+            Saver<SavedPosition>.TryLoad(Filename, ref _savedPosition);
+        }
+
+        public void SaveShipPosition()
+        {
+            var ship = Player.Instance.Ship.gameObject;
+
+            _savedPosition.Position = ship.transform.position;
+            _savedPosition.Rotation = ship.transform.rotation;
+
+            Saver<SavedPosition>.Save(Filename, _savedPosition);
+        }
 
         public void RestoreShip()
         {
@@ -33,12 +90,15 @@ namespace ShipMotorika
             if (_restorePoint != null)
             {
                 var position = _restorePoint.Transform.position;
+                var rotation = _restorePoint.Transform.rotation;
+
                 ship.gameObject.transform.position = position;
+                ship.gameObject.transform.rotation = rotation;
+
+                SaveShipPosition();
             }
 
             OnShipRestored?.Invoke();
-
-            Debug.Log("Restored");
         }
     }
 }

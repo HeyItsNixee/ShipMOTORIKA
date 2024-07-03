@@ -17,6 +17,7 @@ namespace ShipMotorika
                 _player = collision;
 
                 Player.Instance.Ship.SendBoatShopMessage(true);
+                Player.Instance.ShipRestorer.SaveShipPosition();
             }
         }
 

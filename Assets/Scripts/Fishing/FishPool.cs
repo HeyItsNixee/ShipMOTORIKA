@@ -22,6 +22,10 @@ namespace ShipMotorika
         [SerializeField] private FishAsset[] _goldArray;
 
         [Header("Garbage fish")]
+        [Range(0, 100)]
+        [SerializeField] private int _garbageChance;
+        public int GarbageChance => _garbageChance;
+
         [SerializeField] private FishAsset[] _garbageArray;
         public FishAsset[] GarbageArray => _garbageArray;
 

@@ -69,6 +69,8 @@ namespace ShipMotorika
             PlayerPrefs.DeleteKey("ShipCurrentHealth");
             PlayerPrefs.DeleteKey("FishContainerWeight");
             PlayerPrefs.DeleteKey("FishContainerCost");
+
+            FileHandler.Reset("ShipPosition.dat");
         }
     }
 }
