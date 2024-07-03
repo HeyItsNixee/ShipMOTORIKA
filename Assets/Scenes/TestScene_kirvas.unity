@@ -1481,7 +1481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1430498614990016282, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _currentHealth
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1434197665525960520, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _asset
@@ -1521,11 +1521,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 13df614e2e5d7b943a8c48babd9b2b1d, type: 3}
     - target: {fileID: 5012755600077969944, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _totalFishWeight
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6114014450511262473, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _currentMoney
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7083908596712096879, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _restorePoint
@@ -1539,6 +1539,10 @@ PrefabInstance:
       propertyPath: _restoredHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7863140630224788852, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _restoredHealthPercentage
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7925081607503790195, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1550,7 +1554,7 @@ PrefabInstance:
     - target: {fileID: 8438608577399586215, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _asset
       value: 
-      objectReference: {fileID: 11400000, guid: 6d5801117dff0a140a63dca3e5943a3d, type: 2}
+      objectReference: {fileID: 11400000, guid: 58d35198bd67cb34dae125fdb31a0565, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
