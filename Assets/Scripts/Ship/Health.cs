@@ -45,7 +45,7 @@ namespace ShipMotorika
         #region UnityEvents
         private void Start()
         {
-            PlayerData.LoadHealth();
+            HealthData.Load();
 
             if (_currentHealth <= 0)
             {
@@ -73,7 +73,7 @@ namespace ShipMotorika
 
                 OnHealthChanged?.Invoke();
 
-                PlayerData.SaveHealth();
+                HealthData.Save();
             }
         }
 
@@ -91,7 +91,7 @@ namespace ShipMotorika
 
             OnHealthChanged?.Invoke();
 
-            PlayerData.SaveHealth();
+            HealthData.Save();
         }
 
         public void TryChangeHealthAmount(int amount)
@@ -109,7 +109,7 @@ namespace ShipMotorika
                     OnHealthChanged?.Invoke();
                 }
 
-                PlayerData.SaveHealth();
+                HealthData.Save();
             }
         }
     }

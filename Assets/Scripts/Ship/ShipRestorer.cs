@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 
@@ -21,7 +22,7 @@ namespace ShipMotorika
         /// <summary>
         /// Имя файла, отвечающего за сохранение позиции корабля.
         /// </summary>
-        //private const string Filename = "ShipPosition.dat"; // Attention!
+        private const string Filename = "ShipPosition.dat";
 
         /// <summary>
         /// Точка, в которой появится корабль.
@@ -43,7 +44,7 @@ namespace ShipMotorika
 
         private void Start()
         {
-            if (FileHandler.HasFile($"{UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}_ShipPosition.dat"))
+            if (FileHandler.HasFile($"{SceneManager.GetActiveScene().name}_{Filename}"))
             {
                 LoadShipPosition();
                 ReplaceShip();
@@ -68,7 +69,7 @@ namespace ShipMotorika
 
         private void LoadShipPosition()
         {
-            Saver<SavedPosition>.TryLoad($"{UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}_ShipPosition.dat", ref _savedPosition);
+            Saver<SavedPosition>.TryLoad($"{SceneManager.GetActiveScene().name}_{Filename}", ref _savedPosition);
         }
 
         public void SaveShipPosition()
@@ -78,7 +79,7 @@ namespace ShipMotorika
             _savedPosition.Position = ship.position;
             _savedPosition.Rotation = ship.rotation;
 
-            Saver<SavedPosition>.Save($"{UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}_ShipPosition.dat", _savedPosition);
+            Saver<SavedPosition>.Save($"{SceneManager.GetActiveScene().name}_{Filename}", _savedPosition);
         }
 
         public void RestoreShip()

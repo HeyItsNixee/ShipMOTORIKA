@@ -114,7 +114,7 @@ namespace ShipMotorika
 
             if (_fishContainer)
             {
-                PlayerData.LoadFishContainer();
+                FishContainerData.Load();
 
                 _currentWeight = Mathf.Clamp(_fishContainer.Weight, 0, _carryingCapacity);
             }

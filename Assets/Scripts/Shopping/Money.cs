@@ -16,7 +16,7 @@ namespace ShipMotorika
         #region UnityEvents
         private void Start()
         {
-            PlayerData.LoadMoney();
+            MoneyData.Load();
         }
         #endregion
 
@@ -28,7 +28,7 @@ namespace ShipMotorika
 
                 OnMoneyChanged?.Invoke();
 
-                PlayerData.SaveMoney();
+                MoneyData.Save();
             }
         }
 
@@ -44,7 +44,7 @@ namespace ShipMotorika
 
                     OnMoneyChanged?.Invoke();
 
-                    PlayerData.SaveMoney();
+                    MoneyData.Save();
                 }
             }
         }

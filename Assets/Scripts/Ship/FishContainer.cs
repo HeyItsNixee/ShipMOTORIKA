@@ -43,7 +43,7 @@ namespace ShipMotorika
             _totalFishWeight = 0;
             _totalFishCost = 0;
 
-            PlayerData.SaveFishContainer();
+            FishContainerData.Save();
         }
 
         public void ChangeWeightAmount(int amount)
@@ -57,7 +57,7 @@ namespace ShipMotorika
 
             OnFishCaught(amount);
 
-            PlayerData.SaveFishContainer();
+            FishContainerData.Save();
         }
 
         public void ChangeCostAmount(int amount)
@@ -69,7 +69,7 @@ namespace ShipMotorika
                 _totalFishCost = 0;
             }
 
-            PlayerData.SaveFishContainer();
+            FishContainerData.Save();
         }
     }
 }
