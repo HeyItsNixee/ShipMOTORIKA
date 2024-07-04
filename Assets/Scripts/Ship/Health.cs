@@ -45,12 +45,12 @@ namespace ShipMotorika
         #region UnityEvents
         private void Start()
         {
+            HealthData.Load();
+
             if (_currentHealth <= 0)
             {
                 RestoreHealth();
             }
-
-            // Заменить на загрузку сохраненного показателя здоровья.
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -64,6 +64,35 @@ namespace ShipMotorika
             }
         }
         #endregion
+
+        public void SetCurrentHealth(int health)
+        {
+            if (health > 0)
+            {
+                _currentHealth = health;
+
+                OnHealthChanged?.Invoke();
+
+                HealthData.Save();
+            }
+        }
+
+        public void SetMaxHealth(int health)
+        {
+            if (health > 0)
+            {
+                _maxHealth = health;
+            }
+        }
+
+        public void RestoreHealth()
+        {
+            _currentHealth = _maxHealth;
+
+            OnHealthChanged?.Invoke();
+
+            HealthData.Save();
+        }
 
         public void TryChangeHealthAmount(int amount)
         {
@@ -79,21 +108,8 @@ namespace ShipMotorika
                 {
                     OnHealthChanged?.Invoke();
                 }
-            }
-        }
 
-        public void RestoreHealth()
-        {
-            _currentHealth = _maxHealth;
-
-            OnHealthChanged?.Invoke();
-        }
-
-        public void SetMaxHealth(int health)
-        {
-            if (health > 0)
-            {
-                _maxHealth = health;
+                HealthData.Save();
             }
         }
     }

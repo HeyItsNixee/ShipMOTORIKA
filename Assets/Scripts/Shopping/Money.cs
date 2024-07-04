@@ -13,8 +13,27 @@ namespace ShipMotorika
 
         public event Action OnMoneyChanged;
 
+        #region UnityEvents
+        private void Start()
+        {
+            MoneyData.Load();
+        }
+        #endregion
+
+        public void SetCurrentMoney(int amount)
+        {
+            if (amount > 0)
+            {
+                _currentMoney = amount;
+
+                OnMoneyChanged?.Invoke();
+
+                MoneyData.Save();
+            }
+        }
+
         public void TryChangeMoneyAmount(int amount)
-        {            
+        {
             if (amount != 0)
             {
                 int currentMoney = _currentMoney + amount;
@@ -24,6 +43,8 @@ namespace ShipMotorika
                     _currentMoney = currentMoney;
 
                     OnMoneyChanged?.Invoke();
+
+                    MoneyData.Save();
                 }
             }
         }
