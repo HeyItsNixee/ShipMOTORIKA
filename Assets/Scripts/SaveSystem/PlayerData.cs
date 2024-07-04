@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// —охран¤ет данные пользовател¤.
+    /// Сохраняет данные пользователя.
     /// </summary>
     public class PlayerData
     {
