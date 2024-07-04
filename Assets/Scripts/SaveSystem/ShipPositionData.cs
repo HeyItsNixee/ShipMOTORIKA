@@ -43,5 +43,29 @@ namespace ShipMotorika
 
             Saver<SavedPosition>.Save($"{SceneManager.GetActiveScene().name}_{Filename}", _savedPosition);
         }
+
+        public static void DeleteSceneData(string sceneName)
+        {
+            string filePath = $"{sceneName}_{Filename}";
+
+            if (FileHandler.HasFile(filePath))
+            {
+                FileHandler.Reset(filePath);
+            }
+        }
+
+        //public static void Delete()
+        //{
+        //    string filePath = $"{SceneManager.GetActiveScene().name}_{Filename}";
+
+        //    FileHandler.Reset(filePath);
+        //}
+
+        //public static void CreateNew()
+        //{
+        //    string filePath = $"{SceneManager.GetActiveScene().name}_{Filename}";
+
+        //    FileHandler.CreateEmptyFile(filePath);
+        //}
     }
 }

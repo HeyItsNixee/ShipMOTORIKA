@@ -13,6 +13,13 @@ namespace ShipMotorika
             return $"{Application.persistentDataPath}/{filename}";
         }
 
+        public static void CreateEmptyFile(string filename)
+        {
+            var path = Path(filename);
+
+            File.Create(path);
+        }
+
         public static void Reset(string filename)
         {
             var path = Path(filename);
@@ -23,7 +30,7 @@ namespace ShipMotorika
             }
         }
 
-        internal static bool HasFile(string filename)
+        public static bool HasFile(string filename)
         {
             return File.Exists(Path(filename));
         }

@@ -24,15 +24,18 @@ namespace ShipMotorika
 
         #region UnityEvents
 
+        private void Awake()
+        {
+            ShipPositionData.Load();
+        }
+
         private void Start()
         {
             if (ShipPositionData.HasSave())
             {
-                ShipPositionData.Load();
                 ReplaceShip();
+                ShipPositionData.Save();
             }
-
-            ShipPositionData.Save();
         }
 
         private void OnApplicationQuit()

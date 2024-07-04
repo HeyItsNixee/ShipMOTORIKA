@@ -23,19 +23,32 @@ namespace ShipMotorika
                         Destroy(obj.gameObject);
                     }
 
+                    DestroyAll<ActionButton>();
+                    DestroyAll<BoatShop>();
+                    DestroyAll<FishingRodShop>();
+                    DestroyAll<CircleArea>();
                     DestroyAll<Fish>();
+                    DestroyAll<FishAlbum>();
                     DestroyAll<FishContainer>();
+                    DestroyAll<FishPool>();
                     DestroyAll<FishSpawner>();
                     DestroyAll<FishingChallenge>();
-                    DestroyAll<FishingPoint>();
+                    DestroyAll<FishingPoint>(); 
                     DestroyAll<FishingRod>();
+                    DestroyAll<FishingRodRotator>();
+                    DestroyAll<FishingRodRotator_old>();
+                    DestroyAll<Health>();
                     DestroyAll<Market>();
+                    DestroyAll<Money>();
                     DestroyAll<Player>();
                     DestroyAll<PlayerController>();
+                    DestroyAll<RestorePoint>();
+                    DestroyAll<Rotator>();
                     DestroyAll<Ship>();
-                    DestroyAll<BoatShop>();
+                    DestroyAll<ShipDestroyer>();
+                    DestroyAll<ShipRestorer>();                   
                     DestroyAll<Spawner>();
-                    DestroyAll<Money>();
+                    DestroyAll<Workshop>();                 
                 }
             }
         }
