@@ -1,5 +1,3 @@
-using System;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
@@ -9,17 +7,6 @@ namespace ShipMotorika
     /// </summary>
     public static class ShipPositionData
     {
-        /// <summary>
-        /// Вспомогательный класс для сохранения позиции корабля.
-        /// </summary>
-        [Serializable]
-        public sealed class TransformData
-        {
-            public Vector3 Position;
-            public Quaternion Rotation;
-            public Vector3 Scale;
-        }
-
         /// <summary>
         /// Имя файла, отвечающего за сохранение позиции корабля.
         /// </summary>

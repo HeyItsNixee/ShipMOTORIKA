@@ -4,10 +4,10 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Вспомогательный класс для сохранения позиции точки возрождения корабля.
+    /// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РєР»Р°СЃСЃ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ РїРѕР·РёС†РёРё С‚РѕС‡РєРё РІРѕР·СЂРѕР¶РґРµРЅРёСЏ РєРѕСЂР°Р±Р»СЏ.
     /// </summary>
     [Serializable]
-    public class TransformData : MonoBehaviour
+    public class TransformData
     {
         public Vector3 Position;
         public Quaternion Rotation;

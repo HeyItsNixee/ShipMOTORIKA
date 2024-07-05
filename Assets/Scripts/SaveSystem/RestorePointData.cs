@@ -1,5 +1,3 @@
-using System;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
@@ -7,18 +5,7 @@ namespace ShipMotorika
     public static class RestorePointData
     {
         /// <summary>
-        /// Вспомогательный класс для сохранения позиции точки возрождения корабля.
-        /// </summary>
-        [Serializable]
-        public sealed class TransformData
-        {
-            public Vector3 Position;
-            public Quaternion Rotation;
-            public Vector3 Scale;
-        }
-
-        /// <summary>
-        /// »м¤ файла, отвечающего за сохранение точки возрождения.
+        /// Имя файла, отвечающего за сохранение точки возрождения.
         /// </summary>
         private const string Filename = "RestorePoint.dat";
 
