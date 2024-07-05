@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Оперирует данными о контейнере с рыбой (вес и стоимость пойманной рыбы).
     /// </summary>
-    public class FishContainerData
+    public static class FishContainerData
     {
         private const string WeightFilename = "FishContainerWeight";
         private const string CostFilename = "FishContainerCost";

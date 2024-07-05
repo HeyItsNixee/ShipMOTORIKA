@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Оперирует данными о деньгах игрока.
     /// </summary>
-    public class MoneyData
+    public static class MoneyData
     {
         private const string Filename = "PlayerMoney";
 

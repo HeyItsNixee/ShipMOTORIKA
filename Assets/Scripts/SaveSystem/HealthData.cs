@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Оперирует данными о здоровье корабля игрока.
     /// </summary>
-    public class HealthData
+    public static class HealthData
     {
         private const string Filename = "ShipCurrentHealth";
 

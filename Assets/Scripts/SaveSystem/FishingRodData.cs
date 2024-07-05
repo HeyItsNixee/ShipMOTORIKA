@@ -1,15 +1,14 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
 {
     /// <summary>
-    /// Сохраняет данные о характеристиках удочки игрока.
+    /// РЎРѕС…СЂР°РЅСЏРµС‚ РґР°РЅРЅС‹Рµ Рѕ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєР°С… СѓРґРѕС‡РєРё РёРіСЂРѕРєР°.
     /// </summary>
-    public class FishingRodData : MonoBehaviour
+    public static class FishingRodData
     {
         /// <summary>
-        /// »м¤ файла, отвечающего за сохранение характеристик удочки.
+        /// РРјСЏ С„Р°Р№Р»Р°, РѕС‚РІРµС‡Р°СЋС‰РµРіРѕ Р·Р° СЃРѕС…СЂР°РЅРµРЅРёРµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє СѓРґРѕС‡РєРё.
         /// </summary>
         private const string Filename = "FishingRod.dat";
 

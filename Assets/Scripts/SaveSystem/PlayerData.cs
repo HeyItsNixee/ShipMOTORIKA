@@ -5,7 +5,7 @@ namespace ShipMotorika
     /// <summary>
     /// Сохраняет данные пользователя.
     /// </summary>
-    public class PlayerData
+    public static class PlayerData
     {
         public static void DeleteSceneData(string sceneName)
         {
@@ -13,6 +13,7 @@ namespace ShipMotorika
             FishingRodData.DeleteSceneData(sceneName);
             HealthData.DeleteSceneData(sceneName);
             MoneyData.DeleteSceneData(sceneName);
+            RestorePointData.DeleteSceneData(sceneName);
             ShipAssetData.DeleteSceneData(sceneName);
             ShipPositionData.DeleteSceneData(sceneName);           
         }
@@ -36,6 +37,10 @@ namespace ShipMotorika
             MoneyData.DeleteSceneData("TestScene_kirvas");
             MoneyData.DeleteSceneData("Nixee_World");
             MoneyData.DeleteSceneData("Tutorial");
+
+            RestorePointData.DeleteSceneData("TestScene_kirvas");
+            RestorePointData.DeleteSceneData("Nixee_World");
+            RestorePointData.DeleteSceneData("Tutorial");
 
             ShipAssetData.DeleteSceneData("TestScene_kirvas");
             ShipAssetData.DeleteSceneData("Nixee_World");

@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
@@ -6,10 +5,10 @@ namespace ShipMotorika
     /// <summary>
     /// Сохраняет данные о характеристиках корабля игрока.
     /// </summary>
-    public class ShipAssetData : MonoBehaviour
+    public static class ShipAssetData
     {
         /// <summary>
-        /// »м¤ файла, отвечающего за сохранение характеристик корабля.
+        /// Имя файла, отвечающего за сохранение характеристик корабля.
         /// </summary>
         private const string Filename = "ShipAsset.dat";
 

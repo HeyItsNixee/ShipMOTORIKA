@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ShipMotorika
@@ -8,12 +7,42 @@ namespace ShipMotorika
     /// </summary>
     public class RestorePoint : MonoBehaviour
     {
-        [SerializeField] private Transform _transform;
-        public Transform Transform => _transform;
+        [SerializeField] private Transform _restorePosition;
+        public Transform RestorePosition => _restorePosition;
 
-        public void SetTransform(Transform transform)
+        #region UnityEvents
+        private void Awake()
         {
-            _transform = transform;
+            RestorePointData.Load();
+        }
+
+        private void Start()
+        {
+            if (RestorePointData.HasSave())
+            {
+                ReplacePoint();
+                RestorePointData.Save();
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            RestorePointData.Save();
+        }
+        #endregion
+
+        private void ReplacePoint()
+        {
+            _restorePosition.position = RestorePointData.Transform.Position;
+            _restorePosition.rotation = RestorePointData.Transform.Rotation;
+            _restorePosition.localScale = RestorePointData.Transform.Scale;
+        }
+
+        public void SetRestorePosition(Transform transform)
+        {
+            _restorePosition = transform;
+
+            RestorePointData.Save();
         }
     }
 }

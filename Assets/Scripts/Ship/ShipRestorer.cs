@@ -64,8 +64,8 @@ namespace ShipMotorika
 
             if (_restorePoint != null)
             {
-                var position = _restorePoint.Transform.position;
-                var rotation = _restorePoint.Transform.rotation;
+                var position = _restorePoint.RestorePosition.position;
+                var rotation = _restorePoint.RestorePosition.rotation;
 
                 ship.gameObject.transform.position = position;
                 ship.gameObject.transform.rotation = rotation;

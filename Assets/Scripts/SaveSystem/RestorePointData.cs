@@ -4,13 +4,10 @@ using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    ///  Хранит данные о местоположении корабля игрока.
-    /// </summary>
-    public static class ShipPositionData
+    public static class RestorePointData
     {
         /// <summary>
-        /// Вспомогательный класс для сохранения позиции корабля.
+        /// Вспомогательный класс для сохранения позиции точки возрождения корабля.
         /// </summary>
         [Serializable]
         public sealed class SavedTransform
@@ -21,9 +18,9 @@ namespace ShipMotorika
         }
 
         /// <summary>
-        /// Имя файла, отвечающего за сохранение позиции корабля.
+        /// »м¤ файла, отвечающего за сохранение точки возрождения.
         /// </summary>
-        private const string Filename = "ShipPosition.dat";
+        private const string Filename = "RestorePoint.dat";
 
         private static SavedTransform _savedTransform;
         public static SavedTransform Transform => _savedTransform;
@@ -40,11 +37,11 @@ namespace ShipMotorika
 
         public static void Save()
         {
-            var ship = Player.Instance.Ship.gameObject.transform;
+            var transform = Player.Instance.ShipRestorer.RestorePoint.RestorePosition;
 
-            _savedTransform.Position = ship.position;
-            _savedTransform.Rotation = ship.rotation;
-            _savedTransform.Scale = ship.localScale;
+            _savedTransform.Position = transform.position;
+            _savedTransform.Rotation = transform.rotation;
+            _savedTransform.Scale = transform.localScale;
 
             Saver<SavedTransform>.Save($"{SceneManager.GetActiveScene().name}_{Filename}", _savedTransform);
         }
