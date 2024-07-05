@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad855bbee157b440a1f12235d836f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _restorePoint: {fileID: 0}
+  _restorePoint: {fileID: 2533878280152535545, guid: af4fa209ac96ee84ea7ebcf783bfe3f5, type: 3}
   _restoredHealthPercentage: 0.2
 --- !u!114 &3116882411899933644
 MonoBehaviour:

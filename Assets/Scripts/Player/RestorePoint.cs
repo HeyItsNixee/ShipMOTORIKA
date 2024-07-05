@@ -7,8 +7,8 @@ namespace ShipMotorika
     /// </summary>
     public class RestorePoint : MonoBehaviour
     {
-        [SerializeField] private Transform _restorePosition;
-        public Transform RestorePosition => _restorePosition;
+        [SerializeField] private Transform _restoreTransform;
+        public Transform RestoreTransform => _restoreTransform;
 
         #region UnityEvents
         private void Awake()
@@ -21,7 +21,6 @@ namespace ShipMotorika
             if (RestorePointData.HasSave())
             {
                 ReplacePoint();
-                RestorePointData.Save();
             }
         }
 
@@ -35,14 +34,14 @@ namespace ShipMotorika
         {
             var data = RestorePointData.Transform;
 
-            _restorePosition.position = data.Position;
-            _restorePosition.rotation = data.Rotation;
-            _restorePosition.localScale = data.Scale;
+            _restoreTransform.position = data.Position;
+            _restoreTransform.rotation = data.Rotation;
+            _restoreTransform.localScale = data.Scale;
         }
 
-        public void SetRestorePosition(Transform transform)
+        public void SetRestoreTransform(Transform transform)
         {
-            _restorePosition = transform;
+            _restoreTransform = transform;
 
             RestorePointData.Save();
         }

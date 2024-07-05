@@ -34,7 +34,6 @@ namespace ShipMotorika
             if (ShipPositionData.HasSave())
             {
                 ReplaceShip();
-                ShipPositionData.Save();
             }
         }
 
@@ -64,8 +63,8 @@ namespace ShipMotorika
 
             if (_restorePoint != null)
             {
-                var position = _restorePoint.RestorePosition.position;
-                var rotation = _restorePoint.RestorePosition.rotation;
+                var position = _restorePoint.RestoreTransform.position;
+                var rotation = _restorePoint.RestoreTransform.rotation;
 
                 ship.gameObject.transform.position = position;
                 ship.gameObject.transform.rotation = rotation;

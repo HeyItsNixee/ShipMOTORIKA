@@ -24,7 +24,7 @@ namespace ShipMotorika
 
         public static void Save()
         {
-            var restore = Player.Instance.ShipRestorer.RestorePoint.RestorePosition;
+            var restore = Player.Instance.ShipRestorer.RestorePoint.RestoreTransform;
 
             _transformData = new TransformData();
 
