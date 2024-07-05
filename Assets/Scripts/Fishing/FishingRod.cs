@@ -86,9 +86,21 @@ namespace ShipMotorika
         public event Action OnFishingRodInitialized;
 
         #region UnityEvents
+        private void Awake()
+        {
+            FishingRodData.Load();
+        }
+
         private void Start()
-        {         
-            Initialize(_asset);
+        {
+            if (FishingRodData.HasSave())
+            {
+                Initialize(FishingRodData.Asset);
+            }
+            else
+            {
+                Initialize(_asset);
+            }
 
             _fishingPoints = new List<FishingPoint>();
         }
@@ -175,6 +187,8 @@ namespace ShipMotorika
             _fishingRodCircleCollider.radius = _radius;
 
             OnFishingRodInitialized?.Invoke();
+
+            FishingRodData.Save();
         }
 
         /// <summary>

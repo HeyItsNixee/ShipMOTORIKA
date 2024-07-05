@@ -10,6 +10,7 @@ namespace ShipMotorika
         public static void DeleteSceneData(string sceneName)
         {
             FishContainerData.DeleteSceneData(sceneName);
+            FishingRodData.DeleteSceneData(sceneName);
             HealthData.DeleteSceneData(sceneName);
             MoneyData.DeleteSceneData(sceneName);
             ShipAssetData.DeleteSceneData(sceneName);
@@ -18,7 +19,15 @@ namespace ShipMotorika
 
         public static void Reset()
         {
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteAll(); 
+
+            FishContainerData.DeleteSceneData("TestScene_kirvas");
+            FishContainerData.DeleteSceneData("Nixee_World");
+            FishContainerData.DeleteSceneData("Tutorial");
+
+            FishingRodData.DeleteSceneData("TestScene_kirvas");
+            FishingRodData.DeleteSceneData("Nixee_World");
+            FishingRodData.DeleteSceneData("Tutorial");
 
             HealthData.DeleteSceneData("TestScene_kirvas");
             HealthData.DeleteSceneData("Nixee_World");
@@ -27,10 +36,6 @@ namespace ShipMotorika
             MoneyData.DeleteSceneData("TestScene_kirvas");
             MoneyData.DeleteSceneData("Nixee_World");
             MoneyData.DeleteSceneData("Tutorial");
-
-            FishContainerData.DeleteSceneData("TestScene_kirvas");
-            FishContainerData.DeleteSceneData("Nixee_World");
-            FishContainerData.DeleteSceneData("Tutorial");
 
             ShipAssetData.DeleteSceneData("TestScene_kirvas");
             ShipAssetData.DeleteSceneData("Nixee_World");
