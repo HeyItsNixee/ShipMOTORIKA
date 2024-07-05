@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ShipMotorika
@@ -6,6 +7,7 @@ namespace ShipMotorika
     /// Скрипт создания разных видов рыбы.
     /// </summary>
     [CreateAssetMenu]
+    [Serializable]
     public class ShipAsset : ScriptableObject
     {
         public Sprite GameSprite;
