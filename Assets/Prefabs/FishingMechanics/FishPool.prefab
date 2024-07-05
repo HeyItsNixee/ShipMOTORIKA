@@ -55,5 +55,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a14ef5e174951e2449d2db1a8fbb9055, type: 2}
   _goldFishingRod: {fileID: 11400000, guid: 65ec25aa3aac55e4aa1713331182d470, type: 2}
   _goldArray: []
+  _garbageChance: 10
   _garbageArray:
   - {fileID: 11400000, guid: 5f1565a6fc3742a4285db6d74dab1c27, type: 2}

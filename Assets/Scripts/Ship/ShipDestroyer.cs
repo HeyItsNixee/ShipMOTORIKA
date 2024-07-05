@@ -5,7 +5,7 @@ namespace ShipMotorika
     /// <summary>
     /// Отключает изображение корабля, если его здоровье опустилось до 0.
     /// </summary>
-    public class ShipSpriteEnabler : MonoBehaviour
+    public class ShipDestroyer : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _sprite;
 

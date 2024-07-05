@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 namespace ShipMotorika
 {
     public enum InputType

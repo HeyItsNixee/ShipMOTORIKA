@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnMode: 0
-  _prefab: {fileID: 7788168221812545883, guid: 7418af5ff6d345246bbe323c3c0c6d58, type: 3}
+  _prefab: {fileID: 8779513910983375173, guid: 84370d02a95e474488ce6a1b11ee9fac, type: 3}
   _area: {fileID: 7913660929199003820}
-  _isTurnedToRandomAngle: 1
+  _entityIsTurnedToRandomAngle: 0
   _respawnTime: 5
   _numSpawns: 2
   _isConstantAmount: 1

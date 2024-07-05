@@ -22,6 +22,30 @@ namespace ShipMotorika
       
         public event Action<int> OnFishCaught;
 
+        public void SetFishWeight(int weight)
+        {
+            if (weight > 0)
+            {
+                _totalFishWeight = weight;
+            }
+        }
+
+        public void SetFishCost(int cost)
+        {
+            if (cost > 0)
+            {
+                _totalFishCost = cost;
+            }
+        }
+
+        public void ClearContainer()
+        {
+            _totalFishWeight = 0;
+            _totalFishCost = 0;
+
+            FishContainerData.Save();
+        }
+
         public void ChangeWeightAmount(int amount)
         {
             _totalFishWeight += amount;
@@ -32,22 +56,20 @@ namespace ShipMotorika
             }
 
             OnFishCaught(amount);
+
+            FishContainerData.Save();
         }
 
         public void ChangeCostAmount(int amount)
         {
             _totalFishCost += amount;
 
-            if ( _totalFishCost < 0)
+            if (_totalFishCost < 0)
             {
                 _totalFishCost = 0;
             }
-        }
 
-        public void ClearContainer()
-        {
-            _totalFishWeight = 0;
-            _totalFishCost = 0;
+            FishContainerData.Save();
         }
     }
 }

@@ -32,6 +32,7 @@ namespace ShipMotorika
                 _player = collision;
 
                 Player.Instance.Ship.SendWorkshopMessage(true);
+                ShipPositionData.Save();
             }
         }
 

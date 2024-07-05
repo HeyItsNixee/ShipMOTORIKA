@@ -28,6 +28,11 @@ public class TutorialFishing : MonoBehaviour
         PlayerController.Instance.EnableControl();
     }
 
+    private void OnDestroy()
+    {
+        fishingChallenge.OnTryCatchFish -= OnFishCatch;
+    }
+
     private void OnFishCatch(bool value)
     {
         tutorialScreen.SetActive(false);

@@ -73,7 +73,7 @@ namespace ShipMotorika
                     
                     _fishPoolPrefab.Initialize();
 
-                    if (DropProbability.Value <= 10) // Шанс поймать мусор - 10%.
+                    if (DropProbability.Value <= _fishPoolPrefab.GarbageChance)
                     {
                         var garbage = _fishPoolPrefab.GarbageArray;
                         if (garbage.Length > 0)
