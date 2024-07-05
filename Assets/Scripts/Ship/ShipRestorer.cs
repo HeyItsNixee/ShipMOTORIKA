@@ -47,10 +47,11 @@ namespace ShipMotorika
         private void ReplaceShip()
         {
             var ship = Player.Instance.Ship.gameObject.transform;
-            var save = ShipPositionData.Saver;
+            var save = ShipPositionData.Transform;
 
             ship.position = save.Position;
             ship.rotation = save.Rotation;
+            ship.localScale = save.Scale;
         }
 
         public void RestoreShip()

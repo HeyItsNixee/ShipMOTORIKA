@@ -4,16 +4,20 @@ using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
 {
+    /// <summary>
+    ///  Хранит данные о местоположении корабля игрока.
+    /// </summary>
     public class ShipPositionData
     {
         /// <summary>
         /// Вспомогательный класс для сохранения позиции корабля.
         /// </summary>
         [Serializable]
-        public sealed class SavedPosition
+        public sealed class SavedTransform
         {
             public Vector3 Position;
             public Quaternion Rotation;
+            public Vector3 Scale;
         }
 
         /// <summary>
@@ -21,8 +25,8 @@ namespace ShipMotorika
         /// </summary>
         private const string Filename = "ShipPosition.dat";
 
-        private static SavedPosition _savedPosition;
-        public static SavedPosition Saver => _savedPosition;
+        private static SavedTransform _savedTransform;
+        public static SavedTransform Transform => _savedTransform;
 
         public static bool HasSave()
         {
@@ -31,17 +35,18 @@ namespace ShipMotorika
 
         public static void Load()
         {
-            Saver<SavedPosition>.TryLoad($"{SceneManager.GetActiveScene().name}_{Filename}", ref _savedPosition);
+            Saver<SavedTransform>.TryLoad($"{SceneManager.GetActiveScene().name}_{Filename}", ref _savedTransform);
         }
 
         public static void Save()
         {
             var ship = Player.Instance.Ship.gameObject.transform;
 
-            _savedPosition.Position = ship.position;
-            _savedPosition.Rotation = ship.rotation;
+            _savedTransform.Position = ship.position;
+            _savedTransform.Rotation = ship.rotation;
+            _savedTransform.Scale = ship.localScale;
 
-            Saver<SavedPosition>.Save($"{SceneManager.GetActiveScene().name}_{Filename}", _savedPosition);
+            Saver<SavedTransform>.Save($"{SceneManager.GetActiveScene().name}_{Filename}", _savedTransform);
         }
 
         public static void DeleteSceneData(string sceneName)
@@ -53,19 +58,5 @@ namespace ShipMotorika
                 FileHandler.Reset(filePath);
             }
         }
-
-        //public static void Delete()
-        //{
-        //    string filePath = $"{SceneManager.GetActiveScene().name}_{Filename}";
-
-        //    FileHandler.Reset(filePath);
-        //}
-
-        //public static void CreateNew()
-        //{
-        //    string filePath = $"{SceneManager.GetActiveScene().name}_{Filename}";
-
-        //    FileHandler.CreateEmptyFile(filePath);
-        //}
     }
 }

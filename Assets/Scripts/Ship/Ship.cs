@@ -84,9 +84,21 @@ namespace ShipMotorika
         public event Action OnWeightChanged;
 
         #region UnityEvents
+        private void Awake()
+        {
+            ShipAssetData.Load();
+        }
+
         private void Start()
         {
-            Initialize(_asset);
+            if (ShipAssetData.HasSave())
+            {
+                Initialize(ShipAssetData.Asset);
+            }
+            else
+            {
+                Initialize(_asset);
+            }
 
             _fishContainer.OnFishCaught += TryChangeWeightAmount;
         }
@@ -124,6 +136,8 @@ namespace ShipMotorika
             Player.Instance.PlayerController.SetMaxLinearVelocity(_speed);
 
             OnShipInitialized?.Invoke();
+
+            ShipAssetData.Save();
         }
 
         /// <summary>
