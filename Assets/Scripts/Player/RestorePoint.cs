@@ -33,9 +33,11 @@ namespace ShipMotorika
 
         private void ReplacePoint()
         {
-            _restorePosition.position = RestorePointData.Transform.Position;
-            _restorePosition.rotation = RestorePointData.Transform.Rotation;
-            _restorePosition.localScale = RestorePointData.Transform.Scale;
+            var data = RestorePointData.Transform;
+
+            _restorePosition.position = data.Position;
+            _restorePosition.rotation = data.Rotation;
+            _restorePosition.localScale = data.Scale;
         }
 
         public void SetRestorePosition(Transform transform)

@@ -13,7 +13,7 @@ namespace ShipMotorika
         /// Вспомогательный класс для сохранения позиции корабля.
         /// </summary>
         [Serializable]
-        public sealed class SavedTransform
+        public sealed class TransformData
         {
             public Vector3 Position;
             public Quaternion Rotation;
@@ -25,8 +25,8 @@ namespace ShipMotorika
         /// </summary>
         private const string Filename = "ShipPosition.dat";
 
-        private static SavedTransform _savedTransform;
-        public static SavedTransform Transform => _savedTransform;
+        private static TransformData _transformData;
+        public static TransformData Transform => _transformData;
 
         public static bool HasSave()
         {
@@ -35,18 +35,20 @@ namespace ShipMotorika
 
         public static void Load()
         {
-            Saver<SavedTransform>.TryLoad($"{SceneManager.GetActiveScene().name}_{Filename}", ref _savedTransform);
+            Saver<TransformData>.TryLoad($"{SceneManager.GetActiveScene().name}_{Filename}", ref _transformData);
         }
 
         public static void Save()
         {
             var ship = Player.Instance.Ship.gameObject.transform;
 
-            _savedTransform.Position = ship.position;
-            _savedTransform.Rotation = ship.rotation;
-            _savedTransform.Scale = ship.localScale;
+            _transformData = new TransformData();
 
-            Saver<SavedTransform>.Save($"{SceneManager.GetActiveScene().name}_{Filename}", _savedTransform);
+            _transformData.Position = ship.position;
+            _transformData.Rotation = ship.rotation;
+            _transformData.Scale = ship.localScale;
+
+            Saver<TransformData>.Save($"{SceneManager.GetActiveScene().name}_{Filename}", _transformData);
         }
 
         public static void DeleteSceneData(string sceneName)
