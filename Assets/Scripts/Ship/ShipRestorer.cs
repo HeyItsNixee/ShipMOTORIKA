@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Восстанавливает корабль игрока после его уничтожения.
     /// </summary>
-    public class ShipRestorer : MonoBehaviour
+    public class ShipRestorer : MonoBehaviour, ILoader, ISaver
     {
         /// <summary>
         /// Точка, в которой появится корабль.
@@ -26,20 +26,16 @@ namespace ShipMotorika
 
         private void Awake()
         {
-            ShipPositionData.Load();
+            PersistentDataHandler.Loaders.Add(this);
+            PersistentDataHandler.Savers.Add(this);
         }
 
         private void Start()
         {
-            if (ShipPositionData.HasSave())
+            if (SceneDataHandler.Instance.HasSave())
             {
                 ReplaceShip();
             }
-        }
-
-        private void OnApplicationQuit()
-        {
-            ShipPositionData.Save();
         }
         #endregion
 
@@ -69,10 +65,20 @@ namespace ShipMotorika
                 ship.gameObject.transform.position = position;
                 ship.gameObject.transform.rotation = rotation;
 
-                ShipPositionData.Save();
+                Save(); // Attention!
             }
 
             OnShipRestored?.Invoke();
+        }
+
+        public void Load()
+        {
+            
+        }
+
+        public void Save()
+        {
+            
         }
     }
 }

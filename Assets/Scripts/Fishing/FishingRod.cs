@@ -10,7 +10,7 @@ namespace ShipMotorika
     /// <summary>
     /// Удочка игрока.
     /// </summary>
-    public class FishingRod : MonoBehaviour
+    public class FishingRod : MonoBehaviour, ILoader, ISaver
     {
         /// <summary>
         /// ScriptableObject c параметрами удочки.
@@ -88,14 +88,16 @@ namespace ShipMotorika
         #region UnityEvents
         private void Awake()
         {
-            FishingRodData.Load();
+            PersistentDataHandler.Loaders.Add(this);
+            PersistentDataHandler.Savers.Add(this);
         }
 
         private void Start()
         {
-            if (FishingRodData.HasSave())
+            if (SceneDataHandler.Instance.HasSave())
             {
-                Initialize(FishingRodData.Asset);
+                //Initialize(FishingRodData.Asset); 
+                Initialize(SceneDataHandler.Instance.SceneData.FishingRodAsset); // Attention!
             }
             else
             {
@@ -188,7 +190,7 @@ namespace ShipMotorika
 
             OnFishingRodInitialized?.Invoke();
 
-            FishingRodData.Save();
+            Save(); // Attention!
         }
 
         /// <summary>
@@ -256,9 +258,21 @@ namespace ShipMotorika
         {
             if (_сaughtFish != null)
             {
-                Player.Instance.Ship.FishContainer.ChangeWeightAmount(_сaughtFish.Weight);
-                Player.Instance.Ship.FishContainer.ChangeCostAmount(_сaughtFish.Cost);
+                var container = Player.Instance.Ship.FishContainer;
+
+                container.ChangeWeightAmount(_сaughtFish.Weight);
+                container.ChangeCostAmount(_сaughtFish.Cost);
             }
+        }
+
+        public void Load()
+        {
+            
+        }
+
+        public void Save()
+        {
+            
         }
     }
 }

@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Склад для пойманной рыбы на корабле.
     /// </summary>
-    public class FishContainer : MonoBehaviour
+    public class FishContainer : MonoBehaviour, ILoader, ISaver
     {
         /// <summary>
         /// Суммарный вес пойманной рыбы.
@@ -21,6 +21,12 @@ namespace ShipMotorika
         public int Cost => _totalFishCost;
       
         public event Action<int> OnFishCaught;
+
+        private void Awake()
+        {
+            PersistentDataHandler.Loaders.Add(this);
+            PersistentDataHandler.Savers.Add(this);
+        }
 
         public void SetFishWeight(int weight)
         {
@@ -43,7 +49,7 @@ namespace ShipMotorika
             _totalFishWeight = 0;
             _totalFishCost = 0;
 
-            FishContainerData.Save();
+            Save(); // Attention!
         }
 
         public void ChangeWeightAmount(int amount)
@@ -57,7 +63,7 @@ namespace ShipMotorika
 
             OnFishCaught(amount);
 
-            FishContainerData.Save();
+            Save(); // Attention!
         }
 
         public void ChangeCostAmount(int amount)
@@ -69,7 +75,17 @@ namespace ShipMotorika
                 _totalFishCost = 0;
             }
 
-            FishContainerData.Save();
+            Save(); // Attention!
+        }
+
+        public void Load()
+        {
+            
+        }
+
+        public void Save()
+        {
+           
         }
     }
 }

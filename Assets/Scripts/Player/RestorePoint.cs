@@ -5,7 +5,7 @@ namespace ShipMotorika
     /// <summary>
     /// Точка, в которой будет появляться уничтоженный корабль игрока.
     /// </summary>
-    public class RestorePoint : MonoBehaviour
+    public class RestorePoint : MonoBehaviour, ILoader, ISaver
     {
         [SerializeField] private Transform _restoreTransform;
         public Transform RestoreTransform => _restoreTransform;
@@ -13,26 +13,22 @@ namespace ShipMotorika
         #region UnityEvents
         private void Awake()
         {
-            RestorePointData.Load();
+            PersistentDataHandler.Loaders.Add(this);
+            PersistentDataHandler.Savers.Add(this);
         }
 
         private void Start()
         {
-            if (RestorePointData.HasSave())
+            if (SceneDataHandler.Instance.HasSave()) // Attention!
             {
                 ReplacePoint();
             }
-        }
-
-        private void OnApplicationQuit()
-        {
-            RestorePointData.Save();
         }
         #endregion
 
         private void ReplacePoint()
         {
-            var data = RestorePointData.Transform;
+            var data = SceneDataHandler.Instance.SceneData.RestorePointPosition; // Attention!
 
             _restoreTransform.position = data.Position;
             _restoreTransform.rotation = data.Rotation;
@@ -43,7 +39,17 @@ namespace ShipMotorika
         {
             _restoreTransform = transform;
 
-            RestorePointData.Save();
+            Save(); // Attention!
+        }
+
+        public void Load()
+        {
+
+        }
+
+        public void Save()
+        {
+
         }
     }
 }

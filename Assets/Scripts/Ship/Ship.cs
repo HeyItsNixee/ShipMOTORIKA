@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Модель корабля игрока.
     /// </summary>
-    public class Ship : MonoBehaviour
+    public class Ship : MonoBehaviour, ILoader, ISaver
     {
         [SerializeField] private Rigidbody2D rb2d;
         public Rigidbody2D Rigidbody => rb2d;
@@ -86,19 +86,23 @@ namespace ShipMotorika
         #region UnityEvents
         private void Awake()
         {
-            ShipAssetData.Load();
+            PersistentDataHandler.Loaders.Add(this);
+            PersistentDataHandler.Savers.Add(this);
         }
 
         private void Start()
         {
-            if (ShipAssetData.HasSave())
+            if (SceneDataHandler.Instance.HasSave())
             {
-                Initialize(ShipAssetData.Asset);
+                //Initialize(ShipAssetData.Asset);
+                Initialize(SceneDataHandler.Instance.SceneData.ShipAsset); // Attention!
             }
             else
             {
                 Initialize(_asset);
             }
+
+            Initialize(_asset);
 
             _fishContainer.OnFishCaught += TryChangeWeightAmount;
         }
@@ -126,7 +130,7 @@ namespace ShipMotorika
 
             if (_fishContainer)
             {
-                FishContainerData.Load();
+                //FishContainerData.Load(); // Attention!
 
                 _currentWeight = Mathf.Clamp(_fishContainer.Weight, 0, _carryingCapacity);
             }
@@ -137,7 +141,7 @@ namespace ShipMotorika
 
             OnShipInitialized?.Invoke();
 
-            ShipAssetData.Save();
+            Save(); // Attention!
         }
 
         /// <summary>
@@ -189,6 +193,16 @@ namespace ShipMotorika
                     OnWeightChanged?.Invoke();
                 }
             }
+        }
+
+        public void Load()
+        {
+            
+        }
+
+        public void Save()
+        {
+            
         }
     }
 }
