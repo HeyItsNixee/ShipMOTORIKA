@@ -8,7 +8,7 @@ namespace ShipMotorika
     /// </summary>
     public class FishPool : MonoBehaviour
     {
-        [Header("Useful fish")]
+        [Header("Fish assets")]
         [SerializeField] private FishingRodAsset _defaultFishingRod;
         [SerializeField] private FishAsset[] _defaultArray;
         [Space]
@@ -21,13 +21,13 @@ namespace ShipMotorika
         [SerializeField] private FishingRodAsset _goldFishingRod;
         [SerializeField] private FishAsset[] _goldArray;
 
-        [Header("Garbage fish")]
+        [Header("Artifact assets")]
         [Range(0, 100)]
-        [SerializeField] private int _garbageChance;
-        public int GarbageChance => _garbageChance;
+        [SerializeField] private int _artifactChance;
+        public int ArtifactChance => _artifactChance;
 
-        [SerializeField] private FishAsset[] _garbageArray;
-        public FishAsset[] GarbageArray => _garbageArray;
+        [SerializeField] private FishAsset[] _artifactArray;
+        public FishAsset[] ArtifactArray => _artifactArray;
 
         private FishAsset[] _currentArray;
         public FishAsset[] CurrentArray => _currentArray;
