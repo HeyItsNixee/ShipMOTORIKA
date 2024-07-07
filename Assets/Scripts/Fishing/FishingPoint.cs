@@ -73,9 +73,9 @@ namespace ShipMotorika
                     
                     _fishPoolPrefab.Initialize();
 
-                    if (DropProbability.Value <= _fishPoolPrefab.GarbageChance)
+                    if (DropProbability.Value <= _fishPoolPrefab.ArtifactChance)
                     {
-                        var garbage = _fishPoolPrefab.GarbageArray;
+                        var garbage = _fishPoolPrefab.ArtifactArray;
                         if (garbage.Length > 0)
                         {
                             int index = UnityEngine.Random.Range(0, garbage.Length);

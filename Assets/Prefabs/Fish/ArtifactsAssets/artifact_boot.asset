@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66d8f451422da4a4f871eefae4bf9bca, type: 3}
-  m_Name: Fish_golden
+  m_Name: artifact_boot
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 8e8a2f56962146545b27ac2a8b90e998, type: 3}
-  Name: "\u0417\u043E\u043B\u043E\u0442\u0430\u044F \u0440\u044B\u0431\u0430"
-  Description: "\u0420\u044B\u0431\u0430 \u043C\u043E\u0435\u0439 \u043C\u0435\u0447\u0442\u044B"
-  Cost: 30
-  Weight: 30
+  Sprite: {fileID: 21300000, guid: ae2c3657aacad54498b0f21257c55cd2, type: 3}
+  Name: "\u0411\u043E\u0442\u0438\u043D\u043E\u043A"
+  Description: 
+  Cost: 0
+  Weight: 0
