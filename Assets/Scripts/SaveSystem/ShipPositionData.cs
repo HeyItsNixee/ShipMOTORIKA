@@ -38,6 +38,8 @@ namespace ShipMotorika
         {
             var ship = Player.Instance.Ship.gameObject.transform;
 
+            _savedPosition = new SavedPosition();
+            
             _savedPosition.Position = ship.position;
             _savedPosition.Rotation = ship.rotation;
 

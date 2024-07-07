@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66d8f451422da4a4f871eefae4bf9bca, type: 3}
-  m_Name: Fish_blue
+  m_Name: artifact_eyePatch
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 4d21103d643fd124bb49be5c10d19361, type: 3}
-  Name: "\u0413\u043E\u043B\u0443\u0431\u0430\u044F \u0440\u044B\u0431\u0430"
-  Description: "\u0420\u044B\u0431\u0430 \u043C\u043E\u0435\u0439 \u043C\u0435\u0447\u0442\u044B"
-  Cost: 10
-  Weight: 10
+  Sprite: {fileID: 21300000, guid: ecf06a6a2d025c44cac6f4a66941d176, type: 3}
+  Name: "\u041F\u043E\u0432\u044F\u0437\u043A\u0430"
+  Description: 
+  Cost: 0
+  Weight: 0
