@@ -23,8 +23,6 @@ namespace ShipMotorika
                 _player = collision;
 
                 Player.Instance.Ship.SendMarketMessage(true);
-                
-                ShipPositionData.Save();
 
                 if (_isRestorePoint)
                 {
@@ -35,6 +33,7 @@ namespace ShipMotorika
                         restore.SetRestoreTransform(transform);
                     }
                 }
+
             }
         }
 

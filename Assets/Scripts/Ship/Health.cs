@@ -37,7 +37,7 @@ namespace ShipMotorika
         /// <summary>
         /// Неуязвимость к урону.
         /// </summary>
-        [SerializeField] private bool _isIndestructible;     
+        [SerializeField] private bool _isIndestructible;
 
         public event Action OnHealthChanged;
         public event Action OnDeath;
@@ -46,8 +46,8 @@ namespace ShipMotorika
 
         private void Awake()
         {
-            PersistentDataHandler.Loaders.Add(this);
-            PersistentDataHandler.Savers.Add(this);
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
         }
 
         private void Start()
@@ -77,8 +77,6 @@ namespace ShipMotorika
                 _currentHealth = health;
 
                 OnHealthChanged?.Invoke();
-
-                Save(); // Attention!
             }
         }
 
@@ -95,8 +93,6 @@ namespace ShipMotorika
             _currentHealth = _maxHealth;
 
             OnHealthChanged?.Invoke();
-
-            Save(); // Attention!
         }
 
         public void TryChangeHealthAmount(int amount)
@@ -113,19 +109,17 @@ namespace ShipMotorika
                 {
                     OnHealthChanged?.Invoke();
                 }
-
-                Save(); // Attention!
             }
         }
 
         public void Load()
         {
-
+            _currentHealth = SceneDataHandler.Data.Health;
         }
 
         public void Save()
         {
-
+            SceneDataHandler.Data.Health = _currentHealth;
         }
     }
 }

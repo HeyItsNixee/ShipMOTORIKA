@@ -16,8 +16,8 @@ namespace ShipMotorika
         #region UnityEvents
         private void Awake()
         {
-            PersistentDataHandler.Loaders.Add(this);
-            PersistentDataHandler.Savers.Add(this);
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
         }
         #endregion
 
@@ -28,8 +28,6 @@ namespace ShipMotorika
                 _currentMoney = amount;
 
                 OnMoneyChanged?.Invoke();
-
-                Save(); // Attention!
             }
         }
 
@@ -44,20 +42,18 @@ namespace ShipMotorika
                     _currentMoney = currentMoney;
 
                     OnMoneyChanged?.Invoke();
-
-                    Save(); // Attention!
                 }
             }
         }
 
         public void Load()
-        {
-            
+        {          
+            _currentMoney = SceneDataHandler.Data.Money;
         }
 
         public void Save()
         {
-            
+            SceneDataHandler.Data.Money = _currentMoney;
         }
     }
 }

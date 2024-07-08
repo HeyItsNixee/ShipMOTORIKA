@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Восстанавливает корабль игрока после его уничтожения.
     /// </summary>
-    public class ShipRestorer : MonoBehaviour, ILoader, ISaver
+    public class ShipRestorer : MonoBehaviour
     {
         /// <summary>
         /// Точка, в которой появится корабль.
@@ -21,33 +21,6 @@ namespace ShipMotorika
         [SerializeField] private float _restoredHealthPercentage;
 
         public event Action OnShipRestored;
-
-        #region UnityEvents
-
-        private void Awake()
-        {
-            PersistentDataHandler.Loaders.Add(this);
-            PersistentDataHandler.Savers.Add(this);
-        }
-
-        private void Start()
-        {
-            if (SceneDataHandler.Instance.HasSave())
-            {
-                ReplaceShip();
-            }
-        }
-        #endregion
-
-        private void ReplaceShip()
-        {
-            var ship = Player.Instance.Ship.gameObject.transform;
-            var data = ShipPositionData.Transform;
-
-            ship.position = data.Position;
-            ship.rotation = data.Rotation;
-            ship.localScale = data.Scale;
-        }
 
         public void RestoreShip()
         {
@@ -64,21 +37,9 @@ namespace ShipMotorika
 
                 ship.gameObject.transform.position = position;
                 ship.gameObject.transform.rotation = rotation;
-
-                Save(); // Attention!
             }
 
             OnShipRestored?.Invoke();
-        }
-
-        public void Load()
-        {
-            
-        }
-
-        public void Save()
-        {
-            
         }
     }
 }

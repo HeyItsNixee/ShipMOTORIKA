@@ -86,24 +86,12 @@ namespace ShipMotorika
         #region UnityEvents
         private void Awake()
         {
-            PersistentDataHandler.Loaders.Add(this);
-            PersistentDataHandler.Savers.Add(this);
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
         }
 
         private void Start()
         {
-            if (SceneDataHandler.Instance.HasSave())
-            {
-                //Initialize(ShipAssetData.Asset);
-                Initialize(SceneDataHandler.Instance.SceneData.ShipAsset); // Attention!
-            }
-            else
-            {
-                Initialize(_asset);
-            }
-
-            Initialize(_asset);
-
             _fishContainer.OnFishCaught += TryChangeWeightAmount;
         }
 
@@ -130,8 +118,6 @@ namespace ShipMotorika
 
             if (_fishContainer)
             {
-                //FishContainerData.Load(); // Attention!
-
                 _currentWeight = Mathf.Clamp(_fishContainer.Weight, 0, _carryingCapacity);
             }
 
@@ -140,8 +126,6 @@ namespace ShipMotorika
             Player.Instance.PlayerController.SetMaxLinearVelocity(_speed);
 
             OnShipInitialized?.Invoke();
-
-            Save(); // Attention!
         }
 
         /// <summary>
@@ -197,12 +181,22 @@ namespace ShipMotorika
 
         public void Load()
         {
-            
+            var ship = Player.Instance.Ship.gameObject.transform;
+            var data = SceneDataHandler.Data;
+
+            ship.position = data.ShipPosition;
+            ship.rotation = data.ShipRotation;
+
+            Initialize(_asset);
         }
 
         public void Save()
         {
-            
+            var ship = Player.Instance.Ship.gameObject.transform;
+            var data = SceneDataHandler.Data;
+
+            data.ShipPosition = ship.position;
+            data.ShipRotation = ship.rotation;
         }
     }
 }

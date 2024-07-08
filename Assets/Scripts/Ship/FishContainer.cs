@@ -24,8 +24,8 @@ namespace ShipMotorika
 
         private void Awake()
         {
-            PersistentDataHandler.Loaders.Add(this);
-            PersistentDataHandler.Savers.Add(this);
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
         }
 
         public void SetFishWeight(int weight)
@@ -48,8 +48,6 @@ namespace ShipMotorika
         {
             _totalFishWeight = 0;
             _totalFishCost = 0;
-
-            Save(); // Attention!
         }
 
         public void ChangeWeightAmount(int amount)
@@ -62,8 +60,6 @@ namespace ShipMotorika
             }
 
             OnFishCaught(amount);
-
-            Save(); // Attention!
         }
 
         public void ChangeCostAmount(int amount)
@@ -74,18 +70,22 @@ namespace ShipMotorika
             {
                 _totalFishCost = 0;
             }
-
-            Save(); // Attention!
         }
 
         public void Load()
         {
-            
+            var data = SceneDataHandler.Data;
+
+            _totalFishCost = data.FishCost;
+            _totalFishWeight = data.FishWeight;
         }
 
         public void Save()
         {
-           
+            var data = SceneDataHandler.Data;
+
+            data.FishCost = _totalFishCost;
+            data.FishWeight = _totalFishWeight;
         }
     }
 }

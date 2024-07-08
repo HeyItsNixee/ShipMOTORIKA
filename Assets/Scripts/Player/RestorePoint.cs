@@ -13,43 +13,32 @@ namespace ShipMotorika
         #region UnityEvents
         private void Awake()
         {
-            PersistentDataHandler.Loaders.Add(this);
-            PersistentDataHandler.Savers.Add(this);
-        }
-
-        private void Start()
-        {
-            if (SceneDataHandler.Instance.HasSave()) // Attention!
-            {
-                ReplacePoint();
-            }
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
         }
         #endregion
-
-        private void ReplacePoint()
-        {
-            var data = SceneDataHandler.Instance.SceneData.RestorePointPosition; // Attention!
-
-            _restoreTransform.position = data.Position;
-            _restoreTransform.rotation = data.Rotation;
-            _restoreTransform.localScale = data.Scale;
-        }
 
         public void SetRestoreTransform(Transform transform)
         {
             _restoreTransform = transform;
-
-            Save(); // Attention!
         }
 
         public void Load()
         {
+            var restore = Player.Instance.ShipRestorer.RestorePoint.RestoreTransform;
+            var data = SceneDataHandler.Data;
 
+            restore.position = data.RestorePosition;
+            restore.rotation = data.RestoreRotation;
         }
 
         public void Save()
         {
+            var restore = Player.Instance.ShipRestorer.RestorePoint.RestoreTransform;
+            var data = SceneDataHandler.Data;
 
+            data.RestorePosition = restore.position;
+            data.RestoreRotation = restore.rotation;
         }
     }
 }

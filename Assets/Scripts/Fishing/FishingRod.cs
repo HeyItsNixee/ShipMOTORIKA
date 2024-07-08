@@ -88,22 +88,12 @@ namespace ShipMotorika
         #region UnityEvents
         private void Awake()
         {
-            PersistentDataHandler.Loaders.Add(this);
-            PersistentDataHandler.Savers.Add(this);
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
         }
 
         private void Start()
         {
-            if (SceneDataHandler.Instance.HasSave())
-            {
-                //Initialize(FishingRodData.Asset); 
-                Initialize(SceneDataHandler.Instance.SceneData.FishingRodAsset); // Attention!
-            }
-            else
-            {
-                Initialize(_asset);
-            }
-
             _fishingPoints = new List<FishingPoint>();
         }
 
@@ -190,7 +180,7 @@ namespace ShipMotorika
 
             OnFishingRodInitialized?.Invoke();
 
-            Save(); // Attention!
+            //Save(); // Attention!
         }
 
         /// <summary>
@@ -267,12 +257,14 @@ namespace ShipMotorika
 
         public void Load()
         {
-            
+            //print("Rod_loaded");
+
+            Initialize(_asset);
         }
 
         public void Save()
         {
-            
+            //print("Rod_saved");
         }
     }
 }

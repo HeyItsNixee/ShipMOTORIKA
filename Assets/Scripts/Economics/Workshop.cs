@@ -38,8 +38,6 @@ namespace ShipMotorika
 
                 Player.Instance.Ship.SendWorkshopMessage(true);
 
-                ShipPositionData.Save();
-
                 if (_isRestorePoint)
                 {
                     var restore = Player.Instance.ShipRestorer.RestorePoint;
@@ -49,6 +47,7 @@ namespace ShipMotorika
                         restore.SetRestoreTransform(transform);
                     }
                 }
+
             }
         }
 

@@ -1,49 +1,120 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
 {
     public class SceneDataHandler : SingletonBase<SceneDataHandler>, ILoader, ISaver
     {
-        private const string Filename = "Scene.dat";
+        [Serializable]
+        public class SceneData
+        {
+            public Vector3 ShipPosition;
+            public Quaternion ShipRotation;
 
-        private string Scenename;
+            public Vector3 RestorePosition;
+            public Quaternion RestoreRotation;
 
-        private SceneData _sceneData;
-        public SceneData SceneData => _sceneData;
-        
+            public int Health;
+            public int Money;
+            public int FishCost;
+            public int FishWeight;
+
+            public string ShipAssetName;
+            public string PathToShipAsset;
+
+            public string FishingRodAssetName;
+            public string PathToFishingRodAsset;
+        }
+
+        private const string Filename = "Scene.json";
+        private string _currentSceneName;
+
+        private static SceneData _sceneData = new();
+        public static SceneData Data => _sceneData;
+
+        private static List<ILoader> _loaders = new();
+        public static List<ILoader> Loaders => _loaders;
+
+        private static List<ISaver> _savers = new();
+        public static List<ISaver> Savers => _savers;
+
         private new void Awake()
         {
             base.Awake();
 
-            PersistentDataHandler.Loaders.Add(this);
-            PersistentDataHandler.Savers.Add(this);
-
-            Scenename = SceneManager.GetActiveScene().name;
+            _currentSceneName = SceneManager.GetActiveScene().name;
         }
+
+        private void Start()
+        {
+            Load();
+        }
+
+        //private void OnDestroy()
+        //{
+        //    Save();
+        //}
 
         public bool HasSave()
         {
-            return FileHandler.HasFile($"{Scenename}_{Filename}");
+            return FileHandler.HasFile($"{_currentSceneName}_{Filename}");
         }
 
         public void Load()
-        {            
-            Saver<SceneData>.TryLoad($"{Scenename}_{Filename}", ref _sceneData);
+        {
+            Saver<SceneData>.TryLoad($"{_currentSceneName}_{Filename}", ref _sceneData);
+
+            foreach (var loader in _loaders)
+            {
+                loader.Load();
+            }
+
+            print("SceneData LOADED!");
         }
 
         public void Save()
         {
-            Saver<SceneData>.Save($"{Scenename}_{Filename}", _sceneData);
+            foreach (var saver in _savers)
+            {
+                saver.Save();
+            }
+
+            Saver<SceneData>.Save($"{_currentSceneName}_{Filename}", _sceneData);
+
+            print("SceneData SAVED!");
         }
 
-        public void Delete()
+        public void DeleteCurrentSceneData()
         {
-            string filePath = $"{Scenename}_{Filename}";
+            string filePath = $"{_currentSceneName}_{Filename}";
 
             if (FileHandler.HasFile(filePath))
             {
                 FileHandler.Reset(filePath);
             }
+
+            print("SceneData DELETED!");
+        }
+
+        public void ResetAllSceneData()
+        {
+            int sceneCount = SceneManager.sceneCountInBuildSettings;
+
+            for (int i = 0; i < sceneCount; i++)
+            {
+                Scene scene = SceneManager.GetSceneByBuildIndex(i);
+
+                string filePath = $"{scene.name}_{Filename}";
+
+                if (FileHandler.HasFile(filePath))
+                {
+                    FileHandler.Reset(filePath);
+                }
+            }
+
+            print("SceneData RESET!");
         }
     }
 }
