@@ -92,6 +92,11 @@ namespace ShipMotorika
 
         private void Start()
         {
+            if (!SceneDataHandler.Instance.HasSave())
+            {
+                Initialize(_asset);
+            }
+            
             _fishContainer.OnFishCaught += TryChangeWeightAmount;
         }
 
@@ -180,23 +185,34 @@ namespace ShipMotorika
         }
 
         public void Load()
-        {
-            var ship = Player.Instance.Ship.gameObject.transform;
+        {      
             var data = SceneDataHandler.Data;
+            var shipTransform = Player.Instance.Ship.gameObject.transform;
+            var asset = Resources.Load<ShipAsset>(data.ShipAssetName);
 
-            ship.position = data.ShipPosition;
-            ship.rotation = data.ShipRotation;
+            shipTransform.position = data.ShipPosition;
+            shipTransform.rotation = data.ShipRotation;
 
-            Initialize(_asset);
+            if (asset != null)
+            {
+                Initialize(asset);
+            }
+            else
+            {
+                Initialize(_asset);
+                //print($"No ShipAsset file in \"Resources\" folder");
+            }
         }
 
         public void Save()
         {
-            var ship = Player.Instance.Ship.gameObject.transform;
             var data = SceneDataHandler.Data;
+            var ship = Player.Instance.Ship;
+            var shipTransform = ship.gameObject.transform;         
 
-            data.ShipPosition = ship.position;
-            data.ShipRotation = ship.rotation;
+            data.ShipPosition = shipTransform.position;
+            data.ShipRotation = shipTransform.rotation;
+            data.ShipAssetName = ship.Asset.name;
         }
     }
 }

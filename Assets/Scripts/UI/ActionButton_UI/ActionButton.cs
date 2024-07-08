@@ -139,32 +139,24 @@ namespace ShipMotorika
                 case ActionType.Market:
 
                     _marketUI.OpenMarket();
-                    SceneDataHandler.Instance?.Save();
-
                     break;
 
 
                 case ActionType.BoatShop:
                     
                     _boatShopUI.OpenShop();
-                    SceneDataHandler.Instance?.Save();
-
                     break;
 
 
                 case ActionType.FishingRodShop:
                     
                     _fishingRodShopUI.OpenShop();
-                    SceneDataHandler.Instance?.Save();
-
                     break;
 
 
                 case ActionType.Workshop:
 
                     _workshopUI.OpenWorkshop();
-                    SceneDataHandler.Instance?.Save();
-
                     break;
             }
         }

@@ -34,6 +34,7 @@ namespace ShipMotorika
                     }
                 }
 
+                //SceneDataHandler.Instance?.Save();
             }
         }
 
@@ -56,6 +57,8 @@ namespace ShipMotorika
             Player.Instance.Ship.TryChangeWeightAmount(-Math.Abs(weight));
             Player.Instance.Money.TryChangeMoneyAmount(money);
             Player.Instance.Ship.FishContainer.ClearContainer();
+
+            SceneDataHandler.Instance?.Save();
         }
     }
 }

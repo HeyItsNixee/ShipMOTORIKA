@@ -94,6 +94,11 @@ namespace ShipMotorika
 
         private void Start()
         {
+            if (!SceneDataHandler.Instance.HasSave())
+            {
+                Initialize(_asset);
+            }
+
             _fishingPoints = new List<FishingPoint>();
         }
 
@@ -257,14 +262,26 @@ namespace ShipMotorika
 
         public void Load()
         {
-            //print("Rod_loaded");
+            var data = SceneDataHandler.Data;
+            var asset = Resources.Load<FishingRodAsset>(data.FishingRodAssetName);
 
-            Initialize(_asset);
+            if (asset != null)
+            {
+                Initialize(asset);
+            }
+            else
+            {
+                Initialize(_asset);
+                //print($"No FishingRodAsset file in \"Resources\" folder");
+            }
         }
 
         public void Save()
         {
-            //print("Rod_saved");
+            var data = SceneDataHandler.Data;
+            var fishingRod = Player.Instance.FishingRod;
+
+            data.FishingRodAssetName = fishingRod.Asset.name;
         }
     }
 }

@@ -32,6 +32,8 @@ namespace ShipMotorika
                         restore.SetRestoreTransform(transform);
                     }
                 }
+
+                //SceneDataHandler.Instance?.Save();
             }
         }
 

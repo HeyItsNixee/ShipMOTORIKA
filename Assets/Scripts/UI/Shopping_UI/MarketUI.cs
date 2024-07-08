@@ -68,6 +68,7 @@ namespace ShipMotorika
             _actionButton.gameObject.SetActive(true);
 
             Player.Instance.GiveControlsToPlayer();
+            //SceneDataHandler.Instance?.Save();
         }
 
         public void OpenMarket()

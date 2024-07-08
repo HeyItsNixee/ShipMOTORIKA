@@ -1,34 +1,12 @@
-using System;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
 {
     public class SceneDataHandler : SingletonBase<SceneDataHandler>, ILoader, ISaver
     {
-        [Serializable]
-        public class SceneData
-        {
-            public Vector3 ShipPosition;
-            public Quaternion ShipRotation;
-
-            public Vector3 RestorePosition;
-            public Quaternion RestoreRotation;
-
-            public int Health;
-            public int Money;
-            public int FishCost;
-            public int FishWeight;
-
-            public string ShipAssetName;
-            public string PathToShipAsset;
-
-            public string FishingRodAssetName;
-            public string PathToFishingRodAsset;
-        }
-
         private const string Filename = "Scene.json";
+
         private string _currentSceneName;
 
         private static SceneData _sceneData = new();
@@ -51,11 +29,6 @@ namespace ShipMotorika
         {
             Load();
         }
-
-        //private void OnDestroy()
-        //{
-        //    Save();
-        //}
 
         public bool HasSave()
         {
@@ -114,7 +87,7 @@ namespace ShipMotorika
                 }
             }
 
-            print("SceneData RESET!");
+            print("SceneData RESETED!");
         }
     }
 }

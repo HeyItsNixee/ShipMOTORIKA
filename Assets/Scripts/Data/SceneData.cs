@@ -4,26 +4,27 @@ using UnityEngine;
 namespace ShipMotorika
 {
     [Serializable]
-    public class SceneData
+    public sealed class SceneData
     {
-        public sealed class TransformData
-        {
-            public Vector3 Position;
-            public Quaternion Rotation;
-            public Vector3 Scale;
-        }
-        
+        public Vector3 ShipPosition;
+        public Quaternion ShipRotation;
+
+        public Vector3 RestorePosition;
+        public Quaternion RestoreRotation;
+
         public int Health;
         public int Money;
         public int FishCost;
         public int FishWeight;
-        public string PathToShipAsset;
-        public string PathToFishingRodAsset;
 
-        public TransformData ShipPosition;
-        public TransformData RestorePointPosition;
+        public string ShipAssetName;
+        public bool BronzeShipIsAvailable = true;
+        public bool SilverShipIsAvailable = true;
+        public bool GoldShipIsAvailable = true;
 
-        public ShipAsset ShipAsset;
-        public FishingRodAsset FishingRodAsset;
+        public string FishingRodAssetName;
+        public bool BronzeFishingRodIsAvailable = true;
+        public bool SilverFishingRodIsAvailable = true;
+        public bool GoldFishingRodIsAvailable = true;
     }
 }

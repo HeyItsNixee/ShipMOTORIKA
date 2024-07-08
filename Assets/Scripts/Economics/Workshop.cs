@@ -48,6 +48,8 @@ namespace ShipMotorika
                     }
                 }
 
+                //SceneDataHandler.Instance?.Save();
+
             }
         }
 
@@ -92,6 +94,8 @@ namespace ShipMotorika
                     money.TryChangeMoneyAmount(-Mathf.Abs(CurrentRepairCost()));
 
                     _health.RestoreHealth();
+
+                    SceneDataHandler.Instance?.Save();
                 }
             }
         }
