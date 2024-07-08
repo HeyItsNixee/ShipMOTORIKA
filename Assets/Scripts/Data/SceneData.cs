@@ -26,5 +26,7 @@ namespace ShipMotorika
         public bool BronzeFishingRodIsAvailable = true;
         public bool SilverFishingRodIsAvailable = true;
         public bool GoldFishingRodIsAvailable = true;
+
+        public bool[] FishCards;
     }
 }
