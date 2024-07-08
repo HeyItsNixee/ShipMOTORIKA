@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Здоровье корабля.
     /// </summary>
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, ILoader, ISaver
     {
         /// <summary>
         /// Максимально допустимое значение здоровья корабля.
@@ -37,16 +37,21 @@ namespace ShipMotorika
         /// <summary>
         /// Неуязвимость к урону.
         /// </summary>
-        [SerializeField] private bool _isIndestructible;     
+        [SerializeField] private bool _isIndestructible;
 
         public event Action OnHealthChanged;
         public event Action OnDeath;
 
         #region UnityEvents
+
+        private void Awake()
+        {
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
+        }
+
         private void Start()
         {
-            HealthData.Load();
-
             if (_currentHealth <= 0)
             {
                 RestoreHealth();
@@ -72,8 +77,6 @@ namespace ShipMotorika
                 _currentHealth = health;
 
                 OnHealthChanged?.Invoke();
-
-                HealthData.Save();
             }
         }
 
@@ -90,8 +93,6 @@ namespace ShipMotorika
             _currentHealth = _maxHealth;
 
             OnHealthChanged?.Invoke();
-
-            HealthData.Save();
         }
 
         public void TryChangeHealthAmount(int amount)
@@ -108,9 +109,17 @@ namespace ShipMotorika
                 {
                     OnHealthChanged?.Invoke();
                 }
-
-                HealthData.Save();
             }
+        }
+
+        public void Load()
+        {
+            _currentHealth = SceneDataHandler.Data.Health;
+        }
+
+        public void Save()
+        {
+            SceneDataHandler.Data.Health = _currentHealth;
         }
     }
 }
