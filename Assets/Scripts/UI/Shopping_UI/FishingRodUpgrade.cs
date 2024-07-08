@@ -31,5 +31,45 @@ namespace ShipMotorika
 
             base.TryBuyUpgrade();
         }
+
+        public override void Load()
+        {
+            var data = SceneDataHandler.Data;
+
+            switch (_asset.name)
+            {
+                case "FishingRod_bronze":
+                    _isAvailable = data.BronzeFishingRodIsAvailable;
+                    break;
+
+                case "FishingRod_silver":
+                    _isAvailable = data.SilverFishingRodIsAvailable;
+                    break;
+
+                case "FishingRod_gold":
+                    _isAvailable = data.GoldFishingRodIsAvailable;
+                    break;
+            }
+        }
+
+        public override void Save()
+        {
+            var data = SceneDataHandler.Data;
+
+            switch (_asset.name)
+            {
+                case "FishingRod_bronze":
+                    data.BronzeFishingRodIsAvailable = _isAvailable;
+                    break;
+
+                case "FishingRod_silver":
+                    data.SilverFishingRodIsAvailable = _isAvailable;
+                    break;
+
+                case "FishingRod_gold":
+                    data.GoldFishingRodIsAvailable = _isAvailable;
+                    break;
+            }
+        }
     }
 }

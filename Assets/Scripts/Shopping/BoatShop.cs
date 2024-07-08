@@ -7,6 +7,11 @@ namespace ShipMotorika
     /// </summary>
     public class BoatShop : MonoBehaviour
     {
+        /// <summary>
+        /// Если true (и был последним), здесь восстановится корабль игрока после уничтожения.
+        /// </summary>
+        [SerializeField] private bool _isRestorePoint;
+
         private Collider2D _player;
 
         #region UnityEvents
@@ -17,14 +22,25 @@ namespace ShipMotorika
                 _player = collision;
 
                 Player.Instance.Ship.SendBoatShopMessage(true);
-                ShipPositionData.Save();
+
+                if (_isRestorePoint)
+                {
+                    var restore = Player.Instance.ShipRestorer.RestorePoint;
+
+                    if (restore != null)
+                    {
+                        restore.SetRestoreTransform(transform);
+                    }
+                }
+
+                //SceneDataHandler.Instance?.Save();
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision == _player) // Временное решение.
-            {    
+            {
                 Player.Instance.Ship.SendBoatShopMessage(false);
 
                 _player = null;

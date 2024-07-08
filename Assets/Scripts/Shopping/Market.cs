@@ -8,6 +8,11 @@ namespace ShipMotorika
     /// </summary>
     public class Market : MonoBehaviour
     {
+        /// <summary>
+        /// Если true (и был последним), здесь восстановится корабль игрока после уничтожения.
+        /// </summary>
+        [SerializeField] private bool _isRestorePoint;
+
         private Collider2D _player;
 
         #region UnityEvents
@@ -18,7 +23,18 @@ namespace ShipMotorika
                 _player = collision;
 
                 Player.Instance.Ship.SendMarketMessage(true);
-                ShipPositionData.Save();
+
+                if (_isRestorePoint)
+                {
+                    var restore = Player.Instance.ShipRestorer.RestorePoint;
+
+                    if (restore != null)
+                    {
+                        restore.SetRestoreTransform(transform);
+                    }
+                }
+
+                //SceneDataHandler.Instance?.Save();
             }
         }
 
@@ -41,6 +57,8 @@ namespace ShipMotorika
             Player.Instance.Ship.TryChangeWeightAmount(-Math.Abs(weight));
             Player.Instance.Money.TryChangeMoneyAmount(money);
             Player.Instance.Ship.FishContainer.ClearContainer();
+
+            SceneDataHandler.Instance?.Save();
         }
     }
 }

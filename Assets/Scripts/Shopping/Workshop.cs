@@ -8,10 +8,15 @@ namespace ShipMotorika
     public class Workshop : MonoBehaviour
     {
         /// <summary>
+        /// Если true (и был последним), здесь восстановится корабль игрока после уничтожения.
+        /// </summary>
+        [SerializeField] private bool _isRestorePoint;
+
+        /// <summary>
         /// Стоимость полной починки корабля. 
         /// </summary>
         [SerializeField] private int _repairCost;
-        
+
         private static Health _health;
 
         private static int _cost;
@@ -32,7 +37,19 @@ namespace ShipMotorika
                 _player = collision;
 
                 Player.Instance.Ship.SendWorkshopMessage(true);
-                ShipPositionData.Save();
+
+                if (_isRestorePoint)
+                {
+                    var restore = Player.Instance.ShipRestorer.RestorePoint;
+
+                    if (restore != null)
+                    {
+                        restore.SetRestoreTransform(transform);
+                    }
+                }
+
+                //SceneDataHandler.Instance?.Save();
+
             }
         }
 
@@ -77,6 +94,8 @@ namespace ShipMotorika
                     money.TryChangeMoneyAmount(-Mathf.Abs(CurrentRepairCost()));
 
                     _health.RestoreHealth();
+
+                    SceneDataHandler.Instance?.Save();
                 }
             }
         }

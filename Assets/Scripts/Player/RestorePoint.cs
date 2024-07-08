@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ShipMotorika
@@ -6,14 +5,40 @@ namespace ShipMotorika
     /// <summary>
     /// Точка, в которой будет появляться уничтоженный корабль игрока.
     /// </summary>
-    public class RestorePoint : MonoBehaviour
+    public class RestorePoint : MonoBehaviour, ILoader, ISaver
     {
-        [SerializeField] private Transform _transform;
-        public Transform Transform => _transform;
+        [SerializeField] private Transform _restoreTransform;
+        public Transform RestoreTransform => _restoreTransform;
 
-        public void SetTransform(Transform transform)
+        #region UnityEvents
+        private void Awake()
         {
-            _transform = transform;
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
+        }
+        #endregion
+
+        public void SetRestoreTransform(Transform transform)
+        {
+            _restoreTransform = transform;
+        }
+
+        public void Load()
+        {
+            var restore = Player.Instance.ShipRestorer.RestorePoint.RestoreTransform;
+            var data = SceneDataHandler.Data;
+
+            restore.position = data.RestorePosition;
+            restore.rotation = data.RestoreRotation;
+        }
+
+        public void Save()
+        {
+            var restore = Player.Instance.ShipRestorer.RestorePoint.RestoreTransform;
+            var data = SceneDataHandler.Data;
+
+            data.RestorePosition = restore.position;
+            data.RestoreRotation = restore.rotation;
         }
     }
 }

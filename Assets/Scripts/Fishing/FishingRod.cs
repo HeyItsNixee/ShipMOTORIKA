@@ -10,7 +10,7 @@ namespace ShipMotorika
     /// <summary>
     /// Удочка игрока.
     /// </summary>
-    public class FishingRod : MonoBehaviour
+    public class FishingRod : MonoBehaviour, ILoader, ISaver
     {
         /// <summary>
         /// ScriptableObject c параметрами удочки.
@@ -34,7 +34,7 @@ namespace ShipMotorika
         /// </summary>
         [SerializeField] private string _description;
         public string Description => _description;
-        
+
         /// <summary>
         /// В соответствии с радиусом этого коллайдера меняет расстояние от FishingPlace, на котором можно ловить рыбу.
         /// </summary>
@@ -77,7 +77,7 @@ namespace ShipMotorika
 
         private List<FishingPoint> _fishingPoints;
         private Collider2D _fishingPointCollider;
-        
+
         private bool _isTriggered = false;
 
         public event Action<bool> OnFishingPlaceNearby;
@@ -86,9 +86,18 @@ namespace ShipMotorika
         public event Action OnFishingRodInitialized;
 
         #region UnityEvents
+        private void Awake()
+        {
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
+        }
+
         private void Start()
-        {         
-            Initialize(_asset);
+        {
+            if (!SceneDataHandler.Instance.HasSave())
+            {
+                Initialize(_asset);
+            }
 
             _fishingPoints = new List<FishingPoint>();
         }
@@ -99,7 +108,7 @@ namespace ShipMotorika
         /// <param name="collision"></param>
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint)) 
+            if (collision.TryGetComponent<FishingPoint>(out var fishingPoint))
             {
                 _fishingPointCollider = collision;
 
@@ -118,7 +127,7 @@ namespace ShipMotorika
         /// Перестаем показывать кнопку, по нажатию которой запустится мини-игра ловли рыбы.
         /// </summary>
         /// <param name="collision"></param>
-        private void OnTriggerExit2D(Collider2D collision) 
+        private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision == _fishingPointCollider)
             {
@@ -154,8 +163,8 @@ namespace ShipMotorika
             float y = _shipCapsuleCollider.size.y;
 
             _radius = Mathf.Max(x, y);
-        }  
-        
+        }
+
         /// <summary>
         /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
         /// </summary>
@@ -163,7 +172,7 @@ namespace ShipMotorika
         public void Initialize(FishingRodAsset asset)
         {
             SetDefaultRadius();
-            
+
             _asset = asset;
             _spriteRenderer.sprite = asset.GameSprite;
             _name = asset.Name;
@@ -175,6 +184,8 @@ namespace ShipMotorika
             _fishingRodCircleCollider.radius = _radius;
 
             OnFishingRodInitialized?.Invoke();
+
+            //Save(); // Attention!
         }
 
         /// <summary>
@@ -242,9 +253,35 @@ namespace ShipMotorika
         {
             if (_сaughtFish != null)
             {
-                Player.Instance.Ship.FishContainer.ChangeWeightAmount(_сaughtFish.Weight);
-                Player.Instance.Ship.FishContainer.ChangeCostAmount(_сaughtFish.Cost);
+                var container = Player.Instance.Ship.FishContainer;
+
+                container.ChangeWeightAmount(_сaughtFish.Weight);
+                container.ChangeCostAmount(_сaughtFish.Cost);
             }
+        }
+
+        public void Load()
+        {
+            var data = SceneDataHandler.Data;
+            var asset = Resources.Load<FishingRodAsset>(data.FishingRodAssetName);
+
+            if (asset != null)
+            {
+                Initialize(asset);
+            }
+            else
+            {
+                Initialize(_asset);
+                //print($"No FishingRodAsset file in \"Resources\" folder");
+            }
+        }
+
+        public void Save()
+        {
+            var data = SceneDataHandler.Data;
+            var fishingRod = Player.Instance.FishingRod;
+
+            data.FishingRodAssetName = fishingRod.Asset.name;
         }
     }
 }

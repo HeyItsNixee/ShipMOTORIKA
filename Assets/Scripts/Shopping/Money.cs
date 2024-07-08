@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Класс отвечающий за приход или расход денег игрока.
     /// </summary>
-    public class Money : MonoBehaviour
+    public class Money : MonoBehaviour, ILoader, ISaver
     {
         [SerializeField] private int _currentMoney;
         public int CurrentMoney => _currentMoney;
@@ -14,9 +14,10 @@ namespace ShipMotorika
         public event Action OnMoneyChanged;
 
         #region UnityEvents
-        private void Start()
+        private void Awake()
         {
-            MoneyData.Load();
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
         }
         #endregion
 
@@ -27,8 +28,6 @@ namespace ShipMotorika
                 _currentMoney = amount;
 
                 OnMoneyChanged?.Invoke();
-
-                MoneyData.Save();
             }
         }
 
@@ -43,10 +42,18 @@ namespace ShipMotorika
                     _currentMoney = currentMoney;
 
                     OnMoneyChanged?.Invoke();
-
-                    MoneyData.Save();
                 }
             }
+        }
+
+        public void Load()
+        {
+            _currentMoney = SceneDataHandler.Data.Money;
+        }
+
+        public void Save()
+        {
+            SceneDataHandler.Data.Money = _currentMoney;
         }
     }
 }
