@@ -115,6 +115,11 @@ namespace ShipMotorika
         public void Load()
         {
             _currentHealth = SceneDataHandler.Data.Health;
+
+            if (_currentHealth <= 0)
+            {
+                RestoreHealth();
+            }
         }
 
         public void Save()
