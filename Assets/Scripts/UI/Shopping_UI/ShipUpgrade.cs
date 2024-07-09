@@ -24,7 +24,7 @@ namespace ShipMotorika
         {
             _image.sprite = _asset.ShopImage;
             _name.text = _asset.Name;
-            _description.text = _asset.Description;           
+            _description.text = _asset.Description;
             _upgradeCost = _asset.Cost;
             _health.text = _asset.Health.ToString();
             _cost.text = _upgradeCost.ToString();
@@ -38,6 +38,46 @@ namespace ShipMotorika
             Player.Instance.Ship.Health.RestoreHealth();
 
             base.TryBuyUpgrade();
+        }
+
+        public override void Load()
+        {
+            var data = SceneDataHandler.Data;
+
+            switch (_asset.name)
+            {
+                case "Ship_bronze":
+                    _isAvailable = data.BronzeShipIsAvailable;
+                    break;
+
+                case "Ship_silver":
+                    _isAvailable = data.SilverShipIsAvailable;
+                    break;
+
+                case "Ship_gold":
+                    _isAvailable = data.GoldShipIsAvailable;
+                    break;
+            }
+        }
+
+        public override void Save()
+        {
+            var data = SceneDataHandler.Data;
+
+            switch (_asset.name)
+            {
+                case "Ship_bronze":
+                    data.BronzeShipIsAvailable = _isAvailable;
+                    break;
+
+                case "Ship_silver":
+                    data.SilverShipIsAvailable = _isAvailable;
+                    break;
+
+                case "Ship_gold":
+                    data.GoldShipIsAvailable = _isAvailable;
+                    break;
+            }
         }
     }
 }

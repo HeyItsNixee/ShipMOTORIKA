@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Модель корабля игрока.
     /// </summary>
-    public class Ship : MonoBehaviour
+    public class Ship : MonoBehaviour, ILoader, ISaver
     {
         [SerializeField] private Rigidbody2D rb2d;
         public Rigidbody2D Rigidbody => rb2d;
@@ -84,9 +84,18 @@ namespace ShipMotorika
         public event Action OnWeightChanged;
 
         #region UnityEvents
+        private void Awake()
+        {
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
+        }
+
         private void Start()
         {
-            Initialize(_asset);
+            if (!SceneDataHandler.Instance.HasSave())
+            {
+                Initialize(_asset);
+            }
 
             _fishContainer.OnFishCaught += TryChangeWeightAmount;
         }
@@ -114,8 +123,6 @@ namespace ShipMotorika
 
             if (_fishContainer)
             {
-                FishContainerData.Load();
-
                 _currentWeight = Mathf.Clamp(_fishContainer.Weight, 0, _carryingCapacity);
             }
 
@@ -175,6 +182,37 @@ namespace ShipMotorika
                     OnWeightChanged?.Invoke();
                 }
             }
+        }
+
+        public void Load()
+        {
+            var data = SceneDataHandler.Data;
+            var shipTransform = Player.Instance.Ship.gameObject.transform;
+            var asset = Resources.Load<ShipAsset>(data.ShipAssetName);
+
+            shipTransform.position = data.ShipPosition;
+            shipTransform.rotation = data.ShipRotation;
+
+            if (asset != null)
+            {
+                Initialize(asset);
+            }
+            else
+            {
+                Initialize(_asset);
+                //print($"No ShipAsset file in \"Resources\" folder");
+            }
+        }
+
+        public void Save()
+        {
+            var data = SceneDataHandler.Data;
+            var ship = Player.Instance.Ship;
+            var shipTransform = ship.gameObject.transform;
+
+            data.ShipPosition = shipTransform.position;
+            data.ShipRotation = shipTransform.rotation;
+            data.ShipAssetName = ship.Asset.name;
         }
     }
 }

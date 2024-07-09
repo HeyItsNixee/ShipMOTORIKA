@@ -7,7 +7,7 @@ namespace ShipMotorika
     /// <summary>
     /// Компонент магазина.
     /// </summary>
-    public abstract class Upgrade : MonoBehaviour
+    public abstract class Upgrade : MonoBehaviour, ILoader, ISaver
     {
         [Header("Upgrade information")]
         [SerializeField] protected Image _image;
@@ -25,13 +25,59 @@ namespace ShipMotorika
         protected bool _isAvailable = true;
 
         #region UnityEvrnts
+        private void Awake()
+        {
+            SceneDataHandler.Loaders.Add(this);
+            SceneDataHandler.Savers.Add(this);
+        }
+
         private void Start()
         {
             Initialize();
         }
+
+        private void OnEnable()
+        {
+            if (!_isAvailable)
+            {
+                DeactivateButton();
+            }
+        }
         #endregion
 
-        protected virtual void Initialize() { }
+        private void ActivateButton()
+        {
+            int money = Player.Instance.Money.CurrentMoney;
+
+            if (money >= _upgradeCost)
+            {
+                _button.interactable = true;
+                _buttonText.text = "Купить"; //Временно!
+            }
+            else
+            {
+                _button.interactable = false;
+                _buttonText.text = "Нет денег"; //Временно!
+            }
+        }
+
+        private void DeactivateButton()
+        {
+            _button.interactable = false;
+            _buttonText.text = "Приобретено"; //Временно!
+        }
+
+        public virtual void UpdateButton()
+        {
+            if (_isAvailable)
+            {
+                ActivateButton();
+            }
+            else
+            {
+                DeactivateButton();
+            }
+        }
 
         public virtual void TryBuyUpgrade()
         {
@@ -42,30 +88,14 @@ namespace ShipMotorika
             UpdateButton();
 
             OnUpgrade?.Invoke();
+
+            SceneDataHandler.Instance?.Save();
         }
 
-        public virtual void UpdateButton()
-        {
-            if (_isAvailable)
-            {
-                int money = Player.Instance.Money.CurrentMoney;
+        protected virtual void Initialize() { }
 
-                if (money >= _upgradeCost)
-                {
-                    _button.interactable = true;
-                    _buttonText.text = "Купить"; //Временно!
-                }
-                else
-                {
-                    _button.interactable = false;
-                    _buttonText.text = "Нет денег"; //Временно!
-                }
-            }
-            else
-            {
-                _button.interactable = false;
-                _buttonText.text = "Приобретено"; //Временно!
-            }
-        }
+        public virtual void Load() { }
+
+        public virtual void Save() { }
     }
 }

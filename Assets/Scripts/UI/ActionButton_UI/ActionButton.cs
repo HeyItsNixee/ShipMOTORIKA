@@ -99,8 +99,8 @@ namespace ShipMotorika
 
                 case ActionType.BoatShop:
                     Initialize(_boatShop);
-                    break;               
-                
+                    break;
+
                 case ActionType.FishingRodShop:
                     Initialize(_fishingRodShop);
                     break;
@@ -139,28 +139,24 @@ namespace ShipMotorika
                 case ActionType.Market:
 
                     _marketUI.OpenMarket();
-
                     break;
 
 
                 case ActionType.BoatShop:
-                    
-                    _boatShopUI.OpenShop(); 
 
+                    _boatShopUI.OpenShop();
                     break;
 
 
                 case ActionType.FishingRodShop:
-                    
-                    _fishingRodShopUI.OpenShop();
 
+                    _fishingRodShopUI.OpenShop();
                     break;
 
 
                 case ActionType.Workshop:
 
                     _workshopUI.OpenWorkshop();
-
                     break;
             }
         }

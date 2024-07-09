@@ -22,37 +22,6 @@ namespace ShipMotorika
 
         public event Action OnShipRestored;
 
-        #region UnityEvents
-
-        private void Awake()
-        {
-            ShipPositionData.Load();
-        }
-
-        private void Start()
-        {
-            if (ShipPositionData.HasSave())
-            {
-                ReplaceShip();
-                ShipPositionData.Save();
-            }
-        }
-
-        private void OnApplicationQuit()
-        {
-            ShipPositionData.Save();
-        }
-        #endregion
-
-        private void ReplaceShip()
-        {
-            var ship = Player.Instance.Ship.gameObject.transform;
-            var save = ShipPositionData.Saver;
-
-            ship.position = save.Position;
-            ship.rotation = save.Rotation;
-        }
-
         public void RestoreShip()
         {
             var ship = Player.Instance.Ship;
@@ -63,13 +32,11 @@ namespace ShipMotorika
 
             if (_restorePoint != null)
             {
-                var position = _restorePoint.Transform.position;
-                var rotation = _restorePoint.Transform.rotation;
+                var position = _restorePoint.RestoreTransform.position;
+                var rotation = _restorePoint.RestoreTransform.rotation;
 
                 ship.gameObject.transform.position = position;
                 ship.gameObject.transform.rotation = rotation;
-
-                ShipPositionData.Save();
             }
 
             OnShipRestored?.Invoke();

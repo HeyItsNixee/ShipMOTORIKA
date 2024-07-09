@@ -10,8 +10,21 @@ namespace ShipMotorika
     {
         private void Update()
         {
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneDataHandler.Instance?.Save();
+            }
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                ResetLevel();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                SceneDataHandler.Instance?.ResetAllSceneData();
+
                 ResetLevel();
             }
         }
@@ -20,7 +33,7 @@ namespace ShipMotorika
         {
             string scenename = SceneManager.GetActiveScene().name;
 
-            PlayerData.DeleteSceneData(scenename);
+            SceneDataHandler.Instance?.DeleteCurrentSceneData();
             SceneManager.LoadScene(scenename);
         }
     }
