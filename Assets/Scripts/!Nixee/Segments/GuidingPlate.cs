@@ -16,7 +16,12 @@ public class GuidingPlate : MonoBehaviour
 
     public void RevealSegment()
     {
-        segmentForPlate.segment.OnSegmentRevealed?.Invoke(segmentForPlate.segmentID);
+        int realID = segmentForPlate.segmentID - 1;
+
+        if (realID < 0)
+            Debug.LogWarning("realID is less than zero in " + name);
+
+        segmentForPlate.segment.OnSegmentRevealed?.Invoke(realID);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
