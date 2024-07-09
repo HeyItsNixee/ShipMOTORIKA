@@ -23,21 +23,29 @@ namespace ShipMotorika
         [SerializeField] private float maxTorque;
         [SerializeField] private float maxAngularVelocity;
         [SerializeField] private Ship playerShip;
+        [Header("Links")]
+        [SerializeField] private GameObject leftScreenButton;
+        [SerializeField] private GameObject rightScreenButton;
 
         private InputType currentInput;
         public InputType CurrentInput => currentInput;
+
+        private bool sideButtonControlEnabled = true;
+        public bool SideButtonControlEnabled => sideButtonControlEnabled;
 
         private float m_Thrust = 0f;
         private float m_Torque = 0f;
 
         private bool canControl = true;
+        private bool holdingLeft;
+        private bool holdingRight;
 
         private void Update()
         {
             if (!canControl)
                 return;
 
-            var movement = UI_InputController.Instance.Value;
+            var movement = UI_ForwardInputController.Instance.Value;
             m_Thrust = movement.y;
 
             if (m_Thrust > 0f)
@@ -47,33 +55,32 @@ namespace ShipMotorika
             if (m_Thrust == 0f)
                 currentInput = InputType.Idle;
 
-            /*if (Input.GetKey(KeyCode.W))
+
+            if (sideButtonControlEnabled)
             {
-                m_Thrust = 1f;
-                currentInput = InputType.Forward;
+                if (holdingLeft)
+                    HandleLeftButton();
+
+                if (holdingRight)
+                    HandleRightButton();
+
+                if ((holdingLeft && holdingRight) || (!holdingLeft && !holdingRight))
+                    m_Torque = 0f;
             }
-
-            if (Input.GetKey(KeyCode.S))
+            else
             {
-                m_Thrust = -1f;
-                currentInput = InputType.Backwards;
+                //Left Button
+                if (Input.GetKey(KeyCode.D))
+                    HandleRightButton();
+
+                //RightButton
+                if (Input.GetKey(KeyCode.A))
+                    HandleLeftButton();
+
+                //Both Left and Right
+                if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+                    m_Torque = 0f;
             }
-
-
-            if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
-            {
-                m_Thrust = 0f;
-                currentInput = InputType.Idle;
-            }*/
-
-            if (Input.GetKey(KeyCode.D))
-                HandleRightButton();
-
-            if (Input.GetKey(KeyCode.A))
-                HadleLeftButton();
-
-            if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
-                m_Torque = 0f;
 
             //Debug.Log("Thrust = " + m_Thrust + "; Torque = " + m_Torque);
         }
@@ -84,7 +91,7 @@ namespace ShipMotorika
             Turn();
         }
 
-        private void HadleLeftButton()
+        private void HandleLeftButton()
         {
             if (Mathf.Sign(m_Thrust) == Mathf.Sign(-1f))
                 m_Torque = -1f;
@@ -153,6 +160,9 @@ namespace ShipMotorika
 
             if (Mathf.Abs(playerShip.Rigidbody.angularVelocity) >= maxAngularVelocity)
                 playerShip.Rigidbody.angularVelocity = maxAngularVelocity * Mathf.Sign(playerShip.Rigidbody.angularVelocity);
+
+            //playerShip.transform.Rotate(Vector3.forward * m_Torque * maxAngularVelocity * Time.deltaTime);
+
         }
 
         public void SetMaxLinearVelocity(float value)
@@ -176,11 +186,26 @@ namespace ShipMotorika
         public void EnableControl()
         {
             canControl = true;
+            UI_ForwardInputController.Instance.gameObject.SetActive(true);
+
+            if (sideButtonControlEnabled)
+            {
+                leftScreenButton.SetActive(true);
+                rightScreenButton.SetActive(true);
+            }
+            else
+            {
+                leftScreenButton.SetActive(false);
+                rightScreenButton.SetActive(false);
+            }
         }
 
         public void DisableControl()
         {
             canControl = false;
+            UI_ForwardInputController.Instance.gameObject.SetActive(false);
+            leftScreenButton.SetActive(false);
+            rightScreenButton.SetActive(false);
             Stop();
         }
 
@@ -189,6 +214,45 @@ namespace ShipMotorika
             //playerShip.Rigidbody.velocity = Vector3.zero;
             m_Thrust = 0f;
             m_Torque = 0f;
+            UI_ForwardInputController.Instance.ResetStick();
+        }
+
+        public void SideButtonControlEnable(bool value)
+        {
+            sideButtonControlEnabled = value;
+            if (sideButtonControlEnabled)
+            {
+                leftScreenButton.SetActive(true);
+                rightScreenButton.SetActive(true);
+            }
+            else
+            {
+                leftScreenButton.SetActive(false);
+                rightScreenButton.SetActive(false);
+            }
+        }
+
+        public void TurnLeft()
+        {
+            holdingLeft = true;
+            Debug.Log("velocity " + playerShip.Rigidbody.velocity);
+            Debug.Log("m_Torque " + m_Torque);
+            Debug.Log("CurrentInput " + currentInput);
+        }
+
+        public void TurnRight()
+        {
+            holdingRight = true;   
+        }
+
+        public void StopTurningLeft()
+        {
+            holdingLeft = false;
+        }
+
+        public void StopTurningRight()
+        {
+            holdingRight = false;
         }
     }
 }

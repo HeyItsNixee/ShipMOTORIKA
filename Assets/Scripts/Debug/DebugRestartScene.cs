@@ -33,7 +33,7 @@ namespace ShipMotorika
         {
             string scenename = SceneManager.GetActiveScene().name;
 
-            SceneDataHandler.Instance?.DeleteCurrentSceneData();
+            //PlayerData.DeleteSceneData(scenename);
             SceneManager.LoadScene(scenename);
         }
     }

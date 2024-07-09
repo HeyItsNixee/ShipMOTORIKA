@@ -26,7 +26,10 @@ namespace ShipMotorika {
                 timer += Time.deltaTime;
             }
             else
+            {
                 background.enabled = true;
+                PlayerController.Instance.Stop();
+            }
         }
     }
 }

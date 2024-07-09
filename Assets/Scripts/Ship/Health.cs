@@ -60,6 +60,9 @@ namespace ShipMotorika
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if (collision.gameObject.layer == 9)
+                return;
+
             if (!_isIndestructible)
             {
                 float collisionSpeed = collision.relativeVelocity.magnitude;

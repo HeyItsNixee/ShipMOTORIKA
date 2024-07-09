@@ -10,7 +10,7 @@ namespace ShipMotorika
     public sealed class FishingChallenge : SingletonBase<FishingChallenge>
     {
         [SerializeField] private Canvas _canvas;
-        [SerializeField] private Canvas _inputCanvas;
+        [SerializeField] private Canvas _inputCanvas; //!!!!!!!ERRORS WITH NULLREF
         [SerializeField] private Image _fishCircleImage;
         [SerializeField] private Image _playerCircleImage;        
 
