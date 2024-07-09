@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d23d055357c44f449be7be8303cb90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isRestorePoint: 0
+  _isRestorePoint: 1
   _repairCost: 100
 --- !u!114 &585734971
 MonoBehaviour:
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c351b8ca6710f4748babc559f7058759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isRestorePoint: 0
+  _isRestorePoint: 1
 --- !u!1 &1128952981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3587cef0692bb445a1988f063d69214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isRestorePoint: 0
+  _isRestorePoint: 1
 --- !u!1 &1268401810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,9 +1153,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1882602849}
   - component: {fileID: 1882602848}
+  - component: {fileID: 1882602851}
   - component: {fileID: 1882602847}
   - component: {fileID: 1882602850}
-  - component: {fileID: 1882602851}
   m_Layer: 0
   m_Name: Market
   m_TagString: Untagged
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fbed7e41a6bf844a49ddc68cb5e4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isRestorePoint: 0
+  _isRestorePoint: 1
 --- !u!58 &1882602848
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 2
-  _color: {r: 0.12459949, g: 0.754717, b: 0.17896715, a: 0.39215687}
+  _color: {r: 0.3254902, g: 0.07450981, b: 0.36862746, a: 0.39215687}
 --- !u!212 &1882602851
 SpriteRenderer:
   m_ObjectHideFlags: 0
