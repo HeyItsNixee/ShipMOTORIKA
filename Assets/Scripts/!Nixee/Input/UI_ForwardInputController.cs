@@ -34,8 +34,6 @@ public class UI_ForwardInputController : Singleton<UI_ForwardInputController>, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(eventData.selectedObject);
-
         OnDrag(eventData);
     }
 

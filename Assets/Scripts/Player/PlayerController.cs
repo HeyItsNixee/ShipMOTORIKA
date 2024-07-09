@@ -160,6 +160,9 @@ namespace ShipMotorika
 
             if (Mathf.Abs(playerShip.Rigidbody.angularVelocity) >= maxAngularVelocity)
                 playerShip.Rigidbody.angularVelocity = maxAngularVelocity * Mathf.Sign(playerShip.Rigidbody.angularVelocity);
+
+            //playerShip.transform.Rotate(Vector3.forward * m_Torque * maxAngularVelocity * Time.deltaTime);
+
         }
 
         public void SetMaxLinearVelocity(float value)

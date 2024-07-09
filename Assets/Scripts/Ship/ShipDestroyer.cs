@@ -13,13 +13,13 @@ namespace ShipMotorika
         private void Start()
         {
             Player.Instance.Ship.Health.OnDeath += DisableSprite;
-            Player.Instance.ShipRestorer.OnShipRestored += EnableSprite;
+            //Player.Instance.ShipRestorer.OnShipRestored += EnableSprite;
         }
 
         private void OnDestroy()
         {
             Player.Instance.Ship.Health.OnDeath -= DisableSprite;
-            Player.Instance.ShipRestorer.OnShipRestored -= EnableSprite;
+            //Player.Instance.ShipRestorer.OnShipRestored -= EnableSprite;
         }
         #endregion
 

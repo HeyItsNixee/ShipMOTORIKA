@@ -22,18 +22,6 @@ namespace ShipMotorika
                 _player = collision;
 
                 Player.Instance.Ship.SendFishingRodShopMessage(true);
-
-                if (_isRestorePoint)
-                {
-                    var restore = Player.Instance.ShipRestorer.RestorePoint;
-
-                    if (restore != null)
-                    {
-                        restore.SetRestoreTransform(transform);
-                    }
-                }
-
-                //SceneDataHandler.Instance?.Save();
             }
         }
 

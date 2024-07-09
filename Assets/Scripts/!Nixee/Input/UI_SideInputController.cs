@@ -12,8 +12,6 @@ public class UI_SideInputController : MonoBehaviour, IPointerUpHandler, IPointer
             PlayerController.Instance.TurnLeft();
         if (type == InputType.Right)
             PlayerController.Instance.TurnRight();
-
-        Debug.Log(eventData.selectedObject);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -22,7 +20,5 @@ public class UI_SideInputController : MonoBehaviour, IPointerUpHandler, IPointer
             PlayerController.Instance.StopTurningLeft();
         if (type == InputType.Right)
             PlayerController.Instance.StopTurningRight();
-
-        Debug.Log("PointerUp " + name);
     }
 }
