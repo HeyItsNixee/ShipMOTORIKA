@@ -50,6 +50,8 @@ namespace ShipMotorika
                     _isAvailable = data.GoldFishingRodIsAvailable;
                     break;
             }
+
+            UpdateButton();
         }
 
         public override void Save()

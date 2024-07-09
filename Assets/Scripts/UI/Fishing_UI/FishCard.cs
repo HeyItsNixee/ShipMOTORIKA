@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Показывает подробную информацию о пойманной рыбе.
     /// </summary>
-    public class FishCard : MonoBehaviour
+    public class FishCard : MonoBehaviour, IInitializer
     {
         [SerializeField] private Image _image;
         [SerializeField] private Text _name;

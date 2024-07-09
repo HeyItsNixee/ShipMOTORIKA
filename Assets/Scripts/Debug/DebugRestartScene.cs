@@ -18,22 +18,28 @@ namespace ShipMotorika
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                ResetLevel();
+                ReloadLevel();
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneDataHandler.Instance?.DeleteCurrentSceneData();
+
+                ReloadLevel();
             }
 
             if (Input.GetKeyDown(KeyCode.Backspace))
             {
                 SceneDataHandler.Instance?.ResetAllSceneData();
 
-                ResetLevel();
+                ReloadLevel();
             }
         }
 
-        private void ResetLevel()
+        private void ReloadLevel()
         {
             string scenename = SceneManager.GetActiveScene().name;
 
-            //PlayerData.DeleteSceneData(scenename);
             SceneManager.LoadScene(scenename);
         }
     }

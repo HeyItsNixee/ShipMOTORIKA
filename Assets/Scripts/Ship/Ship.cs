@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Модель корабля игрока.
     /// </summary>
-    public class Ship : MonoBehaviour, ILoader, ISaver
+    public class Ship : MonoBehaviour, ILoader, ISaver//, IInitializer
     {
         [SerializeField] private Rigidbody2D rb2d;
         public Rigidbody2D Rigidbody => rb2d;

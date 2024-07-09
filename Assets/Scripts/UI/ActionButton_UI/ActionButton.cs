@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Универсальная кнопка, меняющая свой вид и функционал в зависимости от игровой ситуации.
     /// </summary>
-    public class ActionButton : Singleton<ActionButton>
+    public class ActionButton : Singleton<ActionButton>//, IInitializer
     {
         public enum ActionType
         {
