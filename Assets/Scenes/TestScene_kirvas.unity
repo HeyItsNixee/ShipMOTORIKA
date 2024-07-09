@@ -1130,11 +1130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5243be8c0ca543940a8f951909d4bd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1614666233 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3067255447381551703, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
-  m_PrefabInstance: {fileID: 1248669691380374270}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1829188722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7567663063927429999, guid: 3c0b7d78452ce5945a28b2c41c725a80, type: 3}
@@ -1348,11 +1343,11 @@ PrefabInstance:
     - target: {fileID: 5637805043592817812, guid: 2906180478005bb4fb733683021a5c66, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 1614666233}
+      objectReference: {fileID: 0}
     - target: {fileID: 5637805043592817812, guid: 2906180478005bb4fb733683021a5c66, type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 1614666233}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1591,10 +1586,18 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1162061189}
+    - target: {fileID: 3634720988925582503, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: virtualCamera
+      value: 
+      objectReference: {fileID: 1162061189}
     - target: {fileID: 3817092095020116871, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 13df614e2e5d7b943a8c48babd9b2b1d, type: 3}
+    - target: {fileID: 4662686319970185620, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
+      propertyPath: _restorePoint
+      value: 
+      objectReference: {fileID: 57362131}
     - target: {fileID: 5012755600077969944, guid: c93d885f66943ec4f92ee3d6e75241ca, type: 3}
       propertyPath: _totalFishWeight
       value: 0
