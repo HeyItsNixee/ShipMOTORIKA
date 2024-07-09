@@ -501,6 +501,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8236203916760516331}
   m_SourcePrefab: {fileID: 100100000, guid: a272edbed25df3e45a39d50b7bc32c24, type: 3}
+--- !u!58 &5011359477494505698 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 92432351012240265, guid: a272edbed25df3e45a39d50b7bc32c24, type: 3}
+  m_PrefabInstance: {fileID: 4954960555825585003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5661635644945789711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 743557658193209444, guid: a272edbed25df3e45a39d50b7bc32c24, type: 3}
@@ -521,6 +526,7 @@ MonoBehaviour:
   segmentForPlate:
     segment: {fileID: 6910269640620334668}
     segmentID: 3
+  Trigger: {fileID: 5011359477494505698}
 --- !u!4 &7277569162143374852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2322890693261575535, guid: a272edbed25df3e45a39d50b7bc32c24, type: 3}

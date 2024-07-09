@@ -634,6 +634,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4138389288625342568, guid: 590cf96877f3d93419e56d1cb106b47d, type: 3}
   m_PrefabInstance: {fileID: 7968766109422675252}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &8090799548570716635 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2224485595290119407, guid: 590cf96877f3d93419e56d1cb106b47d, type: 3}
+  m_PrefabInstance: {fileID: 7968766109422675252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9049148547035725911 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1370138989658498403, guid: 590cf96877f3d93419e56d1cb106b47d, type: 3}
@@ -654,6 +659,7 @@ MonoBehaviour:
   segmentForPlate:
     segment: {fileID: 4692683956074915407}
     segmentID: 4
+  Trigger: {fileID: 8090799548570716635}
 --- !u!1001 &8128744118977662940
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -422,6 +422,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6906218242626041839}
   m_SourcePrefab: {fileID: 100100000, guid: 1354523e0b8d25a44812ead7a465cf9c, type: 3}
+--- !u!58 &1572612424973518731 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6374170361841304121, guid: 1354523e0b8d25a44812ead7a465cf9c, type: 3}
+  m_PrefabInstance: {fileID: 5595318496628458930}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2285577009157638257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5917326016691457475, guid: 1354523e0b8d25a44812ead7a465cf9c, type: 3}
@@ -447,6 +452,7 @@ MonoBehaviour:
   segmentForPlate:
     segment: {fileID: 7823699869456010446}
     segmentID: 10
+  Trigger: {fileID: 1572612424973518731}
 --- !u!1001 &6381855148049526260
 PrefabInstance:
   m_ObjectHideFlags: 0

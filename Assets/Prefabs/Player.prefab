@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _restorePoint: {fileID: 0}
-  _restoredHealthPercentage: 1
+  _restoredHealthPercentage: 0.2
 --- !u!114 &8553752146757607429
 MonoBehaviour:
   m_ObjectHideFlags: 0

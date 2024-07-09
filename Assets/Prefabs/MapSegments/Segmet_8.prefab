@@ -441,9 +441,15 @@ MonoBehaviour:
   segmentForPlate:
     segment: {fileID: 2753914293337536126}
     segmentID: 8
+  Trigger: {fileID: 9023038414635289684}
 --- !u!4 &4269231096570405546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8925568575806428990, guid: e05e337fbaf4a074aa743d2f81caaf8a, type: 3}
+  m_PrefabInstance: {fileID: 4675482175837418900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &9023038414635289684 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4457125356867942848, guid: e05e337fbaf4a074aa743d2f81caaf8a, type: 3}
   m_PrefabInstance: {fileID: 4675482175837418900}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5139116458461142094

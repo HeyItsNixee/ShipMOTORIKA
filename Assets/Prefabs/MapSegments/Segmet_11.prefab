@@ -510,6 +510,12 @@ MonoBehaviour:
   segmentForPlate:
     segment: {fileID: 2908449172622052561}
     segmentID: 11
+  Trigger: {fileID: 4578686171208895445}
+--- !u!58 &4578686171208895445 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2224485595290119407, guid: 590cf96877f3d93419e56d1cb106b47d, type: 3}
+  m_PrefabInstance: {fileID: 2401605028790658874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2543670845872893906
 PrefabInstance:
   m_ObjectHideFlags: 0

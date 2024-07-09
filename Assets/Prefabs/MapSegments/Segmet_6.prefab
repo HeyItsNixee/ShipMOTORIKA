@@ -444,9 +444,15 @@ MonoBehaviour:
   segmentForPlate:
     segment: {fileID: 8630819376688139718}
     segmentID: 6
+  Trigger: {fileID: 9132662787926868795}
 --- !u!4 &3803278073838504167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3264209736322093075, guid: cfcb99918b0bbdb4eacd74d192f4687b, type: 3}
+  m_PrefabInstance: {fileID: 1840626668716464372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &9132662787926868795 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7437277378998164431, guid: cfcb99918b0bbdb4eacd74d192f4687b, type: 3}
   m_PrefabInstance: {fileID: 1840626668716464372}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2302977337350477037
