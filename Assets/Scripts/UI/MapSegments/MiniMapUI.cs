@@ -20,6 +20,9 @@ public class MiniMapUI : Singleton<MiniMapUI>
         if (segmentID >= UI_Segments.Length || segmentID < 0)
             return;
 
+        if (PlayerHUD_UI.Instance != null)
+            PlayerHUD_UI.Instance.OpenMapPanel();
+
         UI_Segments[segmentID].RevealSegment();
     }
 }

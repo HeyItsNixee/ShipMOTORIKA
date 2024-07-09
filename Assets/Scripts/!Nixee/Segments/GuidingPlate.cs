@@ -21,7 +21,7 @@ public class GuidingPlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == PlayerController.Instance.gameObject)
+        if (collision.transform.root.gameObject == PlayerController.Instance.gameObject)
         {
             RevealSegment();
             Trigger.enabled = false;

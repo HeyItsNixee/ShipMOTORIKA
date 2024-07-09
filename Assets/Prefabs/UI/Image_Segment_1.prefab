@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b1cba36228f2a4790627e2d3afe9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloudsAnimator: {fileID: 6682553759813242513}
   cloudsObj: {fileID: 2169548551382809652}
   isSegmentRevealed: 0
 --- !u!222 &3881321642777696374
@@ -176,6 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4483048051913915448}
+  - component: {fileID: 6682553759813242513}
   m_Layer: 5
   m_Name: Clouds
   m_TagString: Untagged
@@ -207,6 +209,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &6682553759813242513
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2169548551382809652}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a753033dfe2ae964780f5558e2fee771, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2433212662382921031
 GameObject:
   m_ObjectHideFlags: 0

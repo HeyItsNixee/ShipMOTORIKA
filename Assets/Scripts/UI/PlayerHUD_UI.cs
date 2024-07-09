@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHUD_UI : MonoBehaviour
+public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
 {
-    [SerializeField] private PauseMenu pausePanel;
+    [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private MiniMapUI mapPanel;
+    [SerializeField] private GameObject mapPanel;
 
     private void Start()
     {
