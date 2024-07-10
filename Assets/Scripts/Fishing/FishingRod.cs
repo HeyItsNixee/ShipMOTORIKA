@@ -10,7 +10,7 @@ namespace ShipMotorika
     /// <summary>
     /// Удочка игрока.
     /// </summary>
-    public class FishingRod : MonoBehaviour, ILoader, ISaver
+    public class FishingRod : MonoBehaviour, ILoader, ISaver//, IInitializer
     {
         /// <summary>
         /// ScriptableObject c параметрами удочки.

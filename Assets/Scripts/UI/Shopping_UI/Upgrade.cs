@@ -7,7 +7,7 @@ namespace ShipMotorika
     /// <summary>
     /// Компонент магазина.
     /// </summary>
-    public abstract class Upgrade : MonoBehaviour, ILoader, ISaver
+    public abstract class Upgrade : MonoBehaviour, ILoader, ISaver//, IInitializer
     {
         [Header("Upgrade information")]
         [SerializeField] protected Image _image;
@@ -24,58 +24,40 @@ namespace ShipMotorika
         protected int _upgradeCost;
         protected bool _isAvailable = true;
 
-        #region UnityEvrnts
+        #region UnityEvents
         private void Awake()
         {
             SceneDataHandler.Loaders.Add(this);
             SceneDataHandler.Savers.Add(this);
         }
 
-        private void Start()
+        protected void Start()
         {
             Initialize();
         }
-
-        private void OnEnable()
-        {
-            if (!_isAvailable)
-            {
-                DeactivateButton();
-            }
-        }
         #endregion
-
-        private void ActivateButton()
-        {
-            int money = Player.Instance.Money.CurrentMoney;
-
-            if (money >= _upgradeCost)
-            {
-                _button.interactable = true;
-                _buttonText.text = "Купить"; //Временно!
-            }
-            else
-            {
-                _button.interactable = false;
-                _buttonText.text = "Нет денег"; //Временно!
-            }
-        }
-
-        private void DeactivateButton()
-        {
-            _button.interactable = false;
-            _buttonText.text = "Приобретено"; //Временно!
-        }
 
         public virtual void UpdateButton()
         {
             if (_isAvailable)
             {
-                ActivateButton();
+                int money = Player.Instance.Money.CurrentMoney;
+
+                if (money >= _upgradeCost)
+                {
+                    _button.interactable = true;
+                    _buttonText.text = "Купить"; //Временно!
+                }
+                else
+                {
+                    _button.interactable = false;
+                    _buttonText.text = "Нет денег"; //Временно!
+                }
             }
             else
             {
-                DeactivateButton();
+                _button.interactable = false;
+                _buttonText.text = "Приобретено"; //Временно!
             }
         }
 

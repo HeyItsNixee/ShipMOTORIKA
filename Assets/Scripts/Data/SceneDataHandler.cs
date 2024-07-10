@@ -87,7 +87,7 @@ namespace ShipMotorika
                 }
             }
 
-            print("SceneData RESETED!");
+            print("All SceneData RESETED!");
         }
     }
 }

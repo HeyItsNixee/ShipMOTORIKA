@@ -6,7 +6,7 @@ namespace ShipMotorika
     /// <summary>
     /// Определяет, какая рыба будет ловиться определенной удочкой.
     /// </summary>
-    public class FishPool : MonoBehaviour
+    public class FishPool : MonoBehaviour, IInitializer
     {
         [Header("Fish assets")]
         [SerializeField] private FishingRodAsset _defaultFishingRod;

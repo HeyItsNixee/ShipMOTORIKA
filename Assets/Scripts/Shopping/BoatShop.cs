@@ -20,6 +20,18 @@ namespace ShipMotorika
             if (collision.gameObject.CompareTag("Player")) // Временное решение.
             {
                 _player = collision;
+
+                Player.Instance.Ship.SendBoatShopMessage(true);
+
+                if (_isRestorePoint)
+                {
+                    var restore = Player.Instance.ShipRestorer.RestorePoint;
+
+                    if (restore != null)
+                    {
+                        restore.SetRestoreTransform(transform);
+                    }
+                }
             }
         }
 

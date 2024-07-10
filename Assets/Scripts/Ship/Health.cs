@@ -108,10 +108,8 @@ namespace ShipMotorika
                 {
                     OnDeath?.Invoke();
                 }
-                else
-                {
-                    OnHealthChanged?.Invoke();
-                }
+
+                OnHealthChanged?.Invoke();
             }
         }
 

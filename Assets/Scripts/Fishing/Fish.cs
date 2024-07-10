@@ -5,7 +5,7 @@ namespace ShipMotorika
     /// <summary>
     /// Название говорит само за себя - рыба.
     /// </summary>
-    public class Fish : MonoBehaviour
+    public class Fish : MonoBehaviour//, IInitializer
     {
         /// <summary>
         /// Визуальное отображение рыбы в интерфейсе

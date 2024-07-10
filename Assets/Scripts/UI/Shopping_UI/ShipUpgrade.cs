@@ -15,11 +15,6 @@ namespace ShipMotorika
         [Space]
         [SerializeField] private ShipAsset _asset;
 
-        private void Start()
-        {
-            Initialize();
-        }
-
         protected override void Initialize()
         {
             _image.sprite = _asset.ShopImage;
@@ -41,7 +36,7 @@ namespace ShipMotorika
         }
 
         public override void Load()
-        {
+        { 
             var data = SceneDataHandler.Data;
 
             switch (_asset.name)
@@ -58,6 +53,8 @@ namespace ShipMotorika
                     _isAvailable = data.GoldShipIsAvailable;
                     break;
             }
+
+            UpdateButton();
         }
 
         public override void Save()
