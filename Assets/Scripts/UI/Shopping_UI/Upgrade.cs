@@ -34,6 +34,7 @@ namespace ShipMotorika
         protected void Start()
         {
             Initialize();
+            UpdateButton();
         }
         #endregion
 
