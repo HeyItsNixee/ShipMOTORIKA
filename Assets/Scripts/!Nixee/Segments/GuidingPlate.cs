@@ -19,13 +19,19 @@ public class GuidingPlate : MonoBehaviour
         int realID = segmentForPlate.segmentID - 1;
 
         if (realID < 0)
+        {
             Debug.LogWarning("realID is less than zero in " + name);
+            return;
+        }
 
         segmentForPlate.segment.OnSegmentRevealed?.Invoke(realID);
+        PlayerController.Instance.Stop();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name + " entered PlateTrigger");
+
         if (collision.transform.root.gameObject == PlayerController.Instance.gameObject)
         {
             RevealSegment();

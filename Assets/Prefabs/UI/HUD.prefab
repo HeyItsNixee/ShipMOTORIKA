@@ -638,9 +638,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b38d8174bb60346ab6cd15ecaee934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pausePanel: {fileID: 0}
-  settingsPanel: {fileID: 0}
-  mapPanel: {fileID: 0}
+  InputCanvas: {fileID: 0}
+  pausePanel: {fileID: 4952340608058952107}
+  settingsPanel: {fileID: 5135906361492756291}
+  mapPanel: {fileID: 1911853842186189694}
 --- !u!223 &2578850217290015605
 Canvas:
   m_ObjectHideFlags: 0
@@ -2625,7 +2626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169548551382809652, guid: 15e6cc9efc78590449ae7153b2e84b1b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4736369624525909810, guid: 15e6cc9efc78590449ae7153b2e84b1b, type: 3}
       propertyPath: m_Sprite

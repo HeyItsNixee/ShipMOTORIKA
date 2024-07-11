@@ -1,8 +1,10 @@
+using ShipMotorika;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
 {
+    [SerializeField] private GameObject InputCanvas;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject mapPanel;
@@ -24,6 +26,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         pausePanel.gameObject.SetActive(true);
         settingsPanel.SetActive(false);
         mapPanel.gameObject.SetActive(false);
+        InputCanvas.SetActive(false);
     }
 
     public void OpenSettingsPanel()
@@ -31,6 +34,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         pausePanel.gameObject.SetActive(false);
         settingsPanel.SetActive(true);
         mapPanel.gameObject.SetActive(false);
+        InputCanvas.SetActive(false);
     }
 
     public void OpenMapPanel()
@@ -38,6 +42,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         pausePanel.gameObject.SetActive(false);
         settingsPanel.SetActive(false);
         mapPanel.gameObject.SetActive(true);
+        InputCanvas.SetActive(false);
     }
 
     public void ClosePanel()
@@ -45,5 +50,6 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         pausePanel.gameObject.SetActive(false);
         settingsPanel.SetActive(false);
         mapPanel.gameObject.SetActive(false);
+        InputCanvas.SetActive(true);
     }
 }
