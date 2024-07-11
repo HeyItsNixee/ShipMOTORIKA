@@ -53,8 +53,6 @@ namespace ShipMotorika
                     _isAvailable = data.GoldShipIsAvailable;
                     break;
             }
-
-            UpdateButton();
         }
 
         public override void Save()

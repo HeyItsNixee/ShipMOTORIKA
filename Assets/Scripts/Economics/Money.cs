@@ -49,6 +49,8 @@ namespace ShipMotorika
         public void Load()
         {
             _currentMoney = SceneDataHandler.Data.Money;
+
+            OnMoneyChanged?.Invoke();
         }
 
         public void Save()

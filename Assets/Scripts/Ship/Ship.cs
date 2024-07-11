@@ -192,15 +192,11 @@ namespace ShipMotorika
 
             shipTransform.position = data.ShipPosition;
             shipTransform.rotation = data.ShipRotation;
+            shipTransform.localScale = data.ShipScale;
 
             if (asset != null)
             {
                 Initialize(asset);
-            }
-            else
-            {
-                Initialize(_asset);
-                //print($"No ShipAsset file in \"Resources\" folder");
             }
         }
 
@@ -212,6 +208,7 @@ namespace ShipMotorika
 
             data.ShipPosition = shipTransform.position;
             data.ShipRotation = shipTransform.rotation;
+            data.ShipScale = shipTransform.localScale;
             data.ShipAssetName = ship.Asset.name;
         }
     }
