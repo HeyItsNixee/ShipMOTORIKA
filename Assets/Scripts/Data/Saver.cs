@@ -4,10 +4,6 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Сохраняет данные.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
     [Serializable]
     public class Saver<T>
     {

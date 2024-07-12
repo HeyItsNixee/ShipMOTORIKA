@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Отображает в интерфейсе информацию о том, что корабль игрока уничтожен.
-    /// </summary>
     public class RestoreUI : MonoBehaviour
     {
         [SerializeField] private GameObject _canvasPanel;

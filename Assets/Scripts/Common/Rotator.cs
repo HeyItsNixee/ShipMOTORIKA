@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Вращает объект вокруг своей оси.
-    /// </summary>
     public class Rotator : MonoBehaviour
     {
         [SerializeField] private Transform _targetTransform;

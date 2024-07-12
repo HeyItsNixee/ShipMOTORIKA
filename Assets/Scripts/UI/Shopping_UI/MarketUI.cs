@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Интерфейс рынка.
-    /// </summary>
     public class MarketUI : MonoBehaviour
     {
         [SerializeField] private GameObject _canvasPanel;

@@ -2,14 +2,8 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Спавнит места ловли рыбы в случайных точках внутри заданной окружности.
-    /// </summary>
     public class FishSpawner : Spawner
     {
-        /// <summary>
-        /// Если включено, поддерживает 
-        /// </summary>
         [SerializeField] private bool _isConstantAmount;
 
         private new void Start()

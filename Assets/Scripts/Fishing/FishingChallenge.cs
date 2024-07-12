@@ -50,9 +50,6 @@ namespace ShipMotorika
         }
         #endregion
 
-        /// <summary>
-        /// Сохранение заранее настроенного состояния для корректного отображения мини-игры.
-        /// </summary>
         private void SaveParametrs()
         {
             _defaultFishColor = _fishCircleImage.color;
@@ -64,9 +61,6 @@ namespace ShipMotorika
             _isLooped = false;
         }
 
-        /// <summary>
-        /// Восстановление заранее настроенного состояния для корректного отображения мини-игры.
-        /// </summary>
         private void RestoreParametrs()
         {
             _fishCircleImage.color = _defaultFishColor;
@@ -80,9 +74,6 @@ namespace ShipMotorika
             _isLooped = false;
         }
 
-        /// <summary>
-        /// Отображение зацикленной анимации.
-        /// </summary>
         private void DoCircleAnimation()
         {
             if (_isLooped)
@@ -116,9 +107,6 @@ namespace ShipMotorika
             }
         }
 
-        /// <summary>
-        /// Запуск мини-игры на сцене.
-        /// </summary>
         public void Activate()
         { 
             transform.position = Player.Instance.FishingRod.FishingPoint.gameObject.transform.position;
@@ -138,9 +126,6 @@ namespace ShipMotorika
             Player.Instance.TakeControlsFromPlayer();
         }
 
-        /// <summary>
-        /// Выключение мини-игры на сцене.
-        /// </summary>
         public void Deactivate()
         {
             RestoreParametrs();
@@ -151,9 +136,6 @@ namespace ShipMotorika
             Player.Instance.GiveControlsToPlayer();
         }
 
-        /// <summary>
-        /// Проверка на выполнения условий успешного завершения мини-игры.
-        /// </summary>
         public void TryCatchFish()
         {
             enabled = false;

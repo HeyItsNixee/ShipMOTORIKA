@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ShipMotorika
 {
     /// <summary>
-    /// Точка, в которой будет появляться уничтоженный корабль игрока.
+    /// Точка, в которой будет возродится уничтоженный корабль игрока.
     /// </summary>
     public class RestorePoint : MonoBehaviour, ILoader, ISaver
     {

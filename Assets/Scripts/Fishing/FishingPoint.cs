@@ -9,9 +9,6 @@ namespace ShipMotorika
     /// </summary>
     public class FishingPoint : MonoBehaviour
     {
-        /// <summary>
-        /// Лист всех экземпляров класса, в который при создании добавляется каждый новый FishingPoint. 
-        /// </summary>
         private static HashSet<FishingPoint> _allFishingPoints;
         public static IReadOnlyCollection<FishingPoint> AllFishingPoints => _allFishingPoints;
 
@@ -58,10 +55,6 @@ namespace ShipMotorika
         }
         #endregion
 
-        /// <summary>
-        /// Рандомом получает случайный результат в виде полезной рыбы или "сапога".
-        /// </summary>
-        /// <param name="success"></param>
         private void ShowCatchedFish(bool success)
         {
             if (_isActive)

@@ -3,14 +3,8 @@ using System;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Рынок, на котором игрок может продать рыбу и купить апгрейды.
-    /// </summary>
     public class Market : MonoBehaviour
     {
-        /// <summary>
-        /// Если true (и был последним), здесь восстановится корабль игрока после уничтожения.
-        /// </summary>
         [SerializeField] private bool _isRestorePoint;
 
         private Collider2D _player;

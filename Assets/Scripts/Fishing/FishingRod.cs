@@ -7,71 +7,35 @@ using UnityEditor;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Удочка игрока.
-    /// </summary>
     public class FishingRod : MonoBehaviour, ILoader, ISaver//, IInitializer
     {
-        /// <summary>
-        /// ScriptableObject c параметрами удочки.
-        /// </summary>
         [SerializeField] private FishingRodAsset _asset;
         public FishingRodAsset Asset => _asset;
 
-        /// <summary>
-        /// Визуальное отображение удочки при ловле рыбы.
-        /// </summary>
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
-        /// <summary>
-        /// Название удочки (для магазина).
-        /// </summary>
         [SerializeField] private string _name;
         public string Name => _name;
 
-        /// <summary>
-        /// Описание удочки для торговца.
-        /// </summary>
         [SerializeField] private string _description;
         public string Description => _description;
 
-        /// <summary>
-        /// В соответствии с радиусом этого коллайдера меняет расстояние от FishingPlace, на котором можно ловить рыбу.
-        /// </summary>
         [SerializeField] private CircleCollider2D _fishingRodCircleCollider;
 
-        /// <summary>
-        /// В зависимости от размеров данного коллайдера будет рассчитываться дефолтный радиус удочки.
-        /// </summary>
         [SerializeField] private CapsuleCollider2D _shipCapsuleCollider;
 
-        /// <summary>
-        /// Для удобства радиус можно задавать/смотреть через инспектор.
-        /// </summary>
         [SerializeField] private float _radius;
         public float Radius => _radius;
 
-        /// <summary>
-        /// Скорость ловли удочки. Чем выше, тем легче будет проходить мини-игру FishingChallenge.
-        /// </summary>
         [SerializeField] private float _speed;
         public float Speed => _speed;
 
-        /// <summary>
-        /// Стоимость удочки у торговца.
-        /// </summary>
         [SerializeField] private int _cost;
         public int Cost => _cost;
 
-        /// <summary>
-        /// Та FishingPoint, в которой игрок ловит рыбу в данный момент.
-        /// </summary>
         private FishingPoint _activeFishingPoint;
         public FishingPoint FishingPoint => _activeFishingPoint;
 
-        /// <summary>
-        /// Пойманная рыба.
-        /// </summary>
         private Fish _сaughtFish;
         public Fish CaughtFish => _сaughtFish;
 
@@ -81,7 +45,6 @@ namespace ShipMotorika
         private bool _isTriggered = false;
 
         public event Action<bool> OnFishingPlaceNearby;
-
         public event Action OnFishAssigned;
         public event Action OnFishingRodInitialized;
 
@@ -154,9 +117,6 @@ namespace ShipMotorika
 #endif
         #endregion
 
-        /// <summary>
-        /// Устанавливает радиус в зависимости от коллайдера корабля.
-        /// </summary>
         private void SetDefaultRadius()
         {
             float x = _shipCapsuleCollider.size.x;
@@ -165,10 +125,6 @@ namespace ShipMotorika
             _radius = Mathf.Max(x, y);
         }
 
-        /// <summary>
-        /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
-        /// </summary>
-        /// <param name="asset"></param>
         public void Initialize(FishingRodAsset asset)
         {
             SetDefaultRadius();
@@ -184,8 +140,6 @@ namespace ShipMotorika
             _fishingRodCircleCollider.radius = _radius;
 
             OnFishingRodInitialized?.Invoke();
-
-            //Save(); // Attention!
         }
 
         /// <summary>
@@ -235,10 +189,6 @@ namespace ShipMotorika
             }
         }
 
-        /// <summary>
-        /// Сохраняет информацию о последней пойманной рыбе.
-        /// </summary>
-        /// <param name="fish"></param>
         public void AssignFish(Fish fish)
         {
             _сaughtFish = fish;
@@ -246,9 +196,6 @@ namespace ShipMotorika
             OnFishAssigned?.Invoke();
         }
 
-        /// <summary>
-        /// Добавляет вес пойманной рыбы к текущему весу корабля.
-        /// </summary>
         public void TryPutFishInShip()
         {
             if (_сaughtFish != null)
@@ -269,11 +216,6 @@ namespace ShipMotorika
             {
                 Initialize(asset);
             }
-            //else
-            //{
-            //    Initialize(_asset);
-            //    //print($"No FishingRodAsset file in \"Resources\" folder");
-            //}
         }
 
         public void Save()

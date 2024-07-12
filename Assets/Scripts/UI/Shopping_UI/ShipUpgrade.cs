@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Компонент магазина, представляющий апгрейд корабля для покупки игроком.
-    /// </summary>
     public class ShipUpgrade : Upgrade
     {
         [Header("Additional upgrade information")]

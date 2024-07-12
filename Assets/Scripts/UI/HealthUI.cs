@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Отображает здоровье корабля игрока в интерфейсе.
-    /// </summary>
     public class HealthUI : MonoBehaviour
     {
         [SerializeField] private Image _image;

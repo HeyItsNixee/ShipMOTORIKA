@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Открывает информацию о пойманной рыбе в интерфейсе при успешном прохождении мини-игры FishingChallenge.
-    /// </summary>
     public class CaughtFishUI : MonoBehaviour
     {
         [SerializeField] private GameObject _canvasPanel;
@@ -59,7 +56,6 @@ namespace ShipMotorika
             if (fish != null)
             {
                 _image.sprite = Player.Instance.FishingRod.CaughtFish.Sprite.sprite;
-                //_image.SetNativeSize(); // Attention! Only for Debug!
 
                 TryShowFishOverweightButton(fish);
                 
@@ -83,18 +79,12 @@ namespace ShipMotorika
             }
         }
 
-        /// <summary>
-        /// Показать карточку рыбы.
-        /// </summary>
         private void ShowFishInformation()
         {
             _fishCard.gameObject.SetActive(true);
             _fishCard.Initialize();
         }
 
-        /// <summary>
-        /// Взять рыбу.
-        /// </summary>
         public void DoOnAccept()
         {
             _canvasPanel.SetActive(false);
@@ -103,9 +93,6 @@ namespace ShipMotorika
             FishingChallenge.Instance.Deactivate();
         }
 
-        /// <summary>
-        /// Отпустить рыбу.
-        /// </summary>
         public void DoOnDecline()
         {
             if (_overweight.gameObject.activeSelf)

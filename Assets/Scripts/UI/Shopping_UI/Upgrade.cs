@@ -4,9 +4,6 @@ using System;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Компонент магазина.
-    /// </summary>
     public abstract class Upgrade : MonoBehaviour, ILoader, ISaver//, IInitializer
     {
         [Header("Upgrade information")]

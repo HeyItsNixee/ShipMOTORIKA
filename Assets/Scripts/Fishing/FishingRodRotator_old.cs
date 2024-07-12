@@ -1,30 +1,15 @@
-using UnityEngine;
+ using UnityEngine;
 
 namespace ShipMotorika
 {
     /// <summary>
-    /// Поворачивает удочку в сторону активного места рыбалки.
+    /// Второй вариант скрипта. Позже объединю функционал в один класс.
     /// </summary>
     public class FishingRodRotator_old : MonoBehaviour
     {
-        /// <summary>
-        /// Позиция корабля. Нужна для синхронизации положения удочки.
-        /// </summary>
-        [SerializeField] private Transform _ship;
-
-        /// <summary>
-        /// Визуальная модель удочки
-        /// </summary>
+        [SerializeField] private Transform _ship;      
         [SerializeField] private SpriteRenderer _spriteRenderer;
-
-        /// <summary>
-        /// Скорость вращения удочки.
-        /// </summary>
         [SerializeField] private float _rotationSpeed;
-
-        /// <summary>
-        /// Если значение "true", удочка будет отображаться только при рыбалке.
-        /// </summary>
         [SerializeField] private bool _isOnlyOnFishingChallenge;
 
         private Quaternion _targetRotation;
@@ -85,9 +70,6 @@ namespace ShipMotorika
         }
         #endregion
 
-        /// <summary>
-        /// Поворачивает удочку в сторону цели.
-        /// </summary>
         private void TurnToTarget()
         {
             _spriteRenderer.enabled = true;
@@ -104,9 +86,6 @@ namespace ShipMotorika
             }
         }
 
-        /// <summary>
-        /// Возвращает удочку в исходное положение.
-        /// </summary>
         private void SetDefaultRotation()
         {
             _spriteRenderer.enabled = false;
@@ -114,10 +93,6 @@ namespace ShipMotorika
             transform.rotation = Quaternion.Euler(_ship.transform.localEulerAngles);
         }
 
-        /// <summary>
-        /// Переключает режим использования: всегда показывать / только при рыбалке.
-        /// </summary>
-        /// <param name="value"></param>
         public void SetUpdateModeActive(bool value)
         {
             _spriteRenderer.enabled = value;

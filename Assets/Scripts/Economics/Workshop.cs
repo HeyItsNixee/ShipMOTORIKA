@@ -2,25 +2,13 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Мастерская, где можно отремонтировать лодку игрока.
-    /// </summary>
     public class Workshop : MonoBehaviour
     {
-        /// <summary>
-        /// Если true (и был последним), здесь восстановится корабль игрока после уничтожения.
-        /// </summary>
         [SerializeField] private bool _isRestorePoint;
-
-        /// <summary>
-        /// Стоимость полной починки корабля. 
-        /// </summary>
         [SerializeField] private int _repairCost;
 
         private static Health _health;
-
         private static int _cost;
-
         private Collider2D _player;
 
         #region UnityEvents
@@ -77,9 +65,6 @@ namespace ShipMotorika
             }
         }
 
-        /// <summary>
-        /// Отремонтировать корабль за определенную стоимость.
-        /// </summary>
         public static void TryRepairShip()
         {
             if (CurrentRepairCost() > 0)

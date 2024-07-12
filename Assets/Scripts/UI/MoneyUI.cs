@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Отображает деньги игрока в интерфейсе.
-    /// </summary>
     public class MoneyUI : MonoBehaviour
     {
         [SerializeField] private Text _text;

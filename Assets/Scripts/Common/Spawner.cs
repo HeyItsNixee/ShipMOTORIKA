@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Спавнит объект(ы) в случайных точках внутри заданной окружности.
-    /// </summary>
     public class Spawner : MonoBehaviour
     {
         /// <summary>
@@ -60,10 +57,6 @@ namespace ShipMotorika
             }
         }
 
-        /// <summary>
-        /// Проверяет, чтобы объекты спавна не появлялись друг в друге.
-        /// </summary>
-        /// <returns></returns>
         private bool AreaIsClean()
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _area.Radius);
@@ -98,9 +91,6 @@ namespace ShipMotorika
             return true;
         }
 
-        /// <summary>
-        /// Непосредственно спавн.
-        /// </summary>
         protected void SpawnEntity()
         {
             for (int i = 0; i < _numSpawns; i++)

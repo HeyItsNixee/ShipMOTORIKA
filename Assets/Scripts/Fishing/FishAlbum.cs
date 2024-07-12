@@ -51,7 +51,8 @@ namespace ShipMotorika
 
             foreach (var fishCard in data)
             {
-                string[] values = fishCard.Split(new[] { ": " }, StringSplitOptions.RemoveEmptyEntries);
+                string[] values = fishCard.Split(new[] { ": " }, 
+                                  StringSplitOptions.RemoveEmptyEntries);
 
                 for (int i = 0; i < values.Length; i += 2)
                 {
@@ -72,6 +73,7 @@ namespace ShipMotorika
         public void Save()
         {
             SceneDataHandler.Data.FishAlbum = new string[_cards.Length];
+
             var data = SceneDataHandler.Data.FishAlbum;
             string[] fishNames = new string[_cards.Length];
             bool[] fishStatuses = new bool[_cards.Length];

@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Интерфейс мастерской.
-    /// </summary>
     public class WorkshopUI : MonoBehaviour
     {
         [SerializeField] private GameObject _canvasPanel;

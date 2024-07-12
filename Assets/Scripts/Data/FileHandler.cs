@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Вспомогательный класс для работы с сохраненными данными.
-    /// </summary>
     public static class FileHandler
     {
         public static string Path(string filename)

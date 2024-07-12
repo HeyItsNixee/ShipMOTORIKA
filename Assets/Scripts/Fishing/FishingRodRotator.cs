@@ -7,19 +7,8 @@ namespace ShipMotorika
     /// </summary>
     public class FishingRodRotator : MonoBehaviour
     {
-        /// <summary>
-        /// Позиция корабля. Нужна для синхронизации положения удочки.
-        /// </summary>
         [SerializeField] private Transform _ship;
-
-        /// <summary>
-        /// Визуальная модель удочки
-        /// </summary>
         [SerializeField] private SpriteRenderer _spriteRenderer;
-
-        /// <summary>
-        /// Скорость вращения удочки.
-        /// </summary>
         [SerializeField] private float _rotationSpeed;
 
         private Quaternion _targetRotation;
@@ -64,9 +53,6 @@ namespace ShipMotorika
         }
         #endregion
 
-        ///// <summary>
-        ///// Поворачивает удочку в сторону цели.
-        ///// </summary>
         private void TurnToTarget()
         {
             _spriteRenderer.enabled = true;

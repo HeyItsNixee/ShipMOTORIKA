@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Перезагружает активную сцену и удаляет все сохраненные данные на этой сцене.
-    /// </summary>
     public class DebugRestartScene : MonoBehaviour
     {
         private void Update()

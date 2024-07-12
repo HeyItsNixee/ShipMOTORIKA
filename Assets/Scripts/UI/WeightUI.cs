@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Отображает текущий вес корабля в интерфейсе.
-    /// </summary>
     public class WeightUI : MonoBehaviour
     {
         [SerializeField] private Image _image;

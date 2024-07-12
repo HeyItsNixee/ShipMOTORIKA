@@ -2,14 +2,8 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Магазин, в котором игрок сможет купить апгрейды удочек.
-    /// </summary>
     public class FishingRodShop : MonoBehaviour
     {
-        /// <summary>
-        /// Если true (и был последним), здесь восстановится корабль игрока после уничтожения.
-        /// </summary>
         [SerializeField] private bool _isRestorePoint;
 
         private Collider2D _player;

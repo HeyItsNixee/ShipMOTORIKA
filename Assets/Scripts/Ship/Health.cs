@@ -3,40 +3,21 @@ using System;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Здоровье корабля.
-    /// </summary>
     public class Health : MonoBehaviour, ILoader, ISaver
     {
-        /// <summary>
-        /// Максимально допустимое значение здоровья корабля.
-        /// </summary>
         [SerializeField] private int _maxHealth;
         public int MaxHealth => _maxHealth;
 
-        /// <summary>
-        /// Текущее значение здоровья корабля.
-        /// </summary>
         [SerializeField] private int _currentHealth;
         public int CurrentHealth => _currentHealth;
 
         [Header("Collisions")]
-
-        /// <summary>
-        /// Минимальный обязательный урон при столкновениях.
-        /// </summary>
         [SerializeField] private int _damageConstant;
         public int DamageConstant => _damageConstant;
 
-        /// <summary>
-        /// Множитель урона при столкновениях.
-        /// </summary>
         [SerializeField] private float _damageMultiplier;
         public float DamageMultiplier => _damageMultiplier;
 
-        /// <summary>
-        /// Неуязвимость к урону.
-        /// </summary>
         [SerializeField] private bool _isIndestructible;
 
         public event Action OnHealthChanged;

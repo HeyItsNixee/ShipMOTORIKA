@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Заготовки под разный визуал ActionButton.
-    /// </summary>
     [CreateAssetMenu]
     public class ActionButtonAsset : ScriptableObject
     {        

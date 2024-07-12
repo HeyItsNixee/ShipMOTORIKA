@@ -3,9 +3,6 @@ using System;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Класс отвечающий за приход или расход денег игрока.
-    /// </summary>
     public class Money : MonoBehaviour, ILoader, ISaver
     {
         [SerializeField] private int _currentMoney;

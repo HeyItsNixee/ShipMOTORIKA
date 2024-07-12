@@ -8,9 +8,6 @@ namespace ShipMotorika
     /// </summary>
     public class ShipRestorer : MonoBehaviour
     {
-        /// <summary>
-        /// Точка, в которой появится корабль.
-        /// </summary>
         [SerializeField] private RestorePoint _restorePoint;
         public RestorePoint RestorePoint => _restorePoint;
 

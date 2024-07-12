@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Компонент магазина, представляющий апгрейд удочки для покупки игроком.
-    /// </summary>
     public class FishingRodUpgrade : Upgrade
     {
         [Header("Additional upgrade information")]

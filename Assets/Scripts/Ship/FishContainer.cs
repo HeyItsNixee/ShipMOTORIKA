@@ -3,20 +3,11 @@ using System;
 
 namespace ShipMotorika
 {
-    /// <summary>
-    /// Склад для пойманной рыбы на корабле.
-    /// </summary>
     public class FishContainer : MonoBehaviour, ILoader, ISaver
     {
-        /// <summary>
-        /// Суммарный вес пойманной рыбы.
-        /// </summary>
         [SerializeField] private int _totalFishWeight;
         public int Weight => _totalFishWeight;
 
-        /// <summary>
-        /// Суммарна¤ стоимость пойманной рыбы.
-        /// </summary>
         [SerializeField] private int _totalFishCost;
         public int Cost => _totalFishCost;
 
