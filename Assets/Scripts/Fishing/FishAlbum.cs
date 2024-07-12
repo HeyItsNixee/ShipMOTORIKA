@@ -47,26 +47,41 @@ namespace ShipMotorika
 
         public void Load()
         {
-            if (SceneDataHandler.Instance.HasSave())
-            {
-                var savedCards = SceneDataHandler.Data.FishCards;
+            var data = SceneDataHandler.Data.FishAlbum;
 
-                for (int i = 0; i < _cards.Length; i++)
+            foreach (var fishCard in data)
+            {
+                string[] values = fishCard.Split(new[] { ": " }, StringSplitOptions.RemoveEmptyEntries);
+
+                for (int i = 0; i < values.Length; i += 2)
                 {
-                    _cards[i].WasOpened = savedCards[i];
+                    string fishName = values[i];
+                    bool fishStatus = bool.Parse(values[i + 1]);
+
+                    foreach (var card in _cards)
+                    {
+                        if (card.Asset.Name == fishName)
+                        {
+                            card.WasOpened = fishStatus;
+                        }
+                    }
                 }
-            }          
+            }
         }
 
         public void Save()
-        {            
-            SceneDataHandler.Data.FishCards = new bool[_cards.Length];
+        {
+            SceneDataHandler.Data.FishAlbum = new string[_cards.Length];
+            var data = SceneDataHandler.Data.FishAlbum;
+            string[] fishNames = new string[_cards.Length];
+            bool[] fishStatuses = new bool[_cards.Length];
 
-            var savedCards = SceneDataHandler.Data.FishCards;
-
-            for (int i = 0; i < savedCards.Length; i++)
+            for (int i = 0; i < _cards.Length; i++)
             {
-                savedCards[i] = _cards[i].WasOpened;
+                fishNames[i] = _cards[i].Asset.Name;
+                fishStatuses[i] = _cards[i].WasOpened;
+
+                data[i] = $"{fishNames[i]}: {fishStatuses[i]}";
             }
         }
     }

@@ -8,9 +8,11 @@ namespace ShipMotorika
     {
         public Vector3 ShipPosition;
         public Quaternion ShipRotation;
+        public Vector3 ShipScale;
 
         public Vector3 RestorePosition;
         public Quaternion RestoreRotation;
+        public Vector3 RestoreScale;
 
         public int Health;
         public int Money;
@@ -27,6 +29,6 @@ namespace ShipMotorika
         public bool SilverFishingRodIsAvailable = true;
         public bool GoldFishingRodIsAvailable = true;
 
-        public bool[] FishCards;
+        public string [] FishAlbum;
     }
 }

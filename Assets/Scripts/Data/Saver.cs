@@ -21,7 +21,7 @@ namespace ShipMotorika
         public static void Save(string filename, T data)
         {
             var wrapper = new Saver<T> { Data = data };
-            var dataString = JsonUtility.ToJson(wrapper);
+            var dataString = JsonUtility.ToJson(wrapper, true);
 
             File.WriteAllText(Path(filename), dataString);
         }

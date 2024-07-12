@@ -121,6 +121,8 @@ namespace ShipMotorika
             {
                 RestoreHealth();
             }
+
+            OnHealthChanged?.Invoke();
         }
 
         public void Save()
