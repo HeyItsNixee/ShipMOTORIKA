@@ -10,11 +10,23 @@ namespace ShipMotorika
         [SerializeField] private Transform _restoreTransform;
         public Transform RestoreTransform => _restoreTransform;
 
+        SceneDataHandler SceneDataHandler => SceneDataHandler.Instance;
+
         #region UnityEvents
         private void Awake()
         {
-            SceneDataHandler.Loaders.Add(this);
-            SceneDataHandler.Savers.Add(this);
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.AddToSceneObjList(this);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.RemoveFromSceneObjList(this);
+            }
         }
         #endregion
 

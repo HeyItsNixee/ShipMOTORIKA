@@ -19,13 +19,27 @@ namespace ShipMotorika
 
         public event Action OnFirstCatch;
 
+        SceneDataHandler SceneDataHandler => SceneDataHandler.Instance;
+
+        #region UnityEvents
         private new void Awake()
         {
             base.Awake();
 
-            SceneDataHandler.Loaders.Add(this);
-            SceneDataHandler.Savers.Add(this);
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.AddToSceneObjList(this);
+            }
         }
+
+        private void OnDestroy()
+        {
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.RemoveFromSceneObjList(this);
+            }
+        }
+        #endregion
 
         public void CheckCardInfo()
         {

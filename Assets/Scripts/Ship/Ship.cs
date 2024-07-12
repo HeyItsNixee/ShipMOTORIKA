@@ -47,16 +47,20 @@ namespace ShipMotorika
         public event Action OnShipInitialized;
         public event Action OnWeightChanged;
 
+        SceneDataHandler SceneDataHandler => SceneDataHandler.Instance;
+
         #region UnityEvents
         private void Awake()
         {
-            SceneDataHandler.Loaders.Add(this);
-            SceneDataHandler.Savers.Add(this);
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.AddToSceneObjList(this);
+            }
         }
 
         private void Start()
         {
-            if (!SceneDataHandler.Instance.HasSave())
+            if ((SceneDataHandler != null) && (!SceneDataHandler.HasSave()))
             {
                 Initialize(_asset);
             }
@@ -66,6 +70,11 @@ namespace ShipMotorika
 
         private void OnDestroy()
         {
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.RemoveFromSceneObjList(this);
+            }
+
             _fishContainer.OnFishCaught -= TryChangeWeightAmount;
         }
         #endregion

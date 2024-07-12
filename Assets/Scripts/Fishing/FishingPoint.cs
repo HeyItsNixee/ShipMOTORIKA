@@ -20,6 +20,8 @@ namespace ShipMotorika
         [SerializeField] private SpriteRenderer _circleOfFish;
         [SerializeField] private Sprite[] _cirleSprites;
         [SerializeField] private Rotator _rotation;
+
+        FishingChallenge FishingChallenge => FishingChallenge.Instance;
         
         private Fish _fish;
         private bool _isActive = false; 
@@ -44,14 +46,14 @@ namespace ShipMotorika
 
             _allFishingPoints.Add(this);          
             
-            FishingChallenge.Instance.OnEnable += SetBubblesAnimationActive;
-            FishingChallenge.Instance.OnTryCatchFish += ShowCatchedFish;
+            FishingChallenge.OnEnable += SetBubblesAnimationActive;
+            FishingChallenge.OnTryCatchFish += ShowCatchedFish;
         }
 
         private void OnDestroy()
         {
-            FishingChallenge.Instance.OnEnable -= SetBubblesAnimationActive;
-            FishingChallenge.Instance.OnTryCatchFish -= ShowCatchedFish;       
+            FishingChallenge.OnEnable -= SetBubblesAnimationActive;
+            FishingChallenge.OnTryCatchFish -= ShowCatchedFish;       
         }
         #endregion
 
@@ -68,20 +70,20 @@ namespace ShipMotorika
 
                     if (DropProbability.Value <= _fishPoolPrefab.ArtifactChance)
                     {
-                        var garbage = _fishPoolPrefab.ArtifactArray;
-                        if (garbage.Length > 0)
+                        var artifacts = _fishPoolPrefab.ArtifactArray;
+                        if (artifacts.Length > 0)
                         {
-                            int index = UnityEngine.Random.Range(0, garbage.Length);
-                            _fish.Initialize(garbage[index]);
+                            int index = UnityEngine.Random.Range(0, artifacts.Length);
+                            _fish.Initialize(artifacts[index]);
                         }
                     }
                     else
                     {
-                        var fish = _fishPoolPrefab.CurrentArray;
-                        if (fish.Length > 0)
+                        var fishes = _fishPoolPrefab.CurrentArray;
+                        if (fishes.Length > 0)
                         {
-                            int index = UnityEngine.Random.Range(0, fish.Length);
-                            _fish.Initialize(fish[index]);
+                            int index = UnityEngine.Random.Range(0, fishes.Length);
+                            _fish.Initialize(fishes[index]);
                         }
                     }
 
@@ -92,13 +94,13 @@ namespace ShipMotorika
                     Player.Instance.FishingRod.AssignFish(null);
                 }
 
-                FishingChallenge.Instance.OnDisable += DestroyItself;
+                FishingChallenge.OnDisable += DestroyItself;
             }          
         }
 
         private void DestroyItself()
         {
-            FishingChallenge.Instance.OnDisable -= DestroyItself;
+           FishingChallenge.OnDisable -= DestroyItself;
 
             if (_fish != null)
             {

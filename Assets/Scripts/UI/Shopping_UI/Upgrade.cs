@@ -21,17 +21,29 @@ namespace ShipMotorika
         protected int _upgradeCost;
         protected bool _isAvailable = true;
 
+        SceneDataHandler SceneDataHandler => SceneDataHandler.Instance;
+
         #region UnityEvents
         private void Awake()
         {
-            SceneDataHandler.Loaders.Add(this);
-            SceneDataHandler.Savers.Add(this);
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.AddToSceneObjList(this);
+            }
         }
 
         protected void Start()
         {
             Initialize();
             UpdateButton();
+        }
+
+        private void OnDestroy()
+        {
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.RemoveFromSceneObjList(this);
+            }
         }
         #endregion
 
@@ -69,7 +81,10 @@ namespace ShipMotorika
 
             OnUpgrade?.Invoke();
 
-            SceneDataHandler.Instance?.Save();
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.Save();
+            }
         }
 
         protected virtual void Initialize() { }

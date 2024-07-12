@@ -12,11 +12,9 @@ namespace ShipMotorika
         private static SceneData _sceneData = new();
         public static SceneData Data => _sceneData;
 
-        private static List<ILoader> _loaders = new();
-        public static List<ILoader> Loaders => _loaders;
+        private readonly HashSet<ILoader> iLoadDataObjects = new();
 
-        private static List<ISaver> _savers = new();
-        public static List<ISaver> Savers => _savers;
+        private readonly HashSet<ISaver> iSaveDataObjects = new();
 
         private new void Awake()
         {
@@ -30,6 +28,30 @@ namespace ShipMotorika
             Load();
         }
 
+        public void AddToSceneObjList(object obj)
+        {
+            if (obj is ILoader loader)
+            {
+                iLoadDataObjects.Add(loader);
+            }
+            if (obj is ISaver saver)
+            {
+                iSaveDataObjects.Add(saver);
+            }
+        }
+
+        public void RemoveFromSceneObjList(object obj)
+        {
+            if (obj is ILoader loader)
+            {
+                iLoadDataObjects.Remove(loader);
+            }
+            if (obj is ISaver saver)
+            {
+                iSaveDataObjects.Remove(saver);
+            }
+        }
+
         public bool HasSave()
         {
             return FileHandler.HasFile($"{_currentSceneName}_{Filename}");
@@ -41,7 +63,7 @@ namespace ShipMotorika
 
             if (HasSave())
             {
-                foreach (var loader in _loaders)
+                foreach (var loader in iLoadDataObjects)
                 {
                     loader.Load();
                 }
@@ -56,7 +78,7 @@ namespace ShipMotorika
 
         public void Save()
         {
-            foreach (var saver in _savers)
+            foreach (var saver in iSaveDataObjects)
             {
                 saver.Save();
             }

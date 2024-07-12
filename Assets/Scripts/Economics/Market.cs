@@ -50,7 +50,10 @@ namespace ShipMotorika
             Player.Instance.Money.TryChangeMoneyAmount(money);
             Player.Instance.Ship.FishContainer.ClearContainer();
 
-            SceneDataHandler.Instance?.Save();
+            if (SceneDataHandler.Instance != null)
+            {
+                SceneDataHandler.Instance.Save();
+            }
         }
     }
 }

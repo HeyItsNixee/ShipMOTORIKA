@@ -48,16 +48,20 @@ namespace ShipMotorika
         public event Action OnFishAssigned;
         public event Action OnFishingRodInitialized;
 
+        SceneDataHandler SceneDataHandler => SceneDataHandler.Instance;
+
         #region UnityEvents
         private void Awake()
         {
-            SceneDataHandler.Loaders.Add(this);
-            SceneDataHandler.Savers.Add(this);
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.AddToSceneObjList(this);
+            }         
         }
 
         private void Start()
         {
-            if (!SceneDataHandler.Instance.HasSave())
+            if ((SceneDataHandler != null) && (!SceneDataHandler.HasSave()))
             {
                 Initialize(_asset);
             }
@@ -65,10 +69,14 @@ namespace ShipMotorika
             _fishingPoints = new List<FishingPoint>();
         }
 
-        /// <summary>
-        /// Показываем кнопку, по нажатию которой запустится мини-игра ловли рыбы.
-        /// </summary>
-        /// <param name="collision"></param>
+        private void OnDestroy()
+        {
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.RemoveFromSceneObjList(this);
+            }
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent<FishingPoint>(out var fishingPoint))
@@ -86,10 +94,6 @@ namespace ShipMotorika
             }
         }
 
-        /// <summary>
-        /// Перестаем показывать кнопку, по нажатию которой запустится мини-игра ловли рыбы.
-        /// </summary>
-        /// <param name="collision"></param>
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision == _fishingPointCollider)
@@ -106,9 +110,6 @@ namespace ShipMotorika
         }
 
 #if UNITY_EDITOR      
-        /// <summary>
-        /// Для удобства Помогает отобразить радиус действия удочки на сцене.
-        /// </summary>
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;

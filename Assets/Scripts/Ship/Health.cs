@@ -23,12 +23,16 @@ namespace ShipMotorika
         public event Action OnHealthChanged;
         public event Action OnDeath;
 
+        SceneDataHandler SceneDataHandler => SceneDataHandler.Instance;
+
         #region UnityEvents
 
         private void Awake()
         {
-            SceneDataHandler.Loaders.Add(this);
-            SceneDataHandler.Savers.Add(this);
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.AddToSceneObjList(this);
+            }
         }
 
         private void Start()
@@ -36,6 +40,14 @@ namespace ShipMotorika
             if (_currentHealth <= 0)
             {
                 RestoreHealth();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (SceneDataHandler != null)
+            {
+                SceneDataHandler.RemoveFromSceneObjList(this);
             }
         }
 
