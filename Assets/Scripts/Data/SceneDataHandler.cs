@@ -39,12 +39,19 @@ namespace ShipMotorika
         {
             Saver<SceneData>.TryLoad($"{_currentSceneName}_{Filename}", ref _sceneData);
 
-            foreach (var loader in _loaders)
+            if (HasSave())
             {
-                loader.Load();
-            }
+                foreach (var loader in _loaders)
+                {
+                    loader.Load();
+                }
 
-            print("SceneData LOADED!");
+                print("SceneData LOADED");
+            }
+            else
+            {
+                print("SceneData EMPTY");
+            }
         }
 
         public void Save()
@@ -56,7 +63,7 @@ namespace ShipMotorika
 
             Saver<SceneData>.Save($"{_currentSceneName}_{Filename}", _sceneData);
 
-            print("SceneData SAVED!");
+            print("SceneData SAVED");
         }
 
         public void DeleteCurrentSceneData()
@@ -68,7 +75,7 @@ namespace ShipMotorika
                 FileHandler.Reset(filePath);
             }
 
-            print("SceneData DELETED!");
+            print("SceneData DELETED");
         }
 
         public void ResetAllSceneData()
@@ -87,7 +94,7 @@ namespace ShipMotorika
                 }
             }
 
-            print("All SceneData RESETED!");
+            print("All SceneData RESETED");
         }
     }
 }

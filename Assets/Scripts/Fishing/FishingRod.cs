@@ -269,11 +269,11 @@ namespace ShipMotorika
             {
                 Initialize(asset);
             }
-            else
-            {
-                Initialize(_asset);
-                //print($"No FishingRodAsset file in \"Resources\" folder");
-            }
+            //else
+            //{
+            //    Initialize(_asset);
+            //    //print($"No FishingRodAsset file in \"Resources\" folder");
+            //}
         }
 
         public void Save()

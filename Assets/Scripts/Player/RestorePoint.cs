@@ -30,6 +30,7 @@ namespace ShipMotorika
 
             restore.position = data.RestorePosition;
             restore.rotation = data.RestoreRotation;
+            restore.localScale = data.RestoreScale;
         }
 
         public void Save()
@@ -39,6 +40,7 @@ namespace ShipMotorika
 
             data.RestorePosition = restore.position;
             data.RestoreRotation = restore.rotation;
+            data.RestoreScale = restore.localScale;
         }
     }
 }
