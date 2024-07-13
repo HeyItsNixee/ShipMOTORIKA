@@ -91,7 +91,6 @@ namespace ShipMotorika
                             _fish.Initialize(fish[index]);
                         }
                     }
-
                     Player.Instance.FishingRod.AssignFish(_fish);
                 }
                 else

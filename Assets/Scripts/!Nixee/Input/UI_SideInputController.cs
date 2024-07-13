@@ -8,6 +8,9 @@ public class UI_SideInputController : MonoBehaviour, IPointerUpHandler, IPointer
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (gameObject.activeInHierarchy == false)
+            return;
+
         if (type == InputType.Left)
             PlayerController.Instance.TurnLeft();
         if (type == InputType.Right)

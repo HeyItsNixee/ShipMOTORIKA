@@ -35,16 +35,24 @@ namespace ShipMotorika
         /// Вес пойманной рыбы. Суммарный вес всей пойманной рыбы не может превышать грузоподъемность корабля.
         /// </summary>
         [SerializeField] private int _weight;
-        public int Weight => _weight;   
+        public int Weight => _weight;
 
+        private bool _wasCaughtOnce;
+        public bool WasCaughtOnce => _wasCaughtOnce;
+
+        public FishAsset fishAsset;
         /// <summary>
         /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
         /// </summary>
         /// <param name="asset"></param>
         public void Initialize(FishAsset asset)
         {
+            if (!asset)
+                return;
+            fishAsset = asset;
             _sprite.sprite = asset.Sprite;
-            _name = asset.Name; 
+            _name = asset.Name;
+            _wasCaughtOnce = asset.wasCaughtOnce;
             _description = asset.Description;
             _cost = asset.Cost;
             _weight = asset.Weight;
