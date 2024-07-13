@@ -111,10 +111,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 887
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -248,9 +248,9 @@ Transform:
   m_LocalScale: {x: 0.024585947, y: 0.024365671, z: 0.0248256}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6265094100123997719}
   - {fileID: 4820549808489814223}
   - {fileID: 8575477356561360159}
+  - {fileID: 6265094100123997719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2095792342714870719

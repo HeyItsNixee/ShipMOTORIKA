@@ -7,6 +7,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
     [SerializeField] private GameObject InputCanvas;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject collectionPanel;
     [SerializeField] private GameObject mapPanel;
 
     private void Start()
@@ -25,6 +26,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
     {
         pausePanel.gameObject.SetActive(true);
         settingsPanel.SetActive(false);
+        collectionPanel.gameObject.SetActive(false);
         mapPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(false);
     }
@@ -33,6 +35,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
     {
         pausePanel.gameObject.SetActive(false);
         settingsPanel.SetActive(true);
+        collectionPanel.gameObject.SetActive(false);
         mapPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(false);
     }
@@ -41,7 +44,17 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
     {
         pausePanel.gameObject.SetActive(false);
         settingsPanel.SetActive(false);
+        collectionPanel.gameObject.SetActive(false);
         mapPanel.gameObject.SetActive(true);
+        InputCanvas.SetActive(false);
+    }
+
+    public void OpenCollectionPanel()
+    {
+        pausePanel.gameObject.SetActive(false);
+        settingsPanel.SetActive(false);
+        collectionPanel.gameObject.SetActive(true);
+        mapPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(false);
     }
 
@@ -49,6 +62,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
     {
         pausePanel.gameObject.SetActive(false);
         settingsPanel.SetActive(false);
+        collectionPanel.gameObject.SetActive(false);
         mapPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(true);
     }

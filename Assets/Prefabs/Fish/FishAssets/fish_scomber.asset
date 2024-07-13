@@ -17,3 +17,4 @@ MonoBehaviour:
   Description: "\u0415\u0449\u0435 \u043D\u0435 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043D\u043E!"
   Cost: 10
   Weight: 10
+  wasCaughtOnce: 0

@@ -30,7 +30,7 @@ public class GuidingPlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name + " entered PlateTrigger");
+        Debug.Log(collision.name + " entered PlateTrigger: " + name);
 
         if (collision.transform.root.gameObject == PlayerController.Instance.gameObject)
         {
