@@ -15,6 +15,8 @@ namespace ShipMotorika
         [SerializeField] private Button _decline;
         [SerializeField] private Button _overweight;
         [SerializeField] private Button _info;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _audioClip;
 
         #region UnityEvents
         private void Start()
@@ -49,6 +51,7 @@ namespace ShipMotorika
             if (success)
             {
                 _canvasPanel.SetActive(true);
+                _audioSource.PlayOneShot(_audioClip);
             }
         }
 
