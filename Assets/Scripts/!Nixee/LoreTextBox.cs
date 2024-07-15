@@ -3,8 +3,11 @@ using UnityEngine.UI;
 
 public class LoreTextBox : MonoBehaviour
 {
+    [SerializeField] private Button button;
     [SerializeField] private Text text;
     [SerializeField] private float writeSpeed;
+    [SerializeField] private bool isChangingBG;
+    [SerializeField] private int BG_ID;
 
     private string bufferedString;
     private int currentChar = 0;
@@ -14,6 +17,13 @@ public class LoreTextBox : MonoBehaviour
     {
         bufferedString = text.text;
         text.text = "";
+        UI_ArrowForTextBoxes.Instance.EnableArrow(false);
+        button.enabled = false;
+
+        if (isChangingBG)
+        {
+            LoreTextBoxesManager.Instance.ChangeBG(BG_ID);
+        }
     }
 
     private void Update()
@@ -27,7 +37,11 @@ public class LoreTextBox : MonoBehaviour
     private void WriteChar()
     {
         if (currentChar >= bufferedString.Length)
+        {
+            UI_ArrowForTextBoxes.Instance.EnableArrow(true);
+            button.enabled = true;
             return;
+        }
 
         text.text += bufferedString[currentChar];
         currentChar++;
