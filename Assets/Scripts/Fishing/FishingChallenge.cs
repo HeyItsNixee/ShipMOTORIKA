@@ -12,15 +12,15 @@ namespace ShipMotorika
         [SerializeField] private Canvas _canvas;
         [SerializeField] private Canvas _inputCanvas; //!!!!!!!ERRORS WITH NULLREF
         [SerializeField] private Image _fishCircleImage;
-        [SerializeField] private Image _playerCircleImage;        
+        [SerializeField] private Image _playerCircleImage;
 
         private Vector3 _defaultPlayerScale;    
 
         private Color _defaultFishColor;
         private Color _defaultPlayerColor;
 
-        private readonly float _minScale = 1f;
-        private readonly float _maxScale = 6f;
+        private readonly float _minScale = 0.25f;
+        private readonly float _maxScale = 7f;
         private readonly float _passScaleMin = 3f;
         private readonly float _passScaleMax = 4f;
 
@@ -85,6 +85,9 @@ namespace ShipMotorika
         /// </summary>
         private void DoCircleAnimation()
         {
+            _playerCircleImage.gameObject.SetActive(true);
+            _fishCircleImage.gameObject.SetActive(true);
+
             if (_isLooped)
             {
                 _scale -= _speed * Time.deltaTime;
@@ -160,14 +163,17 @@ namespace ShipMotorika
 
             if (_scale >= _passScaleMin && _scale <= _passScaleMax)
             {
-                _fishCircleImage.color = Color.green;
+                //_fishCircleImage.color = Color.green;
                 OnTryCatchFish?.Invoke(true);
             }
             else
             {
-                _fishCircleImage.color = Color.red;
+                //_fishCircleImage.color = Color.red;
                 OnTryCatchFish?.Invoke(false);
             }
+
+            _playerCircleImage.gameObject.SetActive(false);
+            _fishCircleImage.gameObject.SetActive(false);
         }
     }
 }

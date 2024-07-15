@@ -124,7 +124,6 @@ namespace ShipMotorika
 
                     FishingChallenge.Instance.Activate();
                     SwitchAction(ActionType.CatchFish);
-
                     break;
 
 
@@ -132,7 +131,6 @@ namespace ShipMotorika
 
                     FishingChallenge.Instance.TryCatchFish();
                     SwitchAction(ActionType.None);
-
                     break;
 
 
