@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaff6e0f8e32ae42aa3478f13cfbcbb, type: 3}
   m_Name: Action_None
   m_EditorClassIdentifier: 
-  Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  Color: {r: 0, g: 0, b: 0, a: 0}
+  Image: {fileID: 0}
+  Color: {r: 1, g: 1, b: 1, a: 0}
   Text: 
   RaycastTarget: 0

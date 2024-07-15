@@ -52,14 +52,12 @@ namespace ShipMotorika
 
             //FishingChallenge.Instance.OnEnable += SetBubblesAnimationActive;
             FishingChallenge.Instance.OnTryCatchFish += ShowCatchedFish;
-            FishingChallenge.Instance.OnTryCatchFish += ShowChallengeResultRing;
         }
 
         private void OnDestroy()
         {
             //FishingChallenge.Instance.OnEnable -= SetBubblesAnimationActive;
             FishingChallenge.Instance.OnTryCatchFish -= ShowCatchedFish;
-            FishingChallenge.Instance.OnTryCatchFish -= ShowChallengeResultRing;
         }
         #endregion
 
@@ -95,17 +93,18 @@ namespace ShipMotorika
                             int index = UnityEngine.Random.Range(0, fish.Length);
                             _fish.Initialize(fish[index]);
                         }
-                    }                   
+                    }
                     _greenRing.gameObject.SetActive(true);
                     Player.Instance.FishingRod.AssignFish(_fish);
                 }
                 else
-                {                   
+                {
                     _redRing.gameObject.SetActive(true);
                     Player.Instance.FishingRod.AssignFish(null);
                 }
 
-                FishingChallenge.Instance.OnDisable += DestroyItself;
+                _whiteRing.gameObject.SetActive(false);
+                FishingChallenge.Instance.OnDisable += DestroyItself;              
             }
         }
 
@@ -135,25 +134,10 @@ namespace ShipMotorika
             }
         }
 
-        private void ShowChallengeResultRing(bool success)
-        {
-            if (_isActive)
-            {
-                if (success)
-                {
-
-                }
-                else
-                {
-
-                }
-            }
-        }
-
         public void SetActive(bool value)
         {
             _isActive = value;
-            _whiteRing.gameObject.SetActive(value);
+            _whiteRing.gameObject.SetActive(_isActive);
         }
     }
 }

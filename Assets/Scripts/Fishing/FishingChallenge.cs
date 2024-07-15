@@ -10,7 +10,7 @@ namespace ShipMotorika
     public sealed class FishingChallenge : SingletonBase<FishingChallenge>
     {
         [SerializeField] private Canvas _canvas;
-        [SerializeField] private Canvas _inputCanvas; //!!!!!!!ERRORS WITH NULLREF
+        [SerializeField] private Canvas _inputCanvas;
         [SerializeField] private Image _fishCircleImage;
         [SerializeField] private Image _playerCircleImage;
 
@@ -85,9 +85,6 @@ namespace ShipMotorika
         /// </summary>
         private void DoCircleAnimation()
         {
-            _playerCircleImage.gameObject.SetActive(true);
-            _fishCircleImage.gameObject.SetActive(true);
-
             if (_isLooped)
             {
                 _scale -= _speed * Time.deltaTime;
@@ -147,7 +144,7 @@ namespace ShipMotorika
         public void Deactivate()
         {
             RestoreParametrs();
-            _canvas.gameObject.SetActive(false);
+            //_canvas.gameObject.SetActive(false);
             OnDisable?.Invoke();
 
             _inputCanvas.gameObject.SetActive(true);
@@ -172,8 +169,7 @@ namespace ShipMotorika
                 OnTryCatchFish?.Invoke(false);
             }
 
-            _playerCircleImage.gameObject.SetActive(false);
-            _fishCircleImage.gameObject.SetActive(false);
+            _canvas.gameObject?.SetActive(false);
         }
     }
 }
