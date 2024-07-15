@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class LoreTextBoxesManager : MonoBehaviour
+public class LoreTextBoxesManager : Singleton<LoreTextBoxesManager>
 {
+    [SerializeField] private GameObject[] BGs;
     [SerializeField] private LoreTextBox[] textBoxes;
     private int currentIndex = 0;
 
@@ -30,6 +32,17 @@ public class LoreTextBoxesManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         else
             textBoxes[currentIndex].gameObject.SetActive(true);
+    }
+
+    public void ChangeBG(int id)
+    {
+        if (id < 0 || id >= BGs.Length)
+            return;
+
+        foreach (var bg in BGs)
+            bg.SetActive(false);
+
+        BGs[id].SetActive(true);
     }
 
 }
