@@ -65,8 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 04ef36276f2c49f429bccb09e3477f60, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 4448744272354476307}
   - component: {fileID: 5728467177274223447}
   - component: {fileID: 2070246974631703670}
+  - component: {fileID: 7261737921070807771}
   - component: {fileID: 6859122466429985565}
   m_Layer: 5
   m_Name: ActionButton
@@ -167,6 +168,102 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!82 &7261737921070807771
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806133598368074446}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6425756407704352718, guid: cc6a1ca80b6560d49980cdd1b18c5b1e, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &6859122466429985565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +285,7 @@ MonoBehaviour:
   _marketUI: {fileID: 0}
   _boatShopUI: {fileID: 0}
   _fishingRodShopUI: {fileID: 0}
+  _workshopUI: {fileID: 0}
   _none: {fileID: 11400000, guid: aa06a85530636eb43a1d38a71aa572e2, type: 2}
   _fishingChallenge: {fileID: 11400000, guid: 1ac3583b154262840bf76a25d26162dc, type: 2}
   _catchFish: {fileID: 11400000, guid: a267217dd1c4c3043b3daf27e39b7ec6, type: 2}
@@ -195,6 +293,9 @@ MonoBehaviour:
   _boatShop: {fileID: 11400000, guid: b49334ba95a6ab343b14095aead5757f, type: 2}
   _fishingRodShop: {fileID: 11400000, guid: b910079e91aaee5468cb82a05f6d6b17, type: 2}
   _workshop: {fileID: 11400000, guid: 56a9e53038a1719459f842a475172719, type: 2}
+  _audioSource: {fileID: 7261737921070807771}
+  _castingAFishingRodSound: {fileID: 8300000, guid: b18518e56a4b3444bbb7aac161f5e575, type: 3}
+  _pullTheFishingRodSound: {fileID: 8300000, guid: cce1ffe6fb1505c428047a62797f1b6f, type: 3}
 --- !u!1 &5541164074287769155
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -43,6 +43,12 @@ namespace ShipMotorika
         [SerializeField] private ActionButtonAsset _fishingRodShop;
         [SerializeField] private ActionButtonAsset _workshop;
 
+        [Header("Sounds")]
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _castingAFishingRodSound;
+        [SerializeField] private AudioClip _pullTheFishingRodSound;
+
+
         #region UnityEvents
         private void Start()
         {
@@ -124,15 +130,15 @@ namespace ShipMotorika
 
                     FishingChallenge.Instance.Activate();
                     SwitchAction(ActionType.CatchFish);
-
+                    _audioSource.PlayOneShot(_castingAFishingRodSound);
                     break;
 
 
                 case ActionType.CatchFish:
 
                     FishingChallenge.Instance.TryCatchFish();
+                    _audioSource.PlayOneShot(_pullTheFishingRodSound);
                     SwitchAction(ActionType.None);
-
                     break;
 
 

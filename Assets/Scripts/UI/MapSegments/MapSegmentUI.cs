@@ -7,6 +7,7 @@ public class MapSegmentUI : MonoBehaviour
     [SerializeField] private Animator cloudsAnimator;
     [SerializeField] private GameObject cloudsObj;
     private bool isSegmentRevealed = false;
+    public bool IsSegmentRevealed => isSegmentRevealed;
 
 
     public void RevealSegment()

@@ -21,23 +21,26 @@ namespace ShipMotorika
         [SerializeField] private FishPool _fishPoolPrefab;
         [SerializeField] private GameObject _bubbles;
         [SerializeField] private SpriteRenderer _circleOfFish;
+        [SerializeField] private SpriteRenderer _whiteRing;
+        [SerializeField] private SpriteRenderer _greenRing;
+        [SerializeField] private SpriteRenderer _redRing;
         [SerializeField] private Sprite[] _cirleSprites;
         [SerializeField] private Rotator _rotation;
-        
+
         private Fish _fish;
-        private bool _isActive = false; 
+        private bool _isActive = false;
 
         #region UnityEvents      
         private void Start()
         {
-            _bubbles.gameObject.SetActive(false);        
+            _bubbles.gameObject.SetActive(false);
             _circleOfFish.enabled = true;
             _rotation.enabled = true;
 
             if (_cirleSprites.Length > 0)
             {
                 int index = UnityEngine.Random.Range(0, _cirleSprites.Length);
-                _circleOfFish.sprite = _cirleSprites[index];    
+                _circleOfFish.sprite = _cirleSprites[index];
             }
 
             if (_allFishingPoints == null)
@@ -45,16 +48,28 @@ namespace ShipMotorika
                 _allFishingPoints = new HashSet<FishingPoint>();
             }
 
-            _allFishingPoints.Add(this);          
-            
-            FishingChallenge.Instance.OnEnable += SetBubblesAnimationActive;
+            _allFishingPoints.Add(this);
+
+            //FishingChallenge.Instance.OnEnable += SetBubblesAnimationActive;
             FishingChallenge.Instance.OnTryCatchFish += ShowCatchedFish;
+        }
+
+        private void Update()
+        {
+            if (_isActive)
+            {
+                _whiteRing.gameObject.SetActive(true);
+            }
+            else
+            {
+                _whiteRing.gameObject.SetActive(false);
+            }
         }
 
         private void OnDestroy()
         {
-            FishingChallenge.Instance.OnEnable -= SetBubblesAnimationActive;
-            FishingChallenge.Instance.OnTryCatchFish -= ShowCatchedFish;       
+            //FishingChallenge.Instance.OnEnable -= SetBubblesAnimationActive;
+            FishingChallenge.Instance.OnTryCatchFish -= ShowCatchedFish;
         }
         #endregion
 
@@ -67,10 +82,10 @@ namespace ShipMotorika
             if (_isActive)
             {
                 if (success)
-                {
+                {                 
                     _fish = Instantiate(_fishPrefab, transform.position, Quaternion.identity);
                     _fish.Sprite.enabled = false; // Attention!
-                    
+
                     _fishPoolPrefab.Initialize();
 
                     if (DropProbability.Value <= _fishPoolPrefab.ArtifactChance)
@@ -91,15 +106,22 @@ namespace ShipMotorika
                             _fish.Initialize(fish[index]);
                         }
                     }
+
+                    _whiteRing.enabled = false;
+                    _greenRing.gameObject.SetActive(true);
+
                     Player.Instance.FishingRod.AssignFish(_fish);
                 }
                 else
                 {
+                    _whiteRing.enabled = false;
+                    _redRing.gameObject.SetActive(true);
+
                     Player.Instance.FishingRod.AssignFish(null);
                 }
-
-                FishingChallenge.Instance.OnDisable += DestroyItself;
-            }          
+          
+                FishingChallenge.Instance.OnDisable += DestroyItself;              
+            }
         }
 
         private void DestroyItself()
@@ -115,7 +137,7 @@ namespace ShipMotorika
 
             OnFishPointDestroy?.Invoke();
 
-            Destroy(gameObject);          
+            Destroy(gameObject);
         }
 
         private void SetBubblesAnimationActive()

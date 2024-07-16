@@ -10,17 +10,17 @@ namespace ShipMotorika
     public sealed class FishingChallenge : SingletonBase<FishingChallenge>
     {
         [SerializeField] private Canvas _canvas;
-        [SerializeField] private Canvas _inputCanvas; //!!!!!!!ERRORS WITH NULLREF
+        [SerializeField] private Canvas _inputCanvas;
         [SerializeField] private Image _fishCircleImage;
-        [SerializeField] private Image _playerCircleImage;        
+        [SerializeField] private Image _playerCircleImage;
 
         private Vector3 _defaultPlayerScale;    
 
         private Color _defaultFishColor;
         private Color _defaultPlayerColor;
 
-        private readonly float _minScale = 1f;
-        private readonly float _maxScale = 6f;
+        private readonly float _minScale = 0.0f;
+        private readonly float _maxScale = 7f;
         private readonly float _passScaleMin = 3f;
         private readonly float _passScaleMax = 4f;
 
@@ -144,7 +144,7 @@ namespace ShipMotorika
         public void Deactivate()
         {
             RestoreParametrs();
-            _canvas.gameObject.SetActive(false);
+            //_canvas.gameObject.SetActive(false);
             OnDisable?.Invoke();
 
             _inputCanvas.gameObject.SetActive(true);
@@ -160,14 +160,16 @@ namespace ShipMotorika
 
             if (_scale >= _passScaleMin && _scale <= _passScaleMax)
             {
-                _fishCircleImage.color = Color.green;
+                //_fishCircleImage.color = Color.green;
                 OnTryCatchFish?.Invoke(true);
             }
             else
             {
-                _fishCircleImage.color = Color.red;
+                //_fishCircleImage.color = Color.red;
                 OnTryCatchFish?.Invoke(false);
             }
+
+            _canvas.gameObject?.SetActive(false);
         }
     }
 }
