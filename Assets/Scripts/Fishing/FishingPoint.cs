@@ -54,6 +54,18 @@ namespace ShipMotorika
             FishingChallenge.Instance.OnTryCatchFish += ShowCatchedFish;
         }
 
+        private void Update()
+        {
+            if (_isActive)
+            {
+                _whiteRing.gameObject.SetActive(true);
+            }
+            else
+            {
+                _whiteRing.gameObject.SetActive(false);
+            }
+        }
+
         private void OnDestroy()
         {
             //FishingChallenge.Instance.OnEnable -= SetBubblesAnimationActive;
@@ -137,7 +149,6 @@ namespace ShipMotorika
         public void SetActive(bool value)
         {
             _isActive = value;
-            _whiteRing.gameObject.SetActive(_isActive);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ShipMotorika
         private Color _defaultFishColor;
         private Color _defaultPlayerColor;
 
-        private readonly float _minScale = 0.25f;
+        private readonly float _minScale = 0.0f;
         private readonly float _maxScale = 7f;
         private readonly float _passScaleMin = 3f;
         private readonly float _passScaleMax = 4f;
