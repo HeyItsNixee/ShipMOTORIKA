@@ -152,7 +152,9 @@ namespace ShipMotorika
         {
             if (m_Torque != 0f)
             {
-                playerShip.Rigidbody.AddForce(playerShip.transform.up * maxThrust / 2f * Time.fixedDeltaTime, ForceMode2D.Force);
+                if (m_Thrust == 0f)
+                    playerShip.Rigidbody.AddForce(playerShip.transform.up * maxThrust / 2f * Time.fixedDeltaTime, ForceMode2D.Force);
+
                 playerShip.Rigidbody.AddTorque(m_Torque * maxTorque * Time.fixedDeltaTime, ForceMode2D.Force);
             }
             else
@@ -186,7 +188,7 @@ namespace ShipMotorika
         public void EnableControl()
         {
             canControl = true;
-            UI_ForwardInputController.Instance.gameObject.SetActive(true);
+            UI_ForwardInputController.Instance.transform.parent.gameObject.SetActive(true);
 
             if (sideButtonControlEnabled)
             {
@@ -203,7 +205,7 @@ namespace ShipMotorika
         public void DisableControl()
         {
             canControl = false;
-            UI_ForwardInputController.Instance.gameObject.SetActive(false);
+            UI_ForwardInputController.Instance.transform.parent.gameObject.SetActive(false);
             leftScreenButton.SetActive(false);
             rightScreenButton.SetActive(false);
             Stop();

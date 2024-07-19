@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6079626104520938094}
   text: {fileID: 8699872941777441245}
-  writeSpeed: 0.02
+  writeSpeed: 0.003
   isChangingBG: 0
   BG_ID: 0
 --- !u!1 &4718974135808031514

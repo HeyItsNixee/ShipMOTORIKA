@@ -9,6 +9,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject collectionPanel;
     [SerializeField] private GameObject mapPanel;
+    [SerializeField] private GameObject questPanel;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         settingsPanel.SetActive(false);
         collectionPanel.gameObject.SetActive(false);
         mapPanel.gameObject.SetActive(false);
+        questPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(false);
     }
 
@@ -37,6 +39,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         settingsPanel.SetActive(true);
         collectionPanel.gameObject.SetActive(false);
         mapPanel.gameObject.SetActive(false);
+        questPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(false);
     }
 
@@ -46,6 +49,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         settingsPanel.SetActive(false);
         collectionPanel.gameObject.SetActive(false);
         mapPanel.gameObject.SetActive(true);
+        questPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(false);
     }
 
@@ -55,6 +59,17 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         settingsPanel.SetActive(false);
         collectionPanel.gameObject.SetActive(true);
         mapPanel.gameObject.SetActive(false);
+        questPanel.gameObject.SetActive(false);
+        InputCanvas.SetActive(false);
+    }
+
+    public void OpenQuestPanel()
+    {
+        pausePanel.gameObject.SetActive(false);
+        settingsPanel.SetActive(false);
+        collectionPanel.gameObject.SetActive(false);
+        mapPanel.gameObject.SetActive(false);
+        questPanel.gameObject.SetActive(true);
         InputCanvas.SetActive(false);
     }
 
@@ -64,6 +79,7 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         settingsPanel.SetActive(false);
         collectionPanel.gameObject.SetActive(false);
         mapPanel.gameObject.SetActive(false);
+        questPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(true);
     }
 }

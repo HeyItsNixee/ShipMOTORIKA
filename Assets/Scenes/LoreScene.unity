@@ -908,6 +908,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 798199452}
     m_Modifications:
+    - target: {fileID: 348644315730714279, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 463108777472314045, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 532325352072408335, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
     - target: {fileID: 962948517106750554, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -922,7 +934,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1722733361165902901, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: writeSpeed
-      value: 0.1
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764331645351179319, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 1797294956838112433, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
@@ -936,9 +952,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2317699786965225017, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
     - target: {fileID: 2325306026096733806, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559658560451361506, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590003165003328742, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 2592646648110375191, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
@@ -948,9 +976,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoreTextBoxes
       objectReference: {fileID: 0}
+    - target: {fileID: 2743230618165503358, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
     - target: {fileID: 2910428332344972704, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138516782380464033, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 3271401549539496029, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
@@ -1038,7 +1074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3464652420151911527, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: writeSpeed
-      value: 0.1
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072293018688326043, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 4255284549941267653, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_Text
@@ -1046,19 +1086,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4262565951889443414, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: writeSpeed
-      value: 0.1
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583812095016954266, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729409609850792954, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815706834038328861, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917445607179426701, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 4950347474896216843, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5269826381587729990, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
     - target: {fileID: 5415403013039846153, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5538253718050814086, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
     - target: {fileID: 5877782554633880422, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: writeSpeed
-      value: 0.1
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 6348284009520646555, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
@@ -1093,8 +1157,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8190177333003749217, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190177333003749217, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: isChangingBG
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407353683623559836, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 8593220924741804189, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
@@ -1220,6 +1292,10 @@ PrefabInstance:
       propertyPath: textBoxes.Array.data[22]
       value: 
       objectReference: {fileID: 4174106529894678531}
+    - target: {fileID: 9166495295178683947, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: writeSpeed
+      value: 0.003
+      objectReference: {fileID: 0}
     - target: {fileID: 9168918326237920218, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: m_IsActive
       value: 0

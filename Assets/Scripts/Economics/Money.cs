@@ -44,6 +44,13 @@ namespace ShipMotorika
                     OnMoneyChanged?.Invoke();
                 }
             }
+
+            if (_currentMoney > 999)
+            {
+                SetCurrentMoney(999);
+                OnMoneyChanged?.Invoke();
+                return;
+            }
         }
 
         public void Load()

@@ -34,6 +34,12 @@ public class LoreTextBoxesManager : Singleton<LoreTextBoxesManager>
             textBoxes[currentIndex].gameObject.SetActive(true);
     }
 
+    public void CutsceneWatched()
+    {
+        StoryManager.Instance.OnQuestCompleted();
+        transform.parent.gameObject.SetActive(false);
+    }
+
     public void ChangeBG(int id)
     {
         if (id < 0 || id >= BGs.Length)

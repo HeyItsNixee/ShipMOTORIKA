@@ -7,20 +7,20 @@ public class UI_FishCollection : MonoBehaviour
 
     private void Start()
     {
-        if (FishCollectionManager.Instance == null)
+        if (FishAlbum.Instance == null)
             return;
 
-        if (FishCollectionManager.Instance.AllFishAssets.Length <= 0 || UI_CardPrefab == null)
+        if (FishAlbum.Instance.Cards.Length <= 0 || UI_CardPrefab == null)
         {
             Debug.LogWarning("Nullref in " + name);
             enabled = false;
             return;
         }
 
-        for (int i = 0; i < FishCollectionManager.Instance.AllFishAssets.Length; i++)
+        for (int i = 0; i < FishAlbum.Instance.Cards.Length; i++)
         {
             UI_FishCollectionCard card = Instantiate(UI_CardPrefab, transform);
-            card.SetAsset(FishCollectionManager.Instance.AllFishAssets[i]);
+            card.SetAsset(FishAlbum.Instance.Cards[i]);
             card.UpdateFishIcon();
         }
     }

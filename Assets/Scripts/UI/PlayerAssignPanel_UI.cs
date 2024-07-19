@@ -1,4 +1,6 @@
+using ShipMotorika;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerAssignPanel_UI : Singleton<PlayerAssignPanel_UI>
@@ -7,6 +9,7 @@ public class PlayerAssignPanel_UI : Singleton<PlayerAssignPanel_UI>
     [SerializeField] private Image playerSelectedAvatar;
 
     private AvatarButton lastSelectedButton;
+    private string playerName;
 
     public void OnAvatarSelected(AvatarButton button)
     {
@@ -29,6 +32,15 @@ public class PlayerAssignPanel_UI : Singleton<PlayerAssignPanel_UI>
 
     public void Confirm()
     {
+        PlayerSettingsHolder.Instance.settings.playerName = playerName;
+        PlayerSettingsHolder.Instance.settings.avatarSpriteIndex = lastSelectedButton.IndexInPanel;
+        PlayerSettingsHolder.Instance.Save();
         Debug.Log("This should save nickname and avatar_ID");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void SetPlayerName(string new_name)
+    {
+        playerName = new_name;
     }
 }

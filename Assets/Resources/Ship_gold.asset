@@ -17,7 +17,7 @@ MonoBehaviour:
   Name: "\u0417\u043E\u043B\u043E\u0442\u043E\u0439 \u043A\u043E\u0440\u0430\u0431\u043B\u044C"
   Description: "\u0411\u043B\u0430-\u0431\u043B\u0430-\u0431\u043B\u0430"
   Health: 400
-  Speed: 10
+  Speed: 15
   "\u0421arryingCapacity": 300
   Cost: 300
   ColliderX: 1.2

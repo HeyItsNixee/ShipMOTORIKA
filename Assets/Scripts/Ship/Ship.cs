@@ -92,7 +92,7 @@ namespace ShipMotorika
 
         private void Start()
         {
-            if (!SceneDataHandler.Instance.HasSave())
+            if (!SceneDataHandler.Instance.HasSceneSave())
             {
                 Initialize(_asset);
             }

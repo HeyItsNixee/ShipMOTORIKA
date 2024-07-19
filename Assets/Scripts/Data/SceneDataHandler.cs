@@ -23,23 +23,30 @@ namespace ShipMotorika
             base.Awake();
 
             _currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.sceneLoaded += OnSceneLoad;
         }
 
-        private void Start()
+        private void OnSceneLoad(Scene scene, LoadSceneMode mode)
         {
-            Load();
+            if (scene.name == "World")
+                Load();
+        }
+
+        public bool HasSceneSave()
+        {
+            return FileHandler.HasFile($"{_currentSceneName}_{Filename}");
         }
 
         public bool HasSave()
         {
-            return FileHandler.HasFile($"{_currentSceneName}_{Filename}");
+            return FileHandler.HasFile("World_" + Filename);
         }
 
         public void Load()
         {
             Saver<SceneData>.TryLoad($"{_currentSceneName}_{Filename}", ref _sceneData);
 
-            if (HasSave())
+            if (HasSceneSave())
             {
                 foreach (var loader in _loaders)
                 {
@@ -50,6 +57,7 @@ namespace ShipMotorika
             }
             else
             {
+                Save();
                 print("SceneData EMPTY");
             }
         }

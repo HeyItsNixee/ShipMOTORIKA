@@ -28,6 +28,6 @@ public class InputField_UI : MonoBehaviour, ISelectHandler, IDeselectHandler
         }
 
         playButton.interactable = true;
-        //Save(InputField_UI.inputText);
+        PlayerAssignPanel_UI.Instance.SetPlayerName(inputText.text);
     }
 }

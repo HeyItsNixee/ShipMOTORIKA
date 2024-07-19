@@ -2,6 +2,7 @@ using ShipMotorika;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static ShipMotorika.FishAlbum;
 
 public class UI_FishCollectionCard : MonoBehaviour, IPointerClickHandler
 {
@@ -9,10 +10,10 @@ public class UI_FishCollectionCard : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Image BackgroundIcon;
     [SerializeField] private Button fishButton;
 
-    private FishAsset asset;
+    private Card FishCard;
     public void OnPointerClick(PointerEventData eventData)
     {
-        FishCard_UI.Instance.UpdateCard(asset);
+        FishCard_UI.Instance.UpdateCard(FishCard);
         FishCard_UI.Instance.ToggleCard();
     }
 
@@ -29,25 +30,25 @@ public class UI_FishCollectionCard : MonoBehaviour, IPointerClickHandler
             Player.Instance.FishingRod.OnFishAssigned += UpdateFishIcon;
     }
 
-    public void SetAsset(FishAsset fishAsset)
+    public void SetAsset(Card fishCard)
     {
-        if (fishAsset != null)
-            asset = fishAsset;
+        if (fishCard != null)
+            FishCard = fishCard;
     }
 
     public void UpdateFishIcon()
     {
         //Should check in save which kind of fish was caught before. Probably should save allFishVariations
-        if (asset == null)
+        if (FishCard == null)
         {
             Debug.LogWarning("asset is null in " + name);
             enabled = false;
             return;
         }
 
-        FishIcon.sprite = asset.Sprite;
+        FishIcon.sprite = FishCard.Asset.Sprite;
 
-        if (asset.wasCaughtOnce)
+        if (FishCard.WasOpened)
         {
             FishIcon.color = Color.white;
             BackgroundIcon.color = Color.white;
