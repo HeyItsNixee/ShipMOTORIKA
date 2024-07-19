@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DialogInputController : MonoBehaviour
 {
-    private void Start()
+    private void Update()
     {
         PlayerController.Instance.DisableControl();
     }

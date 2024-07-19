@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 7352345480962614037}
-  _asset: {fileID: 0}
+  _asset: {fileID: 11400000, guid: 45d35c378acf07245bfbe64b15612e1f, type: 2}
   _spriteRenderer: {fileID: 0}
   _capsuleCollider: {fileID: 7311552747972478903}
   _name: 

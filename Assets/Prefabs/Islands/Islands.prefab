@@ -81,6 +81,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Segmet_8
       objectReference: {fileID: 0}
+    - target: {fileID: 2634289829805199677, guid: c4d92bbcce8cc92438dba1d245062d99, type: 3}
+      propertyPath: offset
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7763587888919203033, guid: c4d92bbcce8cc92438dba1d245062d99, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3545303
@@ -369,10 +373,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6554464816842313040}
     m_Modifications:
+    - target: {fileID: 308394042681486214, guid: 2f9e4596d82963544be7dab1f1afd7e0, type: 3}
+      propertyPath: isRevealed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3210608051939062437, guid: 2f9e4596d82963544be7dab1f1afd7e0, type: 3}
       propertyPath: m_Name
       value: Segmet_5
       objectReference: {fileID: 0}
+    - target: {fileID: 5140532010624252216, guid: 2f9e4596d82963544be7dab1f1afd7e0, type: 3}
+      propertyPath: segmentForPlate.segment
+      value: 
+      objectReference: {fileID: 3144957834364165693}
     - target: {fileID: 6000071183991446498, guid: 2f9e4596d82963544be7dab1f1afd7e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4708176
@@ -411,6 +423,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000071183991446498, guid: 2f9e4596d82963544be7dab1f1afd7e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361555889349245865, guid: 2f9e4596d82963544be7dab1f1afd7e0, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -515,6 +531,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6554464816842313040}
     m_Modifications:
+    - target: {fileID: 845209124856492635, guid: cca40d6ef422f4d418e76a175a6fad29, type: 3}
+      propertyPath: offset
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 1249264715468453291, guid: cca40d6ef422f4d418e76a175a6fad29, type: 3}
       propertyPath: m_LocalPosition.x
       value: 124.970825
@@ -781,7 +801,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2257985410858023805, guid: 80970a9b33f3c424fb39c6e658dee1bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6275135093061702386}
   m_SourcePrefab: {fileID: 100100000, guid: 80970a9b33f3c424fb39c6e658dee1bc, type: 3}
 --- !u!114 &416601435530150451 stripped
 MonoBehaviour:
@@ -794,6 +817,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d04faadd91bc04c8ac632e2c51ef25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4842835178424337996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2257985410858023805, guid: 80970a9b33f3c424fb39c6e658dee1bc, type: 3}
+  m_PrefabInstance: {fileID: 6656545834383670577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6275135093061702386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4842835178424337996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455ce9412d5b80b488f9ebc5194f27c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 90
 --- !u!4 &5775914283199314704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 885210605810107937, guid: 80970a9b33f3c424fb39c6e658dee1bc, type: 3}
@@ -880,6 +921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6554464816842313040}
     m_Modifications:
+    - target: {fileID: 2275982252400551565, guid: 2d27316a1a6193b46a82333aae0f2250, type: 3}
+      propertyPath: isRevealed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4704197193730309041, guid: 2d27316a1a6193b46a82333aae0f2250, type: 3}
       propertyPath: m_LocalPosition.x
       value: -140

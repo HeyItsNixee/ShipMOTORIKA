@@ -1,27 +1,30 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using ShipMotorika;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
-    //[SerializeField] private Button newGameButton;
     [SerializeField] private Button continueButton;
-    //[SerializeField] private Button exitButton;
 
     private void Start()
     {
-        Debug.Log("Save system TBD, disabling continue button");
-        continueButton.interactable = false;
+        if (SceneDataHandler.Instance.HasSave())
+            continueButton.interactable = true;
+        else
+            continueButton.interactable = false;
+
     }
 
     public void Continue()
     {
-        Debug.Log("Continue feature wasn't implemented yet!");
+        SceneManager.LoadScene("World");
     }
 
     public void NewGame()
     {
-        //Clear save file
+        SceneDataHandler.Instance.ResetAllSceneData();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

@@ -16,6 +16,7 @@ namespace ShipMotorika
         }
 
         [SerializeField] private Card[] _cards;
+        public Card[] Cards => _cards;
 
         public event Action OnFirstCatch;
 

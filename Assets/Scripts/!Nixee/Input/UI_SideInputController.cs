@@ -24,4 +24,10 @@ public class UI_SideInputController : MonoBehaviour, IPointerUpHandler, IPointer
         if (type == InputType.Right)
             PlayerController.Instance.StopTurningRight();
     }
+
+    private void OnDisable()
+    {
+        PlayerController.Instance.StopTurningLeft(); 
+        PlayerController.Instance.StopTurningRight();
+    }
 }

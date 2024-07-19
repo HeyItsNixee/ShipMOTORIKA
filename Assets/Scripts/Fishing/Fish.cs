@@ -37,10 +37,6 @@ namespace ShipMotorika
         [SerializeField] private int _weight;
         public int Weight => _weight;
 
-        private bool _wasCaughtOnce;
-        public bool WasCaughtOnce => _wasCaughtOnce;
-
-        public FishAsset fishAsset;
         /// <summary>
         /// В зависимости от заданного ScriptableObject задает параметры экземпляра класса.
         /// </summary>
@@ -49,10 +45,8 @@ namespace ShipMotorika
         {
             if (!asset)
                 return;
-            fishAsset = asset;
             _sprite.sprite = asset.Sprite;
             _name = asset.Name;
-            _wasCaughtOnce = asset.wasCaughtOnce;
             _description = asset.Description;
             _cost = asset.Cost;
             _weight = asset.Weight;

@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03529412, g: 0.20784314, b: 0.47843137, a: 1}
+  m_Color: {r: 0.06666667, g: 0.28235295, b: 0.6784314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -409,8 +409,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bcd04cafff8b635469c7da9afdf75519, type: 3}
-    m_FontSize: 55
+    m_Font: {fileID: 12800000, guid: f9b5c56618c2ea845b1562db5055275c, type: 3}
+    m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -420,8 +420,8 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 9999
+    m_LineSpacing: 0.05
+  m_Text: 999
 --- !u!1 &5040674675125851344
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1302131203020858050}
   - component: {fileID: 3903907259711543424}
+  - component: {fileID: 8873481685621642325}
   - component: {fileID: 718159085038063276}
   m_Layer: 5
   m_Name: PlayerPanel
@@ -530,6 +531,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8775837318433590457}
   m_CullTransparentMesh: 1
+--- !u!114 &8873481685621642325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8775837318433590457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8363981f5ce2e674e95227b16cece884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatarImg: {fileID: 462921070524609817}
 --- !u!114 &718159085038063276
 MonoBehaviour:
   m_ObjectHideFlags: 0

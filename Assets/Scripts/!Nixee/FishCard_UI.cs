@@ -1,6 +1,7 @@
 using ShipMotorika;
 using UnityEngine;
 using UnityEngine.UI;
+using static ShipMotorika.FishAlbum;
 
 public class FishCard_UI : Singleton<FishCard_UI>
 {
@@ -23,21 +24,21 @@ public class FishCard_UI : Singleton<FishCard_UI>
         BackgroundBlack.SetActive(card.activeInHierarchy);
     }
 
-    public void UpdateCard(FishAsset fish)
+    public void UpdateCard(Card fish)
     {
-        if (fish.wasCaughtOnce == false)
+        if (fish.WasOpened == false)
         {
             FishName.text = "???";
             FishDesc.text = "»нтересно, что же это за рыба?";
-            FishIcon.sprite = fish.Sprite;
+            FishIcon.sprite = fish.Asset.Sprite;
             FishIcon.color = Color.black;
             BackgroundIcon.color = new Color(114, 114, 114);
         }
         else
         {
-            FishName.text = fish.Name;
-            FishDesc.text = fish.Description;
-            FishIcon.sprite = fish.Sprite;
+            FishName.text = fish.Asset.Name;
+            FishDesc.text = fish.Asset.Description;
+            FishIcon.sprite = fish.Asset.Sprite;
             FishIcon.color = Color.white;
             BackgroundIcon.color = Color.white;
         }

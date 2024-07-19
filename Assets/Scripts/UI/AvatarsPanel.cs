@@ -24,7 +24,10 @@ public class AvatarsPanel : MonoBehaviour
         avatarButtons[0].OnSelectAvatar?.Invoke(avatarButtons[0]);
     }
 
-    
+    public void ConfirmCreation()
+    {
+        PlayerAssignPanel_UI.Instance.Confirm();
+    }
 
     private void OnDestroy()
     {

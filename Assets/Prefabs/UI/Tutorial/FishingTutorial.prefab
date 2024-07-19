@@ -350,6 +350,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2606283456832521336, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606283456832521336, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606283456832521336, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606283456832521336, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5254902
+      objectReference: {fileID: 0}
     - target: {fileID: 3135362868670564833, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
       propertyPath: m_Text
       value: "\u042D\u0445, \u0441\u043E\u0440\u0432\u0430\u043B\u0430\u0441\u044C!
@@ -487,6 +503,22 @@ PrefabInstance:
     - target: {fileID: 836911460751427478, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606283456832521336, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606283456832521336, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606283456832521336, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606283456832521336, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5254902
       objectReference: {fileID: 0}
     - target: {fileID: 3135362868670564833, guid: 672ebaa7609024e46895962ec67524f5, type: 3}
       propertyPath: m_Text

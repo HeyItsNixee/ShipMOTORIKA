@@ -7,24 +7,27 @@ public class SettingCheckbox : MonoBehaviour
     [SerializeField] private Image imageComponent;
     [SerializeField] private Sprite checkBoxTrue;
     [SerializeField] private Sprite checkBoxFalse;
-    private bool isChecked = false;
 
     private void Start()
     {
         UpdateSprite();
     }
 
+    private void OnEnable()
+    {
+        UpdateSprite();
+    }
+
     public void Toggle()
     {
-        isChecked = !isChecked;
+        PlayerSettingsHolder.Instance.SetSideControlButtonsEnabled(!PlayerSettingsHolder.Instance.settings.sideControlButtonsEnabled);
         UpdateSprite();
-        PlayerSettingsHolder.Instance.SetSideControlButtonsEnabled(isChecked);
         Debug.Log("Toggle called in " + name);
     }
 
-    private void UpdateSprite()
+    public void UpdateSprite()
     {
-        if (isChecked)
+        if (PlayerSettingsHolder.Instance.settings.sideControlButtonsEnabled)
             imageComponent.sprite = checkBoxTrue;
         else
             imageComponent.sprite = checkBoxFalse;

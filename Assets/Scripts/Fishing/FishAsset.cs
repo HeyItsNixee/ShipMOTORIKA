@@ -13,6 +13,5 @@ namespace ShipMotorika
         public string Description;
         public int Cost;
         public int Weight;
-        public bool wasCaughtOnce;
     }
 }
