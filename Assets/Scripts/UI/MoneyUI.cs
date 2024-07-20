@@ -26,7 +26,16 @@ namespace ShipMotorika
 
         private void UpdateText()
         {
-            _text.text = Player.Instance.Money.CurrentMoney.ToString();
+            if (Player.Instance.Money.CurrentMoney <= 999)
+                _text.text = Player.Instance.Money.CurrentMoney.ToString();
+            else
+            {
+                if (Player.Instance.Money.CurrentMoney > 999 && Player.Instance.Money.CurrentMoney <= 9999)
+                {
+                    _text.text = (Player.Instance.Money.CurrentMoney / 1000).ToString() 
+                        + "." + ((Player.Instance.Money.CurrentMoney - (Player.Instance.Money.CurrentMoney / 1000) * 1000) / 100) + "K";
+                }
+            }
         }
     }
 }

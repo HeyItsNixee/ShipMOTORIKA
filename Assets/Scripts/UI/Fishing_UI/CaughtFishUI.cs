@@ -29,7 +29,8 @@ namespace ShipMotorika
             _decline.onClick.AddListener(DoOnDecline);
             _info.onClick.AddListener(ShowFishInformation); 
             
-            FishAlbum.Instance.OnFirstCatch += ShowFishInformation;
+            if (FishAlbum.Instance != null)
+                FishAlbum.Instance.OnFirstCatch += ShowFishInformation;
             FishingChallenge.Instance.OnTryCatchFish += ActivatePanel;
             Player.Instance.FishingRod.OnFishAssigned += SetFishImage;
         }
@@ -40,7 +41,8 @@ namespace ShipMotorika
             _decline.onClick.RemoveListener(DoOnDecline);
             _info.onClick.RemoveListener(ShowFishInformation);
 
-            FishAlbum.Instance.OnFirstCatch -= ShowFishInformation;
+            if (FishAlbum.Instance != null)
+                FishAlbum.Instance.OnFirstCatch -= ShowFishInformation;
             FishingChallenge.Instance.OnTryCatchFish -= ActivatePanel;
             Player.Instance.FishingRod.OnFishAssigned -= SetFishImage;
         }
@@ -51,6 +53,7 @@ namespace ShipMotorika
             if (success)
             {
                 _canvasPanel.SetActive(true);
+                PlayerHUD_UI.Instance.DisableInput();
                 _audioSource.PlayOneShot(_audioClip);
             }
         }
@@ -65,8 +68,9 @@ namespace ShipMotorika
                 //_image.SetNativeSize(); // Attention! Only for Debug!
 
                 TryShowFishOverweightButton(fish);
-                
-                FishAlbum.Instance.CheckCardInfo(); // Attention!
+
+                if (FishAlbum.Instance != null)
+                    FishAlbum.Instance.CheckCardInfo(); // Attention!
             }
         }
 
@@ -101,7 +105,7 @@ namespace ShipMotorika
         public void DoOnAccept()
         {
             _canvasPanel.SetActive(false);
-
+            PlayerHUD_UI.Instance.EnableInput();
             Player.Instance.FishingRod.TryPutFishInShip();
             FishingChallenge.Instance.Deactivate();
         }
@@ -118,6 +122,7 @@ namespace ShipMotorika
             }
             
             _canvasPanel.SetActive(false);
+            PlayerHUD_UI.Instance.EnableInput();
 
             Player.Instance.FishingRod.AssignFish(null);
             FishingChallenge.Instance.Deactivate();

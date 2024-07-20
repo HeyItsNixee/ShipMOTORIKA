@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using ShipMotorika;
-using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        if (SceneDataHandler.Instance.HasSave())
+        if (FileHandler.HasFile("World_Scene.json"))
             continueButton.interactable = true;
         else
             continueButton.interactable = false;
@@ -20,12 +19,6 @@ public class MainMenu : MonoBehaviour
     public void Continue()
     {
         SceneManager.LoadScene("World");
-    }
-
-    public void NewGame()
-    {
-        SceneDataHandler.Instance.ResetAllSceneData();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ExitGame()

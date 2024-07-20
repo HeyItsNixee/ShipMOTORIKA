@@ -7,7 +7,7 @@ public class PlayerPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        avatarImg.sprite = AvatarManager.Instance.SelectedAvatar;
-        Debug.Log("HEH");
+        if (AvatarManager.Instance)
+            avatarImg.sprite = AvatarManager.Instance.SelectedAvatar;
     }
 }

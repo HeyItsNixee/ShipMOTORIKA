@@ -28,7 +28,6 @@ public class Quest : ScriptableObject
 
     public void InitializeQuest()
     {
-        Debug.Log(questType + "Initialize");
         switch (questType)
         {
             case QuestType.Destination:

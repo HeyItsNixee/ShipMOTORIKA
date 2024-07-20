@@ -972,13 +972,84 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2534838502912533768, guid: 2d27316a1a6193b46a82333aae0f2250, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 125573427397094291}
+    - targetCorrespondingSourceObject: {fileID: 2534838502912533768, guid: 2d27316a1a6193b46a82333aae0f2250, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8902697507880019663}
   m_SourcePrefab: {fileID: 100100000, guid: 2d27316a1a6193b46a82333aae0f2250, type: 3}
 --- !u!4 &4150797387729268319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4704197193730309041, guid: 2d27316a1a6193b46a82333aae0f2250, type: 3}
   m_PrefabInstance: {fileID: 8706076379098633710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6629224328061939942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2534838502912533768, guid: 2d27316a1a6193b46a82333aae0f2250, type: 3}
+  m_PrefabInstance: {fileID: 8706076379098633710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &125573427397094291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629224328061939942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3ffce9d54231645918e47af3b71d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 8902697507880019663}
+  assetToGoThrough: {fileID: 11400000, guid: c45ce920133014a499b980edccd32f58, type: 2}
+  force: 1
+--- !u!61 &8902697507880019663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629224328061939942}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 887
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.64526486, y: 0.08700752}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 10.24}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.523037, y: 8.922445}
+  m_EdgeRadius: 0
 --- !u!114 &7442158371491967843 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2275982252400551565, guid: 2d27316a1a6193b46a82333aae0f2250, type: 3}

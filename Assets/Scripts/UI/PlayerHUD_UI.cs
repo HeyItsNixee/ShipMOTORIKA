@@ -82,4 +82,14 @@ public class PlayerHUD_UI : Singleton<PlayerHUD_UI>
         questPanel.gameObject.SetActive(false);
         InputCanvas.SetActive(true);
     }
+
+    public void DisableInput()
+    {
+        InputCanvas.SetActive(false);
+    }
+
+    public void EnableInput()
+    {
+        InputCanvas.SetActive(true);
+    }
 }

@@ -30,6 +30,8 @@ namespace ShipMotorika
         private InputType currentInput;
         public InputType CurrentInput => currentInput;
 
+        public float MaxThrust => maxThrust;
+
         private bool sideButtonControlEnabled = true;
         public bool SideButtonControlEnabled => sideButtonControlEnabled;
 

@@ -13,6 +13,16 @@ public class CutSceneManager : Singleton<CutSceneManager>
             cutscenes[i].gameObject.SetActive(false);
     }
 
+    public void SetCurrentCutsceneID(int cutsceneID)
+    {
+        currentCutsceneID = cutsceneID;
+        if (currentCutsceneID >= cutscenes.Length)
+        {
+            enabled = false;
+            return;
+        }
+    }
+
     public void CutSceneWatched()
     {
         cutscenes[currentCutsceneID].gameObject.SetActive(false);

@@ -150,12 +150,14 @@ namespace ShipMotorika
 
                 case ActionType.BoatShop:
 
+                    _boatShopUI.gameObject.SetActive(true);
                     _boatShopUI.OpenShop();
                     break;
 
 
                 case ActionType.FishingRodShop:
 
+                    _fishingRodShopUI.gameObject.SetActive(true);
                     _fishingRodShopUI.OpenShop();
                     break;
 

@@ -88,13 +88,16 @@ namespace ShipMotorika
         #region UnityEvents
         private void Awake()
         {
-            SceneDataHandler.Loaders.Add(this);
-            SceneDataHandler.Savers.Add(this);
+            if (SceneDataHandler.Instance != null)
+            {
+                SceneDataHandler.Loaders.Add(this);
+                SceneDataHandler.Savers.Add(this);
+            }
         }
 
         private void Start()
         {
-            if (!SceneDataHandler.Instance.HasSceneSave())
+            if (SceneDataHandler.Instance != null && !SceneDataHandler.Instance.HasSceneSave())
             {
                 Initialize(_asset);
             }

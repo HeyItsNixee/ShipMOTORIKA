@@ -31,8 +31,17 @@ namespace ShipMotorika {
             if (PlayerController.Instance != null)
                 PlayerController.Instance.SideButtonControlEnable(settings.sideControlButtonsEnabled);
 
-            SettingsPanel_UI.Instance.UpdateSettings();
-            SettingsPanel_UI.Instance.SetSlidersValue();
+            if (SettingsPanel_UI.Instance)
+            {
+                SettingsPanel_UI.Instance.UpdateSettings();
+                SettingsPanel_UI.Instance.SetSlidersValue();
+            }
+
+            if (StoryManager.Instance)
+                StoryManager.Instance.SetCurrentQuest(settings.questID);
+
+            if (CutSceneManager.Instance)
+                CutSceneManager.Instance.SetCurrentCutsceneID(settings.questID);
         }
 
         public void SetSideControlButtonsEnabled(bool value)
@@ -61,6 +70,7 @@ namespace ShipMotorika {
                 settings.musicVolume = savedData.musicVolume;
                 settings.playerName = savedData.playerName;
                 settings.avatarSpriteIndex = savedData.avatarSpriteIndex;
+                settings.questID = savedData.questID;
                 UpdateSettingsInGame();
             }
             else
