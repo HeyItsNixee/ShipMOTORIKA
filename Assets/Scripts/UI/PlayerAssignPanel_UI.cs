@@ -34,8 +34,14 @@ public class PlayerAssignPanel_UI : Singleton<PlayerAssignPanel_UI>
     {
         PlayerSettingsHolder.Instance.settings.playerName = playerName;
         PlayerSettingsHolder.Instance.settings.avatarSpriteIndex = lastSelectedButton.IndexInPanel;
+
+        if (FileHandler.HasFile("World_Scene.json"))
+        {
+            FileHandler.Reset("World_Scene.json");
+            PlayerSettingsHolder.Instance.settings.questID = 0;
+        }
+
         PlayerSettingsHolder.Instance.Save();
-        Debug.Log("This should save nickname and avatar_ID");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

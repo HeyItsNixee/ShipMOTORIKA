@@ -27,14 +27,14 @@ RectTransform:
   m_GameObject: {fileID: 1433075760108224298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.36422274, y: 0.36422274, z: 0.36422274}
+  m_LocalScale: {x: 0.36, y: 0.36, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1302131203020858050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 358.97595, y: 105.3}
+  m_AnchoredPosition: {x: 357, y: 106}
   m_SizeDelta: {x: 256, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &50566781094851215
@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 3103971642303165115}
   - component: {fileID: 2110779456377228940}
   - component: {fileID: 5132247364789353275}
+  - component: {fileID: 1040663367494445966}
   m_Layer: 5
   m_Name: Text_Money
   m_TagString: Untagged
@@ -409,8 +410,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: f9b5c56618c2ea845b1562db5055275c, type: 3}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: 97f361fb93107c345a4eab14e8c4e56c, type: 3}
+    m_FontSize: 64
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -422,6 +423,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 0.05
   m_Text: 999
+--- !u!114 &1040663367494445966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913633261519336225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 2, y: 1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5040674675125851344
 GameObject:
   m_ObjectHideFlags: 0

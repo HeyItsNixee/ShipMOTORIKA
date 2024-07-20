@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PauseList : MonoBehaviour
+public class PauseList : Singleton<PauseList>
 {
     [SerializeField] private GameObject bg;
     [SerializeField] private GameObject visual;

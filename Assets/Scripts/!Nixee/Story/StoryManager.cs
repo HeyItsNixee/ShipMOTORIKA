@@ -8,15 +8,21 @@ public class StoryManager : Singleton<StoryManager>
     private Quest_Destination bufferedDestination;
 
     public Quest CurrentQuest => quests[currentQuestIndex];
-
+    public int CurrentQuestID => currentQuestIndex;
     private void Start()
     {
         //Load
+        if (currentQuestIndex < 0 || currentQuestIndex >= quests.Length)
+            currentQuestIndex = quests.Length - 1;
+
         quests[currentQuestIndex].InitializeQuest();
     }
 
     public void OnQuestCompleted()
     {
+        if (currentQuestIndex >= quests.Length)
+            currentQuestIndex = quests.Length - 1;
+
         Player.Instance.Money.TryChangeMoneyAmount(quests[currentQuestIndex].Reward);
         UpdateCurrentQuest();
     }
@@ -38,6 +44,15 @@ public class StoryManager : Singleton<StoryManager>
             bufferedDestination = questDestOBJ;
         }
             
+    }
+
+    public void SetCurrentQuest(int questID)
+    {
+        if (questID >= quests.Length)
+            return;
+
+        currentQuestIndex = questID;
+        quests[currentQuestIndex].InitializeQuest();
     }
 
     public void SetMapObserve()
@@ -71,10 +86,9 @@ public class StoryManager : Singleton<StoryManager>
 
         currentQuestIndex++;
         if (currentQuestIndex >= quests.Length)
-        {
-            enabled = false;
-            return;
-        }
+            currentQuestIndex = quests.Length - 1;
+        PlayerSettingsHolder.Instance.settings.questID = currentQuestIndex;
+        PlayerSettingsHolder.Instance.Save();
         quests[currentQuestIndex].InitializeQuest();
         Debug.Log("Quest cleared, initializing new");
     }

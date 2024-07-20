@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 namespace ShipMotorika
@@ -23,13 +24,12 @@ namespace ShipMotorika
             base.Awake();
 
             _currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.sceneLoaded += OnSceneLoad;
+            //SceneManager.sceneLoaded += OnSceneLoad;
         }
 
-        private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+        private void Start()
         {
-            if (scene.name == "World")
-                Load();
+            Load();
         }
 
         public bool HasSceneSave()
@@ -103,6 +103,11 @@ namespace ShipMotorika
             }
 
             print("All SceneData RESETED");
+        }
+
+        private void OnApplicationQuit()
+        {
+            Save();
         }
     }
 }

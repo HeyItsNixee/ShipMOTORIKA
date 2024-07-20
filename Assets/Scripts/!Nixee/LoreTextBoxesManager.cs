@@ -51,4 +51,9 @@ public class LoreTextBoxesManager : Singleton<LoreTextBoxesManager>
         BGs[id].SetActive(true);
     }
 
+    public void Skip()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 }

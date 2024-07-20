@@ -1,6 +1,7 @@
 using UnityEngine;
 using ShipMotorika;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class UI_SideInputController : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {

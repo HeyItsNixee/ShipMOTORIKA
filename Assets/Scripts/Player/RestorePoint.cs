@@ -38,9 +38,12 @@ namespace ShipMotorika
             var restore = Player.Instance.ShipRestorer.RestorePoint.RestoreTransform;
             var data = SceneDataHandler.Data;
 
-            data.RestorePosition = restore.position;
-            data.RestoreRotation = restore.rotation;
-            data.RestoreScale = restore.localScale;
+            if (data != null && restore != null)
+            {
+                data.RestorePosition = restore.position;
+                data.RestoreRotation = restore.rotation;
+                data.RestoreScale = restore.localScale;
+            }
         }
     }
 }

@@ -18,6 +18,7 @@ public class CutSceneTeller : MonoBehaviour
         for (int i = 0; i < textBoxes.Length; i++)
             textBoxes[i].gameObject.SetActive(false);
 
+        currentIndex = 0;
         textBoxes[currentIndex].gameObject.SetActive(true);
     }
 
@@ -30,6 +31,7 @@ public class CutSceneTeller : MonoBehaviour
         {
             CutSceneManager.Instance.CutSceneWatched();
             UI_ArrowForTextBoxes.Instance.EnableArrow(false);
+            currentIndex = 0;
         }
         else
             textBoxes[currentIndex].gameObject.SetActive(true);

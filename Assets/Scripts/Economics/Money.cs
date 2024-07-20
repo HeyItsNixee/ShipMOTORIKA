@@ -45,12 +45,12 @@ namespace ShipMotorika
                 }
             }
 
-            if (_currentMoney > 999)
+            /*if (_currentMoney > 999)
             {
                 SetCurrentMoney(999);
                 OnMoneyChanged?.Invoke();
                 return;
-            }
+            }*/
         }
 
         public void Load()

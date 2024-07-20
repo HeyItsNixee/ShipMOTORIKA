@@ -84,15 +84,19 @@ namespace ShipMotorika
         public event Action OnWeightChanged;
 
         #region UnityEvents
-        private void Awake()
+        private void OnEnable()
         {
-            SceneDataHandler.Loaders.Add(this);
-            SceneDataHandler.Savers.Add(this);
+            if (SceneDataHandler.Instance)
+            {
+                SceneDataHandler.Loaders.Add(this);
+                SceneDataHandler.Savers.Add(this);
+            }
         }
 
         private void Start()
         {
-            if (!SceneDataHandler.Instance.HasSceneSave())
+
+            if (SceneDataHandler.Instance != null && !SceneDataHandler.Instance.HasSceneSave())
             {
                 Initialize(_asset);
             }
@@ -187,12 +191,11 @@ namespace ShipMotorika
         public void Load()
         {
             var data = SceneDataHandler.Data;
-            var shipTransform = Player.Instance.Ship.gameObject.transform;
             var asset = Resources.Load<ShipAsset>(data.ShipAssetName);
 
-            shipTransform.position = data.ShipPosition;
-            shipTransform.rotation = data.ShipRotation;
-            shipTransform.localScale = data.ShipScale;
+            transform.position = data.ShipPosition;
+            transform.rotation = data.ShipRotation;
+            transform.localScale = data.ShipScale;
 
             if (asset != null)
             {

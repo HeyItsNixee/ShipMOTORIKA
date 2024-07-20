@@ -11,4 +11,5 @@ public class PlayerSettings
     public float musicVolume;
     public string playerName;
     public int avatarSpriteIndex = 0;
+    public int questID;
 }

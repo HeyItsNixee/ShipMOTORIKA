@@ -35,6 +35,7 @@ namespace ShipMotorika
 
             _inputCanvas.gameObject.SetActive(true);
             _actionButton.gameObject.SetActive(true);
+            PauseList.Instance.gameObject.SetActive(true);
 
             Player.Instance.ShipRestorer.RestoreShip();
             Player.Instance.GiveControlsToPlayer();
@@ -48,6 +49,7 @@ namespace ShipMotorika
             _actionButton.gameObject.SetActive(false);
 
             Player.Instance.TakeControlsFromPlayer();
+            PauseList.Instance.gameObject.SetActive(false);
         }
     }
 }

@@ -14,6 +14,9 @@ public class QuestPanel_UI : MonoBehaviour
 
     public void UpdateText()
     {
+        if (StoryManager.Instance == null)
+            return;
+
         questTitle.text = StoryManager.Instance.CurrentQuest.QuestName;
         questDescription.text = StoryManager.Instance.CurrentQuest.QuestDescription;
     }
