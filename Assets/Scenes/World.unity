@@ -1812,9 +1812,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 742743539680523465, guid: f0b3b4f163bd1314e896bca68c984bce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1536595608008565813, guid: f0b3b4f163bd1314e896bca68c984bce, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921498139383867361, guid: f0b3b4f163bd1314e896bca68c984bce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051465564367793080, guid: f0b3b4f163bd1314e896bca68c984bce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2813,9 +2825,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 427379192659008934, guid: bbd2b9d3ccec7d5458d48bedfb06d5de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 731549284752433369, guid: bbd2b9d3ccec7d5458d48bedfb06d5de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 882389796069608591, guid: bbd2b9d3ccec7d5458d48bedfb06d5de, type: 3}
       propertyPath: m_Name
       value: QuestsThings
+      objectReference: {fileID: 0}
+    - target: {fileID: 7016440834301917421, guid: bbd2b9d3ccec7d5458d48bedfb06d5de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8284027031961932697, guid: bbd2b9d3ccec7d5458d48bedfb06d5de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2873,6 +2897,14 @@ PrefabInstance:
     - target: {fileID: 2151643342690661065, guid: e0d891e9bc25fdc42b9facfacf0f72fc, type: 3}
       propertyPath: m_Name
       value: Islands
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699348591874447992, guid: e0d891e9bc25fdc42b9facfacf0f72fc, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699348591874447992, guid: e0d891e9bc25fdc42b9facfacf0f72fc, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1702749843
       objectReference: {fileID: 0}
     - target: {fileID: 6554464816842313040, guid: e0d891e9bc25fdc42b9facfacf0f72fc, type: 3}
       propertyPath: m_LocalPosition.x

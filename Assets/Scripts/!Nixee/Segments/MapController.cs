@@ -42,7 +42,7 @@ public class MapController : Singleton<MapController>
         if (segmentsRevealed >= segments.Length && StoryManager.Instance.CurrentQuest.Type == Quest.QuestType.RevealAllMapSegments)
         {
             CutSceneManager.Instance.ShowCutScene();
-            StoryManager.Instance.OnQuestCompleted();
+            return;
         }
     }
 }

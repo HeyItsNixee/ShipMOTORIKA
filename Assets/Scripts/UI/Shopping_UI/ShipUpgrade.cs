@@ -22,7 +22,7 @@ namespace ShipMotorika
             Player.Instance.Ship.Health.RestoreHealth();
 
             base.TryBuyUpgrade();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         public override void Load()

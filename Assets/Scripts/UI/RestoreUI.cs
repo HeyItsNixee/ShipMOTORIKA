@@ -29,7 +29,7 @@ namespace ShipMotorika
         }
         #endregion
 
-        private void Continue()
+        public void Continue()
         {
             _canvasPanel.SetActive(false);
 

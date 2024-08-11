@@ -74,8 +74,9 @@ public class StoryManager : Singleton<StoryManager>
     public void SetMoneyObserve()
     {
         Player.Instance.Money.OnMoneyChanged += CheckMoney;
+        CheckMoney();
     }
-    
+
 
     private void UpdateCurrentQuest()
     {

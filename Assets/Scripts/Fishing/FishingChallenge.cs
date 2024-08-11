@@ -167,6 +167,7 @@ namespace ShipMotorika
             {
                 //_fishCircleImage.color = Color.red;
                 OnTryCatchFish?.Invoke(false);
+                Deactivate();
             }
 
             _canvas.gameObject?.SetActive(false);

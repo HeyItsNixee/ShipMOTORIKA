@@ -1328,6 +1328,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5262540598773696725, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: m_Text
+      value: "\u0414\u0435\u043D\u0435\u0433 \u043D\u0430 \u043F\u043E\u043A\u0443\u043F\u043A\u0443
+        \u043B\u043E\u0434\u043A\u0438 \u0443 \u043D\u0435\u0433\u043E \u043D\u0435
+        \u0431\u044B\u043B\u043E, \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043C\u0435\u0447\u0442\u0430
+        \u043E\u0441\u0442\u0430\u0432\u0430\u043B\u0430\u0441\u044C \u043C\u0435\u0447\u0442\u043E\u0439,
+        \u0434\u043E \u0442\u0435\u0445 \u043F\u043E\u0440, \u043F\u043E\u043A\u0430
+        \u0447\u0435\u043B\u043E\u0432\u0435\u043A \u043D\u0435 \u043D\u0430\u0448\u0451\u043B
+        \u0434\u0435\u0434\u0443\u0448\u043A\u0438\u043D \u0442\u0430\u0439\u043D\u0438\u043A..."
+      objectReference: {fileID: 0}
     - target: {fileID: 5269826381587729990, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: writeSpeed
       value: 0.002
@@ -1383,6 +1393,17 @@ PrefabInstance:
     - target: {fileID: 8190177333003749217, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: isChangingBG
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396548394172728335, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
+      propertyPath: m_Text
+      value: "\u0415\u0451 \u043D\u0430\u043F\u0438\u0441\u0430\u043B \u043A\u0430\u043F\u0438\u0442\u0430\u043D
+        \u0421\u0430\u043B\u0430\u043C\u043E\u043D\u043E\u0432 \u2014 \u043D\u0430\u0441\u0442\u0430\u0432\u043D\u0438\u043A
+        \u0438 \u043A\u0430\u043F\u0438\u0442\u0430\u043D \u0434\u0435\u0434\u0443\u0448\u043A\u0438
+        \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430. \u041E\u0442\u043A\u0440\u044B\u0432
+        \u0435\u0451, \u043E\u043D \u043F\u0440\u0438\u043D\u044F\u043B\u0441\u044F
+        \u0447\u0438\u0442\u0430\u0442\u044C \u0441\u043B\u043E\u0432\u0430, \u043A\u043E\u0442\u043E\u0440\u044B\u0435
+        \u0445\u0440\u0430\u043D\u0438\u043B\u0430 \u044D\u0442\u0430 \u0441\u0430\u043C\u0430\u044F
+        \u0437\u0430\u043F\u0438\u0441\u043A\u0430..."
       objectReference: {fileID: 0}
     - target: {fileID: 8407353683623559836, guid: 9ec3e51afd18f6d4498a6b19bd0b641e, type: 3}
       propertyPath: writeSpeed

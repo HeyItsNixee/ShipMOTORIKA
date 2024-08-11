@@ -54,6 +54,7 @@ namespace ShipMotorika
             {
                 _canvasPanel.SetActive(true);
                 PlayerHUD_UI.Instance.DisableInput();
+                _fishCard.gameObject.SetActive(true);
                 _audioSource.PlayOneShot(_audioClip);
             }
         }
